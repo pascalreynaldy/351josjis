@@ -332,6 +332,12 @@ body.cx-mode .explosion-layer{display:none;}
 .topic-card.t-cx .menu-title{color:#eef3fb; letter-spacing:.03em;}
 .topic-card.t-cx .menu-desc{color:#9db0cd;}
 .topic-card.t-cx .menu-arrow{color:var(--cx-gold);}
+.topic-card.t-summary{
+  background:linear-gradient(180deg, rgba(46,38,18,.92), rgba(30,24,12,.92));
+  border:2px dashed var(--ember);
+}
+.topic-card.t-summary:hover{border-color:var(--ember-lt); border-style:solid;}
+.topic-card.t-summary .menu-arrow{color:var(--ember-lt);}
 
 /* ---- CX quiz shell ---- */
 #cxQuiz, #cxResult{max-width:720px; margin:0 auto;}
@@ -483,6 +489,15 @@ body.cx-mode .explosion-layer{display:none;}
       </div>
       <div class="menu-arrow">➜</div>
     </div>
+
+    <div class="topic-card t-summary" onclick="viewAllSummary(event)">
+      <div class="menu-icon">📊</div>
+      <div class="menu-text">
+        <div class="menu-title stencil">Rangkuman Semua Jawaban</div>
+        <div class="menu-desc">Lihat kunci jawaban lengkap untuk kedua topik sekaligus — 183 soal Treasury &amp; 20 soal Customer Experience — tanpa perlu mengerjakan soal dulu.</div>
+      </div>
+      <div class="menu-arrow">➜</div>
+    </div>
   </section>
 
   <!-- ===== CX: QUIZ ===== -->
@@ -631,6 +646,30 @@ body.cx-mode .explosion-layer{display:none;}
     <div id="keyHolderPart2"></div>
     <div style="text-align:center; margin-top:24px;">
       <button class="menu-btn menu-btn-lg" onclick="backToMenu(event)">☰ Kembali ke Menu Fase</button>
+    </div>
+  </section>
+
+  <!-- ===== RANGKUMAN SEMUA JAWABAN — 2 TOPIK (TREASURY + CX) ===== -->
+  <section class="section" id="allAnswerKeySection">
+    <div class="topbar">
+      <div class="unit stencil">📊 Rangkuman Semua Jawaban — 2 Topik</div>
+      <div class="score">203 Soal</div>
+    </div>
+    <div class="phase-label">
+      KUNCI JAWABAN LENGKAP — TREASURY &amp; CUSTOMER EXPERIENCE
+      <button class="menu-btn" onclick="chooseTopicBack(event)">☰ Kembali</button>
+    </div>
+
+    <div class="phase-label" style="text-align:center; margin-top:14px;">🪖 TREASURY OPERATIONS — BAGIAN 1 (30 SOAL)</div>
+    <div id="allKeyTreasuryP1"></div>
+    <div class="phase-label" style="text-align:center; margin-top:18px;">🪖 TREASURY OPERATIONS — BAGIAN 2 (153 SOAL)</div>
+    <div id="allKeyTreasuryP2"></div>
+
+    <div class="phase-label" style="text-align:center; margin-top:26px;">💠 CUSTOMER EXPERIENCE (20 SOAL)</div>
+    <div id="allKeyCX"></div>
+
+    <div style="text-align:center; margin-top:24px;">
+      <button class="menu-btn menu-btn-lg" onclick="chooseTopicBack(event)">☰ Kembali ke Pilih Topik</button>
     </div>
   </section>
 </div>
@@ -1046,6 +1085,11 @@ function cxBackToTopic(){
   cxSkin(false);
   showSection('topicSection');
 }
+function viewAllSummary(e){
+  cxSkin(false);
+  if(e) explodeFromEvent(e);
+  setTimeout(()=>{ showSection('allAnswerKeySection'); renderAllAnswerKey(); },200);
+}
 
 const cxData=[
 {q:"Apa yang dimaksud dengan customer experience goal?",
@@ -1359,6 +1403,37 @@ function renderAnswerKey(){
     div.className='key-item';
     div.innerHTML=`<b>${idx+1}.</b> ${r[0]}<br>Jawaban benar: <span class="ka">${r[1]}</span>`;
     p2.appendChild(div);
+  });
+}
+
+/* ============ RANGKUMAN GABUNGAN (TREASURY + CX) — dipanggil dari Pilih Topik ============ */
+function renderAllAnswerKey(){
+  const t1=document.getElementById('allKeyTreasuryP1');
+  t1.innerHTML='';
+  mcqData.forEach((item,idx)=>{
+    const div=document.createElement('div');
+    div.className='key-item';
+    div.innerHTML=`<b>${idx+1}.</b> ${item.q}<br>Jawaban benar: <span class="ka">${item.opts[item.correct]}</span>`;
+    t1.appendChild(div);
+  });
+
+  const t2=document.getElementById('allKeyTreasuryP2');
+  t2.innerHTML='';
+  flashRaw.forEach((r,idx)=>{
+    const div=document.createElement('div');
+    div.className='key-item';
+    div.innerHTML=`<b>${idx+1}.</b> ${r[0]}<br>Jawaban benar: <span class="ka">${r[1]}</span>`;
+    t2.appendChild(div);
+  });
+
+  const cx=document.getElementById('allKeyCX');
+  cx.innerHTML='';
+  cxData.forEach((q,idx)=>{
+    const div=document.createElement('div');
+    div.className='key-item';
+    div.innerHTML=`<b>${idx+1}.</b> ${q.q}<br>Jawaban benar: <span class="ka">${cxLetters[q.a]}. ${q.o[q.a]}</span>`+
+      `<br><span style="font-size:.78rem; color:var(--sand); opacity:.75;">${q.e}<br><em style="opacity:.85;">Materi CX — ${q.src}</em></span>`;
+    cx.appendChild(div);
   });
 }
 

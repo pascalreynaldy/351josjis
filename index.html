@@ -4,680 +4,290 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LATIHAN SOAL — Treasury &amp; Customer Experience | Kelas 351 JOSJIS</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --olive-dk:#242813;
-  --olive:#3f4a2b;
-  --olive-lt:#5c6b3c;
-  --sand:#c9b98a;
-  --sand-lt:#e8dfc0;
-  --rust:#8a4a2b;
-  --ember:#e0762f;
-  --ember-lt:#ffb347;
-  --ok:#4c8c3a;
-  --bad:#a83232;
-  --ink:#1c1f14;
+  --lms-blue:#1a73c4;
+  --lms-blue-dk:#0f5aa0;
+  --lms-border:#d7dbe0;
+  --lms-text:#2b2f33;
+  --lms-sub:#5c6570;
+  --lms-bg:#eef1f4;
+  --lms-card:#ffffff;
+  --lms-radio:#8a939c;
 }
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
 body{
-  font-family:'Segoe UI', Roboto, Arial, sans-serif;
-  background:
-    radial-gradient(ellipse at 20% 20%, rgba(90,100,60,.5), transparent 55%),
-    radial-gradient(ellipse at 80% 30%, rgba(60,50,30,.55), transparent 50%),
-    radial-gradient(ellipse at 40% 80%, rgba(45,55,30,.6), transparent 55%),
-    radial-gradient(ellipse at 75% 85%, rgba(80,60,35,.5), transparent 50%),
-    var(--olive-dk);
-  background-size:220% 220%;
-  animation:bgPan 26s ease-in-out infinite;
-  color:var(--sand-lt);
+  font-family:Arial, Helvetica, "Segoe UI", sans-serif;
+  background:var(--lms-bg);
+  color:var(--lms-text);
   min-height:100vh;
-  overflow-x:hidden;
-  position:relative;
 }
-@keyframes bgPan{
-  0%{background-position:0% 0%;}
-  50%{background-position:100% 60%;}
-  100%{background-position:0% 0%;}
-}
-body::before{
-  content:"";
-  position:fixed; inset:0;
-  background-image:repeating-linear-gradient(45deg, rgba(0,0,0,0.05) 0 2px, transparent 2px 6px);
-  pointer-events:none; z-index:0;
-}
-.stencil{
-  font-family:'Arial Narrow', Arial, sans-serif;
-  font-weight:800; letter-spacing:.06em; text-transform:uppercase;
-}
-
-/* ============ FULL-BLEED HERO (no whitespace) ============ */
-.hero{
-  position:relative; width:100%; min-height:100vh;
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  overflow:hidden; padding:24px 16px; text-align:center;
-  background:
-    radial-gradient(ellipse 90px 55px at 8% 12%, rgba(92,107,60,.55) 40%, transparent 42%),
-    radial-gradient(ellipse 130px 80px at 90% 8%, rgba(138,74,43,.5) 40%, transparent 42%),
-    radial-gradient(ellipse 110px 70px at 15% 88%, rgba(63,74,43,.55) 40%, transparent 42%),
-    radial-gradient(ellipse 150px 90px at 85% 90%, rgba(201,185,138,.35) 35%, transparent 42%),
-    radial-gradient(ellipse 90px 55px at 55% 45%, rgba(138,74,43,.4) 40%, transparent 42%),
-    radial-gradient(ellipse 120px 70px at 35% 30%, rgba(92,107,60,.4) 40%, transparent 42%),
-    linear-gradient(160deg, #2f3620, #1c2010 70%);
-  background-size:180% 180%;
-  animation:camoDrift 18s ease-in-out infinite alternate;
-}
-@keyframes camoDrift{
-  0%{background-position:0% 0%;}
-  100%{background-position:100% 40%;}
-}
-.hero-grid{
-  position:absolute; inset:0; z-index:0; opacity:.25;
-  background-image:
-    linear-gradient(rgba(200,220,150,.35) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200,220,150,.35) 1px, transparent 1px);
-  background-size:38px 38px;
-  animation:gridMove 9s linear infinite;
-}
-@keyframes gridMove{ from{background-position:0 0;} to{background-position:38px 38px;} }
-
-.radar{
-  position:absolute; top:50%; left:50%; width:520px; height:520px;
-  margin:-260px 0 0 -260px; border-radius:50%;
-  border:1px solid rgba(224,118,47,.25); z-index:0; opacity:.5;
-}
-.radar::before, .radar::after{
-  content:""; position:absolute; inset:60px; border-radius:50%; border:1px solid rgba(224,118,47,.18);
-}
-.radar-sweep{
-  position:absolute; inset:0; border-radius:50%;
-  background:conic-gradient(from 0deg, rgba(224,118,47,.5), transparent 45%);
-  animation:radarSpin 4s linear infinite;
-}
-@keyframes radarSpin{ to{ transform:rotate(360deg); } }
-
-.smoke{position:absolute; bottom:-40px; border-radius:50%; background:radial-gradient(circle, rgba(210,210,190,.28), transparent 70%); filter:blur(2px); z-index:0; animation:smokeUp linear infinite;}
-@keyframes smokeUp{
-  0%{transform:translateY(0) scale(.6); opacity:0;}
-  15%{opacity:.55;}
-  100%{transform:translateY(-620px) scale(1.6); opacity:0;}
-}
-
-.convoy{position:absolute; bottom:14px; left:-120px; font-size:2rem; z-index:1; animation:driveAcross 13s linear infinite; filter:drop-shadow(0 4px 4px rgba(0,0,0,.5));}
-@keyframes driveAcross{ from{left:-120px;} to{left:110%;} }
-
-.chopper{position:absolute; top:10%; left:-80px; font-size:1.6rem; z-index:1; animation:flyAcross 17s linear infinite; opacity:.9;}
-@keyframes flyAcross{ from{left:-80px; transform:translateY(0);} 50%{transform:translateY(14px);} to{left:110%; transform:translateY(0);} }
-
-.shell{position:absolute; font-size:1.3rem; z-index:1; animation:shellArc 5s ease-in infinite;}
-@keyframes shellArc{
-  0%{ top:-10%; left:12%; opacity:0; transform:rotate(35deg) scale(.6);}
-  8%{opacity:1;}
-  55%{ top:55%; left:60%; transform:rotate(70deg) scale(1);}
-  60%{opacity:0;}
-  100%{opacity:0;}
-}
-
-.hero-content{position:relative; z-index:2;}
-.badge-row{display:flex; justify-content:center; gap:16px; font-size:2.6rem; margin-bottom:6px; animation:badgePop 1s ease;}
-@keyframes badgePop{ 0%{transform:scale(0) rotate(-15deg); opacity:0;} 70%{transform:scale(1.15) rotate(4deg); opacity:1;} 100%{transform:scale(1) rotate(0);} }
-.badge-row span{animation:badgeFloat 3s ease-in-out infinite;}
-.badge-row span:nth-child(2){animation-delay:.3s;}
-.badge-row span:nth-child(3){animation-delay:.6s;}
-@keyframes badgeFloat{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
-
-.unit-code{
-  font-size:.85rem; letter-spacing:.4em; color:var(--ember-lt); margin-bottom:6px;
-  animation:flicker 2.4s ease-in-out infinite;
-}
-@keyframes flicker{ 0%,100%{opacity:1;} 48%{opacity:1;} 50%{opacity:.4;} 52%{opacity:1;} }
-
-.title{
-  font-size:2.1rem; line-height:1.15; margin:6px 0 12px; color:var(--sand-lt);
-  text-shadow:3px 3px 0 rgba(0,0,0,.5);
-  animation:stamp .6s cubic-bezier(.2,1.4,.4,1) .2s both;
-}
-@keyframes stamp{ 0%{transform:scale(2.4); opacity:0; filter:blur(6px);} 60%{opacity:1;} 100%{transform:scale(1); opacity:1; filter:blur(0);} }
-
-.caption-box{
-  display:inline-block; margin:14px auto 8px; padding:11px 20px;
-  background:rgba(0,0,0,.4); border:1px dashed var(--sand);
-  border-radius:4px; font-size:.98rem; letter-spacing:.08em; color:var(--ember-lt);
-  animation:typeIn 1.6s steps(38,end) .8s both, caretBlink 1s step-end infinite;
-  white-space:nowrap; overflow:hidden; border-right:2px solid var(--ember-lt); max-width:100%;
-}
-@keyframes typeIn{ from{width:0;} to{width:38ch;} }
-@keyframes caretBlink{ 50%{border-color:transparent;} }
-
-.subtxt{font-size:.88rem; color:var(--sand); opacity:.9; margin:14px auto 22px; line-height:1.55; max-width:520px;
-  animation:fadeUp .8s ease 1.4s both;}
-@keyframes fadeUp{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
-
-.start-btn{
-  font-size:1.1rem; padding:16px 38px; border:none; border-radius:6px;
-  background:linear-gradient(180deg, var(--ember-lt), var(--ember));
-  color:var(--ink); font-weight:800; letter-spacing:.06em; cursor:pointer;
-  box-shadow:0 4px 0 var(--rust);
-  transition:transform .08s ease;
-  animation:pulseBtn 1.8s ease-in-out infinite 1.8s;
-}
-@keyframes pulseBtn{ 0%,100%{transform:scale(1);} 50%{transform:scale(1.05);} }
-.start-btn:active{transform:translateY(3px); box-shadow:0 1px 0 var(--rust);}
-
-.mini-note{font-size:.72rem; color:var(--sand); opacity:.65; margin-top:18px; animation:fadeUp .8s ease 1.8s both;}
-
-/* ============ MAIN APP (quiz) ============ */
-#app{position:relative; z-index:1; max-width:780px; margin:0 auto; padding:20px 16px 70px;}
 .section{display:none;}
 .section.active{display:block;}
-.topbar{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:10px 14px; margin-bottom:18px;
-  background:linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.1));
-  border:2px solid var(--sand); border-radius:6px;
-}
-.topbar .unit{font-size:.75rem; letter-spacing:.12em; color:var(--sand);}
-.topbar .score{font-size:.85rem; color:var(--ember-lt); font-weight:700;}
-.progress-wrap{background:rgba(0,0,0,.35); border-radius:6px; height:12px; margin:6px 0 18px; border:1px solid var(--sand); overflow:hidden;}
-.progress-bar{height:100%; background:linear-gradient(90deg, var(--olive-lt), var(--ember)); width:0%; transition:width .3s;}
-.phase-label{font-size:.8rem; color:var(--ember-lt); letter-spacing:.15em; margin-bottom:8px; display:flex; align-items:center; justify-content:space-between; gap:10px;}
-.menu-btn{
-  background:rgba(0,0,0,.35); border:1px solid var(--sand); color:var(--sand-lt);
-  font-size:.7rem; letter-spacing:.08em; padding:6px 12px; border-radius:5px; cursor:pointer;
-  white-space:nowrap; transition:background .15s;
-}
-.menu-btn:hover{background:rgba(255,255,255,.1);}
-.menu-btn-lg{font-size:.85rem; padding:11px 22px;}
 
-.menu-card{
-  display:flex; align-items:center; gap:14px; text-align:left; cursor:pointer;
-  background:linear-gradient(180deg, rgba(30,34,20,.92), rgba(20,24,14,.92));
-  border:2px solid var(--olive-lt); border-radius:8px; padding:16px 18px; margin-bottom:14px;
-  transition:border-color .15s, transform .1s, background .15s;
-  animation:cardIn .4s ease;
+/* ===== START PICKER ===== */
+#screenStart{max-width:760px; margin:0 auto; padding:60px 18px;}
+.start-title{font-size:1.5rem; font-weight:700; margin-bottom:6px; text-align:center;}
+.start-sub{color:var(--lms-sub); text-align:center; margin-bottom:34px; font-size:.95rem;}
+.pick-card{
+  display:flex; align-items:center; gap:16px; background:var(--lms-card);
+  border:1px solid var(--lms-border); border-radius:6px; padding:20px 22px; margin-bottom:16px;
+  cursor:pointer; transition:box-shadow .15s, border-color .15s;
 }
-.menu-card:hover{border-color:var(--ember-lt); background:linear-gradient(180deg, rgba(40,46,26,.95), rgba(24,28,16,.95)); transform:translateX(3px);}
-.menu-card:active{transform:scale(.98);}
-.menu-card-all{border-color:var(--ember);}
-.menu-icon{font-size:1.9rem; flex:0 0 auto;}
-.menu-text{flex:1;}
-.menu-title{font-size:1rem; color:var(--sand-lt); margin-bottom:4px;}
-.menu-desc{font-size:.82rem; color:var(--sand); opacity:.85; line-height:1.4;}
-.menu-arrow{font-size:1.3rem; color:var(--ember-lt); flex:0 0 auto;}
-
-.card{
-  background:linear-gradient(180deg, rgba(30,34,20,.92), rgba(20,24,14,.92));
-  border:2px solid var(--sand); border-radius:8px; padding:20px; margin-bottom:16px;
-  animation:cardIn .35s ease;
-}
-@keyframes cardIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
-.q-num{font-size:.75rem; color:var(--ember-lt); letter-spacing:.1em; margin-bottom:6px;}
-.q-text{font-size:1.05rem; line-height:1.45; color:var(--sand-lt); margin-bottom:16px;}
-
-.opt{
-  display:block; width:100%; text-align:left;
-  background:rgba(255,255,255,.04); border:1.5px solid var(--olive-lt); color:var(--sand-lt);
-  padding:12px 14px; margin-bottom:9px; border-radius:6px; font-size:.95rem;
-  cursor:pointer; position:relative; transition:background .15s, border-color .15s, transform .08s;
-}
-.opt:hover{background:rgba(255,255,255,.09); border-color:var(--sand);}
-.opt:active{transform:scale(.985);}
-.opt.correct{background:rgba(76,140,58,.35); border-color:var(--ok); color:#d8f5cf;}
-.opt.wrong{background:rgba(168,50,50,.35); border-color:var(--bad); color:#ffd6d6;}
-.opt.disabled{pointer-events:none;}
-.opt-letter{display:inline-block; width:22px; height:22px; line-height:22px; text-align:center; background:var(--olive-lt); border-radius:3px; margin-right:10px; font-size:.8rem; font-weight:700;}
-
-.nav-row{display:flex; justify-content:flex-end; margin-top:6px;}
-.next-btn{
-  background:linear-gradient(180deg, var(--ember-lt), var(--ember)); border:none; color:var(--ink);
-  font-weight:800; letter-spacing:.05em; padding:11px 26px; border-radius:6px; cursor:pointer;
-  font-size:.9rem; box-shadow:0 3px 0 var(--rust); opacity:0; pointer-events:none; transition:opacity .2s;
-}
-.next-btn.show{opacity:1; pointer-events:auto;}
-.next-btn:active{transform:translateY(2px); box-shadow:0 1px 0 var(--rust);}
-
-.summary-header{text-align:center; margin-bottom:14px;}
-.summary-score{font-size:2.4rem; font-weight:800; color:var(--ember-lt); text-shadow:2px 2px 0 rgba(0,0,0,.4);}
-.recap-item{border-left:3px solid var(--olive-lt); padding:8px 12px; margin-bottom:8px; background:rgba(255,255,255,.03); border-radius:4px; font-size:.88rem;}
-.recap-item.wrong-item{border-left-color:var(--bad);}
-.recap-item .ra{color:#d8f5cf;}
-.recap-item .rw{color:#ffb3b3; text-decoration:line-through; opacity:.8;}
-.tag{display:inline-block; font-size:.65rem; letter-spacing:.1em; padding:2px 7px; border-radius:3px; margin-right:6px; vertical-align:middle;}
-.tag.ok{background:var(--ok); color:#fff;}
-.tag.bad{background:var(--bad); color:#fff;}
-.mini-note2{font-size:.72rem; color:var(--sand); opacity:.6; text-align:center; margin-top:24px;}
-.key-item{border-left:3px solid var(--ok); padding:8px 12px; margin-bottom:8px; background:rgba(255,255,255,.03); border-radius:4px; font-size:.88rem;}
-.key-item b{color:var(--sand-lt);}
-.key-item .ka{color:#d8f5cf; font-weight:600;}
-
-.explosion-layer{position:fixed; inset:0; pointer-events:none; z-index:999; overflow:hidden;}
-.bomb-flash{
-  position:fixed; inset:0; pointer-events:none; z-index:998;
-  background:radial-gradient(circle at center, rgba(255,120,40,.85) 0%, rgba(120,20,10,.6) 35%, rgba(0,0,0,.55) 70%, transparent 100%);
-  animation:bombFlash .55s ease-out forwards;
-}
-@keyframes bombFlash{
-  0%{opacity:0;}
-  12%{opacity:1;}
-  100%{opacity:0;}
-}
-.bomb-debris{position:absolute; border-radius:2px; animation:debrisFly .8s ease-out forwards;}
-@keyframes debrisFly{
-  0%{transform:translate(0,0) rotate(0deg) scale(1); opacity:1;}
-  100%{transform:translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(.3); opacity:0;}
-}
-.shake-strong{animation:shakeStrong .5s;}
-@keyframes shakeStrong{
-  10%,90%{transform:translate3d(-2px,0,0);} 20%,80%{transform:translate3d(4px,0,0);}
-  30%,50%,70%{transform:translate3d(-8px,0,0);} 40%,60%{transform:translate3d(8px,0,0);}
-}
-.spark{position:absolute; border-radius:50%; animation:sparkFly .65s ease-out forwards;}
-@keyframes sparkFly{ 0%{transform:translate(0,0) scale(1); opacity:1;} 100%{transform:translate(var(--dx), var(--dy)) scale(.2); opacity:0;} }
-.shockwave{position:absolute; width:10px; height:10px; border-radius:50%; border:3px solid var(--ember-lt); transform:translate(-50%,-50%); animation:shockOut .5s ease-out forwards;}
-@keyframes shockOut{ 0%{width:10px;height:10px; opacity:1;} 100%{width:180px; height:180px; opacity:0;} }
-.shake{animation:shake .35s;}
-@keyframes shake{
-  10%,90%{transform:translate3d(-1px,0,0);} 20%,80%{transform:translate3d(2px,0,0);}
-  30%,50%,70%{transform:translate3d(-4px,0,0);} 40%,60%{transform:translate3d(4px,0,0);}
-}
-@media (max-width:480px){
-  .title{font-size:1.6rem;}
-  .badge-row{font-size:2rem;}
-  .caption-box{white-space:normal; animation:fadeUp .8s ease .8s both; border-right:none;}
+.pick-card:hover{border-color:var(--lms-blue); box-shadow:0 2px 10px rgba(0,0,0,.07);}
+.pick-icon{font-size:2rem; flex:0 0 auto;}
+.pick-text{flex:1;}
+.pick-title{font-size:1.05rem; font-weight:700; color:var(--lms-text); margin-bottom:4px;}
+.pick-desc{font-size:.85rem; color:var(--lms-sub); line-height:1.4;}
+.pick-arrow{font-size:1.2rem; color:var(--lms-blue);}
+.linklike{
+  display:block; text-align:center; margin-top:22px; color:var(--lms-blue);
+  font-size:.85rem; cursor:pointer; text-decoration:underline;
 }
 
-/* ============ TOPIC PICKER + CUSTOMER EXPERIENCE (NAVY) ============ */
-:root{
-  --cx-navy-deep:#071733;
-  --cx-navy:#0d2b57;
-  --cx-line:rgba(255,255,255,.14);
-  --cx-ink:#eef3fb;
-  --cx-dim:#9db0cd;
-  --cx-gold:#f0b429;
-  --cx-green:#3fbd8a;
-  --cx-red:#e9697a;
+/* ===== SLIM TOP NAVBAR (matches reference: black text + info icon only) ===== */
+.lms-topbar{
+  position:sticky; top:0; z-index:50;
+  background:#fff; border-bottom:1px solid var(--lms-border);
+  padding:10px 18px; display:flex; align-items:center; gap:8px;
+  font-size:.8rem; font-weight:700; color:#000; letter-spacing:.01em;
 }
-body.cx-mode{
-  background:
-    radial-gradient(1100px 600px at 82% -8%, #163a70 0%, transparent 62%),
-    linear-gradient(170deg,var(--cx-navy) 0%,var(--cx-navy-deep) 100%);
-  background-attachment:fixed;
-  background-size:auto;
-  animation:none;
-  color:var(--cx-ink);
-  font-family:'Inter','Segoe UI',Roboto,Arial,sans-serif;
+.lms-topbar .tb-title{display:flex; align-items:center; gap:8px;}
+.lms-topbar .tb-title .info-dot{
+  width:15px; height:15px; border-radius:50%; border:1.5px solid var(--lms-blue);
+  display:inline-flex; align-items:center; justify-content:center; font-size:.62rem; color:var(--lms-blue);
+  flex:0 0 auto;
 }
-body.cx-mode::before{display:none;}
-body.cx-mode .explosion-layer{display:none;}
+.page-back{
+  padding:10px 40px 0; color:var(--lms-sub); font-weight:700; cursor:pointer;
+  font-size:.8rem; display:inline-block;
+}
+.page-back:hover{color:var(--lms-text);}
 
-.topic-card{
-  display:flex; align-items:center; gap:14px; text-align:left; cursor:pointer;
-  border-radius:10px; padding:20px 20px; margin-bottom:14px;
-  transition:transform .14s ease, border-color .14s ease, background .14s ease;
-  animation:cardIn .4s ease;
+/* ===== TEST WRAPPER (full-bleed edge to edge) ===== */
+.lms-wrap{width:100%; margin:0; padding:0;}
+.lms-card{
+  background:var(--lms-card); border:none; border-radius:0;
+  padding:14px 40px 40px; box-shadow:none; width:100%;
 }
-.topic-card:hover{transform:translateX(4px);}
-.topic-card.t-treasury{
-  background:linear-gradient(180deg, rgba(30,34,20,.92), rgba(20,24,14,.92));
-  border:2px solid var(--olive-lt);
+.lms-finish{
+  margin-top:18px; padding-top:18px; text-align:left;
 }
-.topic-card.t-treasury:hover{border-color:var(--ember-lt);}
-.topic-card.t-cx{
-  background:linear-gradient(180deg, rgba(13,43,87,.95), rgba(7,23,51,.95));
-  border:2px solid #2b5da8;
+.lms-finish .lms-btn{padding:11px 26px;}
+.lms-head-row{display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap;}
+.lms-h1{font-size:1.65rem; font-weight:700; color:#000; margin:0 0 6px; line-height:1.25;}
+.lms-h2{font-size:1.02rem; font-weight:700; color:#000; margin:0;}
+.lms-timer-block{flex:0 0 auto; text-align:right; padding-top:2px;}
+.lms-timer{
+  color:#000; font-weight:700; font-size:1.45rem; white-space:nowrap;
+  font-variant-numeric:tabular-nums; line-height:1.1;
 }
-.topic-card.t-cx:hover{border-color:var(--cx-gold);}
-.topic-card .menu-title{font-size:1.02rem;}
-.topic-card.t-cx .menu-title{color:#eef3fb; letter-spacing:.03em;}
-.topic-card.t-cx .menu-desc{color:#9db0cd;}
-.topic-card.t-cx .menu-arrow{color:var(--cx-gold);}
-.topic-card.t-summary{
-  background:linear-gradient(180deg, rgba(46,38,18,.92), rgba(30,24,12,.92));
-  border:2px dashed var(--ember);
-}
-.topic-card.t-summary:hover{border-color:var(--ember-lt); border-style:solid;}
-.topic-card.t-summary .menu-arrow{color:var(--ember-lt);}
+.lms-timer.low{color:#b3412a; animation:timerPulse 1s infinite;}
+.lms-timer-label{font-size:.78rem; color:var(--lms-sub); margin-top:2px;}
+@keyframes timerPulse{0%,100%{opacity:1;}50%{opacity:.55;}}
 
-/* ---- CX quiz shell ---- */
-#cxQuiz, #cxResult{max-width:720px; margin:0 auto;}
-.cx-bar{display:flex; align-items:center; gap:14px; margin-bottom:6px;}
-.cx-count{font-size:.8rem; color:var(--cx-dim); white-space:nowrap;}
-.cx-track{flex:1; height:3px; background:rgba(255,255,255,.12); border-radius:2px; overflow:hidden;}
-.cx-fill{height:100%; width:0; background:var(--cx-gold); transition:width .45s cubic-bezier(.4,0,.2,1);}
-.cx-tally{font-size:.8rem; color:var(--cx-dim); white-space:nowrap;}
-.cx-tally .ok{color:var(--cx-green);} .cx-tally .no{color:var(--cx-red);}
-.cx-topline{display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; gap:10px;}
-.cx-eyebrow{font-size:.75rem; letter-spacing:.18em; color:var(--cx-gold);}
-.cx-menu-btn{
-  background:rgba(255,255,255,.06); border:1px solid var(--cx-line); color:var(--cx-ink);
-  font-size:.72rem; letter-spacing:.06em; padding:7px 13px; border-radius:6px; cursor:pointer;
-  transition:background .15s;
-}
-.cx-menu-btn:hover{background:rgba(255,255,255,.13);}
+.lms-hr{border:none; border-top:1px solid var(--lms-border); margin:16px 0 22px;}
 
-.cx-q{
-  font-family:Georgia,'Times New Roman',serif; font-size:1.3rem; line-height:1.35;
-  color:var(--cx-ink); margin:30px 0 22px;
-}
-.cx-opts{display:flex; flex-direction:column; gap:10px;}
-.cx-opt{
-  display:flex; gap:13px; align-items:flex-start; width:100%; text-align:left;
-  background:rgba(255,255,255,.04); border:1px solid var(--cx-line); color:var(--cx-ink);
-  padding:14px 16px; border-radius:10px; font-size:.96rem; line-height:1.45; cursor:pointer;
-  font-family:inherit;
-  transition:background .16s ease, border-color .16s ease, transform .16s ease;
-}
-.cx-opt:hover:not(:disabled){background:rgba(255,255,255,.09); transform:translateX(3px);}
-.cx-opt:disabled{cursor:default;}
-.cx-opt .k{
-  flex:0 0 24px; height:24px; border-radius:6px; display:grid; place-items:center;
-  background:rgba(255,255,255,.1); font-size:.78rem; font-weight:700; margin-top:1px;
-}
-.cx-opt.right{background:rgba(63,189,138,.16); border-color:var(--cx-green);}
-.cx-opt.right .k{background:var(--cx-green); color:#062b1d;}
-.cx-opt.wrong{background:rgba(233,105,122,.15); border-color:var(--cx-red);}
-.cx-opt.wrong .k{background:var(--cx-red); color:#3a0812;}
-.cx-opt.dim{opacity:.42;}
+.lms-q-block{padding-bottom:22px; margin-bottom:22px; border-bottom:1px solid var(--lms-border);}
+.lms-q-block:last-of-type{border-bottom:none;}
+.lms-qlabel{color:var(--lms-blue); font-size:.88rem; margin-bottom:8px;}
+.lms-qtext{font-weight:700; font-size:.95rem; color:#000; margin-bottom:14px; line-height:1.5;}
 
-.cx-verdict{
-  margin-top:20px; border-radius:11px; padding:17px 19px;
-  border:1px solid var(--cx-line); background:rgba(255,255,255,.05);
-  animation:cardIn .35s ease;
+.lms-opt{
+  display:flex; align-items:flex-start; gap:10px; padding:9px 4px; cursor:pointer; border-radius:4px;
 }
-.cx-verdict h4{margin:0 0 7px; font-size:.98rem;}
-.cx-verdict.good h4{color:var(--cx-green);}
-.cx-verdict.bad h4{color:var(--cx-red);}
-.cx-verdict p{margin:0 0 8px; font-size:.92rem; color:var(--cx-dim); line-height:1.55;}
-.cx-verdict p b{color:var(--cx-ink);}
-.cx-src{margin-top:11px; padding-top:10px; border-top:1px solid var(--cx-line); font-size:.82rem; color:var(--cx-dim);}
-.cx-src b{color:var(--cx-gold);}
-.cx-nav{margin-top:22px; display:flex; justify-content:flex-end;}
-.cx-btn{
-  background:var(--cx-gold); color:#0a1f40; font-weight:700; font-family:inherit;
-  padding:13px 27px; border-radius:9px; border:none; cursor:pointer; font-size:.95rem;
-  box-shadow:0 9px 22px -12px rgba(240,180,41,.85);
-  transition:transform .16s ease, background .16s ease;
+.lms-opt:hover{background:rgba(0,0,0,.03);}
+.lms-radio-outer{
+  width:17px; height:17px; border-radius:50%; border:1.5px solid var(--lms-radio);
+  flex:0 0 auto; margin-top:2px; display:flex; align-items:center; justify-content:center;
+  transition:border-color .12s;
 }
-.cx-btn:hover{transform:translateY(-2px); background:#ffc63f;}
-.cx-btn.ghost{background:transparent; color:var(--cx-ink); border:1px solid var(--cx-line); box-shadow:none; font-weight:500;}
-.cx-btn.ghost:hover{background:rgba(255,255,255,.08);}
+.lms-opt.checked .lms-radio-outer{border-color:#000;}
+.lms-radio-inner{width:9px; height:9px; border-radius:50%; background:#000; display:none;}
+.lms-opt.checked .lms-radio-inner{display:block;}
+.lms-opt-text{font-size:.92rem; color:var(--lms-text); line-height:1.4;}
+.lms-opt.ans-correct .lms-opt-text{font-weight:700; color:#000;}
+.lms-opt.answered{cursor:default;}
+.lms-opt.answered:hover{background:none;}
 
-.cx-score{text-align:center; padding:36px 0 26px; border-bottom:1px solid var(--cx-line); margin-bottom:28px;}
-.cx-big{font-family:Georgia,serif; font-size:clamp(3.2rem,13vw,5rem); line-height:1; font-weight:700; color:var(--cx-ink);}
-.cx-big span{color:var(--cx-dim); font-size:.36em;}
-.cx-msg{color:var(--cx-dim); margin-top:10px; font-size:.95rem;}
-.cx-splits{display:flex; justify-content:center; gap:26px; margin-top:18px; font-size:.88rem; color:var(--cx-dim);}
-.cx-splits b{font-family:Georgia,serif; font-size:1.15rem;}
-.cx-rtitle{font-family:Georgia,serif; font-size:1.2rem; margin-bottom:16px; color:var(--cx-ink);}
-.cx-rev{
-  border:1px solid var(--cx-line); border-left-width:3px; border-radius:10px;
-  padding:16px 18px; margin-bottom:11px; background:rgba(255,255,255,.035);
+.lms-follow{
+  display:flex; align-items:center; gap:8px; margin-top:14px; font-size:.85rem; font-weight:700; color:var(--lms-text);
 }
-.cx-rev.ok{border-left-color:var(--cx-green);}
-.cx-rev.no{border-left-color:var(--cx-red);}
-.cx-rev .n{font-size:.75rem; color:var(--cx-dim); margin-bottom:5px;}
-.cx-rev .qq{font-size:.96rem; margin-bottom:11px; color:var(--cx-ink); line-height:1.45;}
-.cx-rev .ln{font-size:.88rem; margin-bottom:4px; color:var(--cx-dim);}
-.cx-rev .ln b{color:var(--cx-ink);}
-.cx-rev .ln.good b{color:var(--cx-green);}
-.cx-rev .ln.bad b{color:var(--cx-red);}
-.cx-rev .why{font-size:.86rem; color:var(--cx-dim); margin-top:9px; padding-top:9px; border-top:1px solid var(--cx-line); line-height:1.55;}
-.cx-rev .why em{color:var(--cx-gold); font-style:normal; font-weight:600;}
-.cx-again{margin-top:26px; display:flex; gap:11px; flex-wrap:wrap; justify-content:center;}
-@media(max-width:480px){ .cx-q{font-size:1.12rem;} }
+.lms-follow input{width:15px; height:15px;}
 
+.lms-submitbar{
+  position:sticky; bottom:0; background:#fff; border-top:1px solid var(--lms-border);
+  padding:14px 18px; display:flex; justify-content:center; gap:12px; margin-top:10px;
+}
+.lms-btn{
+  background:var(--lms-blue); color:#fff; border:none; font-weight:700; font-size:.9rem;
+  padding:11px 30px; border-radius:5px; cursor:pointer; transition:background .15s;
+}
+.lms-btn:hover{background:var(--lms-blue-dk);}
+.lms-btn.ghost{background:#fff; color:var(--lms-blue); border:1px solid var(--lms-blue);}
+.lms-btn.ghost:hover{background:#f0f6fc;}
+
+/* ===== RESULT ===== */
+.lms-result-head{text-align:center; padding:14px 0 22px;}
+.lms-score-big{font-size:2.2rem; font-weight:800; color:var(--lms-blue);}
+.lms-score-sub{color:var(--lms-sub); font-size:.9rem; margin-top:4px;}
+.lms-recap-q{font-size:.9rem; margin-bottom:6px; color:var(--lms-sub);}
+.lms-recap-q b{color:#000;}
+
+.answerkey-item{border-left:3px solid var(--lms-blue); padding:8px 14px; margin-bottom:8px; background:#f7f9fb; border-radius:4px; font-size:.87rem;}
+.answerkey-item b.ak-correct{font-weight:700; color:#000;}
+
+@media(max-width:600px){
+  .lms-card{padding:18px 16px 24px;}
+}
 </style>
 </head>
 <body>
 
-<!-- ===== FULL-BLEED ANIMATED HERO ===== -->
-<div class="hero" id="heroSection">
-  <div class="hero-grid"></div>
-  <div class="radar"><div class="radar-sweep"></div></div>
-  <div class="smoke" style="left:10%; width:70px; height:70px; animation-duration:8s;"></div>
-  <div class="smoke" style="left:30%; width:50px; height:50px; animation-duration:11s; animation-delay:2s;"></div>
-  <div class="smoke" style="left:65%; width:90px; height:90px; animation-duration:9s; animation-delay:4s;"></div>
-  <div class="smoke" style="left:82%; width:55px; height:55px; animation-duration:12s; animation-delay:1s;"></div>
-  <div class="convoy">🛡️🚙🪖</div>
-  <div class="chopper">🚁</div>
-  <div class="shell" style="animation-delay:0s;">💣</div>
-  <div class="shell" style="animation-delay:2.5s;">💣</div>
+<!-- ===== START PICKER ===== -->
+<section class="section active" id="screenStart">
+  <div class="start-title">Kelas 351 JOSJIS — Latihan Soal</div>
+  <div class="start-sub">Pilih materi latihan yang ingin kamu kerjakan hari ini.</div>
 
-  <div class="hero-content">
-    <div class="badge-row">
-      <span>🎖️</span><span>🪖</span><span>🎖️</span>
+  <div class="pick-card" onclick="goTreasuryTest()">
+    <div class="pick-icon">🪖</div>
+    <div class="pick-text">
+      <div class="pick-title">Test - Treasury Operations</div>
+      <div class="pick-desc">30 soal utama · pilihan ganda · waktu 15 menit</div>
     </div>
-    <div class="unit-code stencil">KELAS 351 — JOSJIS</div>
-    <div class="title stencil">LATIHAN SOAL<br>TREASURY OPERATIONS</div>
-    <div class="caption-box">Nama saya MAYOR CAJ RIPANGA</div>
-    <div class="subtxt">
-      Siap laksanakan, Komandan! Misi hari ini: 183 soal — semuanya pilihan ganda, diambil
-      langsung dari dokumen PDF kamu (GWM, Money Market, FX, Obligasi, hingga Fund Transfer Pricing).
-      Setiap jawaban yang kamu tembakkan akan meledak di layar. Bersiap di garis start!
-    </div>
-    <br>
-    <button class="start-btn stencil" onclick="startMission(event)">🚀 Mulai Misi</button>
-    <div class="mini-note">🛡️ Tank &amp; helikopter siap tempur — semua soal diambil langsung dari PDF kamu.</div>
+    <div class="pick-arrow">➜</div>
   </div>
-</div>
 
-<div id="app">
-
-  <!-- ===== PILIH TOPIK LATIHAN ===== -->
-  <section class="section" id="topicSection">
-    <div class="topbar">
-      <div class="unit stencil">🎓 Pilih Topik Latihan</div>
-      <div class="score">2 Materi</div>
+  <div class="pick-card" onclick="goCXTest()">
+    <div class="pick-icon">💠</div>
+    <div class="pick-text">
+      <div class="pick-title">Test - Customer Experience (Post Test)</div>
+      <div class="pick-desc">20 soal · pilihan ganda · waktu 15 menit</div>
     </div>
-    <div class="phase-label" style="text-align:center;">MAU LATIHAN MATERI YANG MANA HARI INI?</div>
+    <div class="pick-arrow">➜</div>
+  </div>
 
-    <div class="topic-card t-treasury" onclick="chooseTopic('treasury', event)">
-      <div class="menu-icon">🪖</div>
-      <div class="menu-text">
-        <div class="menu-title stencil">Latihan Treasury Operations</div>
-        <div class="menu-desc">183 soal — GWM, Money Market, FX, Obligasi, sampai Fund Transfer Pricing. Ada pilihan fase.</div>
+  <div class="linklike" onclick="goAnswerKey()">Lihat rangkuman lengkap semua 183 soal Treasury</div>
+</section>
+
+<!-- ===== TREASURY TEST ===== -->
+<section class="section" id="screenTreasuryTest">
+  <div class="lms-topbar">
+    <div class="tb-title">PROGRAM ODP/SDP - POST TEST TREASURY OPERATIONS <span class="info-dot">i</span></div>
+  </div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap">
+    <div class="lms-card">
+      <div class="lms-head-row">
+        <div>
+          <div class="lms-h1">Test - Treasury Operations</div>
+          <div class="lms-h2">KELAS 351 JOSJIS — LATIHAN SOAL UTAMA (30 SOAL)</div>
+        </div>
+        <div class="lms-timer-block">
+          <div class="lms-timer" id="treasuryTimer">15:00</div>
+          <div class="lms-timer-label">Time remaining</div>
+        </div>
       </div>
-      <div class="menu-arrow">➜</div>
+      <hr class="lms-hr">
+      <div id="treasuryQList"></div>
+      <div class="lms-finish"><button class="lms-btn" id="treasurySubmitBtn" onclick="submitTreasury()">Lihat Hasil</button></div>
     </div>
+  </div>
+</section>
 
-    <div class="topic-card t-cx" onclick="chooseTopic('cx', event)">
-      <div class="menu-icon">💠</div>
-      <div class="menu-text">
-        <div class="menu-title">Latihan Customer Experience</div>
-        <div class="menu-desc">20 soal post test CX Bank Mandiri. Koreksi langsung tiap jawaban lengkap dengan halaman materinya.</div>
+<!-- ===== TREASURY RESULT ===== -->
+<section class="section" id="screenTreasuryResult">
+  <div class="lms-topbar">
+    <div class="tb-title">PROGRAM ODP/SDP - POST TEST TREASURY OPERATIONS <span class="info-dot">i</span></div>
+  </div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap">
+    <div class="lms-card">
+      <div class="lms-result-head">
+        <div class="lms-score-big" id="treasuryScoreBig">0 / 30</div>
+        <div class="lms-score-sub" id="treasuryScoreMsg"></div>
       </div>
-      <div class="menu-arrow">➜</div>
+      <hr class="lms-hr">
+      <div id="treasuryReviewList"></div>
     </div>
+  </div>
+  <div class="lms-submitbar">
+    <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua 183 Soal</button>
+    <button class="lms-btn ghost" onclick="goTreasuryTest()">🔁 Ulangi Test</button>
+    <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
+  </div>
+</section>
 
-    <div class="topic-card t-summary" onclick="viewAllSummary(event)">
-      <div class="menu-icon">📊</div>
-      <div class="menu-text">
-        <div class="menu-title stencil">Rangkuman Semua Jawaban</div>
-        <div class="menu-desc">Lihat kunci jawaban lengkap untuk kedua topik sekaligus — 183 soal Treasury &amp; 20 soal Customer Experience — tanpa perlu mengerjakan soal dulu.</div>
+<!-- ===== CX TEST ===== -->
+<section class="section" id="screenCXTest">
+  <div class="lms-topbar">
+    <div class="tb-title">PROGRAM ODP/SDP - POST TEST CUSTOMER EXPERIENCE <span class="info-dot">i</span></div>
+  </div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap">
+    <div class="lms-card">
+      <div class="lms-head-row">
+        <div>
+          <div class="lms-h1">Test - Customer Experience</div>
+          <div class="lms-h2">POST TEST CUSTOMER EXPERIENCE — BANK MANDIRI (20 SOAL)</div>
+        </div>
+        <div class="lms-timer-block">
+          <div class="lms-timer" id="cxTimer">15:00</div>
+          <div class="lms-timer-label">Time remaining</div>
+        </div>
       </div>
-      <div class="menu-arrow">➜</div>
+      <hr class="lms-hr">
+      <div id="cxQList"></div>
+      <div class="lms-finish"><button class="lms-btn" id="cxSubmitBtn" onclick="submitCX()">Lihat Hasil</button></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== CX: QUIZ ===== -->
-  <section class="section" id="cxQuiz">
-    <div class="cx-topline">
-      <div class="cx-eyebrow">CUSTOMER EXPERIENCE — BANK MANDIRI</div>
-      <button class="cx-menu-btn" onclick="cxBackToTopic()">☰ Ganti topik</button>
-    </div>
-    <div class="cx-bar">
-      <span class="cx-count" id="cxCount">Soal 1 dari 20</span>
-      <div class="cx-track"><div class="cx-fill" id="cxFill"></div></div>
-      <span class="cx-tally" id="cxTally"></span>
-    </div>
-    <h2 class="cx-q" id="cxQ"></h2>
-    <div class="cx-opts" id="cxOpts"></div>
-    <div id="cxVerdict"></div>
-    <div class="cx-nav" id="cxNav"></div>
-  </section>
-
-  <!-- ===== CX: HASIL + REVIEW ===== -->
-  <section class="section" id="cxResult">
-    <div class="cx-score">
-      <div class="cx-big" id="cxBig"></div>
-      <p class="cx-msg" id="cxMsg"></p>
-      <div class="cx-splits">
-        <div><b style="color:var(--cx-green)" id="cxOk"></b> benar</div>
-        <div><b style="color:var(--cx-red)" id="cxNo"></b> salah</div>
+<!-- ===== CX RESULT ===== -->
+<section class="section" id="screenCXResult">
+  <div class="lms-topbar">
+    <div class="tb-title">PROGRAM ODP/SDP - POST TEST CUSTOMER EXPERIENCE <span class="info-dot">i</span></div>
+  </div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap">
+    <div class="lms-card">
+      <div class="lms-result-head">
+        <div class="lms-score-big" id="cxScoreBig">0 / 20</div>
+        <div class="lms-score-sub" id="cxScoreMsg"></div>
       </div>
+      <hr class="lms-hr">
+      <div id="cxReviewList"></div>
     </div>
-    <h3 class="cx-rtitle">Review semua soal</h3>
-    <div id="cxReview"></div>
-    <div class="cx-again">
-      <button class="cx-btn" onclick="cxStart()">Ulangi latihan CX</button>
-      <button class="cx-btn ghost" onclick="cxBackToTopic()">Ganti topik</button>
-    </div>
-  </section>
+  </div>
+  <div class="lms-submitbar">
+    <button class="lms-btn ghost" onclick="goCXTest()">🔁 Ulangi Test</button>
+    <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
+  </div>
+</section>
 
-  <!-- ===== MENU PILIH FASE ===== -->
-  <section class="section" id="menuSection">
-    <div class="topbar">
-      <div class="unit stencil">🪖 351 JOSJIS — Pilih Misi</div>
-      <div class="score">Total: 183 Soal</div>
+<!-- ===== FULL ANSWER KEY (183 soal) ===== -->
+<section class="section" id="screenAnswerKey">
+  <div class="lms-topbar">
+    <div class="tb-title">PROGRAM ODP/SDP - RANGKUMAN SEMUA JAWABAN <span class="info-dot">i</span></div>
+  </div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap">
+    <div class="lms-card">
+      <div class="lms-h1">Rangkuman Semua Jawaban</div>
+      <div class="lms-h2">BAGIAN 1 — SOAL UTAMA (30 SOAL)</div>
+      <div id="akPart1"></div>
+      <div class="lms-h2" style="margin-top:20px;">BAGIAN 2 — SOAL PENDALAMAN (153 SOAL)</div>
+      <div id="akPart2"></div>
     </div>
-    <div class="phase-label">
-      MAYOR RIVANGA, PILIH FASE YANG INGIN DITEMPUH
-      <button class="menu-btn" onclick="chooseTopicBack(event)">☰ Ganti Topik</button>
-    </div>
-
-    <div class="menu-card" onclick="selectPhase('phase1', event)">
-      <div class="menu-icon">🎯</div>
-      <div class="menu-text">
-        <div class="menu-title stencil">Fase 1 — Soal Utama</div>
-        <div class="menu-desc">30 soal pilihan ganda inti dari PDF. Cocok untuk pemanasan cepat.</div>
-      </div>
-      <div class="menu-arrow">➜</div>
-    </div>
-
-    <div class="menu-card" onclick="selectPhase('phase2', event)">
-      <div class="menu-icon">💣</div>
-      <div class="menu-text">
-        <div class="menu-title stencil">Fase 2 — Soal Pendalaman</div>
-        <div class="menu-desc">153 soal pilihan ganda dari rangkuman materi. Lebih panjang &amp; detail.</div>
-      </div>
-      <div class="menu-arrow">➜</div>
-    </div>
-
-    <div class="menu-card menu-card-all" onclick="selectPhase('all', event)">
-      <div class="menu-icon">🏆</div>
-      <div class="menu-text">
-        <div class="menu-title stencil">Misi Penuh — Semua Fase</div>
-        <div class="menu-desc">Kerjakan seluruh 183 soal berurutan, Fase 1 lalu Fase 2, untuk skor lengkap.</div>
-      </div>
-      <div class="menu-arrow">➜</div>
-    </div>
-
-    <div class="menu-card" onclick="viewSummary(event)">
-      <div class="menu-icon">📊</div>
-      <div class="menu-text">
-        <div class="menu-title stencil">Rangkuman Semua Jawaban</div>
-        <div class="menu-desc">Lihat rangkuman seluruh 183 soal beserta kunci jawaban yang benar, Fase 1 &amp; Fase 2.</div>
-      </div>
-      <div class="menu-arrow">➜</div>
-    </div>
-  </section>
-
-  <!-- ===== PHASE 1 ===== -->
-  <section class="section" id="mcqSection">
-    <div class="topbar">
-      <div class="unit stencil">🪖 351 JOSJIS — Fase 1: Soal Utama</div>
-      <div class="score" id="mcqScoreTop">Skor: 0 / 30</div>
-    </div>
-    <div class="phase-label">
-      SOAL PILIHAN GANDA — BAGIAN 1 (30 SOAL)
-      <button class="menu-btn" onclick="backToMenu(event)">☰ Menu</button>
-    </div>
-    <div class="progress-wrap"><div class="progress-bar" id="mcqProgress"></div></div>
-    <div id="mcqCardHolder"></div>
-  </section>
-
-  <!-- ===== PHASE 2 ===== -->
-  <section class="section" id="flashSection">
-    <div class="topbar">
-      <div class="unit stencil">💣 351 JOSJIS — Fase 2: Soal Pendalaman</div>
-      <div class="score" id="flashScoreTop">Skor: 0 / 153</div>
-    </div>
-    <div class="phase-label">
-      SOAL PILIHAN GANDA — BAGIAN 2 (153 SOAL)
-      <button class="menu-btn" onclick="backToMenu(event)">☰ Menu</button>
-    </div>
-    <div class="progress-wrap"><div class="progress-bar" id="flashProgress"></div></div>
-    <div id="flashCardHolder"></div>
-  </section>
-
-  <!-- ===== SUMMARY ===== -->
-  <section class="section" id="summarySection">
-    <div class="summary-header">
-      <div class="badge-row" style="animation:none;">🏅</div>
-      <div class="title stencil" style="font-size:1.4rem; animation:none; text-shadow:none;">MISI SELESAI, MAYOR RIVANGA!</div>
-      <div class="summary-score" id="finalScore">0 / 183</div>
-      <div class="subtxt" id="finalMsg" style="animation:none; margin:10px auto;"></div>
-    </div>
-    <div class="phase-label" style="text-align:center;">RANGKUMAN JAWABAN — BAGIAN 1</div>
-    <div id="recapHolder"></div>
-    <div class="phase-label" style="text-align:center; margin-top:18px;">RANGKUMAN JAWABAN — BAGIAN 2</div>
-    <div id="flashRecapHolder"></div>
-    <div style="text-align:center; margin-top:24px;">
-      <button class="start-btn stencil" onclick="restartMission(event)">🔁 Ulangi Misi</button>
-      <br><br>
-      <button class="menu-btn menu-btn-lg" onclick="backToMenu(event)">☰ Kembali ke Menu Fase</button>
-    </div>
-  </section>
-
-  <!-- ===== RANGKUMAN SEMUA JAWABAN (ANSWER KEY) ===== -->
-  <section class="section" id="answerKeySection">
-    <div class="topbar">
-      <div class="unit stencil">📊 351 JOSJIS — Rangkuman Semua Jawaban</div>
-      <div class="score">Total: 183 Soal</div>
-    </div>
-    <div class="phase-label">
-      KUNCI JAWABAN LENGKAP — SEMUA SOAL &amp; JAWABAN BENAR
-      <button class="menu-btn" onclick="backToMenu(event)">☰ Menu</button>
-    </div>
-    <div class="phase-label" style="text-align:center; margin-top:6px;">BAGIAN 1 — SOAL UTAMA (30 SOAL)</div>
-    <div id="keyHolderPart1"></div>
-    <div class="phase-label" style="text-align:center; margin-top:18px;">BAGIAN 2 — SOAL PENDALAMAN (153 SOAL)</div>
-    <div id="keyHolderPart2"></div>
-    <div style="text-align:center; margin-top:24px;">
-      <button class="menu-btn menu-btn-lg" onclick="backToMenu(event)">☰ Kembali ke Menu Fase</button>
-    </div>
-  </section>
-
-  <!-- ===== RANGKUMAN SEMUA JAWABAN — 2 TOPIK (TREASURY + CX) ===== -->
-  <section class="section" id="allAnswerKeySection">
-    <div class="topbar">
-      <div class="unit stencil">📊 Rangkuman Semua Jawaban — 2 Topik</div>
-      <div class="score">203 Soal</div>
-    </div>
-    <div class="phase-label">
-      KUNCI JAWABAN LENGKAP — TREASURY &amp; CUSTOMER EXPERIENCE
-      <button class="menu-btn" onclick="chooseTopicBack(event)">☰ Kembali</button>
-    </div>
-
-    <div class="phase-label" style="text-align:center; margin-top:14px;">🪖 TREASURY OPERATIONS — BAGIAN 1 (30 SOAL)</div>
-    <div id="allKeyTreasuryP1"></div>
-    <div class="phase-label" style="text-align:center; margin-top:18px;">🪖 TREASURY OPERATIONS — BAGIAN 2 (153 SOAL)</div>
-    <div id="allKeyTreasuryP2"></div>
-
-    <div class="phase-label" style="text-align:center; margin-top:26px;">💠 CUSTOMER EXPERIENCE (20 SOAL)</div>
-    <div id="allKeyCX"></div>
-
-    <div style="text-align:center; margin-top:24px;">
-      <button class="menu-btn menu-btn-lg" onclick="chooseTopicBack(event)">☰ Kembali ke Pilih Topik</button>
-    </div>
-  </section>
-</div>
-
-<div class="explosion-layer" id="explosionLayer"></div>
+  </div>
+  <div class="lms-submitbar">
+    <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
+  </div>
+</section>
 
 <script>
-/* ============ DATA: 30 MCQ (BAGIAN 1) ============ */
+/* ============ DATA: 30 MCQ (BAGIAN 1 — dipakai untuk test Treasury) ============ */
 const mcqData = [
 {q:"Salah satu karakter/unsur yang terdapat dalam transaksi foreign exchange swap adalah:", opts:["Terdapat premi yang harus dibayar oleh pembeli swap","Terdapat satu kali pertukaran mata uang","Terdapat dua kali pertukaran mata uang","Kontrak swap memiliki opsi untuk tidak mengeksekusi transaksi"], correct:2},
 {q:"Apakah kepanjangan dari REPO?", opts:["Repurchase Politic","Republic Polandia","Repurchase Agreement","Repurchase Policy"], correct:2},
@@ -711,7 +321,7 @@ const mcqData = [
 {q:"Money broker kuotasi spot USD/IDR 13.150-13.160. Harga jual (offer rate) dalam kuotasi tersebut adalah:", opts:["13150","13145","13160","13155"], correct:2}
 ];
 
-/* ============ DATA: 153 SOAL PENDALAMAN (BAGIAN 2) — question + correct answer ============ */
+/* ============ DATA: 153 soal pendalaman (hanya dipakai di rangkuman lengkap) ============ */
 const flashRaw = [
 ["GWM Sekunder wajib dipelihara bank kecuali", "Deposito Berjangka"],
 ["Tenor pinjaman hari ini, dikembalikan besok disebut", "Overnight (O/N)"],
@@ -868,623 +478,284 @@ const flashRaw = [
 ["Obligasi HM Sampoerna III current yield-nya", "10,75%"]
 ];
 
-/* ============ AUTO-GENERATE MCQ OPTIONS FOR BAGIAN 2 ============ */
-function answerType(a){
-  if(/\d/.test(a)) return 'num';
-  const words=a.trim().split(/\s+/).length;
-  return words<=4 ? 'short' : 'long';
-}
-function shuffle(arr){
-  const a=arr.slice();
-  for(let i=a.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [a[i],a[j]]=[a[j],a[i]];
-  }
-  return a;
-}
-const allAnswers = flashRaw.map(r=>r[1]);
-function buildOptions(correct){
-  const type = answerType(correct);
-  let pool = allAnswers.filter(a=>a!==correct && answerType(a)===type);
-  if(pool.length<3){ pool = allAnswers.filter(a=>a!==correct); }
-  pool = shuffle(pool).slice(0,3);
-  const opts = shuffle([correct, ...pool]);
-  return {opts, correct: opts.indexOf(correct)};
-}
-const flashData = flashRaw.map(r=>{
-  const built = buildOptions(r[1]);
-  return {q:r[0], opts:built.opts, correct:built.correct};
-});
-
-/* ============ STATE ============ */
-let mcqIndex=0, mcqScore=0, mcqAnswers=[];
-let flashIndex=0, flashScore=0, flashAnswers=[];
-let missionMode='all'; // 'phase1' | 'phase2' | 'all'
-
-/* ============ EXPLOSION EFFECT (click-point) ============ */
-function explode(x,y){
-  const layer=document.getElementById('explosionLayer');
-  const colors=['#ffb347','#e0762f','#ffe08a','#8a4a2b','#fff2c9'];
-  const shock=document.createElement('div');
-  shock.className='shockwave';
-  shock.style.left=x+'px'; shock.style.top=y+'px';
-  layer.appendChild(shock);
-  setTimeout(()=>shock.remove(),520);
-  const n=18;
-  for(let i=0;i<n;i++){
-    const s=document.createElement('div');
-    s.className='spark';
-    const size=4+Math.random()*6;
-    s.style.width=size+'px'; s.style.height=size+'px';
-    s.style.left=x+'px'; s.style.top=y+'px';
-    s.style.background=colors[Math.floor(Math.random()*colors.length)];
-    const angle=Math.random()*Math.PI*2;
-    const dist=40+Math.random()*90;
-    s.style.setProperty('--dx',(Math.cos(angle)*dist)+'px');
-    s.style.setProperty('--dy',(Math.sin(angle)*dist)+'px');
-    layer.appendChild(s);
-    setTimeout(()=>s.remove(),700);
-  }
-  document.body.classList.remove('shake');
-  void document.body.offsetWidth;
-  document.body.classList.add('shake');
-}
-function explodeFromEvent(e){
-  const x = (e && e.clientX) || (e && e.touches && e.touches[0] && e.touches[0].clientX) || window.innerWidth/2;
-  const y = (e && e.clientY) || (e && e.touches && e.touches[0] && e.touches[0].clientY) || window.innerHeight/2;
-  explode(x,y);
-}
-
-/* ============ FULL-SCREEN FIREWORKS (correct answer celebration) ============ */
-function fireworksFullScreen(){
-  const layer=document.getElementById('explosionLayer');
-  const fireColors=['#ff6b6b','#ffd93d','#6bcb77','#4d96ff','#ff9ff3','#ffb347','#fff2c9','#66ffe0'];
-  const bursts=6;
-  for(let b=0;b<bursts;b++){
-    setTimeout(()=>{
-      const x=40+Math.random()*(window.innerWidth-80);
-      const y=40+Math.random()*(window.innerHeight*0.6);
-      const shockColor=fireColors[Math.floor(Math.random()*fireColors.length)];
-      const shock=document.createElement('div');
-      shock.className='shockwave';
-      shock.style.left=x+'px'; shock.style.top=y+'px';
-      shock.style.borderColor=shockColor;
-      layer.appendChild(shock);
-      setTimeout(()=>shock.remove(),600);
-
-      const n=28;
-      for(let i=0;i<n;i++){
-        const s=document.createElement('div');
-        s.className='spark';
-        const size=4+Math.random()*7;
-        const col=fireColors[Math.floor(Math.random()*fireColors.length)];
-        s.style.width=size+'px'; s.style.height=size+'px';
-        s.style.left=x+'px'; s.style.top=y+'px';
-        s.style.background=col;
-        s.style.boxShadow='0 0 8px '+col;
-        s.style.animationDuration=(0.75+Math.random()*0.55)+'s';
-        const angle=Math.random()*Math.PI*2;
-        const dist=70+Math.random()*160;
-        s.style.setProperty('--dx',(Math.cos(angle)*dist)+'px');
-        s.style.setProperty('--dy',(Math.sin(angle)*dist)+'px');
-        layer.appendChild(s);
-        setTimeout(()=>s.remove(),1400);
-      }
-    }, b*160);
-  }
-}
-
-/* ============ FULL-SCREEN BOMB (wrong answer) ============ */
-function bombFullScreen(){
-  const layer=document.getElementById('explosionLayer');
-
-  // red/black screen flash
-  const flash=document.createElement('div');
-  flash.className='bomb-flash';
-  layer.appendChild(flash);
-  setTimeout(()=>flash.remove(),580);
-
-  const cx=window.innerWidth/2;
-  const cy=window.innerHeight*0.4;
-
-  // big dark shockwave ring
-  const shock=document.createElement('div');
-  shock.className='shockwave';
-  shock.style.left=cx+'px'; shock.style.top=cy+'px';
-  shock.style.borderColor='#ff5a2b';
-  shock.style.borderWidth='5px';
-  layer.appendChild(shock);
-  setTimeout(()=>shock.remove(),600);
-
-  const shock2=document.createElement('div');
-  shock2.className='shockwave';
-  shock2.style.left=cx+'px'; shock2.style.top=cy+'px';
-  shock2.style.borderColor='#2b2b2b';
-  shock2.style.animationDelay='.08s';
-  layer.appendChild(shock2);
-  setTimeout(()=>shock2.remove(),700);
-
-  // fiery sparks
-  const fireColors=['#ff5a2b','#ff9142','#c92e2e','#ffcf5c','#8a1f1f'];
-  const n=34;
-  for(let i=0;i<n;i++){
-    const s=document.createElement('div');
-    s.className='spark';
-    const size=5+Math.random()*9;
-    const col=fireColors[Math.floor(Math.random()*fireColors.length)];
-    s.style.width=size+'px'; s.style.height=size+'px';
-    s.style.left=cx+'px'; s.style.top=cy+'px';
-    s.style.background=col;
-    s.style.boxShadow='0 0 10px '+col;
-    s.style.animationDuration=(0.6+Math.random()*0.5)+'s';
-    const angle=Math.random()*Math.PI*2;
-    const dist=90+Math.random()*220;
-    s.style.setProperty('--dx',(Math.cos(angle)*dist)+'px');
-    s.style.setProperty('--dy',(Math.sin(angle)*dist)+'px');
-    layer.appendChild(s);
-    setTimeout(()=>s.remove(),1200);
-  }
-
-  // dark debris chunks
-  const dn=16;
-  for(let i=0;i<dn;i++){
-    const d=document.createElement('div');
-    d.className='bomb-debris';
-    const size=6+Math.random()*10;
-    d.style.width=size+'px'; d.style.height=size+'px';
-    d.style.left=cx+'px'; d.style.top=cy+'px';
-    d.style.background=['#2b2b2b','#4a3225','#6b4a2b','#1c1c1c'][Math.floor(Math.random()*4)];
-    const angle=Math.random()*Math.PI*2;
-    const dist=60+Math.random()*180;
-    d.style.setProperty('--dx',(Math.cos(angle)*dist)+'px');
-    d.style.setProperty('--dy',(Math.sin(angle)*dist+80)+'px');
-    d.style.setProperty('--rot',(Math.random()*720-360)+'deg');
-    layer.appendChild(d);
-    setTimeout(()=>d.remove(),900);
-  }
-
-  document.body.classList.remove('shake-strong');
-  void document.body.offsetWidth;
-  document.body.classList.add('shake-strong');
-}
-
-/* ambient random explosions on the hero while it's visible */
-let ambientTimer=null;
-function startAmbientExplosions(){
-  ambientTimer=setInterval(()=>{
-    const hero=document.getElementById('heroSection');
-    if(hero.offsetParent===null){ clearInterval(ambientTimer); return; }
-    const x=Math.random()*window.innerWidth;
-    const y=window.innerHeight*0.2 + Math.random()*window.innerHeight*0.5;
-    explode(x,y);
-  }, 2600);
-}
-startAmbientExplosions();
-
-
-/* ================= TOPIC PICKER + CUSTOMER EXPERIENCE ================= */
-function cxSkin(on){
-  document.body.classList.toggle('cx-mode', on);
-}
-function chooseTopic(topic, e){
-  if(topic==='treasury'){
-    cxSkin(false);
-    if(e) explodeFromEvent(e);
-    setTimeout(()=>{ showSection('menuSection'); }, 200);
-  } else {
-    cxSkin(true);
-    cxStart();
-  }
-}
-function chooseTopicBack(e){
-  cxSkin(false);
-  if(e) explodeFromEvent(e);
-  setTimeout(()=>{ showSection('topicSection'); }, 200);
-}
-function cxBackToTopic(){
-  cxSkin(false);
-  showSection('topicSection');
-}
-function viewAllSummary(e){
-  cxSkin(false);
-  if(e) explodeFromEvent(e);
-  setTimeout(()=>{ showSection('allAnswerKeySection'); renderAllAnswerKey(); },200);
-}
-
+/* ============ DATA: CX (20 soal) ============ */
 const cxData=[
 {q:"Apa yang dimaksud dengan customer experience goal?",
  o:["Hal-hal yang memiliki nilai finansial dan menguntungkan customer","Hal-hal yang customer ingin lakukan dan rasakan saat dilayani","Semua jawaban benar","Hal-hal yang pasti akan didapat oleh customer setelah dilayani"],
- a:1,src:"hal. 14 — CX Pains vs CX Goals",
- e:"CX Goals di piramida adalah Reliable, Convenient, Pleasant: apa yang customer harapkan dirasakan dan dialami saat dilayani. Bukan soal nilai finansial, dan bukan sesuatu yang otomatis pasti didapat."},
+ a:1},
 {q:"Apa saja 4P yang menjadi unsur pembentuk customer experience?",
  o:["Place, Product, Persona, Potency","Place, Process, Persona, Price","Product, People, Process, Place","Product, Process, People, Price"],
- a:2,src:"hal. 11 — Apa yang mempengaruhi CX",
- e:"Slide 4P menyebut Product, Process &amp; system, People, dan Place. Price dan Persona bukan bagian dari 4P versi materi ini."},
+ a:2},
 {q:"Berikut merupakan step yang harus dilakukan dalam cycle menciptakan proses kerja yang excellent, kecuali?",
  o:["Follow Through","Prepare","Focus","Drop"],
- a:3,src:"hal. 50 — Daur Menciptakan Proses Kerja yang Excellent",
- e:"Daurnya: Focus (pada customer) → Prepare (product, process, people, place) → Deliver (sesuai standar &amp; service level) → Follow-through (pantau &amp; beri umpan balik). Tidak ada tahap Drop."},
+ a:3},
 {q:"Berikut adalah langkah yang dapat dilakukan untuk menciptakan remarkable customer experience, kecuali",
  o:["Identifikasi pain customer","Membuat customer journey","Membuat persona","Membuat target akuisisi customer"],
- a:3,src:"hal. 16 &amp; 28 — CX Journey; Ease the Pains",
- e:"Identifikasi pain, customer journey, dan persona semuanya berangkat dari sudut pandang customer. Target akuisisi adalah target bisnis internal, bukan langkah merancang pengalaman customer."},
+ a:3},
 {q:"Apa yang dimaksud dengan memberikan remarkable customer experience?",
  o:["Menghadirkan layanan yang remarkable di setiap touch point berdasarkan company values","Menghadirkan layanan yang remarkable di setiap touch point berdasarkan business perspective","Menghadirkan layanan yang remarkable di setiap touch point berdasarkan customer perspective","Menghadirkan layanan yang remarkable di setiap touch point berdasarkan market perspective"],
- a:2,src:"hal. 24 — Think &amp; work outside-in",
- e:"Prinsip outside-in menempatkan customer sebagai pertimbangan utama dalam berpikir dan bertindak. Jadi rujukannya perspektif customer, bukan nilai perusahaan atau kacamata bisnis."},
+ a:2},
 {q:"Berikut ini makna yang benar dari Customer Experience atau CX, kecuali",
  o:["CX adalah hal-hal yang ditangkap oleh 5 indra dan mempengaruhi penilaian customer","CX adalah kesan yang dibawa pulang oleh customer terkait layanan perusahaan","CX adalah panduan bagi customer dalam berinteraksi dengan perusahaan","CX adalah yang customer pikirkan, rasakan, lakukan saat kontak dengan perusahaan"],
- a:2,src:"hal. 8 &amp; 18 — Definisi CX",
- e:"CX adalah apa yang dirasakan, dipikirkan, dan dilakukan customer berdasarkan tangkapan panca indera saat kontak dengan perusahaan. CX itu hasil yang dialami, bukan panduan cara berinteraksi."},
+ a:2},
 {q:"Untuk mempertahankan upaya kita dalam memberikan CX positif kepada nasabah secara konsisten, antara lain melalui pengukuran internal yaitu sbb",
  o:["Survey Layanan, Survey Kepuasan Nasabah, Net Price Score","Service Excellence Survey, Customer Satisfaction Survey, Net Promoter Score","Service Excellence Survey, Customer Satisfaction Survey, Net Price Score","Service Excellence Survey, Survey Loyalitas Nasabah, Net Promoter Score"],
- a:1,src:"hal. 57 — Pengukuran Kualitas Layanan",
- e:"Tiga pengukuran yang saling berkaitan: SES untuk evaluasi layanan staf, CSAT untuk tingkat kepuasan, NPS untuk kemungkinan growth. Perhatikan jebakan Net Price Score — yang benar Net Promoter Score."},
+ a:1},
 {q:"Manakah dari 4P berikut yang merupakan unsur terpenting dalam menciptakan customer experience yang positif",
  o:["Potency","Process","Persona","People"],
- a:3,src:"hal. 11 &amp; 21 — 4P; Peranan role terkait CX",
- e:"People jadi kunci karena front-line yang menciptakan CX lewat interaksi langsung, dan non front-line yang mendukung agar CX itu optimal. Produk dan proses digerakkan oleh orang."},
+ a:3},
 {q:"Berikut merupakan alasan mengapa diperlukannya standard layanan, kecuali?",
  o:["Business Critical","Communication Critical","Compliance Critical","Customer Critical"],
- a:1,src:"hal. 53 — Mengapa perlu standar layanan",
- e:"Hanya ada tiga: Compliance Critical (patuh aturan), Customer Critical (cepat, handal, nyaman), Business Critical (kontribusi ke bisnis). Communication Critical tidak ada dalam materi."},
+ a:1},
 {q:"Mengubah design pembatas antrean yang tadinya berupa tali pembatas menjadi pembatas yang bisa dipakai untuk duduk nasabah adalah contoh SCAMPER, pilihan yang benar adalah",
  o:["Magnify","Eliminate","Modify","Minify"],
- a:2,src:"hal. 31 — SCAMPER",
- e:"Bentuk dan fungsi benda yang sama diubah agar memberi manfaat baru, itu Modify. Magnify berarti memperbesar dan Minify memperkecil, sedangkan di sini ukuran bukan isu utamanya."},
+ a:2},
 {q:"Susunan Piramida Customer Experience terdiri dari",
  o:["Prosesnya mudah, Memenuhi kebutuhan, Menyenangkan","Memenuhi kebutuhan, Menyenangkan, Prosesnya mudah","Memenuhi kebutuhan, Prosesnya mudah, Menyenangkan","Prosesnya mudah, Menyenangkan, Memenuhi kebutuhan"],
- a:2,src:"hal. 14 — CX Goals",
- e:"Dari dasar ke puncak: Reliable (kebutuhan dipenuhi tanpa masalah) → Convenient (mudah, ringkas, cepat) → Pleasant (menyenangkan). Kebutuhan dulu, baru kemudahan, baru rasa senang."},
+ a:2},
 {q:"Bersemangat dalam menyambut dan memberikan layanan terbaik kepada nasabah, sampaikan informasi yang menjadi hak nasabah, teliti menjalankan transaksi dengan akurasi 100% merupakan penerapan Prinsip Layanan:",
  o:["Customer Critical","Compliance Critical","Business Critical","Communication Critical"],
- a:0,src:"hal. 55 — Tabel Prinsip Layanan CoC &amp; CuC",
- e:"Ketiga perilaku itu ada di baris Customer Critical, yaitu menjalankan permintaan nasabah secara cepat, handal, dan nyaman. Compliance Critical berisi verifikasi keabsahan, kelengkapan dokumen, dan CDD/EDD."},
+ a:0},
 {q:"Di bawah ini manfaat nasabah yang loyal bagi perusahaan, kecuali",
  o:["Menambah biaya layanan","Meningkatkan kesempatan cross-selling","Meningkatkan profit perusahaan","Menjadi referensi atau rujukan"],
- a:0,src:"hal. 19 — CLV, Retensi, CAC",
- e:"Nasabah puas lebih mudah diretain, di-upsell dan cross-sell, serta mereferensikan produk ke orang lain. Efeknya justru menekan biaya akuisisi, bukan menambah biaya."},
+ a:0},
 {q:"Simplifikasi formulir dari 20 pertanyaan menjadi hanya 10 pertanyaan adalah contoh SCAMPER, khususnya poin:",
  o:["Substitute","Put to another use","Magnify","Minify"],
- a:3,src:"hal. 31 — SCAMPER",
- e:"Mengurangi atau menyederhanakan jumlah adalah Minify. Substitute berarti mengganti dengan hal lain, Put to another use berarti memakai untuk fungsi berbeda."},
+ a:3},
 {q:"Mengapa customer experience penting",
  o:["Karena membantu customer dalam mengambil keputusan","Pelanggan dengan pengalaman positif terbukti akan merekomendasikan brand perusahaan","Merupakan syarat dari regulator","Merupakan panduan bagi customer dalam berinteraksi dengan perusahaan"],
- a:1,src:"hal. 9 &amp; 10 — Mengapa CX itu penting",
- e:"Materi menyebut empat alasan: customer menilai kita dari CX, CX jadi pembeda dari pesaing, CX positif mendorong loyalitas, dan CX positif mendorong rekomendasi. Regulator tidak disebut sebagai alasannya."},
+ a:1},
 {q:"Dalam upaya menciptakan Customer Experience, berikut hal yang dapat dilakukan dalam menerapkan Think and Work outside in, kecuali?",
- o:["Suara customer adalah acuan kita memperbaiki atau meningkatkan layanan kita","Jadikan customer pertimbangan utama dalam berpikir &amp; bertindak","Pahami kebutuhan, harapan, profil, usia, kelas sosial &amp; gaya hidup customer","Mengambil keputusan sesuai keinginan atasan semata"],
- a:3,src:"hal. 24 — Think &amp; work outside-in",
- e:"Tiga opsi lain persis isi slide tersebut. Keputusan yang hanya mengikuti keinginan atasan justru berpikir inside-out, kebalikan dari prinsip ini."},
+ o:["Suara customer adalah acuan kita memperbaiki atau meningkatkan layanan kita","Jadikan customer pertimbangan utama dalam berpikir & bertindak","Pahami kebutuhan, harapan, profil, usia, kelas sosial & gaya hidup customer","Mengambil keputusan sesuai keinginan atasan semata"],
+ a:3},
 {q:"Pernyataan dibawah ini merupakan customer experience pain, kecuali",
  o:["Hal-hal yang tidak pernah dibayangkan oleh customer","Hal-hal yang bisa membuat customer komplain","Hal-hal yang tidak diharapkan oleh customer saat dilayani","Hal-hal yang dikhawatirkan oleh customer saat dilayani"],
- a:0,src:"hal. 14 &amp; 28 — CX Pains; Ease the Pains",
- e:"CX pain adalah hal yang bermasalah, merepotkan, atau menyebalkan: yang dikhawatirkan, yang tidak diharapkan, dan yang memicu komplain. Hal yang tidak pernah dibayangkan bersifat netral dan bahkan bisa jadi kejutan menyenangkan."},
+ a:0},
 {q:"Penggabungan mesin ATM dengan mesin penyetor uang yang awalnya 2 mesin berbeda menjadi 1 mesin saja merupakan contoh SCAMPER, khususnya poin:",
  o:["Combine","Reverse","Minify","Eliminate"],
- a:0,src:"hal. 30 &amp; 31 — Contoh CX Innovation; SCAMPER",
- e:"Dua fungsi terpisah disatukan menjadi satu mesin (CRM), itu Combine. Eliminate berarti menghapus salah satu fungsi, padahal di sini keduanya tetap ada."},
+ a:0},
 {q:"Berikut adalah poin yang harus dilakukan untuk menciptakan komunikasi yang ideal dan asertif, yaitu:",
  o:["Jelas, Panjang, Santun","Santun, Ringkas, Jelas","Ringkas, Panjang, Sopan","Detail, Lengkap, Panjang"],
- a:1,src:"hal. 40 — Komunikasi yang asertif",
- e:"Tiga sisi komunikasi asertif di materi adalah Ringkas, Jelas, dan Santun. Panjang dan bertele-tele justru menurunkan kualitas komunikasi."},
+ a:1},
 {q:"Pengalaman customer secara menyeluruh atau end to end yang dimulai ketika muncul informasi awal tentang suatu perusahaan atau brand hingga produk atau jasa itu diterima bahkan setelahnya disebut",
  o:["Customer Experience","Customer Perception","Customer Motion","Customer Intimacy"],
- a:0,src:"hal. 16 &amp; 18 — CX Journey; Journey vs Experience",
- e:"Rentang pre contact sampai post contact itu ranah Customer Experience secara menyeluruh. Customer Intimacy adalah bagian dari sikap dalam standar layanan, bukan definisi ini."}
+ a:0}
 ];
 
-let cxI=0, cxOkN=0, cxNoN=0, cxLog=[];
-const cxLetters=['a','b','c','d'];
+/* ============ STATE ============ */
+let treasuryPicks = new Array(mcqData.length).fill(null);
+let cxPicks = new Array(cxData.length).fill(null);
+let treasurySubmitted = false, cxSubmitted = false;
+let treasuryTimerInt = null, cxTimerInt = null;
 
-function cxStart(){
-  cxI=0; cxOkN=0; cxNoN=0; cxLog=[];
-  cxSkin(true);
-  showSection('cxQuiz');
-  cxRender();
-}
-function cxRender(){
-  const q=cxData[cxI];
-  document.getElementById('cxCount').textContent='Soal '+(cxI+1)+' dari '+cxData.length;
-  document.getElementById('cxFill').style.width=(cxI/cxData.length*100)+'%';
-  document.getElementById('cxTally').innerHTML='<span class="ok">'+cxOkN+' benar</span> · <span class="no">'+cxNoN+' salah</span>';
-  document.getElementById('cxQ').innerHTML=q.q;
-  document.getElementById('cxVerdict').innerHTML='';
-  document.getElementById('cxNav').innerHTML='';
-  const box=document.getElementById('cxOpts');
-  box.innerHTML='';
-  q.o.forEach((t,idx)=>{
-    const b=document.createElement('button');
-    b.className='cx-opt';
-    b.innerHTML='<span class="k">'+cxLetters[idx]+'</span><span>'+t+'</span>';
-    b.onclick=()=>cxAnswer(idx);
-    box.appendChild(b);
-  });
-}
-function cxAnswer(pick){
-  const q=cxData[cxI], right=(pick===q.a);
-  right?cxOkN++:cxNoN++;
-  cxLog.push({q:q.q,pick:pick,right:right,a:q.a,o:q.o,e:q.e,src:q.src});
-  const kids=document.getElementById('cxOpts').children;
-  for(let idx=0; idx<kids.length; idx++){
-    kids[idx].disabled=true;
-    if(idx===q.a) kids[idx].classList.add('right');
-    else if(idx===pick) kids[idx].classList.add('wrong');
-    else kids[idx].classList.add('dim');
-  }
-  document.getElementById('cxTally').innerHTML='<span class="ok">'+cxOkN+' benar</span> · <span class="no">'+cxNoN+' salah</span>';
-  document.getElementById('cxVerdict').innerHTML=
-    '<div class="cx-verdict '+(right?'good':'bad')+'">'+
-      '<h4>'+(right?'Benar':'Belum tepat')+'</h4>'+
-      '<p>'+(right?'':'Jawabanmu <b>'+cxLetters[pick]+'. '+q.o[pick]+'</b>. ')+
-        'Jawaban yang benar <b>'+cxLetters[q.a]+'. '+q.o[q.a]+'</b>.</p>'+
-      '<p>'+q.e+'</p>'+
-      '<div class="cx-src">Materi CX — <b>'+q.src+'</b></div>'+
-    '</div>';
-  const b=document.createElement('button');
-  b.className='cx-btn';
-  b.textContent=(cxI===cxData.length-1)?'Lihat hasil':'Soal berikutnya';
-  b.onclick=function(){ cxI++; if(cxI<cxData.length){ cxRender(); } else { cxFinish(); } };
-  document.getElementById('cxNav').appendChild(b);
-  b.focus();
-}
-function cxFinish(){
-  document.getElementById('cxBig').innerHTML=cxOkN+'<span>/'+cxData.length+'</span>';
-  document.getElementById('cxOk').textContent=cxOkN;
-  document.getElementById('cxNo').textContent=cxNoN;
-  const p=cxOkN/cxData.length;
-  document.getElementById('cxMsg').textContent =
-    p===1 ? 'Semua benar. Materinya sudah kamu kuasai.' :
-    p>=.8 ? 'Solid. Tinggal rapikan beberapa soal yang meleset.' :
-    p>=.6 ? 'Sudah lumayan. Baca ulang review di bawah sebelum tes.' :
-            'Masih banyak yang perlu diulang. Review di bawah beserta halaman materinya.';
-  document.getElementById('cxReview').innerHTML = cxLog.map(function(l,n){
-    return '<div class="cx-rev '+(l.right?'ok':'no')+'">'+
-      '<div class="n">Soal '+(n+1)+'</div>'+
-      '<div class="qq">'+l.q+'</div>'+
-      (l.right?'':'<div class="ln bad">Jawabanmu: <b>'+cxLetters[l.pick]+'. '+l.o[l.pick]+'</b></div>')+
-      '<div class="ln good">Jawaban benar: <b>'+cxLetters[l.a]+'. '+l.o[l.a]+'</b></div>'+
-      '<div class="why">'+l.e+'<br><em>Materi CX — '+l.src+'</em></div>'+
-    '</div>';
-  }).join('');
-  showSection('cxResult');
-}
-
-/* ============ NAVIGATION ============ */
+/* ============ NAV ============ */
 function showSection(id){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  window.scrollTo({top:0, behavior:'smooth'});
+  window.scrollTo({top:0, behavior:'auto'});
 }
-function startMission(e){
-  explodeFromEvent(e);
-  setTimeout(()=>{
-    document.getElementById('heroSection').style.display='none';
-    showSection('topicSection');
-  },250);
-}
-function selectPhase(mode, e){
-  explodeFromEvent(e);
-  missionMode=mode;
-  mcqIndex=0; mcqScore=0; mcqAnswers=[]; flashIndex=0; flashScore=0; flashAnswers=[];
-  setTimeout(()=>{
-    if(mode==='phase1'){ showSection('mcqSection'); renderMcq(); }
-    else if(mode==='phase2'){ showSection('flashSection'); renderFlash(); }
-    else { showSection('mcqSection'); renderMcq(); }
-  },200);
-}
-function backToMenu(e){
-  explodeFromEvent(e);
-  setTimeout(()=>{ showSection('menuSection'); },200);
-}
-function viewSummary(e){
-  explodeFromEvent(e);
-  setTimeout(()=>{ showSection('answerKeySection'); renderAnswerKey(); },200);
-}
-function restartMission(e){
-  cxSkin(false);
-  explodeFromEvent(e);
-  mcqIndex=0; mcqScore=0; mcqAnswers=[]; flashIndex=0; flashScore=0; flashAnswers=[];
-  setTimeout(()=>{
-    document.getElementById('heroSection').style.display='flex';
-    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-    window.scrollTo({top:0,behavior:'smooth'});
-    startAmbientExplosions();
-  },200);
+function backToStart(){
+  clearInterval(treasuryTimerInt); clearInterval(cxTimerInt);
+  showSection('screenStart');
 }
 
-/* ============ RENDER MCQ (BAGIAN 1) ============ */
-function renderMcq(){
-  const holder=document.getElementById('mcqCardHolder');
-  const item=mcqData[mcqIndex];
-  const letters=['A','B','C','D'];
-  document.getElementById('mcqProgress').style.width=((mcqIndex)/mcqData.length*100)+'%';
-  document.getElementById('mcqScoreTop').textContent='Skor: '+mcqScore+' / '+mcqData.length;
-
-  let html=`<div class="card">
-    <div class="q-num">SOAL ${mcqIndex+1} / ${mcqData.length}</div>
-    <div class="q-text">${item.q}</div>
-    <div id="optsHolder">`;
-  item.opts.forEach((opt,i)=>{
-    html+=`<button class="opt" data-i="${i}" onclick="answerMcq(${i}, event)">
-      <span class="opt-letter">${letters[i]}</span>${opt}
-    </button>`;
-  });
-  html+=`</div>
-    <div class="nav-row"><button class="next-btn" id="mcqNextBtn" onclick="nextMcq(event)">${mcqIndex===mcqData.length-1?'Lanjut ke Fase 2 ➜':'Lanjut ➜'}</button></div>
-  </div>`;
-  holder.innerHTML=html;
-}
-function answerMcq(i, e){
-  explodeFromEvent(e);
-  const item=mcqData[mcqIndex];
-  const opts=document.querySelectorAll('#optsHolder .opt');
-  opts.forEach(o=>o.classList.add('disabled'));
-  opts[i].classList.add(i===item.correct?'correct':'wrong');
-  if(i!==item.correct){ opts[item.correct].classList.add('correct'); }
-  const isCorrect = i===item.correct;
-  if(isCorrect){ mcqScore++; fireworksFullScreen(); } else { bombFullScreen(); }
-  mcqAnswers.push({q:item.q, chosen:item.opts[i], correctText:item.opts[item.correct], isCorrect});
-  document.getElementById('mcqScoreTop').textContent='Skor: '+mcqScore+' / '+mcqData.length;
-  document.getElementById('mcqNextBtn').classList.add('show');
-}
-function nextMcq(e){
-  explodeFromEvent(e);
-  mcqIndex++;
-  if(mcqIndex>=mcqData.length){
-    document.getElementById('mcqProgress').style.width='100%';
-    setTimeout(()=>{ showSection('flashSection'); renderFlash(); },200);
-  } else {
-    setTimeout(renderMcq,150);
+/* ============ TIMER ============ */
+function startTimer(displayId, seconds, onExpire){
+  let remain = seconds;
+  const el = document.getElementById(displayId);
+  function tick(){
+    const m = Math.floor(remain/60), s = remain%60;
+    el.textContent = String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+    el.classList.toggle('low', remain<=60);
+    if(remain<=0){ clearInterval(interval); onExpire(); return; }
+    remain--;
   }
+  tick();
+  const interval = setInterval(tick, 1000);
+  return interval;
 }
 
-/* ============ RENDER BAGIAN 2 (now MCQ too) ============ */
-function renderFlash(){
-  const holder=document.getElementById('flashCardHolder');
-  const item=flashData[flashIndex];
-  const letters=['A','B','C','D'];
-  document.getElementById('flashProgress').style.width=((flashIndex)/flashData.length*100)+'%';
-  document.getElementById('flashScoreTop').textContent='Skor: '+flashScore+' / '+flashData.length;
-
-  let html=`<div class="card">
-    <div class="q-num">SOAL ${flashIndex+1} / ${flashData.length}</div>
-    <div class="q-text">${item.q}</div>
-    <div id="flashOptsHolder">`;
-  item.opts.forEach((opt,i)=>{
-    html+=`<button class="opt" data-i="${i}" onclick="answerFlash(${i}, event)">
-      <span class="opt-letter">${letters[i]}</span>${opt}
-    </button>`;
+/* ============ RENDER: GENERIC QUESTION LIST ============ */
+function renderQList(containerId, data, picks, getQ, getOpts, prefix){
+  const holder = document.getElementById(containerId);
+  holder.innerHTML='';
+  data.forEach((item,idx)=>{
+    const block = document.createElement('div');
+    block.className='lms-q-block';
+    let optsHtml='';
+    getOpts(item).forEach((opt,i)=>{
+      optsHtml += `<label class="lms-opt" id="${prefix}-opt-${idx}-${i}" onclick="pick${prefix}(${idx},${i})">
+        <span class="lms-radio-outer"><span class="lms-radio-inner"></span></span>
+        <span class="lms-opt-text">${opt}</span>
+      </label>`;
+    });
+    block.innerHTML = `
+      <div class="lms-qlabel">Question ${idx+1} of ${data.length}.</div>
+      <div class="lms-qtext">${getQ(item)}</div>
+      <div id="${prefix}-opts-${idx}">${optsHtml}</div>
+      <div class="lms-follow"><input type="checkbox"> Mark for follow up</div>
+    `;
+    holder.appendChild(block);
   });
-  html+=`</div>
-    <div class="nav-row"><button class="next-btn" id="flashNextBtn" onclick="nextFlash(event)">${flashIndex===flashData.length-1?'Lihat Rangkuman ➜':'Lanjut ➜'}</button></div>
-  </div>`;
-  holder.innerHTML=html;
-}
-function answerFlash(i, e){
-  explodeFromEvent(e);
-  const item=flashData[flashIndex];
-  const opts=document.querySelectorAll('#flashOptsHolder .opt');
-  opts.forEach(o=>o.classList.add('disabled'));
-  opts[i].classList.add(i===item.correct?'correct':'wrong');
-  if(i!==item.correct){ opts[item.correct].classList.add('correct'); }
-  const isCorrect = i===item.correct;
-  if(isCorrect){ flashScore++; fireworksFullScreen(); } else { bombFullScreen(); }
-  flashAnswers.push({q:item.q, chosen:item.opts[i], correctText:item.opts[item.correct], isCorrect});
-  document.getElementById('flashScoreTop').textContent='Skor: '+flashScore+' / '+flashData.length;
-  document.getElementById('flashNextBtn').classList.add('show');
-}
-function nextFlash(e){
-  explodeFromEvent(e);
-  flashIndex++;
-  if(flashIndex>=flashData.length){
-    document.getElementById('flashProgress').style.width='100%';
-    setTimeout(()=>{ showSection('summarySection'); renderSummary(); },200);
-  } else {
-    setTimeout(renderFlash,150);
-  }
 }
 
-/* ============ RANGKUMAN SEMUA JAWABAN (ANSWER KEY — all questions + correct answers) ============ */
-function renderAnswerKey(){
-  const p1=document.getElementById('keyHolderPart1');
+/* ============ TREASURY TEST ============ */
+function goTreasuryTest(){
+  treasuryPicks = new Array(mcqData.length).fill(null);
+  treasurySubmitted = false;
+  renderQList('treasuryQList', mcqData, treasuryPicks, it=>it.q, it=>it.opts, 'tr');
+  document.getElementById('treasurySubmitBtn').disabled=false;
+  document.getElementById('treasurySubmitBtn').textContent='Lihat Hasil';
+  showSection('screenTreasuryTest');
+  clearInterval(treasuryTimerInt);
+  treasuryTimerInt = startTimer('treasuryTimer', 15*60, ()=>{ if(!treasurySubmitted) submitTreasury(); });
+}
+function picktr(qi, oi){
+  if(treasurySubmitted) return;
+  treasuryPicks[qi]=oi;
+  const opts = document.querySelectorAll('#tr-opts-'+qi+' .lms-opt');
+  const correctIdx = mcqData[qi].correct;
+  opts.forEach((o,i)=>{
+    o.classList.toggle('checked', i===oi);
+    o.classList.toggle('ans-correct', i===correctIdx);
+  });
+}
+function submitTreasury(){
+  if(treasurySubmitted) return;
+  treasurySubmitted = true;
+  clearInterval(treasuryTimerInt);
+  let score=0;
+  mcqData.forEach((item,idx)=>{
+    const opts = document.querySelectorAll('#tr-opts-'+idx+' .lms-opt');
+    opts.forEach((o,i)=>{
+      o.onclick=null;
+      if(i===item.correct) o.classList.add('ans-correct');
+    });
+    if(treasuryPicks[idx]===item.correct) score++;
+  });
+  renderTreasuryResult(score);
+  showSection('screenTreasuryResult');
+}
+function renderTreasuryResult(score){
+  document.getElementById('treasuryScoreBig').textContent = score+' / '+mcqData.length;
+  const pct = score/mcqData.length;
+  document.getElementById('treasuryScoreMsg').textContent =
+    pct===1 ? 'Sempurna! Semua jawaban benar.' :
+    pct>=0.8 ? 'Bagus, hasil sudah solid.' :
+    pct>=0.6 ? 'Cukup baik, masih ada beberapa yang perlu diperbaiki.' :
+    'Perlu latihan lagi, pelajari kembali materinya.';
+  const holder = document.getElementById('treasuryReviewList');
+  holder.innerHTML='';
+  mcqData.forEach((item,idx)=>{
+    const pickIdx = treasuryPicks[idx];
+    const div = document.createElement('div');
+    div.className='lms-q-block';
+    let optsHtml='';
+    item.opts.forEach((opt,i)=>{
+      const isChecked = i===pickIdx;
+      const isCorrect = i===item.correct;
+      optsHtml += `<div class="lms-opt${isChecked?' checked':''}${isCorrect?' ans-correct':''}">
+        <span class="lms-radio-outer"><span class="lms-radio-inner"></span></span>
+        <span class="lms-opt-text">${opt}</span>
+      </div>`;
+    });
+    div.innerHTML = `
+      <div class="lms-qlabel">Question ${idx+1} of ${mcqData.length}.</div>
+      <div class="lms-qtext">${item.q}</div>
+      ${optsHtml}
+    `;
+    holder.appendChild(div);
+  });
+}
+
+/* ============ CX TEST ============ */
+function goCXTest(){
+  cxPicks = new Array(cxData.length).fill(null);
+  cxSubmitted = false;
+  renderQList('cxQList', cxData, cxPicks, it=>it.q, it=>it.o, 'cx');
+  document.getElementById('cxSubmitBtn').disabled=false;
+  document.getElementById('cxSubmitBtn').textContent='Lihat Hasil';
+  showSection('screenCXTest');
+  clearInterval(cxTimerInt);
+  cxTimerInt = startTimer('cxTimer', 15*60, ()=>{ if(!cxSubmitted) submitCX(); });
+}
+function pickcx(qi, oi){
+  if(cxSubmitted) return;
+  cxPicks[qi]=oi;
+  const opts = document.querySelectorAll('#cx-opts-'+qi+' .lms-opt');
+  const correctIdx = cxData[qi].a;
+  opts.forEach((o,i)=>{
+    o.classList.toggle('checked', i===oi);
+    o.classList.toggle('ans-correct', i===correctIdx);
+  });
+}
+function submitCX(){
+  if(cxSubmitted) return;
+  cxSubmitted = true;
+  clearInterval(cxTimerInt);
+  let score=0;
+  cxData.forEach((item,idx)=>{
+    const opts = document.querySelectorAll('#cx-opts-'+idx+' .lms-opt');
+    opts.forEach((o,i)=>{
+      o.onclick=null;
+      if(i===item.a) o.classList.add('ans-correct');
+    });
+    if(cxPicks[idx]===item.a) score++;
+  });
+  renderCXResult(score);
+  showSection('screenCXResult');
+}
+function renderCXResult(score){
+  document.getElementById('cxScoreBig').textContent = score+' / '+cxData.length;
+  const pct = score/cxData.length;
+  document.getElementById('cxScoreMsg').textContent =
+    pct===1 ? 'Sempurna! Semua jawaban benar.' :
+    pct>=0.8 ? 'Bagus, hasil sudah solid.' :
+    pct>=0.6 ? 'Cukup baik, masih ada beberapa yang perlu diperbaiki.' :
+    'Perlu latihan lagi, pelajari kembali materinya.';
+  const holder = document.getElementById('cxReviewList');
+  holder.innerHTML='';
+  cxData.forEach((item,idx)=>{
+    const pickIdx = cxPicks[idx];
+    const div = document.createElement('div');
+    div.className='lms-q-block';
+    let optsHtml='';
+    item.o.forEach((opt,i)=>{
+      const isChecked = i===pickIdx;
+      const isCorrect = i===item.a;
+      optsHtml += `<div class="lms-opt${isChecked?' checked':''}${isCorrect?' ans-correct':''}">
+        <span class="lms-radio-outer"><span class="lms-radio-inner"></span></span>
+        <span class="lms-opt-text">${opt}</span>
+      </div>`;
+    });
+    div.innerHTML = `
+      <div class="lms-qlabel">Question ${idx+1} of ${cxData.length}.</div>
+      <div class="lms-qtext">${item.q}</div>
+      ${optsHtml}
+    `;
+    holder.appendChild(div);
+  });
+}
+
+/* ============ FULL ANSWER KEY (183) ============ */
+function goAnswerKey(){
+  const p1 = document.getElementById('akPart1');
   p1.innerHTML='';
   mcqData.forEach((item,idx)=>{
     const div=document.createElement('div');
-    div.className='key-item';
-    div.innerHTML=`<b>${idx+1}.</b> ${item.q}<br>Jawaban benar: <span class="ka">${item.opts[item.correct]}</span>`;
+    div.className='answerkey-item';
+    div.innerHTML=`<b>${idx+1}.</b> ${item.q}<br>Jawaban benar: <b class="ak-correct">${item.opts[item.correct]}</b>`;
     p1.appendChild(div);
   });
-
-  const p2=document.getElementById('keyHolderPart2');
+  const p2 = document.getElementById('akPart2');
   p2.innerHTML='';
   flashRaw.forEach((r,idx)=>{
     const div=document.createElement('div');
-    div.className='key-item';
-    div.innerHTML=`<b>${idx+1}.</b> ${r[0]}<br>Jawaban benar: <span class="ka">${r[1]}</span>`;
+    div.className='answerkey-item';
+    div.innerHTML=`<b>${idx+1}.</b> ${r[0]}<br>Jawaban benar: <b class="ak-correct">${r[1]}</b>`;
     p2.appendChild(div);
   });
-}
-
-/* ============ RANGKUMAN GABUNGAN (TREASURY + CX) — dipanggil dari Pilih Topik ============ */
-function renderAllAnswerKey(){
-  const t1=document.getElementById('allKeyTreasuryP1');
-  t1.innerHTML='';
-  mcqData.forEach((item,idx)=>{
-    const div=document.createElement('div');
-    div.className='key-item';
-    div.innerHTML=`<b>${idx+1}.</b> ${item.q}<br>Jawaban benar: <span class="ka">${item.opts[item.correct]}</span>`;
-    t1.appendChild(div);
-  });
-
-  const t2=document.getElementById('allKeyTreasuryP2');
-  t2.innerHTML='';
-  flashRaw.forEach((r,idx)=>{
-    const div=document.createElement('div');
-    div.className='key-item';
-    div.innerHTML=`<b>${idx+1}.</b> ${r[0]}<br>Jawaban benar: <span class="ka">${r[1]}</span>`;
-    t2.appendChild(div);
-  });
-
-  const cx=document.getElementById('allKeyCX');
-  cx.innerHTML='';
-  cxData.forEach((q,idx)=>{
-    const div=document.createElement('div');
-    div.className='key-item';
-    div.innerHTML=`<b>${idx+1}.</b> ${q.q}<br>Jawaban benar: <span class="ka">${cxLetters[q.a]}. ${q.o[q.a]}</span>`+
-      `<br><span style="font-size:.78rem; color:var(--sand); opacity:.75;">${q.e}<br><em style="opacity:.85;">Materi CX — ${q.src}</em></span>`;
-    cx.appendChild(div);
-  });
-}
-
-/* ============ SUMMARY (personal recap after finishing a mission) ============ */
-function renderSummary(){
-  const totalQ = mcqData.length + flashData.length;
-  const totalScore = mcqScore + flashScore;
-  const answeredCount = mcqAnswers.length + flashAnswers.length;
-  document.getElementById('finalScore').textContent=totalScore+' / '+totalQ;
-  let msg='';
-  if(answeredCount===0){
-    msg='Belum ada jawaban yang tercatat, Mayor. Mulai salah satu misi dulu di menu fase!';
-  } else {
-    const pct=totalScore/answeredCount;
-    if(answeredCount<totalQ){
-      msg='Progres saat ini: '+answeredCount+' dari '+totalQ+' soal sudah dikerjakan. Terus lanjutkan misinya!';
-    } else if(pct===1){
-      msg='SEMPURNA! Pangkat Jenderal Bintang Lima layak untukmu. 🎖️';
-    } else if(pct>=0.8){
-      msg='Mantap, Prajurit! Sedikit lagi menuju medali emas.';
-    } else if(pct>=0.6){
-      msg='Cukup baik. Latihan lagi supaya makin tajam, Mayor!';
-    } else {
-      msg='Kembali ke barak, pelajari lagi materinya. Jangan menyerah!';
-    }
-  }
-  document.getElementById('finalMsg').textContent=msg;
-
-  const recap=document.getElementById('recapHolder');
-  recap.innerHTML=mcqAnswers.length? '' : '<div class="mini-note2">Belum ada jawaban di Fase 1.</div>';
-  mcqAnswers.forEach((a,idx)=>{
-    const div=document.createElement('div');
-    div.className='recap-item'+(a.isCorrect?'':' wrong-item');
-    div.innerHTML=`<span class="tag ${a.isCorrect?'ok':'bad'}">${a.isCorrect?'BENAR':'SALAH'}</span>
-      <b>${idx+1}.</b> ${a.q}<br>
-      Jawabanmu: <span class="${a.isCorrect?'ra':'rw'}">${a.chosen}</span>
-      ${a.isCorrect?'':'<br>Jawaban benar: <span class="ra">'+a.correctText+'</span>'}`;
-    recap.appendChild(div);
-  });
-
-  const frecap=document.getElementById('flashRecapHolder');
-  frecap.innerHTML=flashAnswers.length? '' : '<div class="mini-note2">Belum ada jawaban di Fase 2.</div>';
-  flashAnswers.forEach((a,idx)=>{
-    const div=document.createElement('div');
-    div.className='recap-item'+(a.isCorrect?'':' wrong-item');
-    div.innerHTML=`<span class="tag ${a.isCorrect?'ok':'bad'}">${a.isCorrect?'BENAR':'SALAH'}</span>
-      <b>${idx+1}.</b> ${a.q}<br>
-      Jawabanmu: <span class="${a.isCorrect?'ra':'rw'}">${a.chosen}</span>
-      ${a.isCorrect?'':'<br>Jawaban benar: <span class="ra">'+a.correctText+'</span>'}`;
-    frecap.appendChild(div);
-  });
+  showSection('screenAnswerKey');
 }
 </script>
 </body>

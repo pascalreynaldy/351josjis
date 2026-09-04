@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mengapa Iron Man Adalah Variant dari Dr.Doom</title>
+<title>Latihan Soal — Trade Service &amp; Bank Garansi</title>
 <style>
 :root{
   --lms-blue:#1a73c4;
@@ -64,7 +64,7 @@ body{
   font-size:.85rem; cursor:pointer; text-decoration:underline;
 }
 
-/* ===== SLIM TOP NAVBAR (matches reference: black text + info icon only) ===== */
+/* ===== SLIM TOP NAVBAR ===== */
 .lms-topbar{
   position:sticky; top:0; z-index:50;
   background:#fff; border-bottom:1px solid var(--lms-border);
@@ -83,7 +83,7 @@ body{
 }
 .page-back:hover{color:var(--lms-text);}
 
-/* ===== TEST WRAPPER (full width, edge to edge) ===== */
+/* ===== TEST WRAPPER ===== */
 .lms-wrap{width:100%; margin:0; padding:0;}
 .lms-card{
   background:var(--lms-card); border:none; border-radius:0;
@@ -136,7 +136,7 @@ body{
 
 .lms-submitbar{
   position:sticky; bottom:0; background:#fff; border-top:1px solid var(--lms-border);
-  padding:14px 18px; display:flex; justify-content:center; gap:12px; margin-top:10px;
+  padding:14px 18px; display:flex; justify-content:center; gap:12px; margin-top:10px; flex-wrap:wrap;
 }
 .lms-btn{
   background:var(--lms-blue); color:#fff; border:none; font-weight:700; font-size:.9rem;
@@ -151,10 +151,17 @@ body{
 .lms-score-big{font-size:2.2rem; font-weight:800; color:var(--lms-blue);}
 .lms-score-sub{color:var(--lms-sub); font-size:.9rem; margin-top:4px;}
 
-.answerkey-item{border-left:3px solid var(--lms-blue); padding:8px 14px; margin-bottom:8px; background:#f7f9fb; border-radius:4px; font-size:.87rem;}
+.answerkey-item{border-left:3px solid var(--lms-blue); padding:10px 14px; margin-bottom:10px; background:#f7f9fb; border-radius:4px; font-size:.87rem; line-height:1.5;}
 .answerkey-item b.ak-correct{font-weight:700; color:#000;}
 .answerkey-item.flagged{border-left-color:#c98a1c; background:#fff8e8;}
 .ak-flag{display:block; color:#a3690f; font-size:.8rem; font-weight:700; margin-top:6px;}
+.ak-exp{display:block; color:var(--lms-sub); font-size:.83rem; margin-top:6px;}
+.ak-src{display:block; color:#6b7480; font-size:.76rem; font-style:italic; margin-top:4px;}
+.exp-box{
+  margin-top:10px; padding:10px 12px; background:#f7f9fb; border-left:3px solid var(--lms-blue);
+  border-radius:4px; font-size:.84rem; color:var(--lms-sub); line-height:1.5;
+}
+.exp-box.flagged{border-left-color:#c98a1c; background:#fff8e8;}
 
 @media(max-width:600px){
   .lms-wrap{padding:0;}
@@ -180,13 +187,13 @@ body{
 <!-- ===== START PICKER ===== -->
 <section class="section" id="screenStart">
   <div class="start-title">Latihan Soal</div>
-  <div class="start-sub">Pilih materi latihan yang ingin kamu kerjakan hari ini.</div>
+  <div class="start-sub">Bank soal hasil ekstraksi materi ODP Transaction Banking Wholesale Group — Bank Mandiri.</div>
 
   <div class="pick-card" onclick="goTradeTest()">
     <div class="pick-icon">🚢</div>
     <div class="pick-text">
       <div class="pick-title">Test - Trade Service</div>
-      <div class="pick-desc">40 soal · pilihan ganda · waktu 15 menit</div>
+      <div class="pick-desc">30 soal · pilihan ganda · waktu 15 menit</div>
     </div>
     <div class="pick-arrow">➜</div>
   </div>
@@ -194,13 +201,20 @@ body{
   <div class="pick-card" onclick="goBGTest()">
     <div class="pick-icon">📜</div>
     <div class="pick-text">
-      <div class="pick-title">Test - Bank Guarantee</div>
-      <div class="pick-desc">63 soal · pilihan ganda · waktu 15 menit</div>
+      <div class="pick-title">Test - Bank Garansi</div>
+      <div class="pick-desc">34 soal · pilihan ganda · waktu 15 menit</div>
     </div>
     <div class="pick-arrow">➜</div>
   </div>
 
-  <div class="linklike" onclick="goAnswerKey()">Lihat rangkuman lengkap semua jawaban</div>
+  <div class="pick-card" onclick="goAnswerKey()">
+    <div class="pick-icon">🔑</div>
+    <div class="pick-text">
+      <div class="pick-title">Intip Soal &amp; Kunci Jawaban Langsung</div>
+      <div class="pick-desc">64 soal + kunci + pembahasan + sumber materi · tanpa perlu mengerjakan quiz</div>
+    </div>
+    <div class="pick-arrow">➜</div>
+  </div>
 </section>
 
 <!-- ===== TRADE SERVICE TEST ===== -->
@@ -214,7 +228,7 @@ body{
       <div class="lms-head-row">
         <div>
           <div class="lms-h1">Test - Trade Service</div>
-          <div class="lms-h2">LATIHAN SOAL TRADE SERVICE (40 SOAL)</div>
+          <div class="lms-h2">LATIHAN SOAL TRADE SERVICE (30 SOAL)</div>
         </div>
         <div class="lms-timer-block">
           <div class="lms-timer" id="tradeTimer">15:00</div>
@@ -237,7 +251,7 @@ body{
   <div class="lms-wrap">
     <div class="lms-card">
       <div class="lms-result-head">
-        <div class="lms-score-big" id="tradeScoreBig">0 / 40</div>
+        <div class="lms-score-big" id="tradeScoreBig">0 / 30</div>
         <div class="lms-score-sub" id="tradeScoreMsg"></div>
       </div>
       <hr class="lms-hr">
@@ -254,15 +268,15 @@ body{
 <!-- ===== BANK GUARANTEE TEST ===== -->
 <section class="section" id="screenBGTest">
   <div class="lms-topbar">
-    <div class="tb-title">PROGRAM ODP/SDP - POST TEST BANK GUARANTEE <span class="info-dot">i</span></div>
+    <div class="tb-title">PROGRAM ODP/SDP - POST TEST BANK GARANSI <span class="info-dot">i</span></div>
   </div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap">
     <div class="lms-card">
       <div class="lms-head-row">
         <div>
-          <div class="lms-h1">Test - Bank Guarantee</div>
-          <div class="lms-h2">LATIHAN SOAL BANK GUARANTEE (63 SOAL)</div>
+          <div class="lms-h1">Test - Bank Garansi</div>
+          <div class="lms-h2">LATIHAN SOAL BANK GARANSI (34 SOAL)</div>
         </div>
         <div class="lms-timer-block">
           <div class="lms-timer" id="bgTimer">15:00</div>
@@ -279,13 +293,13 @@ body{
 <!-- ===== BANK GUARANTEE RESULT ===== -->
 <section class="section" id="screenBGResult">
   <div class="lms-topbar">
-    <div class="tb-title">PROGRAM ODP/SDP - POST TEST BANK GUARANTEE <span class="info-dot">i</span></div>
+    <div class="tb-title">PROGRAM ODP/SDP - POST TEST BANK GARANSI <span class="info-dot">i</span></div>
   </div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap">
     <div class="lms-card">
       <div class="lms-result-head">
-        <div class="lms-score-big" id="bgScoreBig">0 / 63</div>
+        <div class="lms-score-big" id="bgScoreBig">0 / 34</div>
         <div class="lms-score-sub" id="bgScoreMsg"></div>
       </div>
       <hr class="lms-hr">
@@ -293,6 +307,7 @@ body{
     </div>
   </div>
   <div class="lms-submitbar">
+    <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
     <button class="lms-btn ghost" onclick="goBGTest()">🔁 Ulangi Test</button>
     <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
   </div>
@@ -301,15 +316,15 @@ body{
 <!-- ===== FULL ANSWER KEY ===== -->
 <section class="section" id="screenAnswerKey">
   <div class="lms-topbar">
-    <div class="tb-title">PROGRAM ODP/SDP - RANGKUMAN SEMUA JAWABAN <span class="info-dot">i</span></div>
+    <div class="tb-title">PROGRAM ODP/SDP - SOAL, KUNCI JAWABAN &amp; PEMBAHASAN <span class="info-dot">i</span></div>
   </div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap">
     <div class="lms-card">
-      <div class="lms-h1">Rangkuman Semua Jawaban</div>
-      <div class="lms-h2">BAGIAN 1 — TRADE SERVICE (40 SOAL)</div>
+      <div class="lms-h1">Intip Soal &amp; Kunci Jawaban Langsung</div>
+      <div class="lms-h2">BAGIAN 1 — TRADE SERVICE (30 SOAL)</div>
       <div id="akPart1"></div>
-      <div class="lms-h2" style="margin-top:20px;">BAGIAN 2 — BANK GUARANTEE (63 SOAL)</div>
+      <div class="lms-h2" style="margin-top:26px;">BAGIAN 2 — BANK GARANSI (34 SOAL)</div>
       <div id="akPart2"></div>
     </div>
   </div>
@@ -319,115 +334,402 @@ body{
 </section>
 
 <script>
-/* ============ DATA: TRADE SERVICE (40 soal) ============ */
+/* ============ DATA: TRADE SERVICE (30 soal) ============
+   Sumber soal : Post Test Trade Service ODP/SDP Revamp
+   Sumber materi: Trade_Finance.pdf, Trade_Overview_compressed.pdf,
+                  Transaction ServiceTrade Service dan Bank Garansi.pdf
+============================================================ */
 const tradeData = [
-{q:"Urutkan metode pembayaran yang memiliki risiko terbesar kepada Pembeli sampai risiko yang terkecil:", opts:["Open Account, Documents against Acceptance, Documents against Payment, L/C, Advance Payment","Advance Payment, L/C, Documents against Payment, Documents against Acceptance, Open Account","Open Account, Documents against Payment, Documents against Acceptance, L/C, Advance Payment","Advance Payment, L/C, Documents against Acceptance, Documents against Payment, Open Account"], correct:3},
-{q:"Pembiayaan post Impor untuk metode pembayaran open account adalah?", opts:["Deferred Payment","Forfaiting","TR atas dasar LC","TR atas dasar non-LC"], correct:0},
-{q:"Fitur Mandiri Global Trade yang berfungsi untuk melakukan monitoring Limit Nasabah adalah?", opts:["Limit Management","Preview Draft","Push Notification","Upload document"], correct:0},
-{q:"Apabila 1=Applicant, 2=Beneficiary, 3=Issuing Bank, 4=Confirming Bank, 5=Advising Bank, maka untuk pembatalan suatu irrevocable L/C harus mendapat persetujuan dari:", opts:["1, 3 dan 5","3, 4 dan 5","2 dan 3","1, 2 dan 4"], correct:2},
-{q:"Akseptasi pada transaksi Documentary Collection (D/A) merupakan kesanggupan bayar pada saat jatuh tempo oleh:", opts:["Collecting/Presenting Bank","Issuing Bank","Buyer","Remitting Bank"], correct:2},
-{q:"Termasuk dalam metode pembayaran yang pembayarannya dikemudian hari atau pada saat jatuh tempo, adalah:", opts:["Documentary Collection-DA; Open Account; Sight L/C; Consignment","Documentary Collection-DA; Open Account; Usance L/C; Consignment","Documentary Collection-DA; Open Account; Green Clause L/C; Consignment","Documentary Collection-DA; Open Account; Red Clause L/C; Consignment"], correct:1},
-{q:"Dalam transaksi incoming documentary collection dengan kondisi (D/P), Bank Mandiri (Trade Servicing Center) menyerahkan dokumen kepada Drawee atas dasar:", opts:["Drawee telah menyerahkan Surat Aksep (Buyer Acceptance)","Kredibilitas dan kemampuan keuangan Drawee","Drawee telah menyerahkan bukti setoran pembayaran atas dokumen","Drawee merupakan nasabah prima yang sudah sangat dikenal dengan baik"], correct:2},
-{q:"Pada metode pembayaran documentary credit/letter of credit usance by acceptance, siapa pihak yang bertanggung jawab meng-aksep draft:", opts:["Applicant","Advising Bank","Beneficiary","Issuing Bank"], correct:3},
-{q:"Pada transaksi Documentary Collection - D/A, menurut Saudara drawee pada draft adalah:", opts:["Collecting/Presenting Bank","Seller","Buyer","Issuing Bank"], correct:2},
-{q:"Trust Receipt dibagi menjadi 2 yaitu:", opts:["Trust Receipt atas dasar non-LC","Benar Semua","Trust Receipt atas dasar LC","Salah semua"], correct:1},
-{q:"Berikut adalah manfaat transaksi trade bagi Bank, kecuali:", opts:["Meningkatkan DPK (Dana Pihak Ketiga)","Membantu Cash Flow","Cross Selling Produk","Meningkatkan Fee Based Income dan Interest Based Income"], correct:1},
-{q:"Disebut International Banking apabila transaksi perdagangan tersebut:", opts:["Menggunakan produk-produk Perbankan Internasional","Transaksinya menggunakan Valuta Asing","Melewati batas wilayah negara lain","Semua jawaban benar"], correct:3},
-{q:"Pihak yang ditunjuk oleh Issuing Bank untuk menyampaikan L/C kepada Beneficiary adalah:", opts:["Nominated bank","Advising Bank","Negotiating bank","Confirming bank"], correct:1},
-{q:"Bilamana dalam metode pembayaran perdagangan internasional menggunakan Letter of Credit dengan tenor at 60 Days after B/L date, maka pada metode pembayaran Collection sepadan dengan:", opts:["Documents Against Acceptance","Documents Under Deffered Payment","Document Against Payment","Document Against Collection"], correct:0},
-{q:"Cara pembayaran yang risikonya rendah dari sisi Buyer adalah:", opts:["Open Account","Documentary Credit","Advance Payment","Documentary Collection - DP"], correct:0},
-{q:"Documentary Credit/Letter of Credit tunduk pada aturan?", opts:["UCP 600","URDG 758","URC 522","ISP 98"], correct:0},
-{q:"Berikut ini yang merupakan syarat dan kondisi penerbitan SKBDN, kecuali:", opts:["Diterbitkan dalam valuta Rupiah, dengan pengecualian valas terkait perdagangan internasional","Bank, Pemohon dan Penerima berkedudukan di Indonesia","Tunduk pada Peraturan Bank Indonesia (PBI) tentang SKBDN yang berlaku","Tunduk pada URDG 758"], correct:3},
-{q:"Manakah sumber data yang dapat digunakan untuk menggarap potensi Transaksi Trade di cabang?", opts:["Nasabah yang memiliki rekening khusus DHE","Transaksi Remittance","Nasabah yang memiliki rekening Local Currency Settlement (LCS)","Benar Semua"], correct:3},
-{q:"Cara pembayaran yang risikonya tinggi dari sisi Buyer adalah:", opts:["Open Account","Documentary Credit","Documentary Collection - DP","Advance Payment"], correct:3},
-{q:"Fungsi Letter of Credit adalah:", opts:["Memberikan kepastian pembayaran bagi beneficiary apabila seluruh persyaratan yang ditentukan di dalam sales contract telah dipenuhi","Memberikan kepastian pembayaran bagi beneficiary apabila seluruh persyaratan dan kondisi yang ditetapkan pada letter of credit telah dipenuhi","Memberikan kepastian kepada importir untuk mendapatkan barang sesuai yang diperjanjikan dalam sales contract","Memberikan kepastian kepada eksportir untuk menerima pembayaran setelah mengirim dokumen kepada importir"], correct:1},
-{q:"Risiko tertinggi pada cara pembayaran Open Account:", opts:["Seller tidak menerima pembayaran","Buyer membatalkan pembelian","Buyer tidak menerima barang","Seller tidak dapat mengirimkan barang"], correct:0},
-{q:"Berikut merupakan solusi bagi penjual, kecuali:", opts:["Forfaiting","Invoice Financing","Pengambilalihan Wesel Ekspor ad. LC/SKBDN","Trust Receipt"], correct:3},
-{q:"Irrevocable Letter of Credit diperlukan karena:", opts:["Importir kurang percaya terhadap Eksportir","Eksportir kurang percaya terhadap Issuing Bank","Eksportir kurang percaya terhadap Importir","Importir kurang percaya terhadap Advising Bank"], correct:2},
-{q:"Jika nasabah Saudara mengajukan permohonan penerbitan Letter of Credit dengan salah satu klausulnya adalah tempat berakhir Letter of Credit di negara beneficiary dan tenor pada draft 60 hari setelah pengiriman barang, maka available pada Letter of Credit yang Saudara tetapkan adalah:", opts:["By Sight Payment","By Deffered Payment","By Negotiation","By Acceptance"], correct:2},
-{q:"Jika pada saat jatuh tempo L/C, pembeli tidak memiliki kecukupan dana untuk melakukan pembayaran kepada penjual, maka Bank Penerbit:", opts:["Menghubungi Penjual dan menyampaikan bahwa pembayaran L/C ditunda sampai dana pelunasan disediakan oleh Pembeli","Membayar tagihan kepada Penjual walaupun dana pelunasan pembeli belum tersedia","Hanya akan melakukan pembayaran setelah pembeli menyediakan dana pelunasan","Menghubungi Penjual dan menyampaikan bahwa pembayaran L/C akan dilakukan diluar mekanisme Bank"], correct:1},
-{q:"Dalam transaksi incoming documentary collection dengan kondisi (D/A), Trade Servicing Center menyerahkan dokumen kepada Drawee atas dasar:", opts:["Kredibilitas dan kemampuan keuangan Drawee","Drawee telah menyerahkan bukti setoran pembayaran atas dokumen","Drawee telah menyerahkan Surat Aksep (Buyer Acceptance)","Drawee merupakan nasabah prima yang sudah sangat dikenal dengan baik"], correct:2},
-{q:"Pihak yang bertanggung jawab terhadap autentikasi L/C adalah:", opts:["Collecting Bank","Advising Bank","Issuing Bank","Negotiating Bank"], correct:1},
-{q:"Cara pembayaran yang risikonya rendah dari sisi Seller dan Buyer adalah:", opts:["Open Account","Advance Payment","Documentary Credit","Documentary Collection - DP"], correct:2},
-{q:"Type pesan atau Message Type SWIFT untuk transaksi penerbitan/pembukaan LC adalah:", opts:["MT103","MT707","MT799","MT700"], correct:3},
-{q:"Manakah yang merupakan fitur Mandiri Global Trade?", opts:["Sistem Web Based","Limit Management","Push Notification","Semua Benar"], correct:3},
-{q:"Bank XYZ menerima LC dari bank korespondennya di luar negeri untuk nasabahnya, menurut Saudara kegiatan apa yang akan dilakukan oleh nasabah Bank XYZ:", opts:["Transaksi Impor","Semua jawaban benar","Transaksi Ekspor","Transaksi SKBDN"], correct:2},
-{q:"Apabila pengajuan penggunaan Deferred Payment atas dasar LC dari Bank Lain telah disetujui oleh bank, maka pencairan fasilitas ditujukan kepada?", opts:["Buyer","Issuing Bank","Remitting Bank","Seller"], correct:1},
-{q:"Berapakah Tarif minimal menerbitkan LC/SKBDN di Bank Mandiri?", opts:["USD 50 / IDR 700.000","USD 50 / IDR 500.000","USD 25 / 250.000","USD 50 / IDR 750.000"], correct:0},
-{q:"Rule of Thumb for Trade?", opts:["Seller berkewajiban mengirimkan barang dan dokumen","Buyer berkewajiban berjanji bayar","Semua jawaban benar","Buyer berkewajiban membayar"], correct:2},
-{q:"Cover penerbitan LC/SKBDN dapat berupa?", opts:["Blokir Deposito","Benar Semua","Blokir Giro","Fasilitas dari Bank"], correct:1},
-{q:"SKBDN merupakan instrument dan sarana untuk melakukan transaksi di bawah ini:", opts:["Perdagangan antar para pihak yang berkedudukan di dalam negeri dengan lokasi berbeda kota","Perdagangan antar para pihak yang berkedudukan di dalam negeri","Perdagangan antar para pihak yang berkedudukan di dalam negeri dengan lokasi dalam satu kota","Perdagangan dalam negeri khusus jasa"], correct:1},
-{q:"Berapakah Maksimal tenor Pengambilalihan Wesel Ekspor ad. LC/SKBDN?", opts:["180","60","210","90"], correct:0},
-{q:"SKBDN tunduk pada aturan?", opts:["UCP 600","5/6/PBI /2003","10/3/PBI/2008","ISP 98"], correct:1},
-{q:"Bank Mandiri menerima berita melalui SWIFT (MT 700) dari Korea Exchange Bank, Seoul-Korea, dalam hal ini Bank Mandiri bertindak sebagai:", opts:["Nominated bank","Negotiating bank","Issuing Bank","Advising Bank"], correct:3},
-{q:"Berikut ini yang merupakan syarat dan kondisi penerbitan Letter of Credit, kecuali:", opts:["Tunduk pada UCP yang berlaku","Diterbitkan dalam valuta yang disepakati kedua pihak","Bersifat Irrevocable","Ditujukan kepada Bank/Beneficiary yang dilarang oleh pemerintah/otoritas terkait"], correct:3}
+{q:"Termasuk dalam metode pembayaran yang pembayarannya dikemudian hari atau pada saat jatuh tempo, adalah:",
+ opts:["Documentary Collection-DA; Open Account; Sight L/C; Consignment","Documentary Collection-DA; Open Account; Usance L/C; Consignment","Documentary Collection-DA; Open Account; Green Clause L/C; Consignment","Documentary Collection-DA; Open Account; Red Clause L/C; Consignment"],
+ correct:1,
+ exp:"D/A, Open Account, Usance L/C dan Consignment sama-sama dibayar belakangan. Pada Usance L/C pembayaran ke beneficiary dilakukan saat jatuh tempo (berjangka), sedangkan Sight L/C dibayar saat dokumen complying diunjukkan, dan Red/Green Clause justru memberi uang muka.",
+ src:"Trade_Finance.pdf – slide Documentary Credit / Letter of Credit (Alur Transaksi Usance) &amp; Metode Pembayaran"},
+
+{q:"SKBDN tunduk pada aturan?",
+ opts:["5/6/PBI/2003","UCP 600","ISP 98","10/3/PBI/2008"],
+ correct:0,
+ exp:"SKBDN (Surat Kredit Berdokumen Dalam Negeri) tunduk pada Peraturan Bank Indonesia tentang SKBDN, yaitu PBI No. 5/6/2003. UCP 600 untuk LC, ISP 98 untuk Standby LC, URDG 758 untuk Demand Guarantee.",
+ src:"Transaction ServiceTrade Service dan Bank Garansi.pdf – slide Letter of Credit/SKBDN (kutipan PBI No. 5/6/2003 Pasal 1)"},
+
+{q:"Pada metode pembayaran documentary credit/letter of credit usance by acceptance, siapa pihak yang bertanggung jawab meng-aksep draft:",
+ opts:["Applicant","Advising Bank","Beneficiary","Issuing Bank"],
+ correct:0,
+ exp:"Pada alur Usance L/C di materi: setelah dokumen diterima, Buyer/Applicant melakukan akseptasi atas dokumen dan menyerahkannya ke Issuing Bank, barulah Issuing Bank memberikan akseptasi kepada Beneficiary melalui Nominated Bank. Jadi akseptasi berawal dari Applicant.",
+ src:"Trade_Finance.pdf – slide Documentary Credit/Letter of Credit, Alur Transaksi Usance langkah 5–7"},
+
+{q:"Type pesan atau Message Type SWIFT untuk transaksi penerbitan/pembukaan LC adalah:",
+ opts:["MT103","MT700","MT707","MT799"],
+ correct:1,
+ exp:"MT700 = Issue of a Documentary Credit (penerbitan LC). MT707 untuk amendment, MT799 pesan bebas antar bank, MT103 untuk remittance/transfer dana.",
+ src:"Trade_Finance.pdf – slide Contoh LC (1/3): Swift Output FIN 700 Issue of a Documentary Credit"},
+
+{q:"Berapakah Tarif minimal menerbitkan LC/SKBDN di Bank Mandiri?",
+ opts:["USD 50 / IDR 700.000","USD 50 / IDR 750.000","USD 50 / IDR 500.000","USD 25 / IDR 250.000"],
+ correct:0,
+ exp:"Komisi Penerbitan LC/SKBDN: setoran sendiri 0,0625% flat, minimal Rp700.000 untuk Rupiah dan minimal USD 50 untuk valas.",
+ src:"Trade_Finance.pdf – slide Penerbitan LC/SKBDN, tabel Biaya – Komisi Penerbitan LC"},
+
+{q:"Dalam transaksi incoming documentary collection dengan kondisi (D/P), Bank Mandiri (Trade Servicing Center) menyerahkan dokumen kepada Drawee atas dasar:",
+ opts:["Drawee telah menyerahkan bukti setoran pembayaran atas dokumen","Drawee merupakan nasabah prima yang sudah sangat dikenal dengan baik","Kredibilitas dan kemampuan keuangan Drawee","Drawee telah menyerahkan Surat Aksep (Buyer Acceptance)"],
+ correct:0,
+ exp:"D/P = Document against Payment. Buyer hanya bisa mengambil dokumen setelah melakukan pembayaran kepada Bank. Kalau dasarnya Surat Aksep, itu kondisi D/A.",
+ src:"Trade_Finance.pdf – slide Document Against Payment (D/P), Alur Transaksi langkah 4"},
+
+{q:"Berapakah Maksimal tenor Pengambilalihan Wesel Ekspor ad. LC/SKBDN?",
+ opts:["180 hari","30 hari","60 hari","210 hari"],
+ correct:0,
+ exp:"Fitur PWE ad. LC/SKBDN: tenor pengambilalihan maksimum 180 hari sejak tanggal pengambilalihan, limit uncommitted/advised & revolving jangka waktu 1 tahun, dan tidak dipersyaratkan agunan.",
+ src:"Trade_Finance.pdf – slide Pengambilalihan Wesel Ekspor ad. LC, tabel Fitur (Tenor Pengambilalihan)"},
+
+{q:"Rule of Thumb for Trade?",
+ opts:["Seller berkewajiban mengirimkan barang dan dokumen","Semua jawaban benar","Buyer berkewajiban berjanji bayar","Buyer berkewajiban membayar"],
+ correct:1,
+ exp:"Prinsip dasar transaksi trade mencakup ketiganya: penjual wajib mengirim barang beserta dokumen, pembeli berjanji untuk membayar, dan pembeli wajib merealisasikan pembayaran tersebut.",
+ src:"Trade_Overview_compressed.pdf – Sesi 01 Overview Trade &amp; Sales Contract / Metode Pembayaran"},
+
+{q:"Disebut International Banking apabila transaksi perdagangan tersebut:",
+ opts:["Melewati batas wilayah negara lain","Semua jawaban benar","Menggunakan produk-produk Perbankan Internasional","Transaksinya menggunakan Valuta Asing"],
+ correct:1,
+ exp:"Perdagangan internasional dicirikan oleh unsur antarbangsa: melewati batas negara, memakai valuta asing, dan memakai produk perbankan internasional. Ketiganya benar.",
+ src:"Trade_Finance.pdf – slide Overview Trade (definisi Perdagangan Internasional &amp; unsur antarbangsa)"},
+
+{q:"Apabila pengajuan penggunaan Deferred Payment atas dasar LC dari Bank Lain telah disetujui oleh bank, maka pencairan fasilitas ditujukan kepada?",
+ opts:["Buyer","Remitting Bank","Issuing Bank","Seller"],
+ correct:3,
+ exp:"Ini kunci resmi dari lembar jawaban post test. Perhatikan: pada skema Deferred Payment ad. Open Account, bank membayar langsung ke Penjual/Seller.",
+ src:"Kunci Post Test Trade Service; bandingkan Trade_Finance.pdf – slide Deferred Payment ad. Open Account vs ad. LC Bank Lain"},
+
+{q:"Irrevocable Letter of Credit diperlukan karena:",
+ opts:["Importir kurang percaya terhadap Advising Bank","Eksportir kurang percaya terhadap Issuing Bank","Importir kurang percaya terhadap Eksportir","Eksportir kurang percaya terhadap Importir"],
+ correct:3,
+ exp:"LC bersifat irrevocable agar janji bayar tidak bisa dibatalkan sepihak. Ini melindungi eksportir/beneficiary yang belum yakin importir akan membayar. Salah satu risiko LC bagi Buyer justru: L/C tidak dapat dibatalkan secara sepihak.",
+ src:"Trade_Finance.pdf – slide Documentary Credit/Letter of Credit, Risiko &amp; Keuntungan (sisi Seller: mendapat jaminan pembayaran dari Bank)"},
+
+{q:"Pada transaksi perdagangan internasional dengan L/C, pihak yang bertanggung jawab terhadap autentikasi L/C adalah:",
+ opts:["Collecting Bank","Advising Bank","Issuing Bank","Negotiating Bank"],
+ correct:1,
+ exp:"Advising Bank adalah bank yang meneruskan LC ke Beneficiary, dan tugas melekatnya adalah memastikan keaslian/keabsahan (autentikasi) LC sebelum diteruskan.",
+ src:"Trade_Finance.pdf – slide Documentary Credit/Letter of Credit, Alur Transaksi langkah 3 (Advising Bank meneruskan LC ke Beneficiary)"},
+
+{q:"Jika nasabah mengajukan penerbitan Letter of Credit dengan klausul tempat berakhir LC di negara beneficiary dan tenor pada draft 60 hari setelah pengiriman barang, maka available pada Letter of Credit yang ditetapkan adalah:",
+ opts:["By Deferred Payment","By Acceptance","By Sight Payment","By Negotiation"],
+ correct:1,
+ exp:"Karena ada draft/wesel berjangka (60 hari setelah shipment), LC tersebut usance dan direalisasikan lewat akseptasi wesel oleh bank. Kalau tanpa draft, barulah dipakai Deferred Payment.",
+ src:"Trade_Finance.pdf – slide Documentary Credit/Letter of Credit, Alur Transaksi Usance (akseptasi wesel/draft)"},
+
+{q:"Apabila 1=Applicant, 2=Beneficiary, 3=Issuing Bank, 4=Confirming Bank, 5=Advising Bank, maka untuk pembatalan suatu irrevocable L/C harus mendapat persetujuan dari:",
+ opts:["2 dan 3","1, 2 dan 4","1, 3 dan 5","3, 4 dan 5"],
+ correct:1,
+ exp:"Ini kunci resmi lembar jawaban post test. Catatan penting: menurut UCP 600 Art. 10, pembatalan/amandemen irrevocable LC memerlukan persetujuan Issuing Bank, Confirming Bank (bila ada), dan Beneficiary — kombinasi tersebut tidak tersedia pada opsi soal.",
+ src:"Kunci Post Test Trade Service; rujukan UCP 600 Art. 10 (Trade_Finance.pdf – slide Documentary Credit, sifat irrevocable)"},
+
+{q:"Documentary Credit/Letter of Credit tunduk pada aturan?",
+ opts:["UCP 600","ISP 98","URC 522","URDG 758"],
+ correct:0,
+ exp:"LC tunduk pada UCP 600 (Uniform Customs and Practice for Documentary Credits). Materi bahkan mengutip UCP600 Art. 2 sebagai definisi credit.",
+ src:"Transaction ServiceTrade Service dan Bank Garansi.pdf – slide Letter of Credit/SKBDN (kutipan UCP600 Art. 2)"},
+
+{q:"Berikut adalah manfaat transaksi trade bagi Bank, kecuali:",
+ opts:["Cross Selling Produk","Meningkatkan Fee Based Income dan Interest Based Income","Meningkatkan DPK (Dana Pihak Ketiga)","Membantu Cash Flow"],
+ correct:3,
+ exp:"Manfaat bagi Bank: FBI &amp; Interest Based Income, meningkatkan DPK, corporate image, memperluas jaringan internasional, cross selling, dan diversifikasi produk. Sedangkan membantu cash flow dan memperlancar transaksi perdagangan adalah manfaat bagi Nasabah.",
+ src:"Trade_Finance.pdf – slide Overview Trade, kotak Manfaat Transaksi Trade (Bank vs Nasabah)"},
+
+{q:"Berikut ini yang merupakan syarat dan kondisi penerbitan Letter of Credit, kecuali:",
+ opts:["Diterbitkan dalam Valuta Rupiah/Valas yang terdaftar dalam kurs harian Bank Indonesia","Tunduk pada UCP yang berlaku","Bersifat Irrevocable","Ditujukan kepada Bank/Beneficiary yang dilarang pemerintah atau Bank"],
+ correct:3,
+ exp:"Syarat umum penerbitan LC: irrevocable, tunduk UCP yang berlaku, diterbitkan dalam Rupiah atau valas yang terdaftar dalam kurs harian BI, dan BUKAN ditujukan kepada bank/beneficiary yang dilarang pemerintah atau Bank (screening sanction/OFAC).",
+ src:"Trade_Finance.pdf – slide Penerbitan LC/SKBDN, Syarat Umum Penerbitan LC di Bank Mandiri"},
+
+{q:"Cara pembayaran yang risikonya rendah dari sisi Seller dan Buyer adalah:",
+ opts:["Documentary Collection - DP","Documentary Credit","Open Account","Advance Payment"],
+ correct:1,
+ exp:"Documentary Credit (LC) menyeimbangkan risiko: Seller dapat jaminan pembayaran bank selama dokumen comply, Buyer hanya membayar bila terms &amp; conditions LC terpenuhi. Open Account berat sebelah ke Buyer, Advance Payment berat sebelah ke Seller.",
+ src:"Trade_Finance.pdf – slide Metode Pembayaran (spektrum risiko) &amp; Documentary Credit, Risiko &amp; Keuntungan"},
+
+{q:"Fungsi Letter of Credit adalah:",
+ opts:["Memberikan kepastian pembayaran bagi beneficiary apabila seluruh persyaratan yang ditentukan di dalam sales contract telah dipenuhi","Memberikan kepastian pembayaran bagi beneficiary apabila seluruh persyaratan dan kondisi yang ditetapkan pada letter of credit telah dipenuhi","Memberikan kepastian kepada importir untuk mendapatkan barang sesuai yang diperjanjikan di dalam sales contract","Memberikan kepastian kepada eksportir untuk menerima pembayaran setelah mengirim dokumen kepada importir"],
+ correct:3,
+ exp:"Ini kunci resmi lembar jawaban post test. Catatan: secara doktrin UCP 600, jawaban yang paling tepat sebenarnya opsi B — bank membayar atas dasar complying presentation terhadap syarat &amp; kondisi LC, bukan sales contract dan bukan pengiriman dokumen ke importir.",
+ src:"Kunci Post Test Trade Service; bandingkan Trade_Finance.pdf – slide Documentary Credit (janji pasti issuing bank atas presentasi dokumen yang comply)"},
+
+{q:"Risiko tertinggi pada cara pembayaran Open Account:",
+ opts:["Buyer tidak menerima barang","Seller tidak menerima pembayaran","Seller tidak dapat mengirimkan barang","Buyer membatalkan pembelian"],
+ correct:1,
+ exp:"Pada Open Account barang dikirim lebih dulu, pembayaran menyusul. Risiko Seller: tidak ada kepastian pembayaran atas barang yang telah dikirim. Karena itu Open Account = risiko tertinggi bagi Seller, terendah bagi Buyer.",
+ src:"Trade_Finance.pdf – slide Open Account, tabel Risiko &amp; Keuntungan (sisi Seller)"},
+
+{q:"Bank Mandiri menerima berita melalui SWIFT (MT 700) dari Korea Exchange Bank, Seoul - Korea, dalam hal ini Bank Mandiri bertindak sebagai:",
+ opts:["Negotiating Bank","Issuing Bank","Nominated Bank","Advising Bank"],
+ correct:3,
+ exp:"MT700 diterbitkan oleh Issuing Bank (Korea Exchange Bank). Bank yang menerima dan meneruskan LC tersebut kepada beneficiary di dalam negeri berperan sebagai Advising Bank.",
+ src:"Trade_Finance.pdf – slide Documentary Credit, Alur Transaksi langkah 2–3 (Issuing Bank menerbitkan, Advising Bank meneruskan LC)"},
+
+{q:"Manakah sumber data yang dapat digunakan untuk menggarap potensi Transaksi Trade di cabang?",
+ opts:["Transaksi Remittance","Nasabah yang memiliki rekening khusus DHE","Nasabah yang memiliki rekening Local Currency Settlement (LCS)","Benar Semua"],
+ correct:3,
+ exp:"Sumber data potensi transaksi trade meliputi nasabah yang membuka/menerima LC, nasabah rekening khusus DHE, nasabah rekening LCS, serta nasabah dengan transaksi remittance outgoing/incoming.",
+ src:"Trade_Finance.pdf – slide Potensi Transaksi Ekspor &amp; Impor di BMRI, kolom Sumber data"},
+
+{q:"Bank XYZ menerima LC dari bank korespondennya di luar negeri untuk nasabahnya, menurut Saudara kegiatan apa yang akan dilakukan oleh nasabah Bank XYZ:",
+ opts:["Transaksi Ekspor","Transaksi Impor","Transaksi SKBDN","Semua jawaban benar"],
+ correct:0,
+ exp:"LC yang masuk dari bank koresponden luar negeri berarti nasabah tersebut adalah beneficiary/penjual yang akan mengirim barang ke luar negeri, yaitu transaksi ekspor. Kalau nasabah membuka LC ke luar negeri, barulah transaksi impor.",
+ src:"Trade_Finance.pdf – slide Solusi Bagi Penjual &amp; Potensi Transaksi Ekspor di BMRI"},
+
+{q:"Cover penerbitan LC/SKBDN dapat berupa?",
+ opts:["Fasilitas dari Bank","Blokir Giro","Blokir Deposito","Benar Semua"],
+ correct:3,
+ exp:"Cover penerbitan LC/SKBDN: Margin Tunai (cash margin 100%), setoran tunai giro margin tunai, blokir rekening giro Bank Mandiri, blokir deposito Bank Mandiri, blokir tabungan Bank Mandiri, Import General Facility (IGF), atau kombinasi setoran dan margin tunai.",
+ src:"Trade_Finance.pdf – slide Penerbitan LC/SKBDN, kotak Cover Penerbitan LC/SKBDN"},
+
+{q:"Akseptasi pada transaksi Documentary Collection (D/A) merupakan kesanggupan bayar pada saat jatuh tempo oleh:",
+ opts:["Buyer","Collecting/Presenting Bank","Remitting Bank","Issuing Bank"],
+ correct:0,
+ exp:"Pada D/A, Buyer menyerahkan akseptasi kepada Presenting Bank; dokumen pengiriman barang baru diserahkan setelah Buyer memberikan akseptasi, dan pada saat jatuh tempo Buyer melakukan pembayaran kepada seller.",
+ src:"Trade_Finance.pdf – slide Document Against Acceptance (D/A), Alur Transaksi langkah 4–5"},
+
+{q:"Pihak yang ditunjuk oleh Issuing Bank untuk menyampaikan L/C kepada Beneficiary adalah:",
+ opts:["Advising Bank","Negotiating Bank","Nominated Bank","Confirming Bank"],
+ correct:0,
+ exp:"Advising Bank bertugas meneruskan/menyampaikan LC kepada Beneficiary. Nominated Bank adalah bank yang ditunjuk untuk melakukan pembayaran/negosiasi, Confirming Bank menambahkan konfirmasi atas LC.",
+ src:"Trade_Finance.pdf – slide Documentary Credit, Alur Transaksi langkah 3 (Advising Bank meneruskan LC ke Beneficiary)"},
+
+{q:"Berikut merupakan solusi bagi penjual, kecuali:",
+ opts:["Invoice Financing","Forfaiting","Pengambilalihan Wesel Ekspor ad. LC/SKBDN","Trust Receipt"],
+ correct:3,
+ exp:"Trust Receipt adalah pembiayaan talangan bagi Pembeli/importir untuk menebus dokumen. Solusi bagi Penjual mencakup Packing Loan, PO Financing, PWE ad. LC/non-LC, Forfaiting, dan Invoice Financing.",
+ src:"Trade_Finance.pdf – slide Solusi Bagi Penjual (pre &amp; post shipment) vs slide Solusi Bagi Pembeli / Trust Receipt"},
+
+{q:"Berikut ini yang merupakan syarat dan kondisi penerbitan SKBDN, kecuali:",
+ opts:["Diterbitkan dalam valuta Rupiah; penerbitan dalam Valuta Asing diperkenankan sepanjang terkait perdagangan internasional","Tunduk pada Peraturan Bank Indonesia (PBI) tentang SKBDN yang berlaku","Bank, Pemohon dan Penerima berkedudukan di dalam negeri Indonesia","Tunduk pada URDG 758"],
+ correct:3,
+ exp:"URDG 758 adalah aturan untuk Demand Guarantee, bukan SKBDN. Syarat SKBDN: tunduk PBI SKBDN, para pihak berkedudukan di dalam negeri, diterbitkan dalam Rupiah (valas hanya bila terkait perdagangan internasional), dan diterbitkan dalam Bahasa Indonesia.",
+ src:"Trade_Finance.pdf – slide Penerbitan LC/SKBDN, Syarat Umum Penerbitan SKBDN di Bank Mandiri"},
+
+{q:"Manakah yang merupakan fitur Mandiri Global Trade?",
+ opts:["Limit Management","Sistem Web Based","Push Notification","Semua Benar"],
+ correct:3,
+ exp:"Fitur Mandiri Global Trade: sistem web-based yang dapat diakses kapan &amp; di mana saja, aplikasi online penerbitan/amendment/financing, preview draft LC/BG, report volume &amp; outstanding limit, access level maker-checker, upload dokumen underlying, dan notifikasi via dashboard, SMS, email.",
+ src:"Trade_Finance.pdf – slide Mandiri Global Trade (Solusi Digital Trade)"},
+
+{q:"Fitur Mandiri Global Trade yang berfungsi untuk melakukan monitoring Limit Nasabah adalah?",
+ opts:["Limit Management","Upload Document","Push Notification","Preview Draft"],
+ correct:0,
+ exp:"Fitur Limit Management dipakai untuk inquiry status &amp; detail transaksi, ketersediaan dan penggunaan limit nasabah. Preview draft untuk melihat draft LC/BG sebelum submit, push notification untuk pemberitahuan status.",
+ src:"Trade_Finance.pdf – slide Mandiri Global Trade (Inquiry status &amp; detail transaksi, ketersediaan dan penggunaan limit)"}
 ];
 
-/* ============ DATA: BANK GUARANTEE (63 soal) ============ */
+/* ============ DATA: BANK GARANSI (34 soal) ============
+   Sumber soal : TEPOS Bank Garansi (100) + Soal Tambahan
+   Sumber materi: Bank_Garansi_Overview_compressed.pdf,
+                  Transaction ServiceTrade Service dan Bank Garansi.pdf
+========================================================= */
 const bgData = [
-{q:"Hukum di Indonesia yang dipakai dalam Bank Garansi Lokal adalah:", opts:["Kitab Undang-undang Hukum Perdata","Undang-undang Perdagangan","Kitab Undang-undang Hukum Pidana","Undang-undang Agraria"], correct:0},
-{q:"Standard Business Process melibatkan unit:", opts:["Servicing","Bisnis Unit","Unit Pengelola Limit Kredit","Unit Risk"], correct:0},
-{q:"Proses perubahan bank garansi dapat meliputi:", opts:["Nama Beneficiary","Bank Penerbit Bank Garansi","Penurunan nominal","Nama Applicant"], correct:2},
-{q:"Nominal bank garansi pemeliharaan sebesar:", opts:["Sama dengan nilai uang yang diterima","1 – 5 pct dari perkiraan nilai kontrak","5 – 20 pct dari nilai kontrak","10 pct dari nilai kontrak"], correct:3},
-{q:"Berikut pihak yang tidak terlibat langsung dengan bank garansi:", opts:["Beneficiary","Issuing bank","Counter bank","Applicant"], correct:2},
-{q:"Perubahan Bank Garansi dapat dilakukan terhadap hal-hal sebagai berikut, kecuali:", opts:["Kenaikan nominal Bank garansi","Underlying transaction yang menjadi dasar penerbitan bank Garansi","Penurunan nominal Bank garansi","Jangka Waktu Bank garansi"], correct:1},
-{q:"Berikut ini adalah yang tidak termasuk syarat minimum yang harus tercantum pada format Bank Garansi menurut SE BI No. 23/7/UKU tanggal 18 Maret 1991:", opts:["Masa klaim atas bank garansi","Tanggal penerbitan","Nama pejabat perusahaan penerima bank garansi","Tunduk pada 1831 atau 1832 KUH Perdata"], correct:2},
-{q:"Kewenangan terkait Bank Garansi di Bank Mandiri oleh Pejabat setingkat DH di Transaction Banking Product:", opts:["Kewenangan menyetujui Penerbitan BG Margin 100%","Kewenangan menyetujui Penerbitan BG Fasilitas","Kewenangan menandatangani warkat BG","Kewenangan mereview format customized BG"], correct:3},
-{q:"Kontrak/Perjanjian yang mengikat antara Bank Penerbit dgn Applicant/Pemohon adalah:", opts:["Perjanjian Utama/Sales Contract","Bank Garansi","Aplikasi Penerbitan BG","Underlying document untuk Bank Garansi"], correct:2},
-{q:"Pihak yang terlibat dalam Bank Garansi Lokal, kecuali:", opts:["Applicant","Guarantor","Beneficiary","Kantor cabang beneficiary"], correct:3},
-{q:"Kondisi dimana Bank Garansi dinyatakan masih belum berakhir:", opts:["Bank Garansi telah jatuh tempo termasuk periode klaim telah berakhir","Bank Garansi telah jatuh tempo tidak termasuk periode klaim","Klaim Bank Garansi telah dibayar","Asli Bank Garansi telah dikembalikan"], correct:1},
-{q:"Yang bukan tugas dan tanggung jawab Cabang Servicing dan TSC (Unit Servicing) adalah:", opts:["Menyetujui penerbitan BG Fasilitas","Membentuk GJMN BG sesuai CIF nasabah pemohon","Memeriksa dokumen klaim","Membentuk GNC atas pembebanan provisi penerbitan BG sesuai jenis mata uang provisi"], correct:0},
-{q:"Berakhirnya bank garansi dapat berupa proses berikut, yaitu:", opts:["Bank garansi hilang","Bank Garansi di beneficiary","Bank garansi telah jatuh tempo","Kontrak telah berakhir"], correct:2},
-{q:"Hal-hal berikut adalah perubahan bank garansi kecuali:", opts:["Pemendekkan jangka waktu","Kenaikan nominal","Perubahan kata/ kalimat","Nama beneficiary"], correct:3},
-{q:"Syarat penerbitan bank garansi di Bank Mandiri, kecuali:", opts:["Menyerahkan formulir aplikasi penerbitan BG","Menyerahkan surat permohonan dari nasabah sebagai dasar penerbitan BG","Menyediakan cover jaminan penerbitan BG","Menyerahkan underlying dokumen"], correct:1},
-{q:"Hal-hal yang tidak di perkenankan di Bank Mandiri antara lain:", opts:["Cover dengan menggunakan blokir tabungan","Perubahan jangka waktu bank garansi","Unconditional","Revocable"], correct:3},
-{q:"Pihak penerima bank garansi disebut:", opts:["Guarantor","Kontraktor","Beneficiary","Applicant"], correct:2},
-{q:"Berikut adalah underlying document yang dapat digunakan dalam Bank Garansi pelaksanaan kecuali:", opts:["Undangan tender terbuka","Surat Perintah Kerja","Notification of award","Kontrak yang telah ditandatangani"], correct:0},
-{q:"Jenis bank Garansi atas dasar tujuan penggunaannya, kecuali:", opts:["BG Pembayaran","BG Pelaksanaan","Bank Garansi Serah Terima","BG Tender"], correct:2},
-{q:"Bank garansi yang digunakan untuk menjamin uang yang terlebih dahulu dibayarkan oleh pemilik proyek kepada kontraktor adalah:", opts:["Bank garansi tender","Bank garansi uang muka","Custom bond","Counter guarantee"], correct:1},
-{q:"Nominal bank garansi uang muka sebesar:", opts:["Sama dengan nilai uang yang diterima","1 – 5 pct dari perkiraan nilai kontrak","5 – 20 pct dari nilai kontrak","10 pct dari nilai kontrak"], correct:0},
-{q:"Guarantee yang bisa digunakan untuk transaksi domestik dan international adalah:", opts:["Demand guarantee dan bank garansi","Standby LC dan shipping guarantee","Standby LC dan demand guarantee","Bank garansi dan standby lc"], correct:2},
-{q:"Syarat minimum bank garansi yang tunduk pada SE BI No. 23/7/UKU tanggal 18 Maret 1991, kecuali:", opts:["Tanggal penerbitan","Surat permohonan dari pemohon","Jumlah uang yang dijamin oleh bank","Nama dan alamat Bank pemberi BG"], correct:1},
-{q:"Jaminan bank yang tepat untuk keperluan penawaran proyek adalah:", opts:["Demand guarantee","Tender bond","Retention bond","Performance bond"], correct:1},
-{q:"Yang bukan Manfaat Bank Garansi bagi Nasabah:", opts:["Mengurangi risiko cidera janji (wanprestasi) bagi penerima Bank Garansi","Memperlancar Transaksi Bisnis bagi Pemohon Bank Garansi","Jaminan dikeluarkan oleh Institusi lembaga keuangan yg kredible","Meningkatkan Corporate Image"], correct:3},
-{q:"Pihak-Pihak dalam Bank Garansi:", opts:["Pihak yang menjamin, pihak yang dijamin dan pihak yang menerima jaminan","Penerima Jaminan (Applicant), Pemohon (Beneficiary) dan Bank Penerbit","Applicant, Benefiacry dan Counter Bank","Pihak yang meminta jaminan kepada pemohon, Beneficiary dan Issuing Bank"], correct:0},
-{q:"Yang tidak termasuk tujuan digunakannya Garansi:", opts:["Memperlancar transaksi bisnis bagi pemohon dan penerima bank garansi","Memitigasi / meminimalisir risiko yang berhubungan dengan potensial insolvency","Adanya ketidak percayaan kedua belah pihak","Memitigasi / meminimalisir risiko yang berhubungan unwillingness to pay counter party nasabah"], correct:2},
-{q:"Bank garansi uang muka menggunakan underlying document sebagai berikut:", opts:["Undangan tender","Berita Acara Serah Terima","Kontrak yang telah di tandatangani","Surat pemberitahuan bea masuk cukai"], correct:2},
-{q:"Kapan diperlukan BG Jaminan Sanggah:", opts:["Setelah pengumuman pemenang","Setelah dilakukan Aanwijzing","Setelah pelaksanaan pekerjaan selesai","Setelah terbit SPK"], correct:0},
-{q:"Cover bank garansi dapat berupa, kecuali:", opts:["Blokir rekening tabungan","Fasilitas Cash Loan","Setoran pada Giro Jaminan Bank Garansi (GJMN)","Blokir deposito"], correct:1},
-{q:"Berikut pihak-pihak yang terlibat langsung dengan Bank Mandiri apabila penerbitan bank garansi didasarkan atas Counter Guarantee, adalah:", opts:["Confirming Bank","Perusahaan Asuransi","Transferring Bank","Counter Bank"], correct:3},
-{q:"Salah satu syarat minimum bank garansi yang tunduk pada SE BI No. 23/7/UKU tanggal 18 Maret 1991:", opts:["Pasal 1831 atau pasal 1832 KUH Perdata","Pasal 1831 atau pasal 1832 KUHP","Nama pejabat beneficiary","Batas waktu pengajuan perubahan bank garansi"], correct:0},
-{q:"Kontra Garansi Asuransi yang belum bekerjasama dengan Bank Mandiri:", opts:["Asuransi Jasa Indonesia (Jasindo)","Asuransi Sinar Mas (ASM)","Asuransi Tugu Muda","Perusahaan Umum Jaminan Kredit Indonesia (Jamkrindo)"], correct:2},
-{q:"Apakah yang Saudara ketahui tentang Bank Garansi?", opts:["Janji Bank","Alat Pembayaran","Alat Penjaminan","Dokumen Transportasi"], correct:2},
-{q:"Hal-hal yang tidak diperkenankan dalam penerbitan bank garansi:", opts:["Irrevocable dan unconditional","Revocable dan conditional","Tanggal terbit sesuai dengan tanggal penerbitan sesungguhnya","Mensyaratkan dokumen klaim"], correct:1},
-{q:"Yang bukan ketentuan BG menurut SE BI No. 23/7/UKU tgl. 18 maret 1991 adalah:", opts:["Minimal memuat 7 point sesuai SE BI No. 23/7/UKU","Tunduk pada hukum indonesia","Berbentuk warkat","Minimal memuat 9 point sesuai SE BI No. 23/7/UKU"], correct:3},
-{q:"Manakah berikut ini yang tidak termasuk dalam jenis cover jaminan yang dapat digunakan untuk penerbitan Bank Garansi:", opts:["Kontra Garansi Asuransi","Counter Guarantee dari Bank Koresponden","Setor jaminan 100% tunai","Fasilitas IGF (Non Cash Loan)"], correct:3},
-{q:"Underlying document untuk Bank Garansi Tender adalah:", opts:["Surat Perintah Kerja","Surat pengumuman pemenang tender","Kontrak","Undangan tender untuk mengikuti tender"], correct:3},
-{q:"Nominal bank garansi tender sebesar:", opts:["5 - 20 Persen dari nilai kontrak","Maksimal 50 juta","Sama dengan nilai uang yang di terima","1 - 5 Persen dari perkiraan nilai kontrak"], correct:3},
-{q:"Cover bank garansi dapat berupa:", opts:["Obligasi","Blokir rekening giro","Rekening di bank lain","Saham"], correct:1},
-{q:"Instrument guarantee yang bersifat dependent adalah sebagai berikut:", opts:["Demand guarantee dan surety bond","Bank garansi dan surety bond","Demand guarantee dan standby lc","Bank garansi dan demand guarante"], correct:1},
-{q:"Manfaat layanan konfirmasi online KGBM bagi beneficiary, kecuali:", opts:["Semua Nasabah yang bertransaksi BG di Bank Mandiri bisa mengakses website kgbm","Dapat diakses 24 jam setiap hari (24/7)","Dapat diakses melalui berbagai platform (Mobile Phone, Tablet, PC dll)","Bebas Biaya (Free of Charges)"], correct:0},
-{q:"Apa yang dimaksud dengan Format Customized pada Bank Garansi:", opts:["Format BG yang telah tercantum dlm sistem sehingga Bank hanya mengisi beberapa field saja seperti nama","Format BG yang belum tersedia dalam sistem sehingga Bank harus mengetik ulang atau meng copy seluruh kalimat dalam BG tersebut","Format BG yang mengandung klausula khusus diluar BG standard dan BG template atau yang tidak memuat klausula-klausula standard minimal","Format BG yang sudah tercantum dalam sistem sehingga Bank tidak harus mengetik ulang"], correct:2},
-{q:"Definisi Bank Garansi adalah sebagai berikut:", opts:["Jaminan tertulis Bank kpd pihak penerima jaminan dimana bank mengikatkan diri untuk membayar sejumlah uang tertentu apabila pihak pemohon tidak memenuhi kewajibannya berdasarkan Aplikasi Bank Garansi yang diserahkan pemohon kepada Bank","Jaminan tertulis Bank kpd pihak penerima jaminan dimana bank mengikatkan diri untuk membayar sejumlah uang tertentu apabila pihak pemohon tidak memenuhi kewajibannya berdasarkan kesepakatan/kontrak antara pihak pemohon dengan pihak penerima","Jaminan tertulis Bank kpd pihak penerima jaminan dimana bank mengikatkan diri untuk membayar sejumlah uang tertentu apabila pihak pemohon tidak memenuhi kewajibannya berdasarkan kesepakatan/kontrak antara pihak Bank Penerbit dengan pihak Applicant","Jaminan tertulis Bank kpd pihak pemohon dimana bank mengikatkan diri untuk membayar sejumlah uang tertentu apabila pihak pemohon tidak memenuhi kewajibannya berdasarkan kesepakatan/kontrak antara pihak pemohon dengan pihak penerima"], correct:1},
-{q:"Instrument Guarantee yang bersifat Independent adalah sebagai berikut:", opts:["Demand guarantee dan surety bond","Bank garansi dan surety bond","Demand guarantee dan standby letter of credit","Bank garansi dan standby LC"], correct:2},
-{q:"Perubahan bank garansi dapat berupa:", opts:["Nama Applicant","Nama beneficiary","Nominal","Perubahan underlying document"], correct:2},
-{q:"Risiko yang dapat terjadi apabila Bank menjalankan transaksi BG adalah:", opts:["Credit Risk, Operational Risk, Market Risk dan Bank Risk","Documentary Risk, Operational Risk, Market Risk dan Legal Risk","Credit Risk, Legal Risk, Market Risk dan Bank Risk","Credit Risk, Operational Risk, Market Risk dan Legal Risk"], correct:3},
-{q:"Digunakan untuk menjamin uang yang telah dibayarkan pemilik proyek dalam hubungannya dengan masa pemeliharaan proyek:", opts:["Performance bond","Custom bond","Retention bond","Surety bond"], correct:2},
-{q:"Berikut pihak-pihak yang terlibat langsung dengan Bank Mandiri apabila penerbitan bank garansi didasarkan atas Counter Guarantee, kecuali:", opts:["Confirming Bank","Beneficiary","Counter Bank","Applicant"], correct:0},
-{q:"Ketentuan Demand Guarantee menurut URDG 758:", opts:["Berbentuk Warkat","Accessoir dari perjanjian induk","Terpisah dari perjanjian induk","Tunduk Pada Hukum Indonesia"], correct:2},
-{q:"Hak istimewa sebagai guarantor untuk menjual aset-aset pihak terjamin terlebih dahulu untuk memenuhi kewajibannya kepada Pihak Yang dijamin diatur dalam pasal:", opts:["Pasal 1820 KUH Perdata","Pasal 1831 KUH Perdata","Pasal 1847 KUH Perdata","Pasal 1832 KUH Perdata"], correct:1},
-{q:"Jaminan bank yang tepat untuk pelaksanaan pekerjaan adalah:", opts:["Standby letter of credit","Tender bond","Retention bond","Performance bond"], correct:3},
-{q:"Berakhirnya bank garansi dapat berupa proses berikut, kecuali:", opts:["Bank garansi telah jatuh tempo","Klaim bank garansi telah dibayar","Asli bank garansi telah dikembalikan","Bank garansi dinyatakan hilang oleh beneficiary"], correct:3},
-{q:"Bank garansi yang telah diterbitkan diserahkan oleh bank penerbit kepada:", opts:["Applicant","Beneficiary","Penyelenggara tender","Kantor cabang beneficiary"], correct:0},
-{q:"Berikut ini adalah syarat salah satu minimum bank garansi yang tunduk pada SE BI No. 23/7/UKU tanggal 18 Maret 1991:", opts:["Alamat beneficiary","Alamat applicant","Nama pejabat beneficiary","Transaksi yang dijamin"], correct:3},
-{q:"Yang bukan manfaat bank garansi bagi bank:", opts:["Cross selling product","Mempelancar transaksi bisnis","Meningkatkan corporate image","Menghasilkan fee based income"], correct:1},
-{q:"Kontrak/Perjanjian yang mengikat antara Bank Penerbit dgn Penerima/Beneficiary adalah:", opts:["Perjanjian Utama/Sales Contract","Bank Garansi","Aplikasi Pembukaan BG","Underlying document untuk Bank Garansi"], correct:1},
-{q:"Nominal bank garansi pelaksanaan sebesar:", opts:["Sama dengan nilai uang yang diterima","10 pct dari nilai kontrak","1-5 pct dari perkiraan nilai kontrak","5-20 pct dari nilai kontrak"], correct:3},
-{q:"Hal-hal yang tidak boleh dalam penerbitan BG di Bank Mandiri sebagai berikut kecuali:", opts:["Bersifat revocable","Klaim yang dilakukan dari Beneficiary, tidak mencantumkan pernyataan Wanprestasi yang dilakukan applicant","Transaksi yang dijamin","Tidak mencantumkan tanggal berakhirnya BG"], correct:2},
-{q:"Bank Garansi yang digunakan untuk menjamin pelaksanaan kewajiban pihak yang dijamin sesuai kontrak:", opts:["Tender Bond","Advance Payment Bond","Retention Bond","Performance Bond"], correct:3},
-{q:"BG Tender dinyatakan jatuh tempo apabila:", opts:["Menang tender","Tidak menandatangani kontrak","Tidak menang tender","Tidak dapat menyerahkan bank garansi pelaksanaan"], correct:2},
-{q:"Besar nominal Bank Garansi Sanggah adalah:", opts:["Rp. 20 juta","2 per mil dari HPS atau maksimal sebesar Rp 20 juta","2 Persen dari HPS","2 permil dari HPS atau maksimal sebesar Rp. 50 juta"], correct:3},
-{q:"Pihak yang mengajukan permohonan penerbitan bank garansi kepada penjamin disebut:", opts:["Applicant","Beneficiary","Guarantor","Kontraktor"], correct:0}
+{q:"Hak istimewa sebagai guarantor untuk menjual aset-aset pihak terjamin terlebih dahulu untuk memenuhi kewajibannya kepada Pihak Yang dijamin diatur dalam Kitab Undang-Undang Hukum Perdata:",
+ opts:["Pasal 1820 KUH Perdata","Pasal 1831 KUH Perdata","Pasal 1832 KUH Perdata","Pasal 1847 KUH Perdata"],
+ correct:1,
+ exp:"Pasal 1831 KUHPerdata = penjamin masih memiliki hak istimewa menuntut agar harta pihak terjamin disita/dijual lebih dahulu. Pasal 1832 = penjamin melepaskan hak istimewa tersebut sehingga bank langsung membayar saat klaim.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi, minimal memuat pernyataan tunduk Pasal 1831/1832 KUHPerdata"},
+
+{q:"Salah satu syarat minimum bank garansi yang tunduk pada SE BI No. 23/7/UKU tanggal 18 Maret 1991:",
+ opts:["Nama pejabat beneficiary","Batas waktu pengajuan perubahan bank garansi","Pasal 1831 atau pasal 1832 KUHP","Pasal 1831 atau pasal 1832 KUH Perdata"],
+ correct:3,
+ exp:"Yang wajib dicantumkan adalah pernyataan tunduk pada Pasal 1831 ATAU 1832 KUH PERDATA (bukan KUHP/pidana). Nama pejabat beneficiary tidak pernah menjadi syarat minimum.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Minimal memuat)"},
+
+{q:"Underlying document untuk Bank Garansi Tender adalah:",
+ opts:["Surat perintah kerja","Undangan tender untuk mengikuti tender","Kontrak","Surat pengumuman pemenang tender"],
+ correct:1,
+ exp:"BG Tender/Bid Bond diterbitkan pada tahap pendaftaran/undangan tender, sehingga underlying-nya adalah undangan tender. SPK dan kontrak baru muncul pada tahap BG Pelaksanaan.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Overview Bank Garansi (siklus Proses Pengadaan &amp; Pelaksanaan Pekerjaan) dan Jenis Bank Garansi (1/2)"},
+
+{q:"Berikut ini adalah beberapa syarat minimum yang harus tercantum pada format Bank Garansi, kecuali:",
+ opts:["Masa klaim atas bank garansi","Tanggal penerbitan","Nama pejabat perusahaan penerima bank garansi","Tunduk pada 1831 atau 1832 KUH Perdata"],
+ correct:2,
+ exp:"Syarat minimum memuat nama &amp; alamat Pemohon dan Beneficiary, nama &amp; alamat bank penerbit, jenis BG, tanggal penerbitan, jumlah yang dijamin, jangka waktu, batas waktu klaim, dan pernyataan tunduk 1831/1832. Nama PEJABAT beneficiary bukan syarat.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Minimal memuat / Tidak boleh memuat)"},
+
+{q:"Nominal bank garansi pemeliharaan sebesar:",
+ opts:["Sama dengan nilai uang yang diterima","1 – 5 persen dari perkiraan nilai kontrak","5 – 20 persen dari nilai kontrak","10 persen dari nilai kontrak"],
+ correct:3,
+ exp:"BG Pemeliharaan / Retention Bond menjamin masa pemeliharaan setelah pekerjaan selesai, besarannya 10% dari nilai kontrak.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Jenis Bank Garansi (BG Pemeliharaan/Maintenance/Retention Bond)"},
+
+{q:"Pihak yang mengajukan permohonan penerbitan bank garansi kepada penjamin disebut:",
+ opts:["Applicant","Beneficiary","Guarantor","Kontraktor"],
+ correct:0,
+ exp:"Tiga pihak dalam BG: Applicant/Pemohon (yang mengajukan penerbitan), Beneficiary/Penerima Jaminan, dan Bank Penerbit (Guarantor).",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Overview Bank Garansi (Pihak-pihak yang terlibat: Penerima Jaminan, Pemohon, Bank Penerbit)"},
+
+{q:"Pihak yang terlibat dalam Bank Garansi Lokal, kecuali:",
+ opts:["Applicant","Beneficiary","Guarantor","Kantor cabang beneficiary"],
+ correct:3,
+ exp:"BG Lokal hanya melibatkan tiga pihak: Applicant, Beneficiary, dan Bank Penerbit selaku Guarantor. Kantor cabang beneficiary bukan pihak dalam BG.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Overview Bank Garansi (Pihak-pihak yang terlibat dalam Bank Garansi)"},
+
+{q:"Syarat minimum bank garansi yang tunduk pada SE BI No. 23/7/UKU tanggal 18 Maret 1991, kecuali:",
+ opts:["Surat permohonan dari pemohon","Jumlah uang yang dijamin oleh bank","Tanggal penerbitan","Nama dan alamat bank pemberi BG"],
+ correct:0,
+ exp:"Surat permohonan adalah dokumen proses pengajuan, bukan klausul yang harus tercantum di dalam warkat BG. Yang wajib tercantum antara lain jumlah yang dijamin, tanggal penerbitan, dan nama/alamat bank penerbit.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Minimal memuat) &amp; Syarat Penerbitan BG"},
+
+{q:"Nominal bank garansi tender sebesar:",
+ opts:["1 – 5 persen dari perkiraan nilai kontrak","Maksimal 50 juta","Sama dengan nilai uang yang diterima","5 – 20 persen dari nilai kontrak"],
+ correct:0,
+ exp:"BG Tender/Bid Bond = 1–5% dari perkiraan nilai kontrak (nilai HPS/pagu), karena kontrak final belum ada saat tender.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Jenis Bank Garansi (1/2), BG tender/Bid bond"},
+
+{q:"Jaminan Bank yang tepat untuk pelaksanaan pekerjaan adalah:",
+ opts:["Tender bond","Performance bond","Standby Letter of Credit","Retention bond"],
+ correct:1,
+ exp:"Performance Bond / BG Pelaksanaan menjamin bahwa Pemohon mampu melaksanakan proyek sesuai kontrak. Tender bond untuk tahap penawaran, retention bond untuk masa pemeliharaan.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Jenis Bank Garansi (BG Pelaksanaan / Performance Bond)"},
+
+{q:"Hukum di Indonesia yang dipakai dalam Bank Garansi Lokal adalah:",
+ opts:["Kitab Undang-Undang Hukum Pidana","Undang-Undang Agraria","Kitab Undang-Undang Hukum Perdata","Undang-Undang Perdagangan"],
+ correct:2,
+ exp:"Bank Garansi bersifat accessoir dan tunduk pada hukum Indonesia, khususnya KUHPerdata Pasal 1831/1832, ditambah SE BI No. 23/7/UKU dan POJK No. 26 Tahun 2024.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Tunduk kepada POJK No. 26 tahun 2024, tunduk pada hukum Indonesia) &amp; Perbandingan BG Dependent vs Independent"},
+
+{q:"Nominal bank garansi pelaksanaan sebesar:",
+ opts:["1 – 5 persen dari perkiraan nilai kontrak","10 persen dari nilai kontrak","Sama dengan nilai uang yang diterima","5 – 20 persen dari nilai kontrak"],
+ correct:3,
+ exp:"BG Pelaksanaan/Performance Bond = 5–20% dari nilai kontrak. Jangan tertukar dengan BG Pemeliharaan (10%) dan BG Tender (1–5%).",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Jenis Bank Garansi (BG Pelaksanaan/Performance Bond)"},
+
+{q:"Perubahan Bank Garansi dapat dilakukan terhadap hal-hal sebagai berikut, kecuali:",
+ opts:["Underlying transaction yang menjadi dasar penerbitan bank garansi","Penurunan nominal bank garansi","Kenaikan nominal bank garansi","Jangka waktu bank garansi"],
+ correct:0,
+ exp:"Amandemen BG hanya menyentuh nominal, jangka waktu, atau redaksi warkat. Underlying transaction adalah dasar penerbitan; bila berubah maka harus diterbitkan BG baru, bukan diamandemen.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (BG bersifat accessoir terhadap perjanjian induk)"},
+
+{q:"Pihak penerima bank garansi disebut:",
+ opts:["Beneficiary","Kontraktor","Applicant","Guarantor"],
+ correct:0,
+ exp:"Beneficiary = Penerima Jaminan, yaitu pihak yang menerima jaminan dan berhak mengajukan klaim bila Applicant wanprestasi.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Overview Bank Garansi (Penerima Jaminan/Beneficiary)"},
+
+{q:"Besar nominal Bank Garansi Sanggah adalah:",
+ opts:["Rp 20 juta","2 permil dari HPS atau maksimal sebesar Rp 50 juta","2 persen dari HPS","2 permil dari HPS atau maksimal sebesar Rp 20 juta"],
+ correct:1,
+ exp:"Jaminan Sanggah diperlukan pada Masa Sanggah setelah pengumuman pemenang tender, besarnya 2 permil dari HPS dengan batas maksimal Rp 50 juta.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Overview Bank Garansi (siklus tender: Pengumuman Pemenang – Masa Sanggah – Jaminan Sanggah)"},
+
+{q:"Nominal bank garansi uang muka sebesar:",
+ opts:["1 – 5 persen dari perkiraan nilai kontrak","10 persen dari nilai kontrak","Sama dengan nilai uang muka yang diterima","5 – 20 persen dari nilai kontrak"],
+ correct:2,
+ exp:"BG Uang Muka / Advance Payment Bond menjamin uang muka yang sudah dibayarkan pemilik proyek, jadi nilainya sama persis dengan uang muka yang diterima.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Jenis Bank Garansi (2/2), BG Uang Muka/Advance Payment Bond"},
+
+{q:"BG Tender dinyatakan jatuh tempo apabila:",
+ opts:["Tidak menandatangani kontrak","Tidak dapat menyerahkan bank garansi pelaksanaan","Menang tender","Tidak menang tender"],
+ correct:3,
+ exp:"Kunci resmi TEPOS. Logikanya: BG Tender berakhir saat peserta tidak menang tender karena tujuan penjaminan sudah selesai. Bila menang, BG Tender digantikan BG Pelaksanaan.",
+ src:"Kunci TEPOS Bank Garansi; rujukan Bank_Garansi_Overview_compressed.pdf – siklus Proses Pengadaan &amp; Pelaksanaan Pekerjaan"},
+
+{q:"Berakhirnya bank garansi dapat berupa proses berikut, yaitu:",
+ opts:["Kontrak telah berakhir","Bank garansi di beneficiary","Bank garansi telah jatuh tempo","Bank garansi hilang"],
+ correct:2,
+ exp:"BG berakhir bila jatuh tempo (termasuk lewatnya masa klaim), warkat asli dikembalikan, atau klaim telah dibayar. Berakhirnya kontrak atau hilangnya warkat tidak otomatis mengakhiri BG.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Tanggal berakhir &amp; masa klaim wajib dicantumkan)"},
+
+{q:"Hal-hal yang tidak diperkenankan di Bank Mandiri antara lain:",
+ opts:["Revocable","Perubahan jangka waktu bank garansi","Unconditional","Cover dengan menggunakan blokir tabungan"],
+ correct:0,
+ exp:"BG Bank Mandiri wajib bersifat irrevocable. Hal yang dilarang: bersifat revocable, tanggal terbit tidak sesuai tanggal penetapan, klaim tanpa pernyataan wanprestasi, dan tidak mencantumkan tanggal berakhir.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi, kotak Hal-hal yang dihindari dalam Penerbitan BG di Bank Mandiri"},
+
+{q:"Proses perubahan bank garansi dapat meliputi:",
+ opts:["Nama beneficiary","Bank penerbit bank garansi","Nama applicant","Penurunan nominal"],
+ correct:3,
+ exp:"Yang boleh diamandemen hanya nominal (naik/turun), jangka waktu, dan redaksi. Mengganti nama applicant, nama beneficiary, atau bank penerbit berarti menerbitkan BG baru.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi &amp; Format Bank Garansi (Retype/Customized)"},
+
+{q:"Berikut pihak-pihak yang terlibat langsung dengan Bank Mandiri apabila penerbitan bank garansi didasarkan atas Counter Guarantee, kecuali:",
+ opts:["Confirming Bank","Beneficiary","Counter Bank","Applicant"],
+ correct:0,
+ exp:"Pada skema Counter Guarantee, alurnya: Applicant mengajukan ke Counter Bank, Counter Bank mengirim Counter Guarantee ke Bank Mandiri, lalu Bank Mandiri menerbitkan BG kepada Local Beneficiary. Confirming Bank adalah istilah pada LC, bukan pihak dalam BG.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Alur Penerbitan Bank Garansi a.d Counter Guarantee dari Bank Lain"},
+
+{q:"Berikut pihak-pihak yang terlibat langsung dengan Bank Mandiri apabila penerbitan bank garansi didasarkan atas Counter Guarantee, adalah:",
+ opts:["Confirming Bank","Perusahaan Asuransi","Transferring Bank","Counter Bank"],
+ correct:3,
+ exp:"Counter Bank adalah bank yang menerbitkan Counter Guarantee kepada Bank Mandiri sebagai dasar penerbitan BG. Perusahaan Asuransi baru relevan pada skema Kontra Garansi Asuransi.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Alur Penerbitan Bank Garansi a.d Counter Guarantee dari Bank Lain"},
+
+{q:"Berakhirnya bank garansi dapat berupa proses berikut, kecuali:",
+ opts:["Bank garansi telah jatuh tempo","Asli bank garansi telah dikembalikan","Bank garansi dinyatakan hilang oleh beneficiary","Klaim bank garansi telah dibayar"],
+ correct:2,
+ exp:"Kehilangan warkat tidak mengakhiri kewajiban bank; yang berlaku adalah prosedur penggantian/surat pernyataan. Yang mengakhiri BG: jatuh tempo, pengembalian warkat asli, atau pembayaran klaim.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (tanggal berakhir &amp; masa klaim) dan Risiko/Mitigasi Penerbitan BG"},
+
+{q:"Bank Garansi Uang Muka menggunakan underlying document sebagai berikut:",
+ opts:["Surat pemberitahuan bea masuk cukai","Undangan tender","Surat pengumuman pemenang tender","Kontrak yang telah ditandatangani"],
+ correct:3,
+ exp:"BG Uang Muka terbit setelah kontrak/SPK ada, karena uang muka dibayarkan berdasarkan kontrak tersebut. Undangan tender untuk Bid Bond, surat pemberitahuan bea masuk untuk Custom Bond.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Jenis Bank Garansi (2/2) &amp; siklus Proses Pengadaan (Terbit SPK – Pelaksanaan Pekerjaan)"},
+
+{q:"Syarat penerbitan bank garansi di Bank Mandiri, kecuali:",
+ opts:["Menyediakan cover jaminan penerbitan BG","Menyerahkan formulir aplikasi penerbitan BG","Menyerahkan surat permohonan dari nasabah sebagai dasar penerbitan BG","Mempunyai rekening di Bank Mandiri"],
+ correct:2,
+ exp:"Syarat penerbitan BG di Bank Mandiri: mengisi &amp; menandatangani Aplikasi Penerbitan BG, menyerahkan Underlying Dokumen, menyediakan cover jaminan, dan menggunakan format standar/customized. Dasar penerbitan adalah UNDERLYING DOCUMENT, bukan surat permohonan.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi, kotak Syarat Penerbitan Bank Garansi"},
+
+{q:"Apakah yang Saudara ketahui tentang Bank Garansi?",
+ opts:["Janji Bank","Alat Pembayaran","Penjaminan","Dokumen Transportasi"],
+ correct:2,
+ exp:"BG adalah instrumen penjaminan (guarantee), bukan alat pembayaran. Bank mengikatkan diri membayar sejumlah uang bila Pemohon tidak memenuhi kewajibannya berdasarkan kontrak dengan Penerima Jaminan.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Overview Bank Garansi, Definisi Bank Garansi"},
+
+{q:"Syarat minimum bank garansi menurut SE BI No. 23/7/UKU tanggal 18 Maret 1991 adalah:",
+ opts:["Nama pejabat beneficiary","Transaksi (macam transaksi yang dijamin)","Alamat beneficiary","Alamat applicant"],
+ correct:1,
+ exp:"Kunci resmi soal. Catatan: opsi Alamat beneficiary dan Alamat applicant sebenarnya juga syarat minimum (nama &amp; alamat Pemohon dan Beneficiary). Yang PASTI bukan syarat adalah nama pejabat beneficiary.",
+ src:"Kunci Soal Tambahan Bank Garansi; rujukan Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Minimal memuat)"},
+
+{q:"Cover bank garansi dapat berupa:",
+ opts:["Obligasi","Blokir rekening giro","Rekening di bank lain","Saham"],
+ correct:1,
+ exp:"Cover BG yang diakui: setoran tunai 100%, Giro Jaminan BG (GJMN), blokir giro/deposito/tabungan di Bank Mandiri, fasilitas non cash loan, kontra garansi asuransi, atau counter guarantee bank koresponden. Obligasi, saham, dan rekening di bank lain tidak termasuk.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Menyediakan Cover Jaminan: Setoran/Blokir Giro/Deposito, Fasilitas NCL, Kontra Garansi, Counter Guarantee)"},
+
+{q:"Cover bank garansi dapat berupa, kecuali:",
+ opts:["Blokir deposito","Blokir rekening tabungan","Setoran pada Giro Jaminan Bank Garansi (GJMN)","Fasilitas Cash Loan"],
+ correct:3,
+ exp:"Penerbitan BG memakai fasilitas NON CASH LOAN (NCL), bukan cash loan. Cash loan adalah kredit tunai seperti KMK, tidak dipakai sebagai cover BG.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Menyediakan Cover Jaminan: Fasilitas NCL)"},
+
+{q:"Jaminan Bank yang tepat untuk keperluan penawaran proyek/pekerjaan adalah:",
+ opts:["Tender Bond","Standby Letter of Credit","Performance Bond","Retention Bond"],
+ correct:0,
+ exp:"Tender Bond / Bid Bond menjamin keseriusan peserta tender pada tahap penawaran, sebelum pemenang diumumkan.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Jenis Bank Garansi (1/2), BG tender/Bid bond, Beneficiary = Pemilik Proyek/Penyelenggara Tender"},
+
+{q:"Jenis Bank Garansi atas dasar tujuan penggunaannya, kecuali:",
+ opts:["BG Pembayaran","BG Pelaksanaan","Bank Garansi Serah Terima","BG Tender"],
+ correct:2,
+ exp:"Jenis BG berdasarkan tujuan penggunaan: BG Tender, BG Pelaksanaan, BG Uang Muka, BG Pemeliharaan, BG Pembayaran, serta lain-lain seperti Custom Bond dan Shipping Guarantee. Tidak ada jenis Bank Garansi Serah Terima.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Overview Bank Garansi (3/3) Jenis-Jenis Bank Garansi &amp; slide Jenis Bank Garansi (1/2)–(2/2)"},
+
+{q:"Berikut adalah underlying document yang dapat digunakan dalam Bank Garansi Pelaksanaan, kecuali:",
+ opts:["Undangan tender terbuka","Surat Perintah Kerja","Notification of Award","Kontrak yang telah ditandatangani"],
+ correct:0,
+ exp:"BG Pelaksanaan terbit setelah peserta memenangkan tender, sehingga dasarnya SPK, notification of award, atau kontrak. Undangan tender adalah underlying untuk BG Tender.",
+ src:"Bank_Garansi_Overview_compressed.pdf – siklus Proses Pengadaan &amp; Pelaksanaan Pekerjaan (Pengumuman Pemenang – Terbit SPK – Jaminan Pelaksanaan)"},
+
+{q:"Hal-hal berikut adalah perubahan bank garansi, kecuali:",
+ opts:["Pemendekan jangka waktu","Kenaikan nominal","Perubahan kata/kalimat","Nama beneficiary"],
+ correct:3,
+ exp:"Beneficiary adalah pihak penerima jaminan yang melekat pada underlying; menggantinya berarti menerbitkan BG baru, bukan amandemen. Nominal, jangka waktu, dan redaksi boleh diubah.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi &amp; Format Bank Garansi (Retype/Ketik Ulang, Customized)"},
+
+{q:"Standard Business Process penerbitan Bank Garansi melibatkan unit:",
+ opts:["Servicing","Bisnis Unit","Unit Pengelola Limit Kredit","Unit Risk"],
+ correct:0,
+ exp:"Kunci resmi soal. Pada proses standar, Applicant datang ke Cabang/Trade Service (Unit Servicing) yang memeriksa underlying, memproses di sistem, mencetak warkat dan menyerahkannya kepada Applicant. Pada skema Frontloading, Unit Servicing juga merangkap Unit Processing.",
+ src:"Bank_Garansi_Overview_compressed.pdf – slide Alur Penerbitan Bank Garansi (Bisnis Proses Penerbitan BG melalui Unit Frontloading &amp; Cabang/Trade Service)"}
 ];
 
 /* ============ STATE ============ */
@@ -560,10 +862,14 @@ function renderTradeResult(score){
         <span class="lms-opt-text">${opt}</span>
       </div>`;
     });
+    const flag = tradeFlags[idx];
     div.innerHTML = `
       <div class="lms-qlabel">Question ${idx+1} of ${tradeData.length}.</div>
       <div class="lms-qtext">${item.q}</div>
       ${optsHtml}
+      <div class="exp-box${flag?' flagged':''}"><b>Pembahasan:</b> ${item.exp}
+        ${flag?`<span class="ak-flag">⚠️ ${flag}</span>`:''}
+        <span class="ak-src">Sumber: ${item.src}</span></div>
     `;
     holder.appendChild(div);
   });
@@ -629,26 +935,32 @@ function renderBGResult(score){
         <span class="lms-opt-text">${opt}</span>
       </div>`;
     });
+    const flag = bgFlags[idx];
     div.innerHTML = `
       <div class="lms-qlabel">Question ${idx+1} of ${bgData.length}.</div>
       <div class="lms-qtext">${item.q}</div>
       ${optsHtml}
+      <div class="exp-box${flag?' flagged':''}"><b>Pembahasan:</b> ${item.exp}
+        ${flag?`<span class="ak-flag">⚠️ ${flag}</span>`:''}
+        <span class="ak-src">Sumber: ${item.src}</span></div>
     `;
     holder.appendChild(div);
   });
 }
 
 /* ============ FULL ANSWER KEY ============ */
-/* Catatan: soal-soal berikut dicurigai kuncinya kurang tepat berdasarkan
-   tinjauan materi trade finance & hukum jaminan umum. Silakan cek ulang
-   ke modul/PDF sumber aslinya untuk memastikan. */
+/* Catatan: soal-soal berikut kuncinya berbeda dengan materi/doktrin resmi.
+   Untuk ujian ikuti kunci, tapi pahami perbedaannya. */
 const tradeFlags = {
-  1: "Perlu dicek ulang — pembiayaan post-impor untuk open account umumnya disebut \"TR atas dasar non-LC\", bukan Deferred Payment (istilah tsb lazim untuk skema LC usance)."
+  9: "Kunci soal = Seller, namun materi Trade_Finance.pdf pada alur Deferred Payment ad. LC Bank Lain menyebut Bank membayar kepada ISSUING BANK. Konfirmasi ke pengajar.",
+  13: "Kunci soal = 1, 2 dan 4. Menurut UCP 600 Art. 10 seharusnya Issuing Bank + Confirming Bank + Beneficiary (2, 3, 4), tapi kombinasi itu tidak ada di opsi.",
+  18: "Kunci soal = opsi D. Secara UCP 600 dan materi, jawaban paling tepat adalah opsi B (syarat &amp; kondisi pada LC, bukan sales contract)."
 };
 const bgFlags = {
-  3: "Perlu dicek ulang — kemungkinan tertukar dengan nominal BG Pelaksanaan.",
-  57: "Perlu dicek ulang — kemungkinan tertukar dengan nominal BG Pemeliharaan.",
-  24: "Perlu dicek ulang — \"Meningkatkan Corporate Image\" lazim dianggap manfaat, sedangkan opsi \"Mengurangi risiko wanprestasi bagi penerima\" adalah manfaat bagi Beneficiary, bukan Nasabah (Applicant), sehingga lebih pas jadi jawaban \"bukan manfaat bagi Nasabah\"."
+  16: "Bang_Jago.pdf mencatat dua versi jawaban (menang tender / tidak dapat menyerahkan BG pelaksanaan). Kunci resmi TEPOS = tidak menang tender.",
+  24: "Opsi Mempunyai rekening di Bank Mandiri juga tidak tercantum eksplisit sebagai syarat penerbitan. Konfirmasi ke pengajar.",
+  26: "Soal cacat: Alamat beneficiary dan Alamat applicant sebenarnya juga syarat minimum. Yang pasti bukan syarat hanya Nama pejabat beneficiary.",
+  33: "Opsi Bisnis Unit juga masuk akal karena analisa 5C dan persetujuan limit ada di Unit Bisnis. Konfirmasi ke pengajar."
 };
 
 function goAnswerKey(){
@@ -659,7 +971,9 @@ function goAnswerKey(){
     const flag = tradeFlags[idx];
     div.className='answerkey-item'+(flag?' flagged':'');
     div.innerHTML=`<b>${idx+1}.</b> ${item.q}<br>Jawaban benar: <b class="ak-correct">${item.opts[item.correct]}</b>`+
-      (flag ? `<span class="ak-flag">⚠️ ${flag}</span>` : '');
+      `<span class="ak-exp"><b>Pembahasan:</b> ${item.exp}</span>`+
+      (flag ? `<span class="ak-flag">⚠️ ${flag}</span>` : '')+
+      `<span class="ak-src">Sumber: ${item.src}</span>`;
     p1.appendChild(div);
   });
   const p2 = document.getElementById('akPart2');
@@ -669,7 +983,9 @@ function goAnswerKey(){
     const flag = bgFlags[idx];
     div.className='answerkey-item'+(flag?' flagged':'');
     div.innerHTML=`<b>${idx+1}.</b> ${item.q}<br>Jawaban benar: <b class="ak-correct">${item.opts[item.correct]}</b>`+
-      (flag ? `<span class="ak-flag">⚠️ ${flag}</span>` : '');
+      `<span class="ak-exp"><b>Pembahasan:</b> ${item.exp}</span>`+
+      (flag ? `<span class="ak-flag">⚠️ ${flag}</span>` : '')+
+      `<span class="ak-src">Sumber: ${item.src}</span>`;
     p2.appendChild(div);
   });
   showSection('screenAnswerKey');

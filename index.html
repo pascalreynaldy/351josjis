@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>10 Tips Melancarkan Buang Air Besar Tanpa Obat Dijamin Bikin Lega - Tribunnews Makassar</title>
+<title>LATIHAN SOAL — Trade Service &amp; Bank Guarantee</title>
 <style>
 :root{
   --lms-blue:#1a73c4;
@@ -25,6 +25,24 @@ body{
 }
 .section{display:none;}
 .section.active{display:block;}
+
+/* ===== LOGIN GATE ===== */
+.login-wrap{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px;}
+.login-card{
+  background:var(--lms-card); border:1px solid var(--lms-border); border-radius:8px;
+  padding:36px 32px; max-width:360px; width:100%; text-align:center;
+  box-shadow:0 2px 14px rgba(0,0,0,.06);
+}
+.login-title{font-size:1.15rem; font-weight:700; color:var(--lms-text); margin-bottom:6px;}
+.login-sub{font-size:.86rem; color:var(--lms-sub); margin-bottom:22px; line-height:1.4;}
+.login-input{
+  width:100%; padding:11px 14px; font-size:.92rem; border:1px solid var(--lms-border);
+  border-radius:5px; margin-bottom:14px; font-family:inherit; box-sizing:border-box;
+}
+.login-input:focus{outline:none; border-color:var(--lms-blue);}
+.login-btn{width:100%; padding:12px; font-size:.92rem;}
+.login-error{display:none; color:#b3412a; font-size:.82rem; margin-top:12px;}
+.login-error.show{display:block;}
 
 /* ===== START PICKER ===== */
 #screenStart{max-width:760px; margin:0 auto; padding:60px 18px;}
@@ -65,11 +83,11 @@ body{
 }
 .page-back:hover{color:var(--lms-text);}
 
-/* ===== TEST WRAPPER (full-bleed edge to edge) ===== */
-.lms-wrap{width:100%; margin:0; padding:0;}
+/* ===== TEST WRAPPER (padded card, not edge to edge) ===== */
+.lms-wrap{width:100%; margin:0; padding:18px;}
 .lms-card{
-  background:var(--lms-card); border:none; border-radius:0;
-  padding:14px 40px 40px; box-shadow:none; width:100%;
+  background:var(--lms-card); border:1px solid var(--lms-border); border-radius:8px;
+  padding:28px 34px 34px; box-shadow:0 1px 4px rgba(0,0,0,.05); width:100%; max-width:1100px; margin:0 auto;
 }
 .lms-finish{
   margin-top:18px; padding-top:18px; text-align:left;
@@ -132,141 +150,153 @@ body{
 .lms-result-head{text-align:center; padding:14px 0 22px;}
 .lms-score-big{font-size:2.2rem; font-weight:800; color:var(--lms-blue);}
 .lms-score-sub{color:var(--lms-sub); font-size:.9rem; margin-top:4px;}
-.lms-recap-q{font-size:.9rem; margin-bottom:6px; color:var(--lms-sub);}
-.lms-recap-q b{color:#000;}
 
 .answerkey-item{border-left:3px solid var(--lms-blue); padding:8px 14px; margin-bottom:8px; background:#f7f9fb; border-radius:4px; font-size:.87rem;}
 .answerkey-item b.ak-correct{font-weight:700; color:#000;}
 
 @media(max-width:600px){
+  .lms-wrap{padding:10px;}
   .lms-card{padding:18px 16px 24px;}
 }
 </style>
 </head>
 <body>
 
+<!-- ===== LOGIN GATE ===== -->
+<section class="section active" id="screenLogin">
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-title">🔒 Latihan Soal Trade Service &amp; Bank Guarantee</div>
+      <div class="login-sub">Masukkan password untuk mengakses latihan soal.</div>
+      <input type="password" id="loginPass" class="login-input" placeholder="Password" autocomplete="off" onkeydown="if(event.key==='Enter')checkLogin()">
+      <button class="lms-btn login-btn" onclick="checkLogin()">Masuk</button>
+      <div class="login-error" id="loginError">Password salah, coba lagi.</div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== START PICKER ===== -->
-<section class="section active" id="screenStart">
-  <div class="start-title">Kelas 351 JOSJIS — Latihan Soal</div>
+<section class="section" id="screenStart">
+  <div class="start-title">Latihan Soal</div>
   <div class="start-sub">Pilih materi latihan yang ingin kamu kerjakan hari ini.</div>
 
-  <div class="pick-card" onclick="goTreasuryTest()">
-    <div class="pick-icon">🪖</div>
+  <div class="pick-card" onclick="goTradeTest()">
+    <div class="pick-icon">🚢</div>
     <div class="pick-text">
-      <div class="pick-title">Test - Treasury Operations</div>
-      <div class="pick-desc">30 soal utama · pilihan ganda · waktu 15 menit</div>
+      <div class="pick-title">Test - Trade Service</div>
+      <div class="pick-desc">40 soal · pilihan ganda · waktu 15 menit</div>
     </div>
     <div class="pick-arrow">➜</div>
   </div>
 
-  <div class="pick-card" onclick="goCXTest()">
-    <div class="pick-icon">💠</div>
+  <div class="pick-card" onclick="goBGTest()">
+    <div class="pick-icon">📜</div>
     <div class="pick-text">
-      <div class="pick-title">Test - Customer Experience (Post Test)</div>
-      <div class="pick-desc">20 soal · pilihan ganda · waktu 15 menit</div>
+      <div class="pick-title">Test - Bank Guarantee</div>
+      <div class="pick-desc">63 soal · pilihan ganda · waktu 15 menit</div>
     </div>
     <div class="pick-arrow">➜</div>
   </div>
 
-  <div class="linklike" onclick="goAnswerKey()">Lihat rangkuman lengkap semua 183 soal Treasury</div>
+  <div class="linklike" onclick="goAnswerKey()">Lihat rangkuman lengkap semua jawaban</div>
 </section>
 
-<!-- ===== TREASURY TEST ===== -->
-<section class="section" id="screenTreasuryTest">
+<!-- ===== TRADE SERVICE TEST ===== -->
+<section class="section" id="screenTradeTest">
   <div class="lms-topbar">
-    <div class="tb-title">PROGRAM ODP/SDP - POST TEST WHOLESALE TRANSACTION BANKING : INTRODUCTION TO TREASURY <span class="info-dot">i</span></div>
+    <div class="tb-title">PROGRAM ODP/SDP - POST TEST TRADE SERVICE <span class="info-dot">i</span></div>
   </div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap">
     <div class="lms-card">
       <div class="lms-head-row">
         <div>
-          <div class="lms-h1">Test - PROGRAM ODP/SDP - POST TEST WHOLESALE TRANSACTION BANKING : INTRODUCTION TO TREASURY</div>
-          <div class="lms-h2">PROGRAM ODP/SDP - POST TEST WHOLESALE TRANSACTION BANKING : INTRODUCTION TO TREASURY</div>
+          <div class="lms-h1">Test - Trade Service</div>
+          <div class="lms-h2">LATIHAN SOAL TRADE SERVICE (40 SOAL)</div>
         </div>
         <div class="lms-timer-block">
-          <div class="lms-timer" id="treasuryTimer">15:00</div>
+          <div class="lms-timer" id="tradeTimer">15:00</div>
           <div class="lms-timer-label">Time remaining</div>
         </div>
       </div>
       <hr class="lms-hr">
-      <div id="treasuryQList"></div>
-      <div class="lms-finish"><button class="lms-btn" id="treasurySubmitBtn" onclick="submitTreasury()">Lihat Hasil</button></div>
+      <div id="tradeQList"></div>
+      <div class="lms-finish"><button class="lms-btn" id="tradeSubmitBtn" onclick="submitTrade()">Lihat Hasil</button></div>
     </div>
   </div>
 </section>
 
-<!-- ===== TREASURY RESULT ===== -->
-<section class="section" id="screenTreasuryResult">
+<!-- ===== TRADE SERVICE RESULT ===== -->
+<section class="section" id="screenTradeResult">
   <div class="lms-topbar">
-    <div class="tb-title">PROGRAM ODP/SDP - POST TEST WHOLESALE TRANSACTION BANKING : INTRODUCTION TO TREASURY <span class="info-dot">i</span></div>
+    <div class="tb-title">PROGRAM ODP/SDP - POST TEST TRADE SERVICE <span class="info-dot">i</span></div>
   </div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap">
     <div class="lms-card">
       <div class="lms-result-head">
-        <div class="lms-score-big" id="treasuryScoreBig">0 / 30</div>
-        <div class="lms-score-sub" id="treasuryScoreMsg"></div>
+        <div class="lms-score-big" id="tradeScoreBig">0 / 40</div>
+        <div class="lms-score-sub" id="tradeScoreMsg"></div>
       </div>
       <hr class="lms-hr">
-      <div id="treasuryReviewList"></div>
+      <div id="tradeReviewList"></div>
     </div>
   </div>
   <div class="lms-submitbar">
-    <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua 183 Soal</button>
-    <button class="lms-btn ghost" onclick="goTreasuryTest()">🔁 Ulangi Test</button>
+    <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
+    <button class="lms-btn ghost" onclick="goTradeTest()">🔁 Ulangi Test</button>
     <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
   </div>
 </section>
 
-<!-- ===== CX TEST ===== -->
-<section class="section" id="screenCXTest">
+<!-- ===== BANK GUARANTEE TEST ===== -->
+<section class="section" id="screenBGTest">
   <div class="lms-topbar">
-    <div class="tb-title">PROGRAM ODP/SDP - POST TEST CUSTOMER EXPERIENCE <span class="info-dot">i</span></div>
+    <div class="tb-title">PROGRAM ODP/SDP - POST TEST BANK GUARANTEE <span class="info-dot">i</span></div>
   </div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap">
     <div class="lms-card">
       <div class="lms-head-row">
         <div>
-          <div class="lms-h1">Test - PROGRAM ODP/SDP - POST TEST CUSTOMER EXPERIENCE</div>
-          <div class="lms-h2">PROGRAM ODP/SDP - POST TEST CUSTOMER EXPERIENCE</div>
+          <div class="lms-h1">Test - Bank Guarantee</div>
+          <div class="lms-h2">LATIHAN SOAL BANK GUARANTEE (63 SOAL)</div>
         </div>
         <div class="lms-timer-block">
-          <div class="lms-timer" id="cxTimer">15:00</div>
+          <div class="lms-timer" id="bgTimer">15:00</div>
           <div class="lms-timer-label">Time remaining</div>
         </div>
       </div>
       <hr class="lms-hr">
-      <div id="cxQList"></div>
-      <div class="lms-finish"><button class="lms-btn" id="cxSubmitBtn" onclick="submitCX()">Lihat Hasil</button></div>
+      <div id="bgQList"></div>
+      <div class="lms-finish"><button class="lms-btn" id="bgSubmitBtn" onclick="submitBG()">Lihat Hasil</button></div>
     </div>
   </div>
 </section>
 
-<!-- ===== CX RESULT ===== -->
-<section class="section" id="screenCXResult">
+<!-- ===== BANK GUARANTEE RESULT ===== -->
+<section class="section" id="screenBGResult">
   <div class="lms-topbar">
-    <div class="tb-title">PROGRAM ODP/SDP - POST TEST CUSTOMER EXPERIENCE <span class="info-dot">i</span></div>
+    <div class="tb-title">PROGRAM ODP/SDP - POST TEST BANK GUARANTEE <span class="info-dot">i</span></div>
   </div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap">
     <div class="lms-card">
       <div class="lms-result-head">
-        <div class="lms-score-big" id="cxScoreBig">0 / 20</div>
-        <div class="lms-score-sub" id="cxScoreMsg"></div>
+        <div class="lms-score-big" id="bgScoreBig">0 / 63</div>
+        <div class="lms-score-sub" id="bgScoreMsg"></div>
       </div>
       <hr class="lms-hr">
-      <div id="cxReviewList"></div>
+      <div id="bgReviewList"></div>
     </div>
   </div>
   <div class="lms-submitbar">
-    <button class="lms-btn ghost" onclick="goCXTest()">🔁 Ulangi Test</button>
+    <button class="lms-btn ghost" onclick="goBGTest()">🔁 Ulangi Test</button>
     <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
   </div>
 </section>
 
-<!-- ===== FULL ANSWER KEY (183 soal) ===== -->
+<!-- ===== FULL ANSWER KEY ===== -->
 <section class="section" id="screenAnswerKey">
   <div class="lms-topbar">
     <div class="tb-title">PROGRAM ODP/SDP - RANGKUMAN SEMUA JAWABAN <span class="info-dot">i</span></div>
@@ -275,9 +305,9 @@ body{
   <div class="lms-wrap">
     <div class="lms-card">
       <div class="lms-h1">Rangkuman Semua Jawaban</div>
-      <div class="lms-h2">BAGIAN 1 — SOAL UTAMA (30 SOAL)</div>
+      <div class="lms-h2">BAGIAN 1 — TRADE SERVICE (40 SOAL)</div>
       <div id="akPart1"></div>
-      <div class="lms-h2" style="margin-top:20px;">BAGIAN 2 — SOAL PENDALAMAN (153 SOAL)</div>
+      <div class="lms-h2" style="margin-top:20px;">BAGIAN 2 — BANK GUARANTEE (63 SOAL)</div>
       <div id="akPart2"></div>
     </div>
   </div>
@@ -287,266 +317,122 @@ body{
 </section>
 
 <script>
-/* ============ DATA: 30 MCQ (BAGIAN 1 — dipakai untuk test Treasury) ============ */
-const mcqData = [
-{q:"Salah satu karakter/unsur yang terdapat dalam transaksi foreign exchange swap adalah:", opts:["Terdapat premi yang harus dibayar oleh pembeli swap","Terdapat satu kali pertukaran mata uang","Terdapat dua kali pertukaran mata uang","Kontrak swap memiliki opsi untuk tidak mengeksekusi transaksi"], correct:2},
-{q:"Apakah kepanjangan dari REPO?", opts:["Repurchase Politic","Republic Polandia","Repurchase Agreement","Repurchase Policy"], correct:2},
-{q:"Bagaimana cara mengendalikan risiko pasar?", opts:["Limit dan Hedging","Wim","Hedging","Square"], correct:0},
-{q:"Diantara ini mana yang bukan termasuk strategi PAGI (Proprietary, Arbitrage, Gapping, Intermediary)?", opts:["Get profit","Intermediary","Arbitrage","Proprietary"], correct:0},
-{q:"Secara organisasi Treasury memiliki tiga kelompok fungsi utama, kecuali...", opts:["Banking","Trading","Limit Setting","Client Covering"], correct:2},
-{q:"Faktor yang tidak mempengaruhi likuiditas pasar uang Rupiah adalah:", opts:["Peningkatan transaksi pasar uang antar bank","Penetapan tingkat GWM oleh BI","Penerbitan US Treasury yang oversubscribed","Peningkatan kebutuhan uang tunai pada masa Idul Fitri"], correct:2},
-{q:"Yang dimaksud obligasi dengan variable rate adalah:", opts:["Obligasi yang memberikan tingkat return yang berubah-ubah mengikuti return pasar","Obligasi yang memiliki tingkat harga yang berubah-ubah mengikuti suku bunga","Obligasi yang memiliki tingkat hasil yang berubah-ubah mengikuti yield curve","Obligasi yang periode pembayaran kuponnya berubah-ubah mengikuti benchmark suku bunga"], correct:3},
-{q:"Perbedaan antara Obligasi Negara dengan Surat Perbendaharaan Negara adalah:", opts:["SPN diterbitkan BI, obligasi negara diterbitkan Kemenkeu","SPN suku bunga variabel, obligasi negara suku bunga tetap","SPN denominasi minimal Rp5 juta, obligasi negara minimal Rp1 miliar","SPN berjangka waktu kurang dari 1 tahun, obligasi negara lebih dari 1 tahun"], correct:3},
-{q:"Apakah yang dimaksud dengan Yield Curve?", opts:["Kurva yang menunjukkan imbal hasil Reksadana","Kurva yang menunjukkan imbal hasil obligasi pada berbagai tahun jatuh tempo","Kurva yang menunjukkan hasil investasi","Kurva yang menunjukkan imbal suatu instrumen pasar"], correct:1},
-{q:"Apa yang dimaksud dengan Giro Wajib Minimum (GWM)?", opts:["Jumlah dana minimum yang wajib dipelihara Bank sesuai persentase tertentu dari DPK, ditetapkan BI","Saldo giro Rupiah di BI wajib dipelihara BUK untuk pemenuhan RIM","Cadangan likuiditas minimum rupiah dalam bentuk surat berharga","Surat berharga tertentu yang harus dipelihara Bank"], correct:0},
-{q:"Pelaksanaan operasi pasar terbuka oleh Bank Indonesia adalah:", opts:["Setiap bulan Maret","Setiap tahun","Setiap minggu kedua","Setiap hari kerja"], correct:3},
-{q:"Berikut merupakan rasio pemenuhan likuiditas rupiah yang harus dipenuhi Bank, kecuali...", opts:["FTP","PiM","GWM","RIM"], correct:0},
-{q:"Apa yang dimaksud dengan Fund Transfer Pricing (FTP)?", opts:["Cadangan likuiditas minimum rupiah dalam bentuk surat berharga","Alat untuk mengukur pemberian pendapatan atas penghimpunan dana dan pembebanan biaya penggunaan dana unit bisnis","Rekening giro valas di bank lain untuk mengelola dana valas","Saldo bank yang harus dipelihara dalam jumlah tertentu"], correct:1},
-{q:"Dalam mekanisme Money Market, berapa lama umur instrumen yang dapat diperdagangkan?", opts:["Di atas 3 tahun","Di atas 5 tahun","Antara 1 sampai 3 tahun","Di bawah 1 tahun"], correct:3},
-{q:"Apakah kepanjangan dari JIBOR?", opts:["Jakarta Interbank Offer Return","Jakarta Intermoda Offering Rate","Jakarta Intermilan On Road","Jakarta Interbank Offer Rate"], correct:3},
-{q:"Bank ABANG meminjamkan kepada Bank NONA. Pada saat jatuh tempo, Bank ABANG akan menerima pengembalian sebesar:", opts:["Nilai nominal pinjaman ditambah bunga","Nilai nominal pinjaman","Nilai tunai pinjaman dikurangi diskonto","Nilai tunai pinjaman"], correct:0},
-{q:"Manakah yang tidak termasuk lembaga pemeringkat di bawah ini?", opts:["Financial Rating Agency","Moody's","Fitch","Standard and Poor's"], correct:0},
-{q:"Fungsi utama dari melakukan transaksi dengan produk option adalah untuk:", opts:["Lindung nilai, likuiditas, dan spekulasi","Menyimpan kekayaan","Lindung nilai, likuiditas, spekulasi, dan menyimpan kekayaan","Lindung nilai dan spekulasi"], correct:3},
-{q:"Apabila terjadi kekurangan pada salah satu rekening nostro, langkah pertama yang dapat dilakukan adalah:", opts:["Transfer dari nostro lainnya","Memanfaatkan transaksi Bank Indonesia","Menerbitkan surat berharga valuta asing","Menyediakan banknotes untuk mengcover kekurangan"], correct:0},
-{q:"Nasabah transaksi valas via money broker Senin 10 Juli 2017 secara TOM, tidak ada libur di minggu tersebut. Value date-nya adalah:", opts:["12 Juli 2017","10 Juli 2017","11 Juli 2017","13 Juli 2017"], correct:2},
-{q:"Money broker memberikan kuotasi spot USD/IDR 13.150-13.160. Mata uang USD dalam kuotasi tersebut berperan sebagai:", opts:["Quote Currency","Non-Reference currency","Counter currency","Reference Currency"], correct:3},
-{q:"Batas atas dan bawah ketentuan pemenuhan Rasio Intermediasi Makroprudensial (RIM) adalah sebesar:", opts:["84% dan 92%","84% dan 94%","82% dan 84%","80% dan 84%"], correct:1},
-{q:"Berapa banyaknya periode perhitungan GWM dalam 1 bulan?", opts:["3 (tiga)","4 (empat)","2 (dua)","5 (lima)"], correct:2},
-{q:"Kurs penutupan USD/JPY bergerak dari 112.90 menjadi 113.21. Pergerakan tersebut dalam satuan pips adalah:", opts:["0.031 pips","0.31 pips","31 pips","3.1 pips"], correct:2},
-{q:"Membatasi transaksi spekulatif bank devisa, menghindari risiko kurs, dan menjaga keseimbangan sumber & penggunaan dana merupakan tujuan dari?", opts:["Mark to Market","Giro Wajib Minimum","Posisi Devisa Netto","Operasi Pasar Terbuka"], correct:2},
-{q:"Limit yang diberikan Bank atas dasar risiko kredit terhadap Bank lain biasa disebut dengan?", opts:["Stop Loss Limit","Dealer Limit","Counterpart Limit","Central Bank Limit"], correct:2},
-{q:"Money broker kuotasi USD/IDR 13.150-13.160. Sebelumnya nasabah beli USD 200 @13.200, lalu jual USD 100 pada kuotasi di atas. Realized gain/loss-nya sebesar:", opts:["Tidak ada keuntungan/kerugian yang direalisasi","Untung IDR 4.000","Untung IDR 8.000","Rugi IDR 5.000"], correct:3},
-{q:"Dalam kuotasi harga obligasi, yang dimaksud clean price adalah:", opts:["Harga obligasi tanpa akru bunga dan tanpa biaya transaksi","Harga obligasi ditambah akru bunga dan tanpa biaya administrasi","Harga obligasi dikurangi akru bunga dan tanpa biaya transaksi","Harga obligasi tanpa akru bunga dan ditambah biaya transaksi"], correct:3},
-{q:"Manakah yang benar dalam istilah Bond Portfolio di bawah ini?", opts:["Hold to Maturity","Available For Sale","Hold to the End","Available For Sale dan Hold to Maturity"], correct:3},
-{q:"Money broker kuotasi spot USD/IDR 13.150-13.160. Harga jual (offer rate) dalam kuotasi tersebut adalah:", opts:["13150","13145","13160","13155"], correct:2}
+/* ============ DATA: TRADE SERVICE (40 soal) ============ */
+const tradeData = [
+{q:"Urutkan metode pembayaran yang memiliki risiko terbesar kepada Pembeli sampai risiko yang terkecil:", opts:["Open Account, Documents against Acceptance, Documents against Payment, L/C, Advance Payment","Advance Payment, L/C, Documents against Payment, Documents against Acceptance, Open Account","Open Account, Documents against Payment, Documents against Acceptance, L/C, Advance Payment","Advance Payment, L/C, Documents against Acceptance, Documents against Payment, Open Account"], correct:3},
+{q:"Pembiayaan post Impor untuk metode pembayaran open account adalah?", opts:["Deferred Payment","Forfaiting","TR atas dasar LC","TR atas dasar non-LC"], correct:0},
+{q:"Fitur Mandiri Global Trade yang berfungsi untuk melakukan monitoring Limit Nasabah adalah?", opts:["Limit Management","Preview Draft","Push Notification","Upload document"], correct:0},
+{q:"Apabila 1=Applicant, 2=Beneficiary, 3=Issuing Bank, 4=Confirming Bank, 5=Advising Bank, maka untuk pembatalan suatu irrevocable L/C harus mendapat persetujuan dari:", opts:["1, 3 dan 5","3, 4 dan 5","2 dan 3","1, 2 dan 4"], correct:2},
+{q:"Akseptasi pada transaksi Documentary Collection (D/A) merupakan kesanggupan bayar pada saat jatuh tempo oleh:", opts:["Collecting/Presenting Bank","Issuing Bank","Buyer","Remitting Bank"], correct:2},
+{q:"Termasuk dalam metode pembayaran yang pembayarannya dikemudian hari atau pada saat jatuh tempo, adalah:", opts:["Documentary Collection-DA; Open Account; Sight L/C; Consignment","Documentary Collection-DA; Open Account; Usance L/C; Consignment","Documentary Collection-DA; Open Account; Green Clause L/C; Consignment","Documentary Collection-DA; Open Account; Red Clause L/C; Consignment"], correct:1},
+{q:"Dalam transaksi incoming documentary collection dengan kondisi (D/P), Bank Mandiri (Trade Servicing Center) menyerahkan dokumen kepada Drawee atas dasar:", opts:["Drawee telah menyerahkan Surat Aksep (Buyer Acceptance)","Kredibilitas dan kemampuan keuangan Drawee","Drawee telah menyerahkan bukti setoran pembayaran atas dokumen","Drawee merupakan nasabah prima yang sudah sangat dikenal dengan baik"], correct:2},
+{q:"Pada metode pembayaran documentary credit/letter of credit usance by acceptance, siapa pihak yang bertanggung jawab meng-aksep draft:", opts:["Applicant","Advising Bank","Beneficiary","Issuing Bank"], correct:3},
+{q:"Pada transaksi Documentary Collection - D/A, menurut Saudara drawee pada draft adalah:", opts:["Collecting/Presenting Bank","Seller","Buyer","Issuing Bank"], correct:2},
+{q:"Trust Receipt dibagi menjadi 2 yaitu:", opts:["Trust Receipt atas dasar non-LC","Benar Semua","Trust Receipt atas dasar LC","Salah semua"], correct:1},
+{q:"Berikut adalah manfaat transaksi trade bagi Bank, kecuali:", opts:["Meningkatkan DPK (Dana Pihak Ketiga)","Membantu Cash Flow","Cross Selling Produk","Meningkatkan Fee Based Income dan Interest Based Income"], correct:1},
+{q:"Disebut International Banking apabila transaksi perdagangan tersebut:", opts:["Menggunakan produk-produk Perbankan Internasional","Transaksinya menggunakan Valuta Asing","Melewati batas wilayah negara lain","Semua jawaban benar"], correct:3},
+{q:"Pihak yang ditunjuk oleh Issuing Bank untuk menyampaikan L/C kepada Beneficiary adalah:", opts:["Nominated bank","Advising Bank","Negotiating bank","Confirming bank"], correct:1},
+{q:"Bilamana dalam metode pembayaran perdagangan internasional menggunakan Letter of Credit dengan tenor at 60 Days after B/L date, maka pada metode pembayaran Collection sepadan dengan:", opts:["Documents Against Acceptance","Documents Under Deffered Payment","Document Against Payment","Document Against Collection"], correct:0},
+{q:"Cara pembayaran yang risikonya rendah dari sisi Buyer adalah:", opts:["Open Account","Documentary Credit","Advance Payment","Documentary Collection - DP"], correct:0},
+{q:"Documentary Credit/Letter of Credit tunduk pada aturan?", opts:["UCP 600","URDG 758","URC 522","ISP 98"], correct:0},
+{q:"Berikut ini yang merupakan syarat dan kondisi penerbitan SKBDN, kecuali:", opts:["Diterbitkan dalam valuta Rupiah, dengan pengecualian valas terkait perdagangan internasional","Bank, Pemohon dan Penerima berkedudukan di Indonesia","Tunduk pada Peraturan Bank Indonesia (PBI) tentang SKBDN yang berlaku","Tunduk pada URDG 758"], correct:3},
+{q:"Manakah sumber data yang dapat digunakan untuk menggarap potensi Transaksi Trade di cabang?", opts:["Nasabah yang memiliki rekening khusus DHE","Transaksi Remittance","Nasabah yang memiliki rekening Local Currency Settlement (LCS)","Benar Semua"], correct:3},
+{q:"Cara pembayaran yang risikonya tinggi dari sisi Buyer adalah:", opts:["Open Account","Documentary Credit","Documentary Collection - DP","Advance Payment"], correct:3},
+{q:"Fungsi Letter of Credit adalah:", opts:["Memberikan kepastian pembayaran bagi beneficiary apabila seluruh persyaratan yang ditentukan di dalam sales contract telah dipenuhi","Memberikan kepastian pembayaran bagi beneficiary apabila seluruh persyaratan dan kondisi yang ditetapkan pada letter of credit telah dipenuhi","Memberikan kepastian kepada importir untuk mendapatkan barang sesuai yang diperjanjikan dalam sales contract","Memberikan kepastian kepada eksportir untuk menerima pembayaran setelah mengirim dokumen kepada importir"], correct:1},
+{q:"Risiko tertinggi pada cara pembayaran Open Account:", opts:["Seller tidak menerima pembayaran","Buyer membatalkan pembelian","Buyer tidak menerima barang","Seller tidak dapat mengirimkan barang"], correct:0},
+{q:"Berikut merupakan solusi bagi penjual, kecuali:", opts:["Forfaiting","Invoice Financing","Pengambilalihan Wesel Ekspor ad. LC/SKBDN","Trust Receipt"], correct:3},
+{q:"Irrevocable Letter of Credit diperlukan karena:", opts:["Importir kurang percaya terhadap Eksportir","Eksportir kurang percaya terhadap Issuing Bank","Eksportir kurang percaya terhadap Importir","Importir kurang percaya terhadap Advising Bank"], correct:2},
+{q:"Jika nasabah Saudara mengajukan permohonan penerbitan Letter of Credit dengan salah satu klausulnya adalah tempat berakhir Letter of Credit di negara beneficiary dan tenor pada draft 60 hari setelah pengiriman barang, maka available pada Letter of Credit yang Saudara tetapkan adalah:", opts:["By Sight Payment","By Deffered Payment","By Negotiation","By Acceptance"], correct:2},
+{q:"Jika pada saat jatuh tempo L/C, pembeli tidak memiliki kecukupan dana untuk melakukan pembayaran kepada penjual, maka Bank Penerbit:", opts:["Menghubungi Penjual dan menyampaikan bahwa pembayaran L/C ditunda sampai dana pelunasan disediakan oleh Pembeli","Membayar tagihan kepada Penjual walaupun dana pelunasan pembeli belum tersedia","Hanya akan melakukan pembayaran setelah pembeli menyediakan dana pelunasan","Menghubungi Penjual dan menyampaikan bahwa pembayaran L/C akan dilakukan diluar mekanisme Bank"], correct:1},
+{q:"Dalam transaksi incoming documentary collection dengan kondisi (D/A), Trade Servicing Center menyerahkan dokumen kepada Drawee atas dasar:", opts:["Kredibilitas dan kemampuan keuangan Drawee","Drawee telah menyerahkan bukti setoran pembayaran atas dokumen","Drawee telah menyerahkan Surat Aksep (Buyer Acceptance)","Drawee merupakan nasabah prima yang sudah sangat dikenal dengan baik"], correct:2},
+{q:"Pihak yang bertanggung jawab terhadap autentikasi L/C adalah:", opts:["Collecting Bank","Advising Bank","Issuing Bank","Negotiating Bank"], correct:1},
+{q:"Cara pembayaran yang risikonya rendah dari sisi Seller dan Buyer adalah:", opts:["Open Account","Advance Payment","Documentary Credit","Documentary Collection - DP"], correct:2},
+{q:"Type pesan atau Message Type SWIFT untuk transaksi penerbitan/pembukaan LC adalah:", opts:["MT103","MT707","MT799","MT700"], correct:3},
+{q:"Manakah yang merupakan fitur Mandiri Global Trade?", opts:["Sistem Web Based","Limit Management","Push Notification","Semua Benar"], correct:3},
+{q:"Bank XYZ menerima LC dari bank korespondennya di luar negeri untuk nasabahnya, menurut Saudara kegiatan apa yang akan dilakukan oleh nasabah Bank XYZ:", opts:["Transaksi Impor","Semua jawaban benar","Transaksi Ekspor","Transaksi SKBDN"], correct:2},
+{q:"Apabila pengajuan penggunaan Deferred Payment atas dasar LC dari Bank Lain telah disetujui oleh bank, maka pencairan fasilitas ditujukan kepada?", opts:["Buyer","Issuing Bank","Remitting Bank","Seller"], correct:1},
+{q:"Berapakah Tarif minimal menerbitkan LC/SKBDN di Bank Mandiri?", opts:["USD 50 / IDR 700.000","USD 50 / IDR 500.000","USD 25 / 250.000","USD 50 / IDR 750.000"], correct:0},
+{q:"Rule of Thumb for Trade?", opts:["Seller berkewajiban mengirimkan barang dan dokumen","Buyer berkewajiban berjanji bayar","Semua jawaban benar","Buyer berkewajiban membayar"], correct:2},
+{q:"Cover penerbitan LC/SKBDN dapat berupa?", opts:["Blokir Deposito","Benar Semua","Blokir Giro","Fasilitas dari Bank"], correct:1},
+{q:"SKBDN merupakan instrument dan sarana untuk melakukan transaksi di bawah ini:", opts:["Perdagangan antar para pihak yang berkedudukan di dalam negeri dengan lokasi berbeda kota","Perdagangan antar para pihak yang berkedudukan di dalam negeri","Perdagangan antar para pihak yang berkedudukan di dalam negeri dengan lokasi dalam satu kota","Perdagangan dalam negeri khusus jasa"], correct:1},
+{q:"Berapakah Maksimal tenor Pengambilalihan Wesel Ekspor ad. LC/SKBDN?", opts:["180","60","210","90"], correct:0},
+{q:"SKBDN tunduk pada aturan?", opts:["UCP 600","5/6/PBI /2003","10/3/PBI/2008","ISP 98"], correct:1},
+{q:"Bank Mandiri menerima berita melalui SWIFT (MT 700) dari Korea Exchange Bank, Seoul-Korea, dalam hal ini Bank Mandiri bertindak sebagai:", opts:["Nominated bank","Negotiating bank","Issuing Bank","Advising Bank"], correct:3},
+{q:"Berikut ini yang merupakan syarat dan kondisi penerbitan Letter of Credit, kecuali:", opts:["Tunduk pada UCP yang berlaku","Diterbitkan dalam valuta yang disepakati kedua pihak","Bersifat Irrevocable","Ditujukan kepada Bank/Beneficiary yang dilarang oleh pemerintah/otoritas terkait"], correct:3}
 ];
 
-/* ============ DATA: 153 soal pendalaman (hanya dipakai di rangkuman lengkap) ============ */
-const flashRaw = [
-["GWM Sekunder wajib dipelihara bank kecuali", "Deposito Berjangka"],
-["Tenor pinjaman hari ini, dikembalikan besok disebut", "Overnight (O/N)"],
-["Instrumen pengelolaan likuiditas via transaksi Bank Indonesia", "SBI, Deposit/Lending Facility, Term Deposit"],
-["Faktor yang mempengaruhi PDN, kecuali", "Jumlah outlet money changer yang dimiliki"],
-["Perhitungan GWM Rupiah di BI menggunakan", "Rata-rata harian DPK 2 periode sebelumnya"],
-["Ketentuan GWM mencakup, kecuali", "Pemberian Jasa Giro untuk GWM IDR dan GWM Valas"],
-["Satuan kerja pengawasan Dealers secara harian", "Satuan Kerja Front Office"],
-["Satuan kerja pengawasan penyelesaian transaksi secara harian", "Satuan Kerja Back Office"],
-["Pengelolaan rekening Nostro mencakup, kecuali", "Memastikan bank memiliki sebanyak mungkin rekening Nostro"],
-["Pemenuhan GWM Primer secara rata-rata baru dapat dipenuhi setelah", "Bank memenuhi GWM primer secara harian"],
-["Transaksi Forex dengan valuta TOM", "Settlement Date = Deal Date + 1"],
-["Tenor pinjaman valuta spot, dikembalikan hari berikutnya", "Spot/Next (S/N)"],
-["3 unit kerja treasury Bank Mandiri, kecuali", "International Banking sebagai pengelola Kantor Luar Negeri"],
-["Kriteria surat berharga yang diperhitungkan dalam LFR, kecuali", "Dimiliki Bank baik lokal dan asing"],
-["Settlement Date = Deal Date + 3 atau lebih adalah valuta", "Forward"],
-["Instrumen pengelolaan likuiditas via transaksi interbank", "Money Market, Swap, Forex"],
-["PDN maksimal yang wajib dipelihara bank umum", "20% dari Modal"],
-["Tren reference currency menguat terhadap non-reference currency disebut", "Bullish Trend"],
-["Satuan kerja pengawasan pengukuran & monitoring risiko secara harian", "Satuan Kerja Middle Office"],
-["Pelaksanaan settlement dalam proses treasury dilaksanakan oleh", "Operation"],
-["Batas bawah dan atas GWM LFR yang normal", "80% dan 92%"],
-["Masa penghitungan, penyiapan, dan pemenuhan GWM Rupiah", "Selama 2 minggu kalender"],
-["GWM Rupiah dikelola secara", "Harian"],
-["Pengelolaan risiko akibat struktur underlying bisnis bank agar tidak ganggu stabilitas pendapatan disebut", "Banking Book"],
-["GWM Sekunder berupa", "Surat berharga negara yang dimiliki"],
-["Kurs beli dari asking bank disebut", "Offer rate"],
-["Dalam money market, yang disebut Bid adalah", "Bunga/kupon yang bersedia dibayarkan oleh Quoting"],
-["Kurs jual dari asking bank disebut", "Bid rate"],
-["Aktivitas dealing Treasury meliputi transaksi berikut, kecuali", "Logam mulia"],
-["Saldo giro BI akhir hari boleh di bawah rata-rata dengan syarat, kecuali", "Di bawah saldo minimum harian"],
-["Dalam money market, yang disebut Offer adalah", "Bunga/kupon yang bersedia diterima pembayarannya oleh Quoting"],
-["GWM masa laporan minggu I April 2018 menggunakan posisi rata-rata DPK", "Minggu III Maret 2018"],
-["Transaksi Forex dengan valuta TOD", "Settlement Date = Deal Date"],
-["Sanksi bank yang mengalami kekurangan GWM, kecuali", "Tidak boleh ikut kliring"],
-["PBI No.19/06/PBI/2017: GWM primer rupiah sebesar", "6,5% dari Dana Pihak Ketiga (DPK) Rupiah"],
-["Dalam kegiatan Treasury, posisi Market Risk berada sebagai", "Middle Office"],
-["Pihak yang menanyakan harga kepada pihak lain dalam transaksi FX disebut", "Asking Party"],
-["Faktor Teknikal dalam analisa pasar", "Berkaitan dengan gerakan harga masa lalu (chart) yang diyakini akan terulang"],
-["Membaca data ekonomi dan berita untuk menganalisa pergerakan harga disebut", "Analisa Fundamental"],
-["Sebutan posisi yang tercipta setelah menutup posisi long/short sebelumnya", "Square"],
-["Jenis obligasi berdasarkan issuer/penerbit", "Government Bond, Municipal Bond, dan Corporate Bond"],
-["Cabang wajib hubungi Treasury Marketing untuk special rate saat nasabah", "Jual USD 25.000 terhadap JPY"],
-["Bukan istilah jenis kupon yang dibayarkan pada obligasi", "Step up bonds"],
-["Pernyataan yang benar terkait suku bunga dan mata uang", "Dalam jangka pendek, kenaikan suku bunga cenderung memperkuat mata uang"],
-["Bank beli 1 juta USD @13.300, lalu jual @13.250. Bank membukukan", "Realized loss Rp 50 juta"],
-["Mengamati grafik harga masa lampau untuk memperkirakan pergerakan harga disebut", "Analisa Teknikal"],
-["Tujuan transaksi forex untuk commercial adalah", "Membiayai transaksi ekspor/impor nasabah"],
-["Pertimbangan investasi obligasi terkait Risk & Return", "Cost, Issuer, dan Peringkat (rating)"],
-["Inflasi dalam Analisa Fundamental adalah", "Tingkat kenaikan harga barang-barang umum dalam kurun waktu tertentu"],
-["Faktor perbedaan nilai mata uang antar negara", "Saling ketergantungan, perbedaan kemampuan, dan persaingan"],
-["Tujuan Bank melakukan transaksi valas, kecuali", "Mengurangi dana nasabah yang dikelola dalam Rupiah"],
-["Bunga yang masih harus dibayar sejak tanggal pembayaran kupon terakhir disebut", "Accrued Interest"],
-["Bank beli 1 juta USD @13.150, lalu jual @13.250. Bank membukukan", "Realized profit Rp 100 juta"],
-["Jenis transaksi FX yang melibatkan pertukaran fisik mata uang", "Banknotes"],
-["Bid adalah", "Harga dimana quoting bank setuju untuk membeli reference currency"],
-["Pendapatan investor jika memegang obligasi sampai jatuh tempo disebut", "YTM (Yield To Maturity)"],
-["Dokumen wajib jika nasabah deal pembelian USD 25.000 dalam 1 bulan", "NPWP, Surat Pernyataan Bermaterai, Underlying Transaction"],
-["GDP, inflasi, dan suku bunga adalah faktor pergerakan kurs jenis", "Fundamental ekonomi (makro)"],
-["Tujuan transaksi forex untuk hedging", "Menghindarkan risiko kerugian akibat perubahan kurs/suku bunga"],
-["Risiko akibat pergerakan harga pasar yang dapat menimbulkan kerugian bank disebut", "Market Risk"],
-["Perusahaan internasional pemeringkat surat berharga (securities)", "Moody's, Fitch, dan Standard and Poor's"],
-["Fitur obligasi yang beri hak penerbit membeli kembali obligasi sepanjang umurnya", "Callable"],
-["Tujuan nasabah melakukan transaksi treasury, kecuali", "Money Laundering"],
-["Surplus perdagangan suatu negara dalam fundamental analysis", "Cenderung memperkuat mata uang negara tersebut"],
-["3 hal yang dilakukan Dealer dalam mekanisme transaksi valas, kecuali", "Melakukan Settlement"],
-["Unit yang harus dipertukarkan untuk memperoleh 1 unit reference currency", "Non Reference Currency"],
-["Point and Figure adalah salah satu jenis", "Chart"],
-["Faktor Sentimen Pasar dalam analisa pasar adalah", "Kecenderungan pasar (market feel) untuk menggerakkan harga ke arah tertentu"],
-["Neraca Pembayaran dalam Analisa Fundamental adalah", "Aliran dana masuk dan keluar akibat transaksi perdagangan internasional"],
-["Tujuan transaksi forex untuk spekulasi", "Harapan memperoleh keuntungan dari perubahan kurs atau suku bunga"],
-["Tujuan transaksi forex untuk investasi", "Memanfaatkan kelebihan dana/asset jangka panjang untuk value added"],
-["Yang termasuk cash transaction dalam transaksi forex, kecuali", "Forward"],
-["Jenis-jenis periode pembayaran kupon obligasi, kecuali", "Weekly"],
-["Salah satu syarat wajib jika nasabah akan bertransaksi TOM", "Nasabah harus memiliki Treasury Line"],
-["Trend pergerakan mata uang yang cenderung melemah terhadap lawannya disebut", "Bearish"],
-["Manfaat analisa teknikal dalam menganalisa pergerakan harga, kecuali", "Mengetahui siapa pelaku utama di market"],
-["Faktor yang mempengaruhi harga surat hutang secara langsung, kecuali", "Tingkat pengangguran suatu negara"],
-["Pernyataan yang salah terkait faktor fundamental mata uang", "Inflasi naik cenderung memperkuat mata uang"],
-["Bank A menghubungi Bank B untuk menanyakan kuotasi harga forex trading, maka Bank A disebut", "Asking Bank"],
-["Mata uang yang menjadi reference currency terhadap mata uang lain", "USD"],
-["Selain Forex Market, technical analysis digunakan di market lain, kecuali", "Flea Market"],
-["Faktor fundamental dalam analisa pasar adalah", "Masalah ekonomi, politik suatu negara, termasuk bencana alam"],
-["Trend pergerakan mata uang yang cenderung menguat terhadap lawannya disebut", "Bullish"],
-["Mata uang pertama yang muncul dalam suatu currency pair disebut", "Reference Currency"],
-["Tujuan Bank melakukan transaksi FX untuk kebutuhan sendiri, kecuali", "Pengelolaan Aset dan Liabilitas (Asset-Liability Management)"],
-["Obligasi yang diterbitkan pemerintah untuk membiayai proyek pembangunan disebut", "Government Bond"],
-["Hubungan tingkat suku bunga dengan harga obligasi", "Berbanding terbalik"],
-["Produk derivatif yang tidak berbasis suku bunga", "Forward"],
-["Yang tidak termasuk dalam produk derivatif", "Spot"],
-["Jika hari Rabu libur di Tokyo, valuta spot transaksi hari Senin", "Semua benar (valuta menyesuaikan hari kerja berikutnya)"],
-["Fungsi dan tanggung jawab Treasury Marketing, kecuali", "Melakukan transaksi interbanking"],
-["Kegiatan yang dilakukan Treasury Bank, kecuali", "Spekulasi"],
-["Strategi gapping yang dilakukan Treasury untuk profit", "Short gapping (lending jangka panjang) saat trend suku bunga turun"],
-["Selain gapping, strategi lain Treasury untuk menghasilkan profit", "Arbitrage, Intermediary, dan Proprietary"],
-["Aturan yang membatasi Dealer dalam aktivitas Forex Trading, kecuali", "Treasury Line"],
-["Posisi yang timbul karena dealer punya view atas pergerakan pasar untuk fee/interest income disebut", "Trading Book"],
-["Settlement Date untuk valuta Spot adalah", "Deal Date + 2"],
-["Yang dimaksud Dana Pihak Ketiga (DPK) adalah", "Dana Nasabah"],
-["Instrumen money market di Indonesia, kecuali", "Reksadana"],
-["Yang termasuk peserta (participant) dalam transaksi money market", "Semua jawaban benar"],
-["Instrumen money market internasional", "Treasury Bill, Bankers Acceptance, dan Commercial Paper"],
-["Tenor pinjaman besok, dikembalikan hari berikutnya", "Tom/Next (T/N)"],
-["Tenor pinjaman valuta spot, dikembalikan seminggu kemudian", "Spot/Week (S/W)"],
-["Yang dimaksud dengan rekening Nostro", "Rekening giro valas suatu bank di bank lain untuk menampung dan mengelola dana valas"],
-["Sanksi/risiko bagi Direksi Bank yang gagal memelihara saldo GWM, kecuali", "Tidak bisa mengucurkan kredit"],
-["Rekening valas yang dapat menimbulkan tagihan/kewajiban di masa mendatang disebut", "Rekening administratif valas"],
-["Yang termasuk rekening off balance sheet valuta asing, kecuali", "Transaksi bank notes"],
-["Ketetapan FTP dapat digunakan untuk mengetahui hal-hal berikut, kecuali", "Foreign exchange rate"],
-["Ketentuan FTP di Bank Mandiri berlaku untuk unit kerja", "Penghimpun dana & pemberi kredit"],
-["Tahapan yang benar dalam proses penentuan Fund Transfer Pricing (FTP)", "Memilih Yield Curve — menentukan basic transfer rate — menyesuaikan tingkat suku bunga — menetapkan transfer rate"],
-["Faktor dasar manajemen dalam menentukan FTP, kecuali", "Mengacu pada ketentuan-ketentuan yang dikeluarkan Bank Indonesia"],
-["Tingkat bunga bank yang dibebankan dalam meminjamkan dana di London disebut", "LIBOR"],
-["Market participant yang menghubungkan pemain pasar uang global dan menjaga anonimitas pihak lain disebut", "Money broker"],
-["Metode perhitungan bunga dalam transaksi money market", "True discount, Simple interest, dan Bank discount/simple discount"],
-["Surat Perbendaharaan Negara menggunakan metode perhitungan bunga", "Bank discount/simple discount"],
-["Ketentuan saldo giro valas bank di BI (GWM Valas)", "Minimal 8% dihitung harian, dari rata-rata harian DPK 2 masa laporan sebelumnya"],
-["Bank tempatkan dana interbank IDR 100 miliar bunga 8,50% jangka waktu 31 hari, bunga yang diterima", "IDR 731.944.444,44"],
-["Risiko utama untuk Money Market Transaction", "Credit Risk, Interest Rate (Market) Risk, dan Liquidity Risk"],
-["Total dana Rupiah yang harus disimpan di Giro BI Bank Mandiri untuk GWM Utama Rupiah pada 7 Maret 2014", "Rp 18,00 triliun"],
-["FTP berfungsi sebagai", "Planning/Budgeting, Business unit performance analysis, dan Customer profitability analysis"],
-["Instrumen BI untuk menambah likuiditas Rupiah di pasar interbank, kecuali", "Fine Tune Kontraksi"],
-["Kuotasi harga interbank Rupiah 1 minggu 7%-8% artinya", "Bank Swarie menempatkan dengan rate 8%"],
-["Penempatan 1 minggu Over Spot mulai Rabu 1 Februari 2014, periode penempatannya", "03/02/14 sampai 10/02/14"],
-["\"My word is my bond\" adalah pengertian dari", "Setiap deal yang disepakati dua pihak tidak dapat dibatalkan"],
-["Jenis-jenis risiko yang mungkin dihadapi dealer dalam transaksi forex, kecuali", "Trading Risk"],
-["Reference currency di antara mata uang berikut", "NZD"],
-["Analisa pasar yang digunakan sebagai panduan Dealer untuk mengambil posisi", "Analisa Pasar"],
-["Yang tidak mempengaruhi besar kecilnya spread", "Kondisi risiko kredit"],
-["Dealer 3 transaksi: beli USD/IDR 1jt @9100, jual 500rb @9200, jual 500rb @9150; laba/rugi dealer", "Untung Rp 75 juta"],
-["USD/IDR 9100/9110, USD/JPY 105.10/105.20; kurs jual JPY/IDR agar bank untung 5 pips", "86.45"],
-["USD/IDR 9180/9185, USD/SGD 1.4235/1.4245; kurs beli SGD/IDR agar bank untung Rp50", "6.50"],
-["USD/IDR bergerak dari 13.400/13.410 menjadi 13.450/13.460, artinya", "USD cenderung menguat terhadap IDR"],
-["Faktor yang menentukan tingkat suku bunga Rupiah, kecuali", "Bunga deposito bank-bank besar"],
-["Faktor yang mendorong terjadinya transaksi forex antar pelaku pasar, kecuali", "Untuk menambah aktifitas transaksi rekening"],
-["Transaksi beli/jual pasangan mata uang dengan perjanjian melakukan sebaliknya di kemudian hari dengan premi tertentu disebut", "Swap"],
-["Obligasi yang diterbitkan pemerintah daerah untuk membiayai proyek pembangunan wilayahnya disebut", "Municipal Bond"],
-["Perusahaan internasional pemeringkat surat berharga, kecuali", "Euromoney"],
-["Layanan SMS/WA Blast dari Treasury Marketing berisi informasi berikut, kecuali", "Technical analysis"],
-["Daily Market Review berisi hal-hal berikut, kecuali", "Incidental/Breaking News"],
-["Contoh hedging products, kecuali", "Margin Trading"],
-["Untuk membukukan transaksi cross rate nasabah, kurs yang diperlukan", "Kurs pasar"],
-["Mitigasi risiko pasar oleh Dealer terhadap transaksi valas nasabah, kecuali", "Meminta nasabah agar tidak sering bertransaksi valas dalam jumlah besar"],
-["Pricing strategy mempertemukan transaksi nasabah yang berlawanan posisi untuk harga kompetitif disebut", "Matching transaksi"],
-["Istilah lain pendapatan investor memegang obligasi sampai jatuh tempo", "HTM (Hold To Maturity)"],
-["Obligasi yang memberi hak kepada emiten membeli kembali obligasi pada harga tertentu", "Callable bond"],
-["Peringkat investasi minimum Moody's untuk kategori kualifikasi lancar (SE BI No.10/19/DPNP)", "Baa3"],
-["Obligasi A kupon 8%, yield saat ini 7,5%. Harga yang harus dibayar investor", "Di atas 100% dari nominal obligasi"],
-["Fungsi dan Tanggung Jawab Treasury Marketing, kecuali", "Mengelola posisi valas sebagai akibat dari transaksi dengan nasabah"],
-["Fungsi dan Tanggung Jawab Sub Regional Treasury Marketing, kecuali", "Melakukan fungsi dealing dengan nasabah"],
-["Mata uang yang dapat ditransaksikan nasabah dengan Treasury Marketing Department", "SGD, NOK, DKK, SAR, SEK"],
-["Faktor yang bukan mempengaruhi harga obligasi", "Periode pembayaran kupon obligasi"],
-["SUN FR-43 kupon 9% semi annually, 3 bulan sebelum jatuh tempo, beli Rp10 miliar @101%, uang yang harus disetor", "Rp 10.324.136.986"],
-["Obligasi HM Sampoerna III current yield-nya", "10,75%"]
-];
-
-/* ============ DATA: CX (20 soal) ============ */
-const cxData=[
-{q:"Apa yang dimaksud dengan customer experience goal?",
- o:["Hal-hal yang memiliki nilai finansial dan menguntungkan customer","Hal-hal yang customer ingin lakukan dan rasakan saat dilayani","Semua jawaban benar","Hal-hal yang pasti akan didapat oleh customer setelah dilayani"],
- a:1},
-{q:"Apa saja 4P yang menjadi unsur pembentuk customer experience?",
- o:["Place, Product, Persona, Potency","Place, Process, Persona, Price","Product, People, Process, Place","Product, Process, People, Price"],
- a:2},
-{q:"Berikut merupakan step yang harus dilakukan dalam cycle menciptakan proses kerja yang excellent, kecuali?",
- o:["Follow Through","Prepare","Focus","Drop"],
- a:3},
-{q:"Berikut adalah langkah yang dapat dilakukan untuk menciptakan remarkable customer experience, kecuali",
- o:["Identifikasi pain customer","Membuat customer journey","Membuat persona","Membuat target akuisisi customer"],
- a:3},
-{q:"Apa yang dimaksud dengan memberikan remarkable customer experience?",
- o:["Menghadirkan layanan yang remarkable di setiap touch point berdasarkan company values","Menghadirkan layanan yang remarkable di setiap touch point berdasarkan business perspective","Menghadirkan layanan yang remarkable di setiap touch point berdasarkan customer perspective","Menghadirkan layanan yang remarkable di setiap touch point berdasarkan market perspective"],
- a:2},
-{q:"Berikut ini makna yang benar dari Customer Experience atau CX, kecuali",
- o:["CX adalah hal-hal yang ditangkap oleh 5 indra dan mempengaruhi penilaian customer","CX adalah kesan yang dibawa pulang oleh customer terkait layanan perusahaan","CX adalah panduan bagi customer dalam berinteraksi dengan perusahaan","CX adalah yang customer pikirkan, rasakan, lakukan saat kontak dengan perusahaan"],
- a:2},
-{q:"Untuk mempertahankan upaya kita dalam memberikan CX positif kepada nasabah secara konsisten, antara lain melalui pengukuran internal yaitu sbb",
- o:["Survey Layanan, Survey Kepuasan Nasabah, Net Price Score","Service Excellence Survey, Customer Satisfaction Survey, Net Promoter Score","Service Excellence Survey, Customer Satisfaction Survey, Net Price Score","Service Excellence Survey, Survey Loyalitas Nasabah, Net Promoter Score"],
- a:1},
-{q:"Manakah dari 4P berikut yang merupakan unsur terpenting dalam menciptakan customer experience yang positif",
- o:["Potency","Process","Persona","People"],
- a:3},
-{q:"Berikut merupakan alasan mengapa diperlukannya standard layanan, kecuali?",
- o:["Business Critical","Communication Critical","Compliance Critical","Customer Critical"],
- a:1},
-{q:"Mengubah design pembatas antrean yang tadinya berupa tali pembatas menjadi pembatas yang bisa dipakai untuk duduk nasabah adalah contoh SCAMPER, pilihan yang benar adalah",
- o:["Magnify","Eliminate","Modify","Minify"],
- a:2},
-{q:"Susunan Piramida Customer Experience terdiri dari",
- o:["Prosesnya mudah, Memenuhi kebutuhan, Menyenangkan","Memenuhi kebutuhan, Menyenangkan, Prosesnya mudah","Memenuhi kebutuhan, Prosesnya mudah, Menyenangkan","Prosesnya mudah, Menyenangkan, Memenuhi kebutuhan"],
- a:2},
-{q:"Bersemangat dalam menyambut dan memberikan layanan terbaik kepada nasabah, sampaikan informasi yang menjadi hak nasabah, teliti menjalankan transaksi dengan akurasi 100% merupakan penerapan Prinsip Layanan:",
- o:["Customer Critical","Compliance Critical","Business Critical","Communication Critical"],
- a:0},
-{q:"Di bawah ini manfaat nasabah yang loyal bagi perusahaan, kecuali",
- o:["Menambah biaya layanan","Meningkatkan kesempatan cross-selling","Meningkatkan profit perusahaan","Menjadi referensi atau rujukan"],
- a:0},
-{q:"Simplifikasi formulir dari 20 pertanyaan menjadi hanya 10 pertanyaan adalah contoh SCAMPER, khususnya poin:",
- o:["Substitute","Put to another use","Magnify","Minify"],
- a:3},
-{q:"Mengapa customer experience penting",
- o:["Karena membantu customer dalam mengambil keputusan","Pelanggan dengan pengalaman positif terbukti akan merekomendasikan brand perusahaan","Merupakan syarat dari regulator","Merupakan panduan bagi customer dalam berinteraksi dengan perusahaan"],
- a:1},
-{q:"Dalam upaya menciptakan Customer Experience, berikut hal yang dapat dilakukan dalam menerapkan Think and Work outside in, kecuali?",
- o:["Suara customer adalah acuan kita memperbaiki atau meningkatkan layanan kita","Jadikan customer pertimbangan utama dalam berpikir & bertindak","Pahami kebutuhan, harapan, profil, usia, kelas sosial & gaya hidup customer","Mengambil keputusan sesuai keinginan atasan semata"],
- a:3},
-{q:"Pernyataan dibawah ini merupakan customer experience pain, kecuali",
- o:["Hal-hal yang tidak pernah dibayangkan oleh customer","Hal-hal yang bisa membuat customer komplain","Hal-hal yang tidak diharapkan oleh customer saat dilayani","Hal-hal yang dikhawatirkan oleh customer saat dilayani"],
- a:0},
-{q:"Penggabungan mesin ATM dengan mesin penyetor uang yang awalnya 2 mesin berbeda menjadi 1 mesin saja merupakan contoh SCAMPER, khususnya poin:",
- o:["Combine","Reverse","Minify","Eliminate"],
- a:0},
-{q:"Berikut adalah poin yang harus dilakukan untuk menciptakan komunikasi yang ideal dan asertif, yaitu:",
- o:["Jelas, Panjang, Santun","Santun, Ringkas, Jelas","Ringkas, Panjang, Sopan","Detail, Lengkap, Panjang"],
- a:1},
-{q:"Pengalaman customer secara menyeluruh atau end to end yang dimulai ketika muncul informasi awal tentang suatu perusahaan atau brand hingga produk atau jasa itu diterima bahkan setelahnya disebut",
- o:["Customer Experience","Customer Perception","Customer Motion","Customer Intimacy"],
- a:0}
+/* ============ DATA: BANK GUARANTEE (63 soal) ============ */
+const bgData = [
+{q:"Hukum di Indonesia yang dipakai dalam Bank Garansi Lokal adalah:", opts:["Kitab Undang-undang Hukum Perdata","Undang-undang Perdagangan","Kitab Undang-undang Hukum Pidana","Undang-undang Agraria"], correct:0},
+{q:"Standard Business Process melibatkan unit:", opts:["Servicing","Bisnis Unit","Unit Pengelola Limit Kredit","Unit Risk"], correct:0},
+{q:"Proses perubahan bank garansi dapat meliputi:", opts:["Nama Beneficiary","Bank Penerbit Bank Garansi","Penurunan nominal","Nama Applicant"], correct:2},
+{q:"Nominal bank garansi pemeliharaan sebesar:", opts:["Sama dengan nilai uang yang diterima","1 – 5 pct dari perkiraan nilai kontrak","5 – 20 pct dari nilai kontrak","10 pct dari nilai kontrak"], correct:3},
+{q:"Berikut pihak yang tidak terlibat langsung dengan bank garansi:", opts:["Beneficiary","Issuing bank","Counter bank","Applicant"], correct:2},
+{q:"Perubahan Bank Garansi dapat dilakukan terhadap hal-hal sebagai berikut, kecuali:", opts:["Kenaikan nominal Bank garansi","Underlying transaction yang menjadi dasar penerbitan bank Garansi","Penurunan nominal Bank garansi","Jangka Waktu Bank garansi"], correct:1},
+{q:"Berikut ini adalah yang tidak termasuk syarat minimum yang harus tercantum pada format Bank Garansi menurut SE BI No. 23/7/UKU tanggal 18 Maret 1991:", opts:["Masa klaim atas bank garansi","Tanggal penerbitan","Nama pejabat perusahaan penerima bank garansi","Tunduk pada 1831 atau 1832 KUH Perdata"], correct:2},
+{q:"Kewenangan terkait Bank Garansi di Bank Mandiri oleh Pejabat setingkat DH di Transaction Banking Product:", opts:["Kewenangan menyetujui Penerbitan BG Margin 100%","Kewenangan menyetujui Penerbitan BG Fasilitas","Kewenangan menandatangani warkat BG","Kewenangan mereview format customized BG"], correct:3},
+{q:"Kontrak/Perjanjian yang mengikat antara Bank Penerbit dgn Applicant/Pemohon adalah:", opts:["Perjanjian Utama/Sales Contract","Bank Garansi","Aplikasi Penerbitan BG","Underlying document untuk Bank Garansi"], correct:2},
+{q:"Pihak yang terlibat dalam Bank Garansi Lokal, kecuali:", opts:["Applicant","Guarantor","Beneficiary","Kantor cabang beneficiary"], correct:3},
+{q:"Kondisi dimana Bank Garansi dinyatakan masih belum berakhir:", opts:["Bank Garansi telah jatuh tempo termasuk periode klaim telah berakhir","Bank Garansi telah jatuh tempo tidak termasuk periode klaim","Klaim Bank Garansi telah dibayar","Asli Bank Garansi telah dikembalikan"], correct:1},
+{q:"Yang bukan tugas dan tanggung jawab Cabang Servicing dan TSC (Unit Servicing) adalah:", opts:["Menyetujui penerbitan BG Fasilitas","Membentuk GJMN BG sesuai CIF nasabah pemohon","Memeriksa dokumen klaim","Membentuk GNC atas pembebanan provisi penerbitan BG sesuai jenis mata uang provisi"], correct:0},
+{q:"Berakhirnya bank garansi dapat berupa proses berikut, yaitu:", opts:["Bank garansi hilang","Bank Garansi di beneficiary","Bank garansi telah jatuh tempo","Kontrak telah berakhir"], correct:2},
+{q:"Hal-hal berikut adalah perubahan bank garansi kecuali:", opts:["Pemendekkan jangka waktu","Kenaikan nominal","Perubahan kata/ kalimat","Nama beneficiary"], correct:3},
+{q:"Syarat penerbitan bank garansi di Bank Mandiri, kecuali:", opts:["Menyerahkan formulir aplikasi penerbitan BG","Menyerahkan surat permohonan dari nasabah sebagai dasar penerbitan BG","Menyediakan cover jaminan penerbitan BG","Menyerahkan underlying dokumen"], correct:1},
+{q:"Hal-hal yang tidak di perkenankan di Bank Mandiri antara lain:", opts:["Cover dengan menggunakan blokir tabungan","Perubahan jangka waktu bank garansi","Unconditional","Revocable"], correct:3},
+{q:"Pihak penerima bank garansi disebut:", opts:["Guarantor","Kontraktor","Beneficiary","Applicant"], correct:2},
+{q:"Berikut adalah underlying document yang dapat digunakan dalam Bank Garansi pelaksanaan kecuali:", opts:["Undangan tender terbuka","Surat Perintah Kerja","Notification of award","Kontrak yang telah ditandatangani"], correct:0},
+{q:"Jenis bank Garansi atas dasar tujuan penggunaannya, kecuali:", opts:["BG Pembayaran","BG Pelaksanaan","Bank Garansi Serah Terima","BG Tender"], correct:2},
+{q:"Bank garansi yang digunakan untuk menjamin uang yang terlebih dahulu dibayarkan oleh pemilik proyek kepada kontraktor adalah:", opts:["Bank garansi tender","Bank garansi uang muka","Custom bond","Counter guarantee"], correct:1},
+{q:"Nominal bank garansi uang muka sebesar:", opts:["Sama dengan nilai uang yang diterima","1 – 5 pct dari perkiraan nilai kontrak","5 – 20 pct dari nilai kontrak","10 pct dari nilai kontrak"], correct:0},
+{q:"Guarantee yang bisa digunakan untuk transaksi domestik dan international adalah:", opts:["Demand guarantee dan bank garansi","Standby LC dan shipping guarantee","Standby LC dan demand guarantee","Bank garansi dan standby lc"], correct:2},
+{q:"Syarat minimum bank garansi yang tunduk pada SE BI No. 23/7/UKU tanggal 18 Maret 1991, kecuali:", opts:["Tanggal penerbitan","Surat permohonan dari pemohon","Jumlah uang yang dijamin oleh bank","Nama dan alamat Bank pemberi BG"], correct:1},
+{q:"Jaminan bank yang tepat untuk keperluan penawaran proyek adalah:", opts:["Demand guarantee","Tender bond","Retention bond","Performance bond"], correct:1},
+{q:"Yang bukan Manfaat Bank Garansi bagi Nasabah:", opts:["Mengurangi risiko cidera janji (wanprestasi) bagi penerima Bank Garansi","Memperlancar Transaksi Bisnis bagi Pemohon Bank Garansi","Jaminan dikeluarkan oleh Institusi lembaga keuangan yg kredible","Meningkatkan Corporate Image"], correct:3},
+{q:"Pihak-Pihak dalam Bank Garansi:", opts:["Pihak yang menjamin, pihak yang dijamin dan pihak yang menerima jaminan","Penerima Jaminan (Applicant), Pemohon (Beneficiary) dan Bank Penerbit","Applicant, Benefiacry dan Counter Bank","Pihak yang meminta jaminan kepada pemohon, Beneficiary dan Issuing Bank"], correct:0},
+{q:"Yang tidak termasuk tujuan digunakannya Garansi:", opts:["Memperlancar transaksi bisnis bagi pemohon dan penerima bank garansi","Memitigasi / meminimalisir risiko yang berhubungan dengan potensial insolvency","Adanya ketidak percayaan kedua belah pihak","Memitigasi / meminimalisir risiko yang berhubungan unwillingness to pay counter party nasabah"], correct:2},
+{q:"Bank garansi uang muka menggunakan underlying document sebagai berikut:", opts:["Undangan tender","Berita Acara Serah Terima","Kontrak yang telah di tandatangani","Surat pemberitahuan bea masuk cukai"], correct:2},
+{q:"Kapan diperlukan BG Jaminan Sanggah:", opts:["Setelah pengumuman pemenang","Setelah dilakukan Aanwijzing","Setelah pelaksanaan pekerjaan selesai","Setelah terbit SPK"], correct:0},
+{q:"Cover bank garansi dapat berupa, kecuali:", opts:["Blokir rekening tabungan","Fasilitas Cash Loan","Setoran pada Giro Jaminan Bank Garansi (GJMN)","Blokir deposito"], correct:1},
+{q:"Berikut pihak-pihak yang terlibat langsung dengan Bank Mandiri apabila penerbitan bank garansi didasarkan atas Counter Guarantee, adalah:", opts:["Confirming Bank","Perusahaan Asuransi","Transferring Bank","Counter Bank"], correct:3},
+{q:"Salah satu syarat minimum bank garansi yang tunduk pada SE BI No. 23/7/UKU tanggal 18 Maret 1991:", opts:["Pasal 1831 atau pasal 1832 KUH Perdata","Pasal 1831 atau pasal 1832 KUHP","Nama pejabat beneficiary","Batas waktu pengajuan perubahan bank garansi"], correct:0},
+{q:"Kontra Garansi Asuransi yang belum bekerjasama dengan Bank Mandiri:", opts:["Asuransi Jasa Indonesia (Jasindo)","Asuransi Sinar Mas (ASM)","Asuransi Tugu Muda","Perusahaan Umum Jaminan Kredit Indonesia (Jamkrindo)"], correct:2},
+{q:"Apakah yang Saudara ketahui tentang Bank Garansi?", opts:["Janji Bank","Alat Pembayaran","Alat Penjaminan","Dokumen Transportasi"], correct:2},
+{q:"Hal-hal yang tidak diperkenankan dalam penerbitan bank garansi:", opts:["Irrevocable dan unconditional","Revocable dan conditional","Tanggal terbit sesuai dengan tanggal penerbitan sesungguhnya","Mensyaratkan dokumen klaim"], correct:1},
+{q:"Yang bukan ketentuan BG menurut SE BI No. 23/7/UKU tgl. 18 maret 1991 adalah:", opts:["Minimal memuat 7 point sesuai SE BI No. 23/7/UKU","Tunduk pada hukum indonesia","Berbentuk warkat","Minimal memuat 9 point sesuai SE BI No. 23/7/UKU"], correct:3},
+{q:"Manakah berikut ini yang tidak termasuk dalam jenis cover jaminan yang dapat digunakan untuk penerbitan Bank Garansi:", opts:["Kontra Garansi Asuransi","Counter Guarantee dari Bank Koresponden","Setor jaminan 100% tunai","Fasilitas IGF (Non Cash Loan)"], correct:3},
+{q:"Underlying document untuk Bank Garansi Tender adalah:", opts:["Surat Perintah Kerja","Surat pengumuman pemenang tender","Kontrak","Undangan tender untuk mengikuti tender"], correct:3},
+{q:"Nominal bank garansi tender sebesar:", opts:["5 - 20 Persen dari nilai kontrak","Maksimal 50 juta","Sama dengan nilai uang yang di terima","1 - 5 Persen dari perkiraan nilai kontrak"], correct:3},
+{q:"Cover bank garansi dapat berupa:", opts:["Obligasi","Blokir rekening giro","Rekening di bank lain","Saham"], correct:1},
+{q:"Instrument guarantee yang bersifat dependent adalah sebagai berikut:", opts:["Demand guarantee dan surety bond","Bank garansi dan surety bond","Demand guarantee dan standby lc","Bank garansi dan demand guarante"], correct:1},
+{q:"Manfaat layanan konfirmasi online KGBM bagi beneficiary, kecuali:", opts:["Semua Nasabah yang bertransaksi BG di Bank Mandiri bisa mengakses website kgbm","Dapat diakses 24 jam setiap hari (24/7)","Dapat diakses melalui berbagai platform (Mobile Phone, Tablet, PC dll)","Bebas Biaya (Free of Charges)"], correct:0},
+{q:"Apa yang dimaksud dengan Format Customized pada Bank Garansi:", opts:["Format BG yang telah tercantum dlm sistem sehingga Bank hanya mengisi beberapa field saja seperti nama","Format BG yang belum tersedia dalam sistem sehingga Bank harus mengetik ulang atau meng copy seluruh kalimat dalam BG tersebut","Format BG yang mengandung klausula khusus diluar BG standard dan BG template atau yang tidak memuat klausula-klausula standard minimal","Format BG yang sudah tercantum dalam sistem sehingga Bank tidak harus mengetik ulang"], correct:2},
+{q:"Definisi Bank Garansi adalah sebagai berikut:", opts:["Jaminan tertulis Bank kpd pihak penerima jaminan dimana bank mengikatkan diri untuk membayar sejumlah uang tertentu apabila pihak pemohon tidak memenuhi kewajibannya berdasarkan Aplikasi Bank Garansi yang diserahkan pemohon kepada Bank","Jaminan tertulis Bank kpd pihak penerima jaminan dimana bank mengikatkan diri untuk membayar sejumlah uang tertentu apabila pihak pemohon tidak memenuhi kewajibannya berdasarkan kesepakatan/kontrak antara pihak pemohon dengan pihak penerima","Jaminan tertulis Bank kpd pihak penerima jaminan dimana bank mengikatkan diri untuk membayar sejumlah uang tertentu apabila pihak pemohon tidak memenuhi kewajibannya berdasarkan kesepakatan/kontrak antara pihak Bank Penerbit dengan pihak Applicant","Jaminan tertulis Bank kpd pihak pemohon dimana bank mengikatkan diri untuk membayar sejumlah uang tertentu apabila pihak pemohon tidak memenuhi kewajibannya berdasarkan kesepakatan/kontrak antara pihak pemohon dengan pihak penerima"], correct:1},
+{q:"Instrument Guarantee yang bersifat Independent adalah sebagai berikut:", opts:["Demand guarantee dan surety bond","Bank garansi dan surety bond","Demand guarantee dan standby letter of credit","Bank garansi dan standby LC"], correct:2},
+{q:"Perubahan bank garansi dapat berupa:", opts:["Nama Applicant","Nama beneficiary","Nominal","Perubahan underlying document"], correct:2},
+{q:"Risiko yang dapat terjadi apabila Bank menjalankan transaksi BG adalah:", opts:["Credit Risk, Operational Risk, Market Risk dan Bank Risk","Documentary Risk, Operational Risk, Market Risk dan Legal Risk","Credit Risk, Legal Risk, Market Risk dan Bank Risk","Credit Risk, Operational Risk, Market Risk dan Legal Risk"], correct:3},
+{q:"Digunakan untuk menjamin uang yang telah dibayarkan pemilik proyek dalam hubungannya dengan masa pemeliharaan proyek:", opts:["Performance bond","Custom bond","Retention bond","Surety bond"], correct:2},
+{q:"Berikut pihak-pihak yang terlibat langsung dengan Bank Mandiri apabila penerbitan bank garansi didasarkan atas Counter Guarantee, kecuali:", opts:["Confirming Bank","Beneficiary","Counter Bank","Applicant"], correct:0},
+{q:"Ketentuan Demand Guarantee menurut URDG 758:", opts:["Berbentuk Warkat","Accessoir dari perjanjian induk","Terpisah dari perjanjian induk","Tunduk Pada Hukum Indonesia"], correct:2},
+{q:"Hak istimewa sebagai guarantor untuk menjual aset-aset pihak terjamin terlebih dahulu untuk memenuhi kewajibannya kepada Pihak Yang dijamin diatur dalam pasal:", opts:["Pasal 1820 KUH Perdata","Pasal 1831 KUH Perdata","Pasal 1847 KUH Perdata","Pasal 1832 KUH Perdata"], correct:1},
+{q:"Jaminan bank yang tepat untuk pelaksanaan pekerjaan adalah:", opts:["Standby letter of credit","Tender bond","Retention bond","Performance bond"], correct:3},
+{q:"Berakhirnya bank garansi dapat berupa proses berikut, kecuali:", opts:["Bank garansi telah jatuh tempo","Klaim bank garansi telah dibayar","Asli bank garansi telah dikembalikan","Bank garansi dinyatakan hilang oleh beneficiary"], correct:3},
+{q:"Bank garansi yang telah diterbitkan diserahkan oleh bank penerbit kepada:", opts:["Applicant","Beneficiary","Penyelenggara tender","Kantor cabang beneficiary"], correct:0},
+{q:"Berikut ini adalah syarat salah satu minimum bank garansi yang tunduk pada SE BI No. 23/7/UKU tanggal 18 Maret 1991:", opts:["Alamat beneficiary","Alamat applicant","Nama pejabat beneficiary","Transaksi yang dijamin"], correct:3},
+{q:"Yang bukan manfaat bank garansi bagi bank:", opts:["Cross selling product","Mempelancar transaksi bisnis","Meningkatkan corporate image","Menghasilkan fee based income"], correct:1},
+{q:"Kontrak/Perjanjian yang mengikat antara Bank Penerbit dgn Penerima/Beneficiary adalah:", opts:["Perjanjian Utama/Sales Contract","Bank Garansi","Aplikasi Pembukaan BG","Underlying document untuk Bank Garansi"], correct:1},
+{q:"Nominal bank garansi pelaksanaan sebesar:", opts:["Sama dengan nilai uang yang diterima","10 pct dari nilai kontrak","1-5 pct dari perkiraan nilai kontrak","5-20 pct dari nilai kontrak"], correct:3},
+{q:"Hal-hal yang tidak boleh dalam penerbitan BG di Bank Mandiri sebagai berikut kecuali:", opts:["Bersifat revocable","Klaim yang dilakukan dari Beneficiary, tidak mencantumkan pernyataan Wanprestasi yang dilakukan applicant","Transaksi yang dijamin","Tidak mencantumkan tanggal berakhirnya BG"], correct:2},
+{q:"Bank Garansi yang digunakan untuk menjamin pelaksanaan kewajiban pihak yang dijamin sesuai kontrak:", opts:["Tender Bond","Advance Payment Bond","Retention Bond","Performance Bond"], correct:3},
+{q:"BG Tender dinyatakan jatuh tempo apabila:", opts:["Menang tender","Tidak menandatangani kontrak","Tidak menang tender","Tidak dapat menyerahkan bank garansi pelaksanaan"], correct:2},
+{q:"Besar nominal Bank Garansi Sanggah adalah:", opts:["Rp. 20 juta","2 per mil dari HPS atau maksimal sebesar Rp 20 juta","2 Persen dari HPS","2 permil dari HPS atau maksimal sebesar Rp. 50 juta"], correct:3},
+{q:"Pihak yang mengajukan permohonan penerbitan bank garansi kepada penjamin disebut:", opts:["Applicant","Beneficiary","Guarantor","Kontraktor"], correct:0}
 ];
 
 /* ============ STATE ============ */
-let treasuryPicks = new Array(mcqData.length).fill(null);
-let cxPicks = new Array(cxData.length).fill(null);
-let treasurySubmitted = false, cxSubmitted = false;
-let treasuryTimerInt = null, cxTimerInt = null;
+let tradePicks = new Array(tradeData.length).fill(null);
+let bgPicks = new Array(bgData.length).fill(null);
+let tradeSubmitted = false, bgSubmitted = false;
+let tradeTimerInt = null, bgTimerInt = null;
 
 /* ============ NAV ============ */
 function showSection(id){
@@ -555,8 +441,21 @@ function showSection(id){
   window.scrollTo({top:0, behavior:'auto'});
 }
 function backToStart(){
-  clearInterval(treasuryTimerInt); clearInterval(cxTimerInt);
+  clearInterval(tradeTimerInt); clearInterval(bgTimerInt);
   showSection('screenStart');
+}
+
+/* ============ LOGIN GATE ============ */
+const SITE_PASSWORD = "ismail";
+function checkLogin(){
+  const val = document.getElementById('loginPass').value;
+  const err = document.getElementById('loginError');
+  if(val === SITE_PASSWORD){
+    err.classList.remove('show');
+    showSection('screenStart');
+  } else {
+    err.classList.add('show');
+  }
 }
 
 /* ============ TIMER ============ */
@@ -576,7 +475,7 @@ function startTimer(displayId, seconds, onExpire){
 }
 
 /* ============ RENDER: GENERIC QUESTION LIST ============ */
-function renderQList(containerId, data, picks, getQ, getOpts, prefix){
+function renderQList(containerId, data, getQ, getOpts, prefix){
   const holder = document.getElementById(containerId);
   holder.innerHTML='';
   data.forEach((item,idx)=>{
@@ -599,55 +498,55 @@ function renderQList(containerId, data, picks, getQ, getOpts, prefix){
   });
 }
 
-/* ============ TREASURY TEST ============ */
-function goTreasuryTest(){
-  treasuryPicks = new Array(mcqData.length).fill(null);
-  treasurySubmitted = false;
-  renderQList('treasuryQList', mcqData, treasuryPicks, it=>it.q, it=>it.opts, 'tr');
-  document.getElementById('treasurySubmitBtn').disabled=false;
-  document.getElementById('treasurySubmitBtn').textContent='Lihat Hasil';
-  showSection('screenTreasuryTest');
-  clearInterval(treasuryTimerInt);
-  treasuryTimerInt = startTimer('treasuryTimer', 15*60, ()=>{ if(!treasurySubmitted) submitTreasury(); });
+/* ============ TRADE SERVICE TEST ============ */
+function goTradeTest(){
+  tradePicks = new Array(tradeData.length).fill(null);
+  tradeSubmitted = false;
+  renderQList('tradeQList', tradeData, it=>it.q, it=>it.opts, 'trade');
+  document.getElementById('tradeSubmitBtn').disabled=false;
+  document.getElementById('tradeSubmitBtn').textContent='Lihat Hasil';
+  showSection('screenTradeTest');
+  clearInterval(tradeTimerInt);
+  tradeTimerInt = startTimer('tradeTimer', 15*60, ()=>{ if(!tradeSubmitted) submitTrade(); });
 }
-function picktr(qi, oi){
-  if(treasurySubmitted) return;
-  treasuryPicks[qi]=oi;
-  const opts = document.querySelectorAll('#tr-opts-'+qi+' .lms-opt');
-  const correctIdx = mcqData[qi].correct;
+function picktrade(qi, oi){
+  if(tradeSubmitted) return;
+  tradePicks[qi]=oi;
+  const opts = document.querySelectorAll('#trade-opts-'+qi+' .lms-opt');
+  const correctIdx = tradeData[qi].correct;
   opts.forEach((o,i)=>{
     o.classList.toggle('checked', i===oi);
     o.classList.toggle('ans-correct', i===correctIdx);
   });
 }
-function submitTreasury(){
-  if(treasurySubmitted) return;
-  treasurySubmitted = true;
-  clearInterval(treasuryTimerInt);
+function submitTrade(){
+  if(tradeSubmitted) return;
+  tradeSubmitted = true;
+  clearInterval(tradeTimerInt);
   let score=0;
-  mcqData.forEach((item,idx)=>{
-    const opts = document.querySelectorAll('#tr-opts-'+idx+' .lms-opt');
+  tradeData.forEach((item,idx)=>{
+    const opts = document.querySelectorAll('#trade-opts-'+idx+' .lms-opt');
     opts.forEach((o,i)=>{
       o.onclick=null;
       if(i===item.correct) o.classList.add('ans-correct');
     });
-    if(treasuryPicks[idx]===item.correct) score++;
+    if(tradePicks[idx]===item.correct) score++;
   });
-  renderTreasuryResult(score);
-  showSection('screenTreasuryResult');
+  renderTradeResult(score);
+  showSection('screenTradeResult');
 }
-function renderTreasuryResult(score){
-  document.getElementById('treasuryScoreBig').textContent = score+' / '+mcqData.length;
-  const pct = score/mcqData.length;
-  document.getElementById('treasuryScoreMsg').textContent =
+function renderTradeResult(score){
+  document.getElementById('tradeScoreBig').textContent = score+' / '+tradeData.length;
+  const pct = score/tradeData.length;
+  document.getElementById('tradeScoreMsg').textContent =
     pct===1 ? 'Sempurna! Semua jawaban benar.' :
     pct>=0.8 ? 'Bagus, hasil sudah solid.' :
     pct>=0.6 ? 'Cukup baik, masih ada beberapa yang perlu diperbaiki.' :
     'Perlu latihan lagi, pelajari kembali materinya.';
-  const holder = document.getElementById('treasuryReviewList');
+  const holder = document.getElementById('tradeReviewList');
   holder.innerHTML='';
-  mcqData.forEach((item,idx)=>{
-    const pickIdx = treasuryPicks[idx];
+  tradeData.forEach((item,idx)=>{
+    const pickIdx = tradePicks[idx];
     const div = document.createElement('div');
     div.className='lms-q-block';
     let optsHtml='';
@@ -660,7 +559,7 @@ function renderTreasuryResult(score){
       </div>`;
     });
     div.innerHTML = `
-      <div class="lms-qlabel">Question ${idx+1} of ${mcqData.length}.</div>
+      <div class="lms-qlabel">Question ${idx+1} of ${tradeData.length}.</div>
       <div class="lms-qtext">${item.q}</div>
       ${optsHtml}
     `;
@@ -668,68 +567,68 @@ function renderTreasuryResult(score){
   });
 }
 
-/* ============ CX TEST ============ */
-function goCXTest(){
-  cxPicks = new Array(cxData.length).fill(null);
-  cxSubmitted = false;
-  renderQList('cxQList', cxData, cxPicks, it=>it.q, it=>it.o, 'cx');
-  document.getElementById('cxSubmitBtn').disabled=false;
-  document.getElementById('cxSubmitBtn').textContent='Lihat Hasil';
-  showSection('screenCXTest');
-  clearInterval(cxTimerInt);
-  cxTimerInt = startTimer('cxTimer', 15*60, ()=>{ if(!cxSubmitted) submitCX(); });
+/* ============ BANK GUARANTEE TEST ============ */
+function goBGTest(){
+  bgPicks = new Array(bgData.length).fill(null);
+  bgSubmitted = false;
+  renderQList('bgQList', bgData, it=>it.q, it=>it.opts, 'bg');
+  document.getElementById('bgSubmitBtn').disabled=false;
+  document.getElementById('bgSubmitBtn').textContent='Lihat Hasil';
+  showSection('screenBGTest');
+  clearInterval(bgTimerInt);
+  bgTimerInt = startTimer('bgTimer', 15*60, ()=>{ if(!bgSubmitted) submitBG(); });
 }
-function pickcx(qi, oi){
-  if(cxSubmitted) return;
-  cxPicks[qi]=oi;
-  const opts = document.querySelectorAll('#cx-opts-'+qi+' .lms-opt');
-  const correctIdx = cxData[qi].a;
+function pickbg(qi, oi){
+  if(bgSubmitted) return;
+  bgPicks[qi]=oi;
+  const opts = document.querySelectorAll('#bg-opts-'+qi+' .lms-opt');
+  const correctIdx = bgData[qi].correct;
   opts.forEach((o,i)=>{
     o.classList.toggle('checked', i===oi);
     o.classList.toggle('ans-correct', i===correctIdx);
   });
 }
-function submitCX(){
-  if(cxSubmitted) return;
-  cxSubmitted = true;
-  clearInterval(cxTimerInt);
+function submitBG(){
+  if(bgSubmitted) return;
+  bgSubmitted = true;
+  clearInterval(bgTimerInt);
   let score=0;
-  cxData.forEach((item,idx)=>{
-    const opts = document.querySelectorAll('#cx-opts-'+idx+' .lms-opt');
+  bgData.forEach((item,idx)=>{
+    const opts = document.querySelectorAll('#bg-opts-'+idx+' .lms-opt');
     opts.forEach((o,i)=>{
       o.onclick=null;
-      if(i===item.a) o.classList.add('ans-correct');
+      if(i===item.correct) o.classList.add('ans-correct');
     });
-    if(cxPicks[idx]===item.a) score++;
+    if(bgPicks[idx]===item.correct) score++;
   });
-  renderCXResult(score);
-  showSection('screenCXResult');
+  renderBGResult(score);
+  showSection('screenBGResult');
 }
-function renderCXResult(score){
-  document.getElementById('cxScoreBig').textContent = score+' / '+cxData.length;
-  const pct = score/cxData.length;
-  document.getElementById('cxScoreMsg').textContent =
+function renderBGResult(score){
+  document.getElementById('bgScoreBig').textContent = score+' / '+bgData.length;
+  const pct = score/bgData.length;
+  document.getElementById('bgScoreMsg').textContent =
     pct===1 ? 'Sempurna! Semua jawaban benar.' :
     pct>=0.8 ? 'Bagus, hasil sudah solid.' :
     pct>=0.6 ? 'Cukup baik, masih ada beberapa yang perlu diperbaiki.' :
     'Perlu latihan lagi, pelajari kembali materinya.';
-  const holder = document.getElementById('cxReviewList');
+  const holder = document.getElementById('bgReviewList');
   holder.innerHTML='';
-  cxData.forEach((item,idx)=>{
-    const pickIdx = cxPicks[idx];
+  bgData.forEach((item,idx)=>{
+    const pickIdx = bgPicks[idx];
     const div = document.createElement('div');
     div.className='lms-q-block';
     let optsHtml='';
-    item.o.forEach((opt,i)=>{
+    item.opts.forEach((opt,i)=>{
       const isChecked = i===pickIdx;
-      const isCorrect = i===item.a;
+      const isCorrect = i===item.correct;
       optsHtml += `<div class="lms-opt${isChecked?' checked':''}${isCorrect?' ans-correct':''}">
         <span class="lms-radio-outer"><span class="lms-radio-inner"></span></span>
         <span class="lms-opt-text">${opt}</span>
       </div>`;
     });
     div.innerHTML = `
-      <div class="lms-qlabel">Question ${idx+1} of ${cxData.length}.</div>
+      <div class="lms-qlabel">Question ${idx+1} of ${bgData.length}.</div>
       <div class="lms-qtext">${item.q}</div>
       ${optsHtml}
     `;
@@ -737,11 +636,11 @@ function renderCXResult(score){
   });
 }
 
-/* ============ FULL ANSWER KEY (183) ============ */
+/* ============ FULL ANSWER KEY ============ */
 function goAnswerKey(){
   const p1 = document.getElementById('akPart1');
   p1.innerHTML='';
-  mcqData.forEach((item,idx)=>{
+  tradeData.forEach((item,idx)=>{
     const div=document.createElement('div');
     div.className='answerkey-item';
     div.innerHTML=`<b>${idx+1}.</b> ${item.q}<br>Jawaban benar: <b class="ak-correct">${item.opts[item.correct]}</b>`;
@@ -749,10 +648,10 @@ function goAnswerKey(){
   });
   const p2 = document.getElementById('akPart2');
   p2.innerHTML='';
-  flashRaw.forEach((r,idx)=>{
+  bgData.forEach((item,idx)=>{
     const div=document.createElement('div');
     div.className='answerkey-item';
-    div.innerHTML=`<b>${idx+1}.</b> ${r[0]}<br>Jawaban benar: <b class="ak-correct">${r[1]}</b>`;
+    div.innerHTML=`<b>${idx+1}.</b> ${item.q}<br>Jawaban benar: <b class="ak-correct">${item.opts[item.correct]}</b>`;
     p2.appendChild(div);
   });
   showSection('screenAnswerKey');

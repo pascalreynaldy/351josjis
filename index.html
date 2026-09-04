@@ -153,6 +153,8 @@ body{
 
 .answerkey-item{border-left:3px solid var(--lms-blue); padding:8px 14px; margin-bottom:8px; background:#f7f9fb; border-radius:4px; font-size:.87rem;}
 .answerkey-item b.ak-correct{font-weight:700; color:#000;}
+.answerkey-item.flagged{border-left-color:#c98a1c; background:#fff8e8;}
+.ak-flag{display:block; color:#a3690f; font-size:.8rem; font-weight:700; margin-top:6px;}
 
 @media(max-width:600px){
   .lms-wrap{padding:0;}
@@ -637,21 +639,37 @@ function renderBGResult(score){
 }
 
 /* ============ FULL ANSWER KEY ============ */
+/* Catatan: soal-soal berikut dicurigai kuncinya kurang tepat berdasarkan
+   tinjauan materi trade finance & hukum jaminan umum. Silakan cek ulang
+   ke modul/PDF sumber aslinya untuk memastikan. */
+const tradeFlags = {
+  1: "Perlu dicek ulang — pembiayaan post-impor untuk open account umumnya disebut \"TR atas dasar non-LC\", bukan Deferred Payment (istilah tsb lazim untuk skema LC usance)."
+};
+const bgFlags = {
+  3: "Perlu dicek ulang — kemungkinan tertukar dengan nominal BG Pelaksanaan.",
+  57: "Perlu dicek ulang — kemungkinan tertukar dengan nominal BG Pemeliharaan.",
+  24: "Perlu dicek ulang — \"Meningkatkan Corporate Image\" lazim dianggap manfaat, sedangkan opsi \"Mengurangi risiko wanprestasi bagi penerima\" adalah manfaat bagi Beneficiary, bukan Nasabah (Applicant), sehingga lebih pas jadi jawaban \"bukan manfaat bagi Nasabah\"."
+};
+
 function goAnswerKey(){
   const p1 = document.getElementById('akPart1');
   p1.innerHTML='';
   tradeData.forEach((item,idx)=>{
     const div=document.createElement('div');
-    div.className='answerkey-item';
-    div.innerHTML=`<b>${idx+1}.</b> ${item.q}<br>Jawaban benar: <b class="ak-correct">${item.opts[item.correct]}</b>`;
+    const flag = tradeFlags[idx];
+    div.className='answerkey-item'+(flag?' flagged':'');
+    div.innerHTML=`<b>${idx+1}.</b> ${item.q}<br>Jawaban benar: <b class="ak-correct">${item.opts[item.correct]}</b>`+
+      (flag ? `<span class="ak-flag">⚠️ ${flag}</span>` : '');
     p1.appendChild(div);
   });
   const p2 = document.getElementById('akPart2');
   p2.innerHTML='';
   bgData.forEach((item,idx)=>{
     const div=document.createElement('div');
-    div.className='answerkey-item';
-    div.innerHTML=`<b>${idx+1}.</b> ${item.q}<br>Jawaban benar: <b class="ak-correct">${item.opts[item.correct]}</b>`;
+    const flag = bgFlags[idx];
+    div.className='answerkey-item'+(flag?' flagged':'');
+    div.innerHTML=`<b>${idx+1}.</b> ${item.q}<br>Jawaban benar: <b class="ak-correct">${item.opts[item.correct]}</b>`+
+      (flag ? `<span class="ak-flag">⚠️ ${flag}</span>` : '');
     p2.appendChild(div);
   });
   showSection('screenAnswerKey');

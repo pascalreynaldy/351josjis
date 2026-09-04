@@ -83,11 +83,11 @@ body{
 }
 .page-back:hover{color:var(--lms-text);}
 
-/* ===== TEST WRAPPER (padded card, not edge to edge) ===== */
-.lms-wrap{width:100%; margin:0; padding:18px;}
+/* ===== TEST WRAPPER (full width, edge to edge) ===== */
+.lms-wrap{width:100%; margin:0; padding:0;}
 .lms-card{
-  background:var(--lms-card); border:1px solid var(--lms-border); border-radius:8px;
-  padding:28px 34px 34px; box-shadow:0 1px 4px rgba(0,0,0,.05); width:100%; max-width:1100px; margin:0 auto;
+  background:var(--lms-card); border:none; border-radius:0;
+  padding:28px 40px 40px; box-shadow:none; width:100%; max-width:none; margin:0;
 }
 .lms-finish{
   margin-top:18px; padding-top:18px; text-align:left;
@@ -155,7 +155,7 @@ body{
 .answerkey-item b.ak-correct{font-weight:700; color:#000;}
 
 @media(max-width:600px){
-  .lms-wrap{padding:10px;}
+  .lms-wrap{padding:0;}
   .lms-card{padding:18px 16px 24px;}
 }
 </style>

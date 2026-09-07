@@ -195,29 +195,11 @@ body{
   <div class="start-sub">Pilih materi latihan yang ingin kamu kerjakan hari ini.</div>
 
   <div class="start-groupheader">Materi: Giro</div>
-  <div class="pick-card" onclick="goTradeTest()">
+  <div class="pick-card" onclick="goGiroTest()">
     <div class="pick-icon">🏦</div>
     <div class="pick-text">
-      <div class="pick-title">Post Test - Retail Banking Giro</div>
-      <div class="pick-desc">15 soal · pilihan ganda · waktu 15 menit</div>
-    </div>
-    <div class="pick-arrow">➜</div>
-  </div>
-
-  <div class="pick-card" onclick="goBGTest()">
-    <div class="pick-icon">✅</div>
-    <div class="pick-text">
-      <div class="pick-title">Latihan - Cek Pemahaman Giro</div>
-      <div class="pick-desc">15 soal · pilihan ganda · waktu 15 menit</div>
-    </div>
-    <div class="pick-arrow">➜</div>
-  </div>
-
-  <div class="pick-card" onclick="goGeTest()">
-    <div class="pick-icon">📘</div>
-    <div class="pick-text">
-      <div class="pick-title">Latihan Giro Lanjutan</div>
-      <div class="pick-desc">17 soal · pilihan ganda · waktu 15 menit</div>
+      <div class="pick-title">Latihan - Retail Banking Giro</div>
+      <div class="pick-desc">47 soal · pilihan ganda · waktu 45 menit</div>
     </div>
     <div class="pick-arrow">➜</div>
   </div>
@@ -227,7 +209,7 @@ body{
     <div class="pick-icon">💳</div>
     <div class="pick-text">
       <div class="pick-title">Latihan - Cash Management (Kopra/MCM)</div>
-      <div class="pick-desc">31 soal · pilihan ganda · waktu 20 menit</div>
+      <div class="pick-desc">30 soal · pilihan ganda · waktu 20 menit</div>
     </div>
     <div class="pick-arrow">➜</div>
   </div>
@@ -235,89 +217,31 @@ body{
   <div class="linklike" onclick="goAnswerKey()">Lihat rangkuman lengkap semua jawaban</div>
 </section>
 
-<!-- ===== POST TEST GIRO ===== -->
-<section class="section" id="screenTradeTest">
-  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - POST TEST RETAIL BANKING GIRO <span class="info-dot">i</span></div></div>
+<!-- ===== GIRO (GABUNGAN) ===== -->
+<section class="section" id="screenGiroTest">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN RETAIL BANKING GIRO <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap"><div class="lms-card">
     <div class="lms-head-row">
-      <div><div class="lms-h1">Post Test - Retail Banking Giro</div><div class="lms-h2">PEMBAHASAN POST TEST RETAIL BANKING: GIRO (15 SOAL)</div></div>
-      <div class="lms-timer-block"><div class="lms-timer" id="tradeTimer">15:00</div><div class="lms-timer-label">Time remaining</div></div>
+      <div><div class="lms-h1">Latihan - Retail Banking Giro</div><div class="lms-h2">GIRO — SELURUH BAGIAN (47 SOAL)</div></div>
+      <div class="lms-timer-block"><div class="lms-timer" id="giroTimer">45:00</div><div class="lms-timer-label">Time remaining</div></div>
     </div>
     <hr class="lms-hr">
-    <div id="tradeQList"></div>
-    <div class="lms-finish"><button class="lms-btn" id="tradeSubmitBtn" onclick="submitTrade()">Lihat Hasil</button></div>
+    <div id="giroQList"></div>
+    <div class="lms-finish"><button class="lms-btn" id="giroSubmitBtn" onclick="submitGiro()">Lihat Hasil</button></div>
   </div></div>
 </section>
 
-<section class="section" id="screenTradeResult">
-  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - POST TEST RETAIL BANKING GIRO <span class="info-dot">i</span></div></div>
+<section class="section" id="screenGiroResult">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN RETAIL BANKING GIRO <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap"><div class="lms-card">
-    <div class="lms-result-head"><div class="lms-score-big" id="tradeScoreBig">0 / 15</div><div class="lms-score-sub" id="tradeScoreMsg"></div></div>
-    <hr class="lms-hr"><div id="tradeReviewList"></div>
+    <div class="lms-result-head"><div class="lms-score-big" id="giroScoreBig">0 / 47</div><div class="lms-score-sub" id="giroScoreMsg"></div></div>
+    <hr class="lms-hr"><div id="giroReviewList"></div>
   </div></div>
   <div class="lms-submitbar">
     <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
-    <button class="lms-btn ghost" onclick="goTradeTest()">🔁 Ulangi Test</button>
-    <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
-  </div>
-</section>
-
-<!-- ===== CEK PEMAHAMAN GIRO ===== -->
-<section class="section" id="screenBGTest">
-  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN CEK PEMAHAMAN GIRO <span class="info-dot">i</span></div></div>
-  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
-  <div class="lms-wrap"><div class="lms-card">
-    <div class="lms-head-row">
-      <div><div class="lms-h1">Latihan - Cek Pemahaman Giro</div><div class="lms-h2">CEK PEMAHAMAN GIRO — SELURUH BAGIAN (15 SOAL)</div></div>
-      <div class="lms-timer-block"><div class="lms-timer" id="bgTimer">15:00</div><div class="lms-timer-label">Time remaining</div></div>
-    </div>
-    <hr class="lms-hr">
-    <div id="bgQList"></div>
-    <div class="lms-finish"><button class="lms-btn" id="bgSubmitBtn" onclick="submitBG()">Lihat Hasil</button></div>
-  </div></div>
-</section>
-
-<section class="section" id="screenBGResult">
-  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN CEK PEMAHAMAN GIRO <span class="info-dot">i</span></div></div>
-  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
-  <div class="lms-wrap"><div class="lms-card">
-    <div class="lms-result-head"><div class="lms-score-big" id="bgScoreBig">0 / 15</div><div class="lms-score-sub" id="bgScoreMsg"></div></div>
-    <hr class="lms-hr"><div id="bgReviewList"></div>
-  </div></div>
-  <div class="lms-submitbar">
-    <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
-    <button class="lms-btn ghost" onclick="goBGTest()">🔁 Ulangi Test</button>
-    <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
-  </div>
-</section>
-
-<!-- ===== GIRO LANJUTAN ===== -->
-<section class="section" id="screenGeTest">
-  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN GIRO LANJUTAN <span class="info-dot">i</span></div></div>
-  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
-  <div class="lms-wrap"><div class="lms-card">
-    <div class="lms-head-row">
-      <div><div class="lms-h1">Latihan Giro Lanjutan</div><div class="lms-h2">SOAL TAMBAHAN GIRO (17 SOAL)</div></div>
-      <div class="lms-timer-block"><div class="lms-timer" id="geTimer">15:00</div><div class="lms-timer-label">Time remaining</div></div>
-    </div>
-    <hr class="lms-hr">
-    <div id="geQList"></div>
-    <div class="lms-finish"><button class="lms-btn" id="geSubmitBtn" onclick="submitGe()">Lihat Hasil</button></div>
-  </div></div>
-</section>
-
-<section class="section" id="screenGeResult">
-  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN GIRO LANJUTAN <span class="info-dot">i</span></div></div>
-  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
-  <div class="lms-wrap"><div class="lms-card">
-    <div class="lms-result-head"><div class="lms-score-big" id="geScoreBig">0 / 17</div><div class="lms-score-sub" id="geScoreMsg"></div></div>
-    <hr class="lms-hr"><div id="geReviewList"></div>
-  </div></div>
-  <div class="lms-submitbar">
-    <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
-    <button class="lms-btn ghost" onclick="goGeTest()">🔁 Ulangi Test</button>
+    <button class="lms-btn ghost" onclick="goGiroTest()">🔁 Ulangi Test</button>
     <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
   </div>
 </section>
@@ -328,7 +252,7 @@ body{
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap"><div class="lms-card">
     <div class="lms-head-row">
-      <div><div class="lms-h1">Latihan - Cash Management</div><div class="lms-h2">KOPRA / MCM — SELURUH BAGIAN (31 SOAL)</div></div>
+      <div><div class="lms-h1">Latihan - Cash Management</div><div class="lms-h2">KOPRA / MCM — SELURUH BAGIAN (30 SOAL)</div></div>
       <div class="lms-timer-block"><div class="lms-timer" id="cmTimer">20:00</div><div class="lms-timer-label">Time remaining</div></div>
     </div>
     <hr class="lms-hr">
@@ -341,7 +265,7 @@ body{
   <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN CASH MANAGEMENT <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap"><div class="lms-card">
-    <div class="lms-result-head"><div class="lms-score-big" id="cmScoreBig">0 / 31</div><div class="lms-score-sub" id="cmScoreMsg"></div></div>
+    <div class="lms-result-head"><div class="lms-score-big" id="cmScoreBig">0 / 30</div><div class="lms-score-sub" id="cmScoreMsg"></div></div>
     <hr class="lms-hr"><div id="cmReviewList"></div>
   </div></div>
   <div class="lms-submitbar">
@@ -359,7 +283,7 @@ body{
     <div class="lms-h1">Rangkuman Jawaban per Materi</div>
     <div class="ak-tabs">
       <div class="ak-tab active" id="akTabGiro" onclick="switchAkTab('giro')">Giro (47 soal)</div>
-      <div class="ak-tab" id="akTabCM" onclick="switchAkTab('cm')">Cash Management (31 soal)</div>
+      <div class="ak-tab" id="akTabCM" onclick="switchAkTab('cm')">Cash Management (30 soal)</div>
     </div>
     <div class="ak-pane active" id="akPaneGiro"><div id="akPart1"></div></div>
     <div class="ak-pane" id="akPaneCM"><div id="akPart2"></div></div>
@@ -370,8 +294,8 @@ body{
 </section>
 
 <script>
-/* ============ DATA: POST TEST RETAIL BANKING GIRO (15 soal) ============ */
-const tradeData = [
+/* ============ DATA: GIRO (GABUNGAN — 47 soal) ============ */
+const giroData = [
 {q:"Jenis rekening giro yang cocok digunakan untuk transaksi money market, capital market, remittance, foreign exchange dan trade service adalah...", opts:["Giro Premier","Giro Vostro","Giro DHE-SDA","Giro Escrow"], correct:1},
 {q:"Yang dimaksud dengan benefit yield enhancement pada giro premier adalah...", opts:["Bebas biaya administrasi bulanan","Media dan alat penarikan yang beragam sehingga fleksibilitas pengelolaan dana tetap sama dengan giro reguler (Cek/BG, via MCM atau Sweep Online)","Jasa giro yang lebih tinggi dibandingkan giro reguler","Bebas biaya transfer valas masuk (khusus valuta USD)"], correct:2},
 {q:"Dasar mekanisme dari transaksi yang dilakukan di rekening vostro adalah...", opts:["Tarik tunai di rekening asal dan setor tunai ke rekening tujuan di Bank Koresponden","Bank asal mengirim dana ke bank dituju dengan sistem BI Fast","Pindah buku antara 2 rekening (CIF) yang berbeda di Bank Koresponden","Auto debet tiap bulan dari rekening giro nasabah untuk di kreditkan ke rekening tujuan"], correct:2},
@@ -386,11 +310,7 @@ const tradeData = [
 {q:"Rekening giro dinyatakan dormant apabila...", opts:["Tidak memiliki transaksi aktif tarik dan setor luar transaksi system (jasa giro, biaya dan denda) selama 3 (tiga) bulan berturut-turut","Tidak memiliki transaksi aktif tarik dan setor di luar transaksi system (jasa giro, biaya dan denda) selama 6 (enam) bulan berturut-turut","Tidak memiliki transaksi aktif tarik atau setor di luar transaksi system (jasa giro, biaya dan denda) selama 6 (enam) bulan berturut-turut","Tidak memiliki transaksi aktif tarik atau setor di luar transaksi system (jasa giro, biaya dan denda) selama 3 (tiga) bulan berturut-turut"], correct:2},
 {q:"Produk giro yang dapat digunakan untuk tujuan investasi karena rate yang diberikan lebih tinggi dibandingkan produk giro lainnya adalah...", opts:["Giro premier","Giro escrow","Giro vostro","Giro DHE-SDA"], correct:0},
 {q:"Rekening giro yang salah satu sarana penarikannya berupa Letter of Authorization adalah...", opts:["Giro reguler & vostro","Giro zero balance & premier","Giro DHE-SDA & reguler","Giro escrow & DHE-SDA"], correct:2},
-{q:"Apabila pada bagian \"Atas penyerahan cek ini bayarlah kepada .......\" tidak tertulis nama seseorang/badan hukum, maka warkat ini dapat dikategorikan sebagai...", opts:["Wesel bank untuk transfer","Cek silang","Bilyet giro","Cek atas tunjuk"], correct:3}
-];
-
-/* ============ DATA: CEK PEMAHAMAN GIRO (15 soal) ============ */
-const bgData = [
+{q:"Apabila pada bagian \"Atas penyerahan cek ini bayarlah kepada .......\" tidak tertulis nama seseorang/badan hukum, maka warkat ini dapat dikategorikan sebagai...", opts:["Wesel bank untuk transfer","Cek silang","Bilyet giro","Cek atas tunjuk"], correct:3},
 {q:"Kenapa bank sangat mengejar dana giro dibanding deposito?", opts:["Karena giro selalu bersaldo besar","Karena giro adalah dana murah sehingga menekan cost of fund dan melebarkan NIM","Karena giro tidak perlu dilaporkan ke Bank Indonesia","Karena bunga giro lebih tinggi sehingga nasabah senang"], correct:1},
 {q:"Apa yang membedakan nasabah non-perorangan dari perorangan dalam pengelolaan rekening?", opts:["Nominal transaksinya selalu lebih kecil","Tidak boleh punya rekening giro","Butuh dokumen legalitas badan dan penandatangan berjenjang sesuai matriks kewenangan","Tidak dikenakan biaya administrasi"], correct:2},
 {q:"Tiga tuas dalam giro generator adalah?", opts:["Kredit, dana, dan fee","New account, transaksi, dan special rate","Cabang, digital, dan agen","Wholesale, retail, dan government"], correct:1},
@@ -405,11 +325,7 @@ const bgData = [
 {q:"Tanggal efektif pada bilyet giro berfungsi untuk?", opts:["Menandai kapan bilyet giro dicetak","Menandai mulai kapan perintah pemindahbukuan boleh diunjukkan ke bank","Menentukan besarnya biaya warkat","Menentukan cabang yang berwenang"], correct:1},
 {q:"Kapan warkat diselesaikan lewat inkaso, bukan kliring?", opts:["Saat nilai warkat di atas Rp 500 juta","Saat bank tertarik berada di luar jangkauan kliring bank penerima setoran","Saat nasabah meminta prosesnya dipercepat","Saat warkat berupa bilyet giro"], correct:1},
 {q:"Nasabah menarik satu lembar cek kosong senilai Rp 700 juta. Apa konsekuensinya?", opts:["Hanya menerima SP I dan tidak ada sanksi lain","Langsung memenuhi kriteria DHN, karena satu lembar bernilai Rp 500 juta atau lebih sudah cukup","Tidak ada sanksi selama nasabah segera menyetor dana","Rekeningnya otomatis berubah menjadi rekening khusus"], correct:1},
-{q:"Apa fungsi rekening khusus dalam konteks DHN?", opts:["Menampung dana nasabah yang ingin bunga lebih tinggi","Menampung dana untuk membayar cek dan bilyet giro yang masih beredar setelah rekening giro ditutup","Menyimpan dana jaminan proyek","Menampung devisa hasil ekspor"], correct:1}
-];
-
-/* ============ DATA: GIRO LANJUTAN (17 soal tambahan, dari rangkuman terbaru) ============ */
-const geData = [
+{q:"Apa fungsi rekening khusus dalam konteks DHN?", opts:["Menampung dana nasabah yang ingin bunga lebih tinggi","Menampung dana untuk membayar cek dan bilyet giro yang masih beredar setelah rekening giro ditutup","Menyimpan dana jaminan proyek","Menampung devisa hasil ekspor"], correct:1},
 {q:"Jenis rekening giro yang dibuat atas dasar keterpercayaan antara kedua belah pihak yang tidak saling mengenal namun menjalankan bisnis/proyek bersama adalah...", opts:["Giro Escrow","Giro Reguler","Giro Vostro","Giro DHE-SDA"], correct:0},
 {q:"Yang merupakan enabler dalam strategi peningkatan dana giro segmen wholesale adalah...", opts:["Kopra","Livin by Mandiri","ATM Link","SMS Banking"], correct:0},
 {q:"SP II dalam DHN diberikan kepada pemilik rekening giro apabila...", opts:["Menarik 3 lembar Cek/BG kosong","Menarik 1 lembar Cek/BG kosong","Menutup rekening secara sepihak","Tidak melakukan transaksi selama 6 bulan"], correct:0},
@@ -429,48 +345,45 @@ const geData = [
 {q:"Bank ABC, rekanan di Singapura, ingin melayani remitansi ke Indonesia. Rekening yang dibutuhkan adalah...", opts:["Giro Vostro","Giro Nostro","Giro Escrow","Giro Premier"], correct:0}
 ];
 
-/* ============ DATA: CASH MANAGEMENT (31 soal, disamakan dgn hasil Post Test PDF skor 93) ============ */
+/* ============ DATA: CASH MANAGEMENT (30 soal) ============ */
 const cmData = [
-{q:"Salah satu cara membuka rekening giro dalam Kopra adalah :", opts:["Membuka landing page awal dan klik menu pembukaan rekening giro untuk nasabah existing giro","Log in kedalam Kopra dan masuk menu pendaftaran giro online untuk nasabah new to bank","Melalui halaman registrasi value chain didalam menu Kopra","Membuka landing page awal dan klik menu pembukaan rekening giro untuk nasabah new to bank"], correct:3},
-{q:"Salah satu fitur unggulan untuk melacak status transaksi valas yang dilakukan adalah :", opts:["SWIFT GPI","Mandiri e-FX","Telegrafic Transfer","Remittance Tracking"], correct:3},
-{q:"Jaringan yang dapat digunakan nasabah untuk koneksi layanan Host to Host antara lain sebagai berikut :", opts:["VPN","SFTP","Email","Cloud"], correct:0},
-{q:"Fitur sysadmin Kopra yang berfungsi untuk memaksa keluar atau log out Company Admin yang mendapati kendala \"still log in\" adalah :", opts:["Deactivate","Unlock","Activate","Release Session"], correct:3},
-{q:"Cakupan layanan Cash Management yang dapat diberikan Bank Mandiri kepada nasabah meliputi :", opts:["Layanan Payment Management, Collection Management, Liquidity Management, dan Reporting Management","Layanan elektronik banking yang membantu nasabah untuk mendapatkan informasi saldo rekening, mutasi transaksi maupun melakukan berbagai transaksi.","Layanan penata usahaan work flow business process","Layanan advisory untuk membantu mengatasi permasalahan keuangan nasabah"], correct:0},
-{q:"Menu platform berikut termasuk kedalam layanan Kopra kecuali :", opts:["MBC","MCM","MGT","Online Custody"], correct:0},
-{q:"Unlock pada menu Bank Admin BBO Kopra berfungsi untuk membuka akses Bank User yang terkunci karena salah password sebanyak :", opts:["5 kali","2 kali","1 kali","3 kali"], correct:0},
-{q:"Pendaftaran rekening pinjaman / loan kedalam MCM memerlukan tambahan persyaratan yaitu :", opts:["Surat persetujuan Kepala Bisnis Unit","Akta Pendirian Perusahaan","Form Syarat dan Ketentuan MCM","Persetujuan Wadirut dan Direktur Bidang"], correct:1},
-{q:"Mengapa transaction banking dapat meningkatkan loyalitas nasabah. Salah satu alasan yang membenarkan hal tersebut :", opts:["Transaction banking menjamin system bank berjalan secara real time dengan performance yang dapat diandalkan","Transaction banking menyediakan banyak ragam produk bank","Transaction Banking memberikan kemudahan, keamanan, kenyamanan, dan layanan end to end proses bisnis bagi kebutuhan nasabah","Transaction banking memberikan potongan diskon biaya transaksi"], correct:2},
-{q:"Benefit yang diharapkan nasabah dalam menggunakan layanan Collection Bank adalah:", opts:["Fleksibiltas cara pembayaran","Kepastian pembayaran","Percepatan penerimaan arus uang masuk","Laporan Transaksi"], correct:2},
-{q:"Metode upload file tagihan Mandiri Bill Collection adalah sebagai berikut kecuali:", opts:["MRP / MBC Portal","MFT SFTP","Email","SWIFT ACK"], correct:3},
-{q:"Yang merupakan product dalam kategori Payment adalah :", opts:["Online Notification","Modern Channel","MT101","MRP"], correct:3},
 {q:"Fitur dalam Kopra yang dapat melihat limit tersedia untuk Trade dan Supply Chain adalah :", opts:["Forex Online Dealing","Consolidated Financial Dashboard","Onboarding Supplier","Virtual Assistant"], correct:1},
-{q:"Belajar dari peristiwa krisis global yang melanda pasar keuangan diseluruh dunia, telah menginspirasi perbankan untuk mengalihkan fokus bisnis ke transaction banking yang memiliki risiko lebih kecil namun tetap memberikan revenue yang signifikan. Pertimbangan tersebut didasari pada :", opts:["Semua jawaban diatas benar.","Transaction Banking memberikan total solusi melalui bundling product package dan service end to end yang memberikan kenyaman dan meningkatkan loyalitas nasabah, yang pada akhirnya akan menghasilkan fee base secara berulang-ulang dan terus menerus sehingga menciptakan sustainable revenue bagi bank.","Bisnis Transaction Banking lebih banyak diarahkan untuk penyediaan infrastruktur IT untuk menunjang transaksi nasabah secara efektif dan efisien. Semakin banyak transaksi yang dihasilkan maka semakin kecil biaya per unitnya","Transaction Banking memberikan pembiayaan berdasarkan cash flow nasabah, dan penggunaannya harus didasari dengan underlying transaction sehingga terhindar dari penyalahgunaan fasilitas pembiayaan."], correct:0},
-{q:"User pengguna di MCM yang bertugas mengirimkan transaksi yang telah diotorisasi perusahaan ke bank untuk diproses adalah user :", opts:["User Releaser","User Verification","User Approval","User Maker"], correct:0},
+{q:"Menu platform berikut termasuk kedalam layanan Kopra kecuali :", opts:["MBC","MCM (pembayaran)","MGT (bank garansi)","Online Custody"], correct:0},
 {q:"Sebutkan fitur yang terdapat pada main menu account Information:", opts:["Balance Inquiry, Transaction Inquiry, Account Statement, Forex Rate Inquiry","Balance Inquiry, Transaction Inquiry, Account Statement, Transaction Status","Balance Inquiry, Transaction Inquiry, Account Statement, Advice Printing","Balance Inquiry, Transaction Inquiry, Account Statement, Bill Payment"], correct:2},
-{q:"Fitur-fitur yang dapat dilakukan oleh user approver MCM adalah sebagai berikut kecuali :", opts:["Pengecekan saldo","Membuat limit transaksi","Melakukan approval transaksi","Pengecekan pending task"], correct:1},
-{q:"(Variasi 1) Benefit dari layanan Mandiri Bill Collection adalah sebagai berikut, kecuali...", opts:["Ketepatan jumlah pembayaran","Percepatan rekonsiliasi","Kemudahan monitoring tagihan","Efisiensi biaya penagihan"], correct:0},
-{q:"(Variasi 2) Benefit dari layanan Mandiri Bill Collection adalah sebagai berikut, kecuali...", opts:["Memperoleh komposisi dana murah dan Fee Based Income","Kemudahan rekonsiliasi tagihan","Percepatan penerimaan pembayaran","Notifikasi status tagihan real-time"], correct:0},
-{q:"(Variasi 3) Benefit dari layanan Mandiri Bill Collection adalah sebagai berikut, kecuali :", opts:["Kemudahan rekonsiliasi penerimaan pembayaran","Ketepatan jumlah pembayaran","Meminimalisir open item","Memudahkan operasional kas kecil cabang nasabah"], correct:2},
-{q:"Pembayaran produk Pertamina yang dapat dibeli tanpa pembatasan (umumnya BBM) dapat dilakukan melalui Sistem Online Pembayaran Pertamina (SOPP) pada fitur:", opts:["Quotation","Prepayment","Product Allocation","Cash dan Carry"], correct:3},
-{q:"Selain Cash and Carry, salah satu fitur dalam Sistem Online Pembayaran Pertamina (SOPP) yang membatasi pembelian produk berdasarkan kuota tertentu adalah...", opts:["Product Allocation","Bill Payment","Cash Advance","Loyalty Point"], correct:0},
-{q:"Error \"please access to Cash Management/Trade dan Bank Guarantee/Supply Chain/Smart Account\" dapat diatasi dengan cara:", opts:["Melakukan clear cache browser","Nasabah disarankan mengganti browser","Diarahkan menggunakan koneksi jaringan internet yang stabil","Nasabah diarahkan untuk setting browser to allow pop up windows"], correct:3},
-{q:"Yang perlu dilakukan nasabah ketika pertama kali belum memiliki tampilah Dashboard Kopra adalah:", opts:["Clear cache di browser","Send request to Admin","Melakukan provisioning","Menghubungi Call Center untuk meminta akses"], correct:1},
-{q:"Error CHANNELACCESS-006 pada Kopra ketika nasabah berusaha menambahkan user yang berbeda dari Comp ID yang berbeda dapat diatasi dengan cara:", opts:["Diarahkan menggunakan koneksi jaringan internet yang stabil","Melakukan unlink terlebih dahulu karena sudah pernah di provisioning di Kopra","Melakukan clear cache browser","User meminta aktivasi kembali ke sysadmin"], correct:1},
-{q:"Menu transfer antar bank dalam menu MCM adalah sebagai berikut kecuali :", opts:["Inkaso","BI Fast","Online Transfer","LLG / SKN"], correct:0},
-{q:"Salah satu faktor yang mendorong Bank mengalihkan strategi bisnis pada layanan transaction banking adalah :", opts:["Semua jawaban diatas benar","Resiko bisnis lebih kecil","Mendorong bank untuk mengembangkan produk dan solusi dengan fitur dan fungsi yang sesuai dengan kebutuhan nasabah","Meningkatkan daya saing bank untuk memberikan kualitas layanan yang dapat memenuhi kebutuhan nasabahnya"], correct:0},
-{q:"Mandiri Cash Management dapat diakses dengan alamat:", opts:["http://mcm.bankmandiri.co.id/corp","https://mcm2.bankmandiri.co.id","https://mcm.bankmandiri.com","http://mcm.bankmandiri.com"], correct:0},
-{q:"Layanan Transaction Banking sangat berkepentingan terhadap arus uang masuk (inflow) dan arus uang keluar (outflow) perusahaan. Salah satu komponen yang mempengaruhi arus uang masuk (inflow) antara lain :", opts:["Pembayaran deviden investor","Gaji karyawan","Pembayaran Pinjaman Bank","Penerimaan tagihan perusahaan dari distributor"], correct:3},
+{q:"Mengapa transaction banking dapat meningkatkan loyalitas nasabah. Salah satu alasan yang membenarkan hal tersebut :", opts:["Transaction banking menjamin system bank berjalan secara real time dengan performance yang dapat diandalkan","Transaction banking menyediakan banyak ragam produk bank","Transaction Banking memberikan kemudahan, keamanan, kenyamanan, dan layanan end to end proses bisnis bagi kebutuhan nasabah","Transaction banking memberikan potongan diskon biaya transaksi"], correct:2},
+{q:"Pembayaran produk Pertamina yang dapat dibeli tanpa pembatasan (umumnya BBM) dapat dilakukan melalui Sistem Online Pembayaran Pertamina (SOPP) pada fitur:", opts:["Quotation","Prepayment","Product Allocation","Cash dan Carry"], correct:0},
 {q:"Tansaction Banking saat ini menjadi salah satu strategi bisnis yang diandalkan oleh Bank Mandiri. Strategi bisnis ini bertujuan untuk :", opts:["Menyediakan layanan electronic channel","Memberikan kemudahan bertransaksi bagi nasabahnya","Memperoleh komposisi dana murah dan Fee Base income, yang akan menopang kinerja bank menjadi lebih baik","Memperoleh volume transaksi perbankan yang dihasilkan dari layanan yang diberikan kepada Nasabah"], correct:2},
-{q:"System security yang tersedia dalam layanan MCM adalah:", opts:["Secure Line","Registered Account dan Transaction Limit","Corporate ID, User ID, Password","Semua jawaban benar"], correct:2}
+{q:"Cakupan layanan Cash Management yang dapat diberikan Bank Mandiri kepada nasabah meliputi :", opts:["Layanan Payment Management, Collection Management, Liquidity Management, dan Reporting Management","Layanan elektronik banking yang membantu nasabah untuk mendapatkan informasi saldo rekening, mutasi transaksi maupun melakukan berbagai transaksi.","Layanan penata usahaan work flow business process","Layanan advisory untuk membantu mengatasi permasalahan keuangan nasabah"], correct:0},
+{q:"Jaringan yang dapat digunakan nasabah untuk koneksi layanan Host to Host antara lain sebagai berikut :", opts:["VPN","SFTP","Email","Cloud"], correct:0},
+{q:"Benefit yang diharapkan nasabah dalam menggunakan layanan Collection Bank adalah:", opts:["Fleksibilitas cara pembayaran","Kepastian pembayaran","Percepatan penerimaan arus uang masuk","Laporan Transaksi"], correct:2},
+{q:"Menu platform berikut termasuk kedalam layanan Kopra kecuali :", opts:["MBC","MCM","MGT","Online Custody"], correct:0},
+{q:"User pengguna di MCM yang bertugas mengirimkan transaksi yang telah diotorisasi perusahaan ke bank untuk diproses adalah user :", opts:["User Releaser","User Verification","User Approval","User Maker"], correct:0},
+{q:"System security yang tersedia dalam layanan MCM adalah:", opts:["Secure Line","Registered Account dan Transaction Limit","Corporate ID, User ID, Password","Semua jawaban benar"], correct:3},
+{q:"Yang merupakan product dalam kategori Payment adalah :", opts:["Online Notification","Modern Channel","MT101","MRP (upload data tagihan)"], correct:2},
+{q:"Layanan Transaction Banking sangat berkepentingan terhadap arus uang masuk (inflow) dan arus uang keluar (outflow) perusahaan. Salah satu komponen yang mempengaruhi arus uang masuk (inflow) antara lain :", opts:["Pembayaran deviden investor","Gaji karyawan","Pembayaran Pinjaman Bank","Penerimaan tagihan perusahaan dari distributor"], correct:3},
+{q:"Fitur-fitur yang dapat dilakukan oleh user approver MCM adalah sebagai berikut kecuali :", opts:["Pengecekan saldo","Membuat limit transaksi","Melakukan approval transaksi","Pengecekan pending task"], correct:1},
+{q:"Benefit dari layanan Mandiri Bill Collection adalah sebagai berikut kecuali :", opts:["Kemudahan rekonsiliasi penerimaan pembayaran","Ketepatan jumlah pembayaran","Meminimalisir open item","Memudahkan operasional kas kecil cabang nasabah"], correct:3},
+{q:"Salah satu fitur unggulan untuk melacak status transaksi valas yang dilakukan adalah :", opts:["SWIFT GPI","Mandiri e-FX","Telegrafic Transfer","Remittance Tracking"], correct:3},
+{q:"Error CHANNELACCESS-006 pada Kopra ketika nasabah berusaha menambahkan user yang berbeda dari Comp ID yang berbeda dapat diatasi dengan cara:", opts:["Diarahkan menggunakan koneksi jaringan internet yang stabil","Melakukan unlink terlebih dahulu karena sudah pernah di provisioning di Kopra","Melakukan clear cache browser","User meminta aktivasi kembali ke sysadmin"], correct:1},
+{q:"Pendaftaran rekening pinjaman / loan kedalam MCM memerlukan tambahan persyaratan yaitu :", opts:["Surat persetujuan Kepala Bisnis Unit","Akta Pendirian Perusahaan","Form Syarat dan Ketentuan MCM","Persetujuan Wadirut dan Direktur Bidang"], correct:3},
+{q:"Jaringan yang dapat digunakan nasabah untuk koneksi layanan Host to Host antara lain sebagai berikut :", opts:["VPN","SFTP","Email","Cloud"], correct:0},
+{q:"Yang perlu dilakukan nasabah ketika pertama kali belum memiliki tampilan Dashboard Kopra adalah:", opts:["Clear cache di browser","Send request to Admin","Melakukan provisioning","Menghubungi Call Center untuk meminta akses"], correct:1},
+{q:"Belajar dari peristiwa krisis global yang melanda pasar keuangan diseluruh dunia, telah menginspirasi perbankan untuk mengalihkan fokus bisnis ke transaction banking yang memiliki risiko lebih kecil namun tetap memberikan revenue yang signifikan. Pertimbangan tersebut didasari pada :", opts:["Semua jawaban diatas benar.","Transaction Banking memberikan total solusi melalui bundling product package dan service end to end yang memberikan kenyamanan dan meningkatkan loyalitas nasabah, yang pada akhirnya akan menghasilkan fee base secara berulang-ulang dan terus menerus sehingga menciptakan sustainable revenue bagi bank.","Bisnis Transaction Banking lebih banyak diarahkan untuk penyediaan infrastruktur IT untuk menunjang transaksi nasabah secara efektif dan efisien. Semakin banyak transaksi yang dihasilkan maka semakin kecil biaya per unitnya","Transaction Banking memberikan pembiayaan berdasarkan cash flow nasabah, dan penggunaannya harus didasari dengan underlying transaction sehingga terhindar dari penyalahgunaan fasilitas pembiayaan."], correct:0},
+{q:"Menu transfer antar bank dalam menu MCM adalah sebagai berikut kecuali :", opts:["Inkaso","BI Fast","Online Transfer","LLG / SKN"], correct:0},
+{q:"Fitur sysadmin Kopra yang berfungsi untuk memaksa keluar atau log out Company Admin yang mendapati kendala \"still log in\" adalah :", opts:["Deactivate","Unlock","Activate","Release Session"], correct:3},
+{q:"Metode upload file tagihan Mandiri Bill Collection adalah sebagai berikut kecuali:", opts:["MRP / MBC Portal","MFT SFTP","Email","SWIFT ACK"], correct:3},
+{q:"Mandiri Cash Management dapat diakses dengan alamat:", opts:["http://mcm.bankmandiri.co.id/corp","https://mcm2.bankmandiri.co.id","https://mcm.bankmandiri.com","http://mcm.bankmandiri.com"], correct:1},
+{q:"Unlock pada menu Bank Admin BBO Kopra berfungsi untuk membuka akses Bank User yang terkunci karena salah password sebanyak :", opts:["5 kali","2 kali","1 kali","3 kali"], correct:0},
+{q:"Salah satu cara membuka rekening giro dalam Kopra adalah :", opts:["Membuka landing page awal dan klik menu pembukaan rekening giro untuk nasabah existing giro","Log in kedalam Kopra dan masuk menu pendaftaran giro online untuk nasabah new to bank","Melalui halaman registrasi value chain didalam menu Kopra","Membuka landing page awal dan klik menu pembukaan rekening giro untuk nasabah new to bank"], correct:3},
+{q:"Salah satu faktor yang mendorong Bank mengalihkan strategi bisnis pada layanan transaction banking adalah :", opts:["Semua jawaban diatas benar","Resiko bisnis lebih kecil","Mendorong bank untuk mengembangkan produk dan solusi dengan fitur dan fungsi yang sesuai dengan kebutuhan nasabah","Meningkatkan daya saing bank untuk memberikan kualitas layanan yang dapat memenuhi kebutuhan nasabahnya"], correct:0},
+{q:"Error \"please access to Cash Management/Trade dan Bank Guarantee/Supply Chain/Smart Account\" dapat diatasi dengan cara:", opts:["Melakukan clear cache browser","Nasabah disarankan mengganti browser","Diarahkan menggunakan koneksi jaringan internet yang stabil","Nasabah diarahkan untuk setting browser to allow pop up windows"], correct:3}
 ];
 
 /* ============ STATE ============ */
-let tradePicks = new Array(tradeData.length).fill(null);
-let bgPicks = new Array(bgData.length).fill(null);
-let gePicks = new Array(geData.length).fill(null);
+let giroPicks = new Array(giroData.length).fill(null);
 let cmPicks = new Array(cmData.length).fill(null);
-let tradeSubmitted=false, bgSubmitted=false, geSubmitted=false, cmSubmitted=false;
-let tradeTimerInt=null, bgTimerInt=null, geTimerInt=null, cmTimerInt=null;
+let giroSubmitted=false, cmSubmitted=false;
+let giroTimerInt=null, cmTimerInt=null;
 
 /* ============ NAV ============ */
 function showSection(id){
@@ -479,7 +392,7 @@ function showSection(id){
   window.scrollTo({top:0, behavior:'auto'});
 }
 function backToStart(){
-  clearInterval(tradeTimerInt); clearInterval(bgTimerInt); clearInterval(geTimerInt); clearInterval(cmTimerInt);
+  clearInterval(giroTimerInt); clearInterval(cmTimerInt);
   showSection('screenStart');
 }
 
@@ -568,92 +481,38 @@ function scoreMsg(pct){
     'Perlu latihan lagi, pelajari kembali materinya.';
 }
 
-/* ============ TRADE (POST TEST GIRO) ============ */
-function goTradeTest(){
-  tradePicks = new Array(tradeData.length).fill(null);
-  tradeSubmitted = false;
-  renderQList('tradeQList', tradeData, it=>it.q, it=>it.opts, 'trade');
-  showSection('screenTradeTest');
-  clearInterval(tradeTimerInt);
-  tradeTimerInt = startTimer('tradeTimer', 15*60, ()=>{ if(!tradeSubmitted) submitTrade(); });
+/* ============ GIRO (GABUNGAN) ============ */
+function goGiroTest(){
+  giroPicks = new Array(giroData.length).fill(null);
+  giroSubmitted = false;
+  renderQList('giroQList', giroData, it=>it.q, it=>it.opts, 'giro');
+  showSection('screenGiroTest');
+  clearInterval(giroTimerInt);
+  giroTimerInt = startTimer('giroTimer', 45*60, ()=>{ if(!giroSubmitted) submitGiro(); });
 }
-function picktrade(qi, oi){
-  if(tradeSubmitted) return;
-  tradePicks[qi]=oi;
-  const opts = document.querySelectorAll('#trade-opts-'+qi+' .lms-opt');
-  opts.forEach((o,i)=>o.classList.toggle('checked', i===oi));
-}
-function submitTrade(){
-  if(tradeSubmitted) return;
-  tradeSubmitted = true;
-  clearInterval(tradeTimerInt);
-  let score=0;
-  tradeData.forEach((item,idx)=>{
-    document.querySelectorAll('#trade-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
-    if(tradePicks[idx]===item.correct) score++;
+function pickgiro(qi, oi){
+  if(giroSubmitted || giroPicks[qi]!==null) return;
+  giroPicks[qi]=oi;
+  document.querySelectorAll('#giro-opts-'+qi+' .lms-opt').forEach((o,i)=>{
+    o.classList.toggle('checked', i===oi);
+    if(i===giroData[qi].correct) o.classList.add('ans-correct');
+    o.classList.add('answered');
+    o.onclick=null;
   });
-  document.getElementById('tradeScoreBig').textContent = score+' / '+tradeData.length;
-  document.getElementById('tradeScoreMsg').textContent = scoreMsg(score/tradeData.length);
-  renderReview('tradeReviewList', tradeData, tradePicks);
-  showSection('screenTradeResult');
 }
-
-/* ============ BG (CEK PEMAHAMAN GIRO) ============ */
-function goBGTest(){
-  bgPicks = new Array(bgData.length).fill(null);
-  bgSubmitted = false;
-  renderQList('bgQList', bgData, it=>it.q, it=>it.opts, 'bg');
-  showSection('screenBGTest');
-  clearInterval(bgTimerInt);
-  bgTimerInt = startTimer('bgTimer', 15*60, ()=>{ if(!bgSubmitted) submitBG(); });
-}
-function pickbg(qi, oi){
-  if(bgSubmitted) return;
-  bgPicks[qi]=oi;
-  document.querySelectorAll('#bg-opts-'+qi+' .lms-opt').forEach((o,i)=>o.classList.toggle('checked', i===oi));
-}
-function submitBG(){
-  if(bgSubmitted) return;
-  bgSubmitted = true;
-  clearInterval(bgTimerInt);
+function submitGiro(){
+  if(giroSubmitted) return;
+  giroSubmitted = true;
+  clearInterval(giroTimerInt);
   let score=0;
-  bgData.forEach((item,idx)=>{
-    document.querySelectorAll('#bg-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
-    if(bgPicks[idx]===item.correct) score++;
+  giroData.forEach((item,idx)=>{
+    document.querySelectorAll('#giro-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
+    if(giroPicks[idx]===item.correct) score++;
   });
-  document.getElementById('bgScoreBig').textContent = score+' / '+bgData.length;
-  document.getElementById('bgScoreMsg').textContent = scoreMsg(score/bgData.length);
-  renderReview('bgReviewList', bgData, bgPicks);
-  showSection('screenBGResult');
-}
-
-/* ============ GE (GIRO LANJUTAN) ============ */
-function goGeTest(){
-  gePicks = new Array(geData.length).fill(null);
-  geSubmitted = false;
-  renderQList('geQList', geData, it=>it.q, it=>it.opts, 'ge');
-  showSection('screenGeTest');
-  clearInterval(geTimerInt);
-  geTimerInt = startTimer('geTimer', 15*60, ()=>{ if(!geSubmitted) submitGe(); });
-}
-function pickge(qi, oi){
-  if(geSubmitted) return;
-  gePicks[qi]=oi;
-  document.querySelectorAll('#ge-opts-'+qi+' .lms-opt').forEach((o,i)=>o.classList.toggle('checked', i===oi));
-}
-function submitGe(){
-  if(geSubmitted) return;
-  geSubmitted = true;
-  clearInterval(geTimerInt);
-  let score=0;
-  geData.forEach((item,idx)=>{
-    document.querySelectorAll('#ge-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
-    if(gePicks[idx]===item.correct) score++;
-  });
-  document.getElementById('geScoreBig').textContent = score+' / '+geData.length;
-  document.getElementById('geScoreMsg').textContent = scoreMsg(score/geData.length);
-  renderReview('geReviewList', geData, gePicks);
-  showSection('screenGeResult');
+  document.getElementById('giroScoreBig').textContent = score+' / '+giroData.length;
+  document.getElementById('giroScoreMsg').textContent = scoreMsg(score/giroData.length);
+  renderReview('giroReviewList', giroData, giroPicks);
+  showSection('screenGiroResult');
 }
 
 /* ============ CM (CASH MANAGEMENT) ============ */
@@ -666,9 +525,14 @@ function goCMTest(){
   cmTimerInt = startTimer('cmTimer', 20*60, ()=>{ if(!cmSubmitted) submitCM(); });
 }
 function pickcm(qi, oi){
-  if(cmSubmitted) return;
+  if(cmSubmitted || cmPicks[qi]!==null) return;
   cmPicks[qi]=oi;
-  document.querySelectorAll('#cm-opts-'+qi+' .lms-opt').forEach((o,i)=>o.classList.toggle('checked', i===oi));
+  document.querySelectorAll('#cm-opts-'+qi+' .lms-opt').forEach((o,i)=>{
+    o.classList.toggle('checked', i===oi);
+    if(i===cmData[qi].correct) o.classList.add('ans-correct');
+    o.classList.add('answered');
+    o.onclick=null;
+  });
 }
 function submitCM(){
   if(cmSubmitted) return;
@@ -685,7 +549,7 @@ function submitCM(){
   showSection('screenCMResult');
 }
 
-/* ============ FULL ANSWER KEY (per materi, sudah di-dedup di sumber data) ============ */
+/* ============ FULL ANSWER KEY (per materi) ============ */
 function renderAnswerList(containerId, dataArrays){
   const holder = document.getElementById(containerId);
   holder.innerHTML='';
@@ -701,7 +565,7 @@ function renderAnswerList(containerId, dataArrays){
   });
 }
 function goAnswerKey(){
-  renderAnswerList('akPart1', [tradeData, bgData, geData]);
+  renderAnswerList('akPart1', [giroData]);
   renderAnswerList('akPart2', [cmData]);
   switchAkTab('giro');
   showSection('screenAnswerKey');

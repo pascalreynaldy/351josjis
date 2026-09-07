@@ -227,7 +227,7 @@ body{
     <div class="pick-icon">💳</div>
     <div class="pick-text">
       <div class="pick-title">Latihan - Cash Management (Kopra/MCM)</div>
-      <div class="pick-desc">27 soal · pilihan ganda · waktu 20 menit</div>
+      <div class="pick-desc">31 soal · pilihan ganda · waktu 20 menit</div>
     </div>
     <div class="pick-arrow">➜</div>
   </div>
@@ -328,7 +328,7 @@ body{
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap"><div class="lms-card">
     <div class="lms-head-row">
-      <div><div class="lms-h1">Latihan - Cash Management</div><div class="lms-h2">KOPRA / MCM — SELURUH BAGIAN (27 SOAL)</div></div>
+      <div><div class="lms-h1">Latihan - Cash Management</div><div class="lms-h2">KOPRA / MCM — SELURUH BAGIAN (31 SOAL)</div></div>
       <div class="lms-timer-block"><div class="lms-timer" id="cmTimer">20:00</div><div class="lms-timer-label">Time remaining</div></div>
     </div>
     <hr class="lms-hr">
@@ -341,7 +341,7 @@ body{
   <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN CASH MANAGEMENT <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap"><div class="lms-card">
-    <div class="lms-result-head"><div class="lms-score-big" id="cmScoreBig">0 / 27</div><div class="lms-score-sub" id="cmScoreMsg"></div></div>
+    <div class="lms-result-head"><div class="lms-score-big" id="cmScoreBig">0 / 31</div><div class="lms-score-sub" id="cmScoreMsg"></div></div>
     <hr class="lms-hr"><div id="cmReviewList"></div>
   </div></div>
   <div class="lms-submitbar">
@@ -359,7 +359,7 @@ body{
     <div class="lms-h1">Rangkuman Jawaban per Materi</div>
     <div class="ak-tabs">
       <div class="ak-tab active" id="akTabGiro" onclick="switchAkTab('giro')">Giro (47 soal)</div>
-      <div class="ak-tab" id="akTabCM" onclick="switchAkTab('cm')">Cash Management (27 soal)</div>
+      <div class="ak-tab" id="akTabCM" onclick="switchAkTab('cm')">Cash Management (31 soal)</div>
     </div>
     <div class="ak-pane active" id="akPaneGiro"><div id="akPart1"></div></div>
     <div class="ak-pane" id="akPaneCM"><div id="akPart2"></div></div>
@@ -429,37 +429,39 @@ const geData = [
 {q:"Bank ABC, rekanan di Singapura, ingin melayani remitansi ke Indonesia. Rekening yang dibutuhkan adalah...", opts:["Giro Vostro","Giro Nostro","Giro Escrow","Giro Premier"], correct:0}
 ];
 
-/* ============ DATA: CASH MANAGEMENT (27 soal) ============ */
+/* ============ DATA: CASH MANAGEMENT (31 soal, disamakan dgn hasil Post Test PDF skor 93) ============ */
 const cmData = [
-{q:"Salah satu cara membuka rekening giro dalam Kopra adalah...", opts:["Log in ke dalam Kopra dan masuk menu pendaftaran giro online untuk nasabah new to bank","Datang ke cabang dan mengisi formulir manual","Mengirim email ke customer service tanpa dokumen","Melakukan panggilan telepon ke call center"], correct:0},
-{q:"Salah satu fitur unggulan untuk melacak status transaksi valas yang dilakukan adalah...", opts:["SWIFT GPI","SWIFT ACK","MT101","Consolidated Financial Dashboard"], correct:0},
-{q:"Jaringan yang dapat digunakan nasabah untuk koneksi layanan Host to Host antara lain...", opts:["SFTP","Bluetooth","Dial-up modem","USB tethering"], correct:0},
-{q:"Fitur sysadmin Kopra yang berfungsi untuk memaksa keluar (log out) Company Admin yang mendapati kendala adalah...", opts:["Release Session","Unlock User","Reset Password","Delete Company"], correct:0},
-{q:"Cakupan layanan Cash Management yang dapat diberikan Bank Mandiri kepada nasabah meliputi...", opts:["Payment Management, Collection Management, Liquidity Management, dan Reporting Management","Hanya Payment Management saja","Trade Finance dan Bank Guarantee saja","Kredit Investasi dan Kredit Modal Kerja"], correct:0},
-{q:"Menu platform berikut termasuk ke dalam layanan Kopra, kecuali...", opts:["MBC","MCM","Trade & Supply Chain","Smart Account"], correct:0},
-{q:"Unlock pada menu Bank Admin BBO Kopra berfungsi untuk membuka akses Bank User yang terkunci karena salah password sebanyak...", opts:["5 kali","3 kali","10 kali","1 kali"], correct:0},
-{q:"Pendaftaran rekening pinjaman/loan ke dalam MCM memerlukan tambahan persyaratan yaitu...", opts:["Form Syarat dan Ketentuan MCM","Surat keterangan domisili","Fotokopi NPWP direktur","Laporan keuangan 3 tahun terakhir"], correct:0},
-{q:"Mengapa transaction banking dapat meningkatkan loyalitas nasabah?", opts:["Karena memberikan kemudahan, keamanan, kenyamanan, dan layanan end-to-end proses bisnis","Karena bunga simpanan lebih tinggi","Karena bebas seluruh biaya administrasi","Karena hanya tersedia untuk nasabah prioritas"], correct:0},
-{q:"Benefit yang diharapkan nasabah dalam menggunakan layanan Collection Bank adalah...", opts:["Percepatan penerimaan arus uang masuk","Penurunan suku bunga pinjaman","Penambahan cabang otomatis","Pembebasan pajak transaksi"], correct:0},
-{q:"Metode upload file tagihan Mandiri Bill Collection adalah sebagai berikut, kecuali...", opts:["SWIFT ACK","Upload manual melalui portal","H2H (Host to Host)","SFTP"], correct:0},
-{q:"Yang merupakan produk dalam kategori Payment adalah...", opts:["MT101","SKNBI","Virtual Account","Bill Collection"], correct:0},
-{q:"Fitur dalam Kopra yang dapat melihat limit tersedia untuk Trade dan Supply Chain adalah...", opts:["Consolidated Financial Dashboard","Account Statement","Advice Printing","Balance Inquiry"], correct:0},
-{q:"Perbankan mengalihkan fokus bisnis ke transaction banking karena risiko lebih kecil namun tetap memberi revenue signifikan. Pertimbangan tersebut didasari pada...", opts:["Semua jawaban di atas benar","Hanya pertimbangan risiko kredit","Hanya pertimbangan biaya operasional","Tidak ada pertimbangan khusus"], correct:0},
-{q:"User pengguna di MCM yang bertugas mengirimkan transaksi yang telah diotorisasi perusahaan ke bank untuk diproses adalah user...", opts:["User Releaser","User Maker","User Approver","User Viewer"], correct:0},
-{q:"Sebutkan fitur yang terdapat pada main menu Account Information...", opts:["Balance Inquiry, Transaction Inquiry, Account Statement, Advice Printing","Transfer dan Pembayaran","Approval dan Release","Setting User dan Limit"], correct:0},
-{q:"Fitur-fitur yang dapat dilakukan oleh user Approver MCM adalah sebagai berikut, kecuali...", opts:["Membuat limit transaksi","Menyetujui transaksi","Menolak transaksi","Melihat status transaksi"], correct:0},
+{q:"Salah satu cara membuka rekening giro dalam Kopra adalah :", opts:["Membuka landing page awal dan klik menu pembukaan rekening giro untuk nasabah existing giro","Log in kedalam Kopra dan masuk menu pendaftaran giro online untuk nasabah new to bank","Melalui halaman registrasi value chain didalam menu Kopra","Membuka landing page awal dan klik menu pembukaan rekening giro untuk nasabah new to bank"], correct:3},
+{q:"Salah satu fitur unggulan untuk melacak status transaksi valas yang dilakukan adalah :", opts:["SWIFT GPI","Mandiri e-FX","Telegrafic Transfer","Remittance Tracking"], correct:3},
+{q:"Jaringan yang dapat digunakan nasabah untuk koneksi layanan Host to Host antara lain sebagai berikut :", opts:["VPN","SFTP","Email","Cloud"], correct:0},
+{q:"Fitur sysadmin Kopra yang berfungsi untuk memaksa keluar atau log out Company Admin yang mendapati kendala \"still log in\" adalah :", opts:["Deactivate","Unlock","Activate","Release Session"], correct:3},
+{q:"Cakupan layanan Cash Management yang dapat diberikan Bank Mandiri kepada nasabah meliputi :", opts:["Layanan Payment Management, Collection Management, Liquidity Management, dan Reporting Management","Layanan elektronik banking yang membantu nasabah untuk mendapatkan informasi saldo rekening, mutasi transaksi maupun melakukan berbagai transaksi.","Layanan penata usahaan work flow business process","Layanan advisory untuk membantu mengatasi permasalahan keuangan nasabah"], correct:0},
+{q:"Menu platform berikut termasuk kedalam layanan Kopra kecuali :", opts:["MBC","MCM","MGT","Online Custody"], correct:0},
+{q:"Unlock pada menu Bank Admin BBO Kopra berfungsi untuk membuka akses Bank User yang terkunci karena salah password sebanyak :", opts:["5 kali","2 kali","1 kali","3 kali"], correct:0},
+{q:"Pendaftaran rekening pinjaman / loan kedalam MCM memerlukan tambahan persyaratan yaitu :", opts:["Surat persetujuan Kepala Bisnis Unit","Akta Pendirian Perusahaan","Form Syarat dan Ketentuan MCM","Persetujuan Wadirut dan Direktur Bidang"], correct:1},
+{q:"Mengapa transaction banking dapat meningkatkan loyalitas nasabah. Salah satu alasan yang membenarkan hal tersebut :", opts:["Transaction banking menjamin system bank berjalan secara real time dengan performance yang dapat diandalkan","Transaction banking menyediakan banyak ragam produk bank","Transaction Banking memberikan kemudahan, keamanan, kenyamanan, dan layanan end to end proses bisnis bagi kebutuhan nasabah","Transaction banking memberikan potongan diskon biaya transaksi"], correct:2},
+{q:"Benefit yang diharapkan nasabah dalam menggunakan layanan Collection Bank adalah:", opts:["Fleksibiltas cara pembayaran","Kepastian pembayaran","Percepatan penerimaan arus uang masuk","Laporan Transaksi"], correct:2},
+{q:"Metode upload file tagihan Mandiri Bill Collection adalah sebagai berikut kecuali:", opts:["MRP / MBC Portal","MFT SFTP","Email","SWIFT ACK"], correct:3},
+{q:"Yang merupakan product dalam kategori Payment adalah :", opts:["Online Notification","Modern Channel","MT101","MRP"], correct:3},
+{q:"Fitur dalam Kopra yang dapat melihat limit tersedia untuk Trade dan Supply Chain adalah :", opts:["Forex Online Dealing","Consolidated Financial Dashboard","Onboarding Supplier","Virtual Assistant"], correct:1},
+{q:"Belajar dari peristiwa krisis global yang melanda pasar keuangan diseluruh dunia, telah menginspirasi perbankan untuk mengalihkan fokus bisnis ke transaction banking yang memiliki risiko lebih kecil namun tetap memberikan revenue yang signifikan. Pertimbangan tersebut didasari pada :", opts:["Semua jawaban diatas benar.","Transaction Banking memberikan total solusi melalui bundling product package dan service end to end yang memberikan kenyaman dan meningkatkan loyalitas nasabah, yang pada akhirnya akan menghasilkan fee base secara berulang-ulang dan terus menerus sehingga menciptakan sustainable revenue bagi bank.","Bisnis Transaction Banking lebih banyak diarahkan untuk penyediaan infrastruktur IT untuk menunjang transaksi nasabah secara efektif dan efisien. Semakin banyak transaksi yang dihasilkan maka semakin kecil biaya per unitnya","Transaction Banking memberikan pembiayaan berdasarkan cash flow nasabah, dan penggunaannya harus didasari dengan underlying transaction sehingga terhindar dari penyalahgunaan fasilitas pembiayaan."], correct:0},
+{q:"User pengguna di MCM yang bertugas mengirimkan transaksi yang telah diotorisasi perusahaan ke bank untuk diproses adalah user :", opts:["User Releaser","User Verification","User Approval","User Maker"], correct:0},
+{q:"Sebutkan fitur yang terdapat pada main menu account Information:", opts:["Balance Inquiry, Transaction Inquiry, Account Statement, Forex Rate Inquiry","Balance Inquiry, Transaction Inquiry, Account Statement, Transaction Status","Balance Inquiry, Transaction Inquiry, Account Statement, Advice Printing","Balance Inquiry, Transaction Inquiry, Account Statement, Bill Payment"], correct:2},
+{q:"Fitur-fitur yang dapat dilakukan oleh user approver MCM adalah sebagai berikut kecuali :", opts:["Pengecekan saldo","Membuat limit transaksi","Melakukan approval transaksi","Pengecekan pending task"], correct:1},
 {q:"(Variasi 1) Benefit dari layanan Mandiri Bill Collection adalah sebagai berikut, kecuali...", opts:["Ketepatan jumlah pembayaran","Percepatan rekonsiliasi","Kemudahan monitoring tagihan","Efisiensi biaya penagihan"], correct:0},
 {q:"(Variasi 2) Benefit dari layanan Mandiri Bill Collection adalah sebagai berikut, kecuali...", opts:["Memperoleh komposisi dana murah dan Fee Based Income","Kemudahan rekonsiliasi tagihan","Percepatan penerimaan pembayaran","Notifikasi status tagihan real-time"], correct:0},
-{q:"Pembayaran produk Pertamina (umumnya BBM) yang dapat dibeli tanpa pembatasan dilakukan melalui Sistem Online Pembayaran Pertamina (SOPP) pada fitur...", opts:["Semua jawaban benar","Hanya Cash and Carry","Hanya Product Allocation","Hanya Kredit"], correct:0},
+{q:"(Variasi 3) Benefit dari layanan Mandiri Bill Collection adalah sebagai berikut, kecuali :", opts:["Kemudahan rekonsiliasi penerimaan pembayaran","Ketepatan jumlah pembayaran","Meminimalisir open item","Memudahkan operasional kas kecil cabang nasabah"], correct:2},
+{q:"Pembayaran produk Pertamina yang dapat dibeli tanpa pembatasan (umumnya BBM) dapat dilakukan melalui Sistem Online Pembayaran Pertamina (SOPP) pada fitur:", opts:["Quotation","Prepayment","Product Allocation","Cash dan Carry"], correct:3},
 {q:"Selain Cash and Carry, salah satu fitur dalam Sistem Online Pembayaran Pertamina (SOPP) yang membatasi pembelian produk berdasarkan kuota tertentu adalah...", opts:["Product Allocation","Bill Payment","Cash Advance","Loyalty Point"], correct:0},
-{q:"Error \"please access to Cash Management/Trade dan Bank Guarantee/Supply Chain/Smart Account\" dapat diatasi dengan cara...", opts:["Nasabah diarahkan untuk setting browser to allow pop up windows","Menghapus seluruh cache browser","Mengganti perangkat komputer","Menghubungi call center untuk reset password"], correct:0},
-{q:"Yang perlu dilakukan nasabah ketika pertama kali belum memiliki tampilan Dashboard Kopra adalah...", opts:["Melakukan provisioning","Menghubungi RM untuk buka rekening baru","Mengganti username","Menunggu 24 jam"], correct:0},
-{q:"Error CHANNELACCESS-006 pada Kopra ketika nasabah menambahkan user dari Comp ID yang berbeda dapat diatasi dengan cara...", opts:["Melakukan unlink terlebih dahulu karena sudah pernah diprovisioning di Kopra","Membuat Comp ID baru","Menghapus seluruh user existing","Menghubungi Bank Indonesia"], correct:0},
-{q:"Menu transfer antar bank dalam menu MCM adalah sebagai berikut, kecuali...", opts:["Inkaso","RTGS","SKNBI","BI-FAST"], correct:0},
-{q:"Salah satu faktor yang mendorong Bank mengalihkan strategi bisnis pada layanan transaction banking adalah...", opts:["Semua jawaban di atas benar","Hanya faktor regulasi","Hanya faktor kompetitor","Tidak ada faktor pendorong"], correct:0},
-{q:"Mandiri Cash Management dapat diakses dengan alamat...", opts:["https://mcm.bankmandiri.com","https://ib.bankmandiri.co.id","https://kopra.bankmandiri.co.id","https://livin.bankmandiri.co.id"], correct:0},
-{q:"Salah satu komponen yang mempengaruhi arus uang masuk (inflow) perusahaan antara lain...", opts:["Penerimaan tagihan perusahaan dari distributor","Pembayaran gaji karyawan","Pembayaran ke supplier","Pembayaran pajak"], correct:0},
-{q:"Strategi Transaction Banking Bank Mandiri bertujuan untuk...", opts:["Memperoleh komposisi dana murah dan Fee Base income","Memperbesar portofolio kredit korporasi","Mengurangi jumlah nasabah wholesale","Menutup seluruh cabang fisik"], correct:0}
+{q:"Error \"please access to Cash Management/Trade dan Bank Guarantee/Supply Chain/Smart Account\" dapat diatasi dengan cara:", opts:["Melakukan clear cache browser","Nasabah disarankan mengganti browser","Diarahkan menggunakan koneksi jaringan internet yang stabil","Nasabah diarahkan untuk setting browser to allow pop up windows"], correct:3},
+{q:"Yang perlu dilakukan nasabah ketika pertama kali belum memiliki tampilah Dashboard Kopra adalah:", opts:["Clear cache di browser","Send request to Admin","Melakukan provisioning","Menghubungi Call Center untuk meminta akses"], correct:1},
+{q:"Error CHANNELACCESS-006 pada Kopra ketika nasabah berusaha menambahkan user yang berbeda dari Comp ID yang berbeda dapat diatasi dengan cara:", opts:["Diarahkan menggunakan koneksi jaringan internet yang stabil","Melakukan unlink terlebih dahulu karena sudah pernah di provisioning di Kopra","Melakukan clear cache browser","User meminta aktivasi kembali ke sysadmin"], correct:1},
+{q:"Menu transfer antar bank dalam menu MCM adalah sebagai berikut kecuali :", opts:["Inkaso","BI Fast","Online Transfer","LLG / SKN"], correct:0},
+{q:"Salah satu faktor yang mendorong Bank mengalihkan strategi bisnis pada layanan transaction banking adalah :", opts:["Semua jawaban diatas benar","Resiko bisnis lebih kecil","Mendorong bank untuk mengembangkan produk dan solusi dengan fitur dan fungsi yang sesuai dengan kebutuhan nasabah","Meningkatkan daya saing bank untuk memberikan kualitas layanan yang dapat memenuhi kebutuhan nasabahnya"], correct:0},
+{q:"Mandiri Cash Management dapat diakses dengan alamat:", opts:["http://mcm.bankmandiri.co.id/corp","https://mcm2.bankmandiri.co.id","https://mcm.bankmandiri.com","http://mcm.bankmandiri.com"], correct:0},
+{q:"Layanan Transaction Banking sangat berkepentingan terhadap arus uang masuk (inflow) dan arus uang keluar (outflow) perusahaan. Salah satu komponen yang mempengaruhi arus uang masuk (inflow) antara lain :", opts:["Pembayaran deviden investor","Gaji karyawan","Pembayaran Pinjaman Bank","Penerimaan tagihan perusahaan dari distributor"], correct:3},
+{q:"Tansaction Banking saat ini menjadi salah satu strategi bisnis yang diandalkan oleh Bank Mandiri. Strategi bisnis ini bertujuan untuk :", opts:["Menyediakan layanan electronic channel","Memberikan kemudahan bertransaksi bagi nasabahnya","Memperoleh komposisi dana murah dan Fee Base income, yang akan menopang kinerja bank menjadi lebih baik","Memperoleh volume transaksi perbankan yang dihasilkan dari layanan yang diberikan kepada Nasabah"], correct:2},
+{q:"System security yang tersedia dalam layanan MCM adalah:", opts:["Secure Line","Registered Account dan Transaction Limit","Corporate ID, User ID, Password","Semua jawaban benar"], correct:2}
 ];
 
 /* ============ STATE ============ */

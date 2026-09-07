@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
+<title>LATIHAN SOAL — Retail Banking Giro &amp; Cash Management</title>
 <style>
 :root{
   --lms-blue:#1a73c4;
@@ -45,9 +45,14 @@ body{
 .login-error.show{display:block;}
 
 /* ===== START PICKER ===== */
-#screenStart{max-width:760px; margin:0 auto; padding:60px 18px;}
+#screenStart{max-width:760px; margin:0 auto; padding:50px 18px;}
 .start-title{font-size:1.5rem; font-weight:700; margin-bottom:6px; text-align:center;}
-.start-sub{color:var(--lms-sub); text-align:center; margin-bottom:34px; font-size:.95rem;}
+.start-sub{color:var(--lms-sub); text-align:center; margin-bottom:26px; font-size:.95rem;}
+.start-groupheader{
+  font-size:.78rem; font-weight:700; color:var(--lms-blue); text-transform:uppercase;
+  letter-spacing:.04em; margin:26px 0 10px; padding-left:2px;
+}
+.start-groupheader:first-of-type{margin-top:0;}
 .pick-card{
   display:flex; align-items:center; gap:16px; background:var(--lms-card);
   border:1px solid var(--lms-border); border-radius:6px; padding:20px 22px; margin-bottom:16px;
@@ -151,17 +156,17 @@ body{
 .lms-score-big{font-size:2.2rem; font-weight:800; color:var(--lms-blue);}
 .lms-score-sub{color:var(--lms-sub); font-size:.9rem; margin-top:4px;}
 
-.answerkey-item{border-left:3px solid var(--lms-blue); padding:10px 14px; margin-bottom:10px; background:#f7f9fb; border-radius:4px; font-size:.87rem; line-height:1.5;}
+.answerkey-item{border-left:3px solid var(--lms-blue); padding:8px 14px; margin-bottom:8px; background:#f7f9fb; border-radius:4px; font-size:.87rem;}
 .answerkey-item b.ak-correct{font-weight:700; color:#000;}
-.answerkey-item.flagged{border-left-color:#c98a1c; background:#fff8e8;}
-.ak-flag{display:block; color:#a3690f; font-size:.8rem; font-weight:700; margin-top:6px;}
-.ak-exp{display:block; color:var(--lms-sub); font-size:.83rem; margin-top:6px;}
-.ak-src{display:block; color:#6b7480; font-size:.76rem; font-style:italic; margin-top:4px;}
-.exp-box{
-  margin-top:10px; padding:10px 12px; background:#f7f9fb; border-left:3px solid var(--lms-blue);
-  border-radius:4px; font-size:.84rem; color:var(--lms-sub); line-height:1.5;
+
+.ak-tabs{display:flex; gap:8px; margin:16px 0 18px; flex-wrap:wrap;}
+.ak-tab{
+  padding:8px 16px; border-radius:20px; border:1px solid var(--lms-border); background:#fff;
+  font-size:.82rem; font-weight:700; cursor:pointer; color:var(--lms-sub);
 }
-.exp-box.flagged{border-left-color:#c98a1c; background:#fff8e8;}
+.ak-tab.active{background:var(--lms-blue); color:#fff; border-color:var(--lms-blue);}
+.ak-pane{display:none;}
+.ak-pane.active{display:block;}
 
 @media(max-width:600px){
   .lms-wrap{padding:0;}
@@ -187,77 +192,71 @@ body{
 <!-- ===== START PICKER ===== -->
 <section class="section" id="screenStart">
   <div class="start-title">Latihan Soal</div>
-  <div class="start-sub">Bank soal hasil ekstraksi materi ODP Transaction Banking Wholesale Group — Bank Mandiri.</div>
+  <div class="start-sub">Pilih materi latihan yang ingin kamu kerjakan hari ini.</div>
 
+  <div class="start-groupheader">Materi: Giro</div>
   <div class="pick-card" onclick="goTradeTest()">
-    <div class="pick-icon">🚢</div>
+    <div class="pick-icon">🏦</div>
     <div class="pick-text">
-      <div class="pick-title">Test - Trade Service</div>
-      <div class="pick-desc">30 soal · pilihan ganda · waktu 15 menit</div>
+      <div class="pick-title">Post Test - Retail Banking Giro</div>
+      <div class="pick-desc">15 soal · pilihan ganda · waktu 15 menit</div>
     </div>
     <div class="pick-arrow">➜</div>
   </div>
 
   <div class="pick-card" onclick="goBGTest()">
-    <div class="pick-icon">📜</div>
+    <div class="pick-icon">✅</div>
     <div class="pick-text">
-      <div class="pick-title">Test - Bank Garansi</div>
-      <div class="pick-desc">34 soal · pilihan ganda · waktu 15 menit</div>
+      <div class="pick-title">Latihan - Cek Pemahaman Giro</div>
+      <div class="pick-desc">15 soal · pilihan ganda · waktu 15 menit</div>
     </div>
     <div class="pick-arrow">➜</div>
   </div>
 
-  <div class="pick-card" onclick="goAnswerKey()">
-    <div class="pick-icon">🔑</div>
+  <div class="pick-card" onclick="goGeTest()">
+    <div class="pick-icon">📘</div>
     <div class="pick-text">
-      <div class="pick-title">Intip Soal &amp; Kunci Jawaban Langsung</div>
-      <div class="pick-desc">64 soal + kunci + pembahasan + sumber materi · tanpa perlu mengerjakan quiz</div>
+      <div class="pick-title">Latihan Giro Lanjutan</div>
+      <div class="pick-desc">17 soal · pilihan ganda · waktu 15 menit</div>
     </div>
     <div class="pick-arrow">➜</div>
   </div>
+
+  <div class="start-groupheader">Materi: Cash Management</div>
+  <div class="pick-card" onclick="goCMTest()">
+    <div class="pick-icon">💳</div>
+    <div class="pick-text">
+      <div class="pick-title">Latihan - Cash Management (Kopra/MCM)</div>
+      <div class="pick-desc">27 soal · pilihan ganda · waktu 20 menit</div>
+    </div>
+    <div class="pick-arrow">➜</div>
+  </div>
+
+  <div class="linklike" onclick="goAnswerKey()">Lihat rangkuman lengkap semua jawaban</div>
 </section>
 
-<!-- ===== TRADE SERVICE TEST ===== -->
+<!-- ===== POST TEST GIRO ===== -->
 <section class="section" id="screenTradeTest">
-  <div class="lms-topbar">
-    <div class="tb-title">PROGRAM ODP/SDP - POST TEST TRADE SERVICE <span class="info-dot">i</span></div>
-  </div>
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - POST TEST RETAIL BANKING GIRO <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
-  <div class="lms-wrap">
-    <div class="lms-card">
-      <div class="lms-head-row">
-        <div>
-          <div class="lms-h1">Test - Trade Service</div>
-          <div class="lms-h2">LATIHAN SOAL TRADE SERVICE (30 SOAL)</div>
-        </div>
-        <div class="lms-timer-block">
-          <div class="lms-timer" id="tradeTimer">15:00</div>
-          <div class="lms-timer-label">Time remaining</div>
-        </div>
-      </div>
-      <hr class="lms-hr">
-      <div id="tradeQList"></div>
-      <div class="lms-finish"><button class="lms-btn" id="tradeSubmitBtn" onclick="submitTrade()">Lihat Hasil</button></div>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-head-row">
+      <div><div class="lms-h1">Post Test - Retail Banking Giro</div><div class="lms-h2">PEMBAHASAN POST TEST RETAIL BANKING: GIRO (15 SOAL)</div></div>
+      <div class="lms-timer-block"><div class="lms-timer" id="tradeTimer">15:00</div><div class="lms-timer-label">Time remaining</div></div>
     </div>
-  </div>
+    <hr class="lms-hr">
+    <div id="tradeQList"></div>
+    <div class="lms-finish"><button class="lms-btn" id="tradeSubmitBtn" onclick="submitTrade()">Lihat Hasil</button></div>
+  </div></div>
 </section>
 
-<!-- ===== TRADE SERVICE RESULT ===== -->
 <section class="section" id="screenTradeResult">
-  <div class="lms-topbar">
-    <div class="tb-title">PROGRAM ODP/SDP - POST TEST TRADE SERVICE <span class="info-dot">i</span></div>
-  </div>
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - POST TEST RETAIL BANKING GIRO <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
-  <div class="lms-wrap">
-    <div class="lms-card">
-      <div class="lms-result-head">
-        <div class="lms-score-big" id="tradeScoreBig">0 / 30</div>
-        <div class="lms-score-sub" id="tradeScoreMsg"></div>
-      </div>
-      <hr class="lms-hr">
-      <div id="tradeReviewList"></div>
-    </div>
-  </div>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-result-head"><div class="lms-score-big" id="tradeScoreBig">0 / 15</div><div class="lms-score-sub" id="tradeScoreMsg"></div></div>
+    <hr class="lms-hr"><div id="tradeReviewList"></div>
+  </div></div>
   <div class="lms-submitbar">
     <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
     <button class="lms-btn ghost" onclick="goTradeTest()">🔁 Ulangi Test</button>
@@ -265,47 +264,28 @@ body{
   </div>
 </section>
 
-<!-- ===== BANK GUARANTEE TEST ===== -->
+<!-- ===== CEK PEMAHAMAN GIRO ===== -->
 <section class="section" id="screenBGTest">
-  <div class="lms-topbar">
-    <div class="tb-title">PROGRAM ODP/SDP - POST TEST BANK GARANSI <span class="info-dot">i</span></div>
-  </div>
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN CEK PEMAHAMAN GIRO <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
-  <div class="lms-wrap">
-    <div class="lms-card">
-      <div class="lms-head-row">
-        <div>
-          <div class="lms-h1">Test - Bank Garansi</div>
-          <div class="lms-h2">LATIHAN SOAL BANK GARANSI (34 SOAL)</div>
-        </div>
-        <div class="lms-timer-block">
-          <div class="lms-timer" id="bgTimer">15:00</div>
-          <div class="lms-timer-label">Time remaining</div>
-        </div>
-      </div>
-      <hr class="lms-hr">
-      <div id="bgQList"></div>
-      <div class="lms-finish"><button class="lms-btn" id="bgSubmitBtn" onclick="submitBG()">Lihat Hasil</button></div>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-head-row">
+      <div><div class="lms-h1">Latihan - Cek Pemahaman Giro</div><div class="lms-h2">CEK PEMAHAMAN GIRO — SELURUH BAGIAN (15 SOAL)</div></div>
+      <div class="lms-timer-block"><div class="lms-timer" id="bgTimer">15:00</div><div class="lms-timer-label">Time remaining</div></div>
     </div>
-  </div>
+    <hr class="lms-hr">
+    <div id="bgQList"></div>
+    <div class="lms-finish"><button class="lms-btn" id="bgSubmitBtn" onclick="submitBG()">Lihat Hasil</button></div>
+  </div></div>
 </section>
 
-<!-- ===== BANK GUARANTEE RESULT ===== -->
 <section class="section" id="screenBGResult">
-  <div class="lms-topbar">
-    <div class="tb-title">PROGRAM ODP/SDP - POST TEST BANK GARANSI <span class="info-dot">i</span></div>
-  </div>
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN CEK PEMAHAMAN GIRO <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
-  <div class="lms-wrap">
-    <div class="lms-card">
-      <div class="lms-result-head">
-        <div class="lms-score-big" id="bgScoreBig">0 / 34</div>
-        <div class="lms-score-sub" id="bgScoreMsg"></div>
-      </div>
-      <hr class="lms-hr">
-      <div id="bgReviewList"></div>
-    </div>
-  </div>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-result-head"><div class="lms-score-big" id="bgScoreBig">0 / 15</div><div class="lms-score-sub" id="bgScoreMsg"></div></div>
+    <hr class="lms-hr"><div id="bgReviewList"></div>
+  </div></div>
   <div class="lms-submitbar">
     <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
     <button class="lms-btn ghost" onclick="goBGTest()">🔁 Ulangi Test</button>
@@ -313,430 +293,182 @@ body{
   </div>
 </section>
 
-<!-- ===== FULL ANSWER KEY ===== -->
-<section class="section" id="screenAnswerKey">
-  <div class="lms-topbar">
-    <div class="tb-title">PROGRAM ODP/SDP - SOAL, KUNCI JAWABAN &amp; PEMBAHASAN <span class="info-dot">i</span></div>
-  </div>
+<!-- ===== GIRO LANJUTAN ===== -->
+<section class="section" id="screenGeTest">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN GIRO LANJUTAN <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
-  <div class="lms-wrap">
-    <div class="lms-card">
-      <div class="lms-h1">Intip Soal &amp; Kunci Jawaban Langsung</div>
-      <div class="lms-h2">BAGIAN 1 — TRADE SERVICE (30 SOAL)</div>
-      <div id="akPart1"></div>
-      <div class="lms-h2" style="margin-top:26px;">BAGIAN 2 — BANK GARANSI (34 SOAL)</div>
-      <div id="akPart2"></div>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-head-row">
+      <div><div class="lms-h1">Latihan Giro Lanjutan</div><div class="lms-h2">SOAL TAMBAHAN GIRO (17 SOAL)</div></div>
+      <div class="lms-timer-block"><div class="lms-timer" id="geTimer">15:00</div><div class="lms-timer-label">Time remaining</div></div>
     </div>
+    <hr class="lms-hr">
+    <div id="geQList"></div>
+    <div class="lms-finish"><button class="lms-btn" id="geSubmitBtn" onclick="submitGe()">Lihat Hasil</button></div>
+  </div></div>
+</section>
+
+<section class="section" id="screenGeResult">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN GIRO LANJUTAN <span class="info-dot">i</span></div></div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-result-head"><div class="lms-score-big" id="geScoreBig">0 / 17</div><div class="lms-score-sub" id="geScoreMsg"></div></div>
+    <hr class="lms-hr"><div id="geReviewList"></div>
+  </div></div>
+  <div class="lms-submitbar">
+    <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
+    <button class="lms-btn ghost" onclick="goGeTest()">🔁 Ulangi Test</button>
+    <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
   </div>
+</section>
+
+<!-- ===== CASH MANAGEMENT ===== -->
+<section class="section" id="screenCMTest">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN CASH MANAGEMENT <span class="info-dot">i</span></div></div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-head-row">
+      <div><div class="lms-h1">Latihan - Cash Management</div><div class="lms-h2">KOPRA / MCM — SELURUH BAGIAN (27 SOAL)</div></div>
+      <div class="lms-timer-block"><div class="lms-timer" id="cmTimer">20:00</div><div class="lms-timer-label">Time remaining</div></div>
+    </div>
+    <hr class="lms-hr">
+    <div id="cmQList"></div>
+    <div class="lms-finish"><button class="lms-btn" id="cmSubmitBtn" onclick="submitCM()">Lihat Hasil</button></div>
+  </div></div>
+</section>
+
+<section class="section" id="screenCMResult">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN CASH MANAGEMENT <span class="info-dot">i</span></div></div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-result-head"><div class="lms-score-big" id="cmScoreBig">0 / 27</div><div class="lms-score-sub" id="cmScoreMsg"></div></div>
+    <hr class="lms-hr"><div id="cmReviewList"></div>
+  </div></div>
+  <div class="lms-submitbar">
+    <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
+    <button class="lms-btn ghost" onclick="goCMTest()">🔁 Ulangi Test</button>
+    <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
+  </div>
+</section>
+
+<!-- ===== FULL ANSWER KEY (per materi) ===== -->
+<section class="section" id="screenAnswerKey">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - RANGKUMAN SEMUA JAWABAN <span class="info-dot">i</span></div></div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-h1">Rangkuman Jawaban per Materi</div>
+    <div class="ak-tabs">
+      <div class="ak-tab active" id="akTabGiro" onclick="switchAkTab('giro')">Giro (47 soal)</div>
+      <div class="ak-tab" id="akTabCM" onclick="switchAkTab('cm')">Cash Management (27 soal)</div>
+    </div>
+    <div class="ak-pane active" id="akPaneGiro"><div id="akPart1"></div></div>
+    <div class="ak-pane" id="akPaneCM"><div id="akPart2"></div></div>
+  </div></div>
   <div class="lms-submitbar">
     <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
   </div>
 </section>
 
 <script>
-/* ============ DATA: TRADE SERVICE (30 soal) ============
-   Sumber soal : Post Test Trade Service ODP/SDP Revamp
-   Sumber materi: Trade_Finance.pdf, Trade_Overview_compressed.pdf,
-                  Transaction ServiceTrade Service dan Bank Garansi.pdf
-============================================================ */
+/* ============ DATA: POST TEST RETAIL BANKING GIRO (15 soal) ============ */
 const tradeData = [
-{q:"Termasuk dalam metode pembayaran yang pembayarannya dikemudian hari atau pada saat jatuh tempo, adalah:",
- opts:["Documentary Collection-DA; Open Account; Sight L/C; Consignment","Documentary Collection-DA; Open Account; Usance L/C; Consignment","Documentary Collection-DA; Open Account; Green Clause L/C; Consignment","Documentary Collection-DA; Open Account; Red Clause L/C; Consignment"],
- correct:1,
- exp:"D/A, Open Account, Usance L/C dan Consignment sama-sama dibayar belakangan. Pada Usance L/C pembayaran ke beneficiary dilakukan saat jatuh tempo (berjangka), sedangkan Sight L/C dibayar saat dokumen complying diunjukkan, dan Red/Green Clause justru memberi uang muka.",
- src:"Trade_Finance.pdf – slide Documentary Credit / Letter of Credit (Alur Transaksi Usance) &amp; Metode Pembayaran"},
-
-{q:"SKBDN tunduk pada aturan?",
- opts:["5/6/PBI/2003","UCP 600","ISP 98","10/3/PBI/2008"],
- correct:0,
- exp:"SKBDN (Surat Kredit Berdokumen Dalam Negeri) tunduk pada Peraturan Bank Indonesia tentang SKBDN, yaitu PBI No. 5/6/2003. UCP 600 untuk LC, ISP 98 untuk Standby LC, URDG 758 untuk Demand Guarantee.",
- src:"Transaction ServiceTrade Service dan Bank Garansi.pdf – slide Letter of Credit/SKBDN (kutipan PBI No. 5/6/2003 Pasal 1)"},
-
-{q:"Pada metode pembayaran documentary credit/letter of credit usance by acceptance, siapa pihak yang bertanggung jawab meng-aksep draft:",
- opts:["Applicant","Advising Bank","Beneficiary","Issuing Bank"],
- correct:0,
- exp:"Pada alur Usance L/C di materi: setelah dokumen diterima, Buyer/Applicant melakukan akseptasi atas dokumen dan menyerahkannya ke Issuing Bank, barulah Issuing Bank memberikan akseptasi kepada Beneficiary melalui Nominated Bank. Jadi akseptasi berawal dari Applicant.",
- src:"Trade_Finance.pdf – slide Documentary Credit/Letter of Credit, Alur Transaksi Usance langkah 5–7"},
-
-{q:"Type pesan atau Message Type SWIFT untuk transaksi penerbitan/pembukaan LC adalah:",
- opts:["MT103","MT700","MT707","MT799"],
- correct:1,
- exp:"MT700 = Issue of a Documentary Credit (penerbitan LC). MT707 untuk amendment, MT799 pesan bebas antar bank, MT103 untuk remittance/transfer dana.",
- src:"Trade_Finance.pdf – slide Contoh LC (1/3): Swift Output FIN 700 Issue of a Documentary Credit"},
-
-{q:"Berapakah Tarif minimal menerbitkan LC/SKBDN di Bank Mandiri?",
- opts:["USD 50 / IDR 700.000","USD 50 / IDR 750.000","USD 50 / IDR 500.000","USD 25 / IDR 250.000"],
- correct:0,
- exp:"Komisi Penerbitan LC/SKBDN: setoran sendiri 0,0625% flat, minimal Rp700.000 untuk Rupiah dan minimal USD 50 untuk valas.",
- src:"Trade_Finance.pdf – slide Penerbitan LC/SKBDN, tabel Biaya – Komisi Penerbitan LC"},
-
-{q:"Dalam transaksi incoming documentary collection dengan kondisi (D/P), Bank Mandiri (Trade Servicing Center) menyerahkan dokumen kepada Drawee atas dasar:",
- opts:["Drawee telah menyerahkan bukti setoran pembayaran atas dokumen","Drawee merupakan nasabah prima yang sudah sangat dikenal dengan baik","Kredibilitas dan kemampuan keuangan Drawee","Drawee telah menyerahkan Surat Aksep (Buyer Acceptance)"],
- correct:0,
- exp:"D/P = Document against Payment. Buyer hanya bisa mengambil dokumen setelah melakukan pembayaran kepada Bank. Kalau dasarnya Surat Aksep, itu kondisi D/A.",
- src:"Trade_Finance.pdf – slide Document Against Payment (D/P), Alur Transaksi langkah 4"},
-
-{q:"Berapakah Maksimal tenor Pengambilalihan Wesel Ekspor ad. LC/SKBDN?",
- opts:["180 hari","30 hari","60 hari","210 hari"],
- correct:0,
- exp:"Fitur PWE ad. LC/SKBDN: tenor pengambilalihan maksimum 180 hari sejak tanggal pengambilalihan, limit uncommitted/advised & revolving jangka waktu 1 tahun, dan tidak dipersyaratkan agunan.",
- src:"Trade_Finance.pdf – slide Pengambilalihan Wesel Ekspor ad. LC, tabel Fitur (Tenor Pengambilalihan)"},
-
-{q:"Rule of Thumb for Trade?",
- opts:["Seller berkewajiban mengirimkan barang dan dokumen","Semua jawaban benar","Buyer berkewajiban berjanji bayar","Buyer berkewajiban membayar"],
- correct:1,
- exp:"Prinsip dasar transaksi trade mencakup ketiganya: penjual wajib mengirim barang beserta dokumen, pembeli berjanji untuk membayar, dan pembeli wajib merealisasikan pembayaran tersebut.",
- src:"Trade_Overview_compressed.pdf – Sesi 01 Overview Trade &amp; Sales Contract / Metode Pembayaran"},
-
-{q:"Disebut International Banking apabila transaksi perdagangan tersebut:",
- opts:["Melewati batas wilayah negara lain","Semua jawaban benar","Menggunakan produk-produk Perbankan Internasional","Transaksinya menggunakan Valuta Asing"],
- correct:1,
- exp:"Perdagangan internasional dicirikan oleh unsur antarbangsa: melewati batas negara, memakai valuta asing, dan memakai produk perbankan internasional. Ketiganya benar.",
- src:"Trade_Finance.pdf – slide Overview Trade (definisi Perdagangan Internasional &amp; unsur antarbangsa)"},
-
-{q:"Apabila pengajuan penggunaan Deferred Payment atas dasar LC dari Bank Lain telah disetujui oleh bank, maka pencairan fasilitas ditujukan kepada?",
- opts:["Buyer","Remitting Bank","Issuing Bank","Seller"],
- correct:3,
- exp:"Ini kunci resmi dari lembar jawaban post test. Perhatikan: pada skema Deferred Payment ad. Open Account, bank membayar langsung ke Penjual/Seller.",
- src:"Kunci Post Test Trade Service; bandingkan Trade_Finance.pdf – slide Deferred Payment ad. Open Account vs ad. LC Bank Lain"},
-
-{q:"Irrevocable Letter of Credit diperlukan karena:",
- opts:["Importir kurang percaya terhadap Advising Bank","Eksportir kurang percaya terhadap Issuing Bank","Importir kurang percaya terhadap Eksportir","Eksportir kurang percaya terhadap Importir"],
- correct:3,
- exp:"LC bersifat irrevocable agar janji bayar tidak bisa dibatalkan sepihak. Ini melindungi eksportir/beneficiary yang belum yakin importir akan membayar. Salah satu risiko LC bagi Buyer justru: L/C tidak dapat dibatalkan secara sepihak.",
- src:"Trade_Finance.pdf – slide Documentary Credit/Letter of Credit, Risiko &amp; Keuntungan (sisi Seller: mendapat jaminan pembayaran dari Bank)"},
-
-{q:"Pada transaksi perdagangan internasional dengan L/C, pihak yang bertanggung jawab terhadap autentikasi L/C adalah:",
- opts:["Collecting Bank","Advising Bank","Issuing Bank","Negotiating Bank"],
- correct:1,
- exp:"Advising Bank adalah bank yang meneruskan LC ke Beneficiary, dan tugas melekatnya adalah memastikan keaslian/keabsahan (autentikasi) LC sebelum diteruskan.",
- src:"Trade_Finance.pdf – slide Documentary Credit/Letter of Credit, Alur Transaksi langkah 3 (Advising Bank meneruskan LC ke Beneficiary)"},
-
-{q:"Jika nasabah mengajukan penerbitan Letter of Credit dengan klausul tempat berakhir LC di negara beneficiary dan tenor pada draft 60 hari setelah pengiriman barang, maka available pada Letter of Credit yang ditetapkan adalah:",
- opts:["By Deferred Payment","By Acceptance","By Sight Payment","By Negotiation"],
- correct:1,
- exp:"Karena ada draft/wesel berjangka (60 hari setelah shipment), LC tersebut usance dan direalisasikan lewat akseptasi wesel oleh bank. Kalau tanpa draft, barulah dipakai Deferred Payment.",
- src:"Trade_Finance.pdf – slide Documentary Credit/Letter of Credit, Alur Transaksi Usance (akseptasi wesel/draft)"},
-
-{q:"Apabila 1=Applicant, 2=Beneficiary, 3=Issuing Bank, 4=Confirming Bank, 5=Advising Bank, maka untuk pembatalan suatu irrevocable L/C harus mendapat persetujuan dari:",
- opts:["2 dan 3","1, 2 dan 4","1, 3 dan 5","3, 4 dan 5"],
- correct:1,
- exp:"Ini kunci resmi lembar jawaban post test. Catatan penting: menurut UCP 600 Art. 10, pembatalan/amandemen irrevocable LC memerlukan persetujuan Issuing Bank, Confirming Bank (bila ada), dan Beneficiary — kombinasi tersebut tidak tersedia pada opsi soal.",
- src:"Kunci Post Test Trade Service; rujukan UCP 600 Art. 10 (Trade_Finance.pdf – slide Documentary Credit, sifat irrevocable)"},
-
-{q:"Documentary Credit/Letter of Credit tunduk pada aturan?",
- opts:["UCP 600","ISP 98","URC 522","URDG 758"],
- correct:0,
- exp:"LC tunduk pada UCP 600 (Uniform Customs and Practice for Documentary Credits). Materi bahkan mengutip UCP600 Art. 2 sebagai definisi credit.",
- src:"Transaction ServiceTrade Service dan Bank Garansi.pdf – slide Letter of Credit/SKBDN (kutipan UCP600 Art. 2)"},
-
-{q:"Berikut adalah manfaat transaksi trade bagi Bank, kecuali:",
- opts:["Cross Selling Produk","Meningkatkan Fee Based Income dan Interest Based Income","Meningkatkan DPK (Dana Pihak Ketiga)","Membantu Cash Flow"],
- correct:3,
- exp:"Manfaat bagi Bank: FBI &amp; Interest Based Income, meningkatkan DPK, corporate image, memperluas jaringan internasional, cross selling, dan diversifikasi produk. Sedangkan membantu cash flow dan memperlancar transaksi perdagangan adalah manfaat bagi Nasabah.",
- src:"Trade_Finance.pdf – slide Overview Trade, kotak Manfaat Transaksi Trade (Bank vs Nasabah)"},
-
-{q:"Berikut ini yang merupakan syarat dan kondisi penerbitan Letter of Credit, kecuali:",
- opts:["Diterbitkan dalam Valuta Rupiah/Valas yang terdaftar dalam kurs harian Bank Indonesia","Tunduk pada UCP yang berlaku","Bersifat Irrevocable","Ditujukan kepada Bank/Beneficiary yang dilarang pemerintah atau Bank"],
- correct:3,
- exp:"Syarat umum penerbitan LC: irrevocable, tunduk UCP yang berlaku, diterbitkan dalam Rupiah atau valas yang terdaftar dalam kurs harian BI, dan BUKAN ditujukan kepada bank/beneficiary yang dilarang pemerintah atau Bank (screening sanction/OFAC).",
- src:"Trade_Finance.pdf – slide Penerbitan LC/SKBDN, Syarat Umum Penerbitan LC di Bank Mandiri"},
-
-{q:"Cara pembayaran yang risikonya rendah dari sisi Seller dan Buyer adalah:",
- opts:["Documentary Collection - DP","Documentary Credit","Open Account","Advance Payment"],
- correct:1,
- exp:"Documentary Credit (LC) menyeimbangkan risiko: Seller dapat jaminan pembayaran bank selama dokumen comply, Buyer hanya membayar bila terms &amp; conditions LC terpenuhi. Open Account berat sebelah ke Buyer, Advance Payment berat sebelah ke Seller.",
- src:"Trade_Finance.pdf – slide Metode Pembayaran (spektrum risiko) &amp; Documentary Credit, Risiko &amp; Keuntungan"},
-
-{q:"Fungsi Letter of Credit adalah:",
- opts:["Memberikan kepastian pembayaran bagi beneficiary apabila seluruh persyaratan yang ditentukan di dalam sales contract telah dipenuhi","Memberikan kepastian pembayaran bagi beneficiary apabila seluruh persyaratan dan kondisi yang ditetapkan pada letter of credit telah dipenuhi","Memberikan kepastian kepada importir untuk mendapatkan barang sesuai yang diperjanjikan di dalam sales contract","Memberikan kepastian kepada eksportir untuk menerima pembayaran setelah mengirim dokumen kepada importir"],
- correct:3,
- exp:"Ini kunci resmi lembar jawaban post test. Catatan: secara doktrin UCP 600, jawaban yang paling tepat sebenarnya opsi B — bank membayar atas dasar complying presentation terhadap syarat &amp; kondisi LC, bukan sales contract dan bukan pengiriman dokumen ke importir.",
- src:"Kunci Post Test Trade Service; bandingkan Trade_Finance.pdf – slide Documentary Credit (janji pasti issuing bank atas presentasi dokumen yang comply)"},
-
-{q:"Risiko tertinggi pada cara pembayaran Open Account:",
- opts:["Buyer tidak menerima barang","Seller tidak menerima pembayaran","Seller tidak dapat mengirimkan barang","Buyer membatalkan pembelian"],
- correct:1,
- exp:"Pada Open Account barang dikirim lebih dulu, pembayaran menyusul. Risiko Seller: tidak ada kepastian pembayaran atas barang yang telah dikirim. Karena itu Open Account = risiko tertinggi bagi Seller, terendah bagi Buyer.",
- src:"Trade_Finance.pdf – slide Open Account, tabel Risiko &amp; Keuntungan (sisi Seller)"},
-
-{q:"Bank Mandiri menerima berita melalui SWIFT (MT 700) dari Korea Exchange Bank, Seoul - Korea, dalam hal ini Bank Mandiri bertindak sebagai:",
- opts:["Negotiating Bank","Issuing Bank","Nominated Bank","Advising Bank"],
- correct:3,
- exp:"MT700 diterbitkan oleh Issuing Bank (Korea Exchange Bank). Bank yang menerima dan meneruskan LC tersebut kepada beneficiary di dalam negeri berperan sebagai Advising Bank.",
- src:"Trade_Finance.pdf – slide Documentary Credit, Alur Transaksi langkah 2–3 (Issuing Bank menerbitkan, Advising Bank meneruskan LC)"},
-
-{q:"Manakah sumber data yang dapat digunakan untuk menggarap potensi Transaksi Trade di cabang?",
- opts:["Transaksi Remittance","Nasabah yang memiliki rekening khusus DHE","Nasabah yang memiliki rekening Local Currency Settlement (LCS)","Benar Semua"],
- correct:3,
- exp:"Sumber data potensi transaksi trade meliputi nasabah yang membuka/menerima LC, nasabah rekening khusus DHE, nasabah rekening LCS, serta nasabah dengan transaksi remittance outgoing/incoming.",
- src:"Trade_Finance.pdf – slide Potensi Transaksi Ekspor &amp; Impor di BMRI, kolom Sumber data"},
-
-{q:"Bank XYZ menerima LC dari bank korespondennya di luar negeri untuk nasabahnya, menurut Saudara kegiatan apa yang akan dilakukan oleh nasabah Bank XYZ:",
- opts:["Transaksi Ekspor","Transaksi Impor","Transaksi SKBDN","Semua jawaban benar"],
- correct:0,
- exp:"LC yang masuk dari bank koresponden luar negeri berarti nasabah tersebut adalah beneficiary/penjual yang akan mengirim barang ke luar negeri, yaitu transaksi ekspor. Kalau nasabah membuka LC ke luar negeri, barulah transaksi impor.",
- src:"Trade_Finance.pdf – slide Solusi Bagi Penjual &amp; Potensi Transaksi Ekspor di BMRI"},
-
-{q:"Cover penerbitan LC/SKBDN dapat berupa?",
- opts:["Fasilitas dari Bank","Blokir Giro","Blokir Deposito","Benar Semua"],
- correct:3,
- exp:"Cover penerbitan LC/SKBDN: Margin Tunai (cash margin 100%), setoran tunai giro margin tunai, blokir rekening giro Bank Mandiri, blokir deposito Bank Mandiri, blokir tabungan Bank Mandiri, Import General Facility (IGF), atau kombinasi setoran dan margin tunai.",
- src:"Trade_Finance.pdf – slide Penerbitan LC/SKBDN, kotak Cover Penerbitan LC/SKBDN"},
-
-{q:"Akseptasi pada transaksi Documentary Collection (D/A) merupakan kesanggupan bayar pada saat jatuh tempo oleh:",
- opts:["Buyer","Collecting/Presenting Bank","Remitting Bank","Issuing Bank"],
- correct:0,
- exp:"Pada D/A, Buyer menyerahkan akseptasi kepada Presenting Bank; dokumen pengiriman barang baru diserahkan setelah Buyer memberikan akseptasi, dan pada saat jatuh tempo Buyer melakukan pembayaran kepada seller.",
- src:"Trade_Finance.pdf – slide Document Against Acceptance (D/A), Alur Transaksi langkah 4–5"},
-
-{q:"Pihak yang ditunjuk oleh Issuing Bank untuk menyampaikan L/C kepada Beneficiary adalah:",
- opts:["Advising Bank","Negotiating Bank","Nominated Bank","Confirming Bank"],
- correct:0,
- exp:"Advising Bank bertugas meneruskan/menyampaikan LC kepada Beneficiary. Nominated Bank adalah bank yang ditunjuk untuk melakukan pembayaran/negosiasi, Confirming Bank menambahkan konfirmasi atas LC.",
- src:"Trade_Finance.pdf – slide Documentary Credit, Alur Transaksi langkah 3 (Advising Bank meneruskan LC ke Beneficiary)"},
-
-{q:"Berikut merupakan solusi bagi penjual, kecuali:",
- opts:["Invoice Financing","Forfaiting","Pengambilalihan Wesel Ekspor ad. LC/SKBDN","Trust Receipt"],
- correct:3,
- exp:"Trust Receipt adalah pembiayaan talangan bagi Pembeli/importir untuk menebus dokumen. Solusi bagi Penjual mencakup Packing Loan, PO Financing, PWE ad. LC/non-LC, Forfaiting, dan Invoice Financing.",
- src:"Trade_Finance.pdf – slide Solusi Bagi Penjual (pre &amp; post shipment) vs slide Solusi Bagi Pembeli / Trust Receipt"},
-
-{q:"Berikut ini yang merupakan syarat dan kondisi penerbitan SKBDN, kecuali:",
- opts:["Diterbitkan dalam valuta Rupiah; penerbitan dalam Valuta Asing diperkenankan sepanjang terkait perdagangan internasional","Tunduk pada Peraturan Bank Indonesia (PBI) tentang SKBDN yang berlaku","Bank, Pemohon dan Penerima berkedudukan di dalam negeri Indonesia","Tunduk pada URDG 758"],
- correct:3,
- exp:"URDG 758 adalah aturan untuk Demand Guarantee, bukan SKBDN. Syarat SKBDN: tunduk PBI SKBDN, para pihak berkedudukan di dalam negeri, diterbitkan dalam Rupiah (valas hanya bila terkait perdagangan internasional), dan diterbitkan dalam Bahasa Indonesia.",
- src:"Trade_Finance.pdf – slide Penerbitan LC/SKBDN, Syarat Umum Penerbitan SKBDN di Bank Mandiri"},
-
-{q:"Manakah yang merupakan fitur Mandiri Global Trade?",
- opts:["Limit Management","Sistem Web Based","Push Notification","Semua Benar"],
- correct:3,
- exp:"Fitur Mandiri Global Trade: sistem web-based yang dapat diakses kapan &amp; di mana saja, aplikasi online penerbitan/amendment/financing, preview draft LC/BG, report volume &amp; outstanding limit, access level maker-checker, upload dokumen underlying, dan notifikasi via dashboard, SMS, email.",
- src:"Trade_Finance.pdf – slide Mandiri Global Trade (Solusi Digital Trade)"},
-
-{q:"Fitur Mandiri Global Trade yang berfungsi untuk melakukan monitoring Limit Nasabah adalah?",
- opts:["Limit Management","Upload Document","Push Notification","Preview Draft"],
- correct:0,
- exp:"Fitur Limit Management dipakai untuk inquiry status &amp; detail transaksi, ketersediaan dan penggunaan limit nasabah. Preview draft untuk melihat draft LC/BG sebelum submit, push notification untuk pemberitahuan status.",
- src:"Trade_Finance.pdf – slide Mandiri Global Trade (Inquiry status &amp; detail transaksi, ketersediaan dan penggunaan limit)"}
+{q:"Jenis rekening giro yang cocok digunakan untuk transaksi money market, capital market, remittance, foreign exchange dan trade service adalah...", opts:["Giro Premier","Giro Vostro","Giro DHE-SDA","Giro Escrow"], correct:1},
+{q:"Yang dimaksud dengan benefit yield enhancement pada giro premier adalah...", opts:["Bebas biaya administrasi bulanan","Media dan alat penarikan yang beragam sehingga fleksibilitas pengelolaan dana tetap sama dengan giro reguler (Cek/BG, via MCM atau Sweep Online)","Jasa giro yang lebih tinggi dibandingkan giro reguler","Bebas biaya transfer valas masuk (khusus valuta USD)"], correct:2},
+{q:"Dasar mekanisme dari transaksi yang dilakukan di rekening vostro adalah...", opts:["Tarik tunai di rekening asal dan setor tunai ke rekening tujuan di Bank Koresponden","Bank asal mengirim dana ke bank dituju dengan sistem BI Fast","Pindah buku antara 2 rekening (CIF) yang berbeda di Bank Koresponden","Auto debet tiap bulan dari rekening giro nasabah untuk di kreditkan ke rekening tujuan"], correct:2},
+{q:"Warkat yang merupakan perintah bayar atas nama yang diterbitkan oleh Bank Koresponden pemilik rekening Giro Vostro dinamakan....", opts:["Bank draft","LOA","Sweep","Bilyet giro"], correct:0},
+{q:"PT XYZ baru membuka rekening dan menjadi Nasabah Mandiri, dalam proses peningkatan dana yang baik secara journey berupa", opts:["Peningkatan transaksi collection nasabah dan \"hunting\" mitra nasabah yang merupakan tujuan \"Payment\" dari Nasabah","Penambahan rekening","Akuisisi transaksi (Farming) > Akuisisi value chain","Akuisisi transaksi (Farming) > Penambahan Solusi Transaksi (deepening) dan hunting mitra nasabah"], correct:3},
+{q:"PT Jaya Selalu selaku perusahaan layanan keuangan memiliki idle fund besar dan berniat untuk menginvestasikan dana tersebut, dengan syarat dana tersebut dapat ditarik sewaktu-waktu jika diperlukan, yang cocok untuk ditawarkan kepada PT Jaya Selalu adalah...", opts:["Giro Premier","Deposito","Mandiri Tabungan Bisnis","Giro DHE-SDA"], correct:0},
+{q:"Dalam pertumbuhan Bank yang baik dan peningkatan dana Giro, maka Generator Giro yang baik berasal dari", opts:["Nasabah yang mengikuti program","Membukakan rekening yang banyak untuk tiap Nasabah","Nasabah yang bertransaksi","Pemberian Spesial Rate"], correct:2},
+{q:"Wesel dan promissory notes merupakan warkat yang dikirim atau ditagihkan menggunakan mekanisme...", opts:["Kliring","Inkaso rupiah","Transfer","Remittance"], correct:1},
+{q:"Berikut merupakan syarat formal cek, kecuali...", opts:["Termuat kata \"CEK\" didalamnya","Perintah tidak bersyarat untuk membayar sejumlah dana","Tanda Tangan Penarik (pemilik rekening)","Tanggal pembayaran"], correct:3},
+{q:"Yang termasuk dalam segmen wholesale adalah, kecuali...", opts:["Government","Corporate","Commercial","Small Medium Enterprise"], correct:3},
+{q:"Nasabah yang tidak memenuhi syarat untuk menggunakan Mandiri Virtual Account karena transaksi kurang dari 2500 per bulannya, cocok untuk diberi solusi...", opts:["Mandiri Bill Payment","Giro zero balance","Giro escrow","Tabungan reguler"], correct:1},
+{q:"Rekening giro dinyatakan dormant apabila...", opts:["Tidak memiliki transaksi aktif tarik dan setor luar transaksi system (jasa giro, biaya dan denda) selama 3 (tiga) bulan berturut-turut","Tidak memiliki transaksi aktif tarik dan setor di luar transaksi system (jasa giro, biaya dan denda) selama 6 (enam) bulan berturut-turut","Tidak memiliki transaksi aktif tarik atau setor di luar transaksi system (jasa giro, biaya dan denda) selama 6 (enam) bulan berturut-turut","Tidak memiliki transaksi aktif tarik atau setor di luar transaksi system (jasa giro, biaya dan denda) selama 3 (tiga) bulan berturut-turut"], correct:2},
+{q:"Produk giro yang dapat digunakan untuk tujuan investasi karena rate yang diberikan lebih tinggi dibandingkan produk giro lainnya adalah...", opts:["Giro premier","Giro escrow","Giro vostro","Giro DHE-SDA"], correct:0},
+{q:"Rekening giro yang salah satu sarana penarikannya berupa Letter of Authorization adalah...", opts:["Giro reguler & vostro","Giro zero balance & premier","Giro DHE-SDA & reguler","Giro escrow & DHE-SDA"], correct:2},
+{q:"Apabila pada bagian \"Atas penyerahan cek ini bayarlah kepada .......\" tidak tertulis nama seseorang/badan hukum, maka warkat ini dapat dikategorikan sebagai...", opts:["Wesel bank untuk transfer","Cek silang","Bilyet giro","Cek atas tunjuk"], correct:3}
 ];
 
-/* ============ DATA: BANK GARANSI (34 soal) ============
-   Sumber soal : TEPOS Bank Garansi (100) + Soal Tambahan
-   Sumber materi: Bank_Garansi_Overview_compressed.pdf,
-                  Transaction ServiceTrade Service dan Bank Garansi.pdf
-========================================================= */
+/* ============ DATA: CEK PEMAHAMAN GIRO (15 soal) ============ */
 const bgData = [
-{q:"Hak istimewa sebagai guarantor untuk menjual aset-aset pihak terjamin terlebih dahulu untuk memenuhi kewajibannya kepada Pihak Yang dijamin diatur dalam Kitab Undang-Undang Hukum Perdata:",
- opts:["Pasal 1820 KUH Perdata","Pasal 1831 KUH Perdata","Pasal 1832 KUH Perdata","Pasal 1847 KUH Perdata"],
- correct:1,
- exp:"Pasal 1831 KUHPerdata = penjamin masih memiliki hak istimewa menuntut agar harta pihak terjamin disita/dijual lebih dahulu. Pasal 1832 = penjamin melepaskan hak istimewa tersebut sehingga bank langsung membayar saat klaim.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi, minimal memuat pernyataan tunduk Pasal 1831/1832 KUHPerdata"},
+{q:"Kenapa bank sangat mengejar dana giro dibanding deposito?", opts:["Karena giro selalu bersaldo besar","Karena giro adalah dana murah sehingga menekan cost of fund dan melebarkan NIM","Karena giro tidak perlu dilaporkan ke Bank Indonesia","Karena bunga giro lebih tinggi sehingga nasabah senang"], correct:1},
+{q:"Apa yang membedakan nasabah non-perorangan dari perorangan dalam pengelolaan rekening?", opts:["Nominal transaksinya selalu lebih kecil","Tidak boleh punya rekening giro","Butuh dokumen legalitas badan dan penandatangan berjenjang sesuai matriks kewenangan","Tidak dikenakan biaya administrasi"], correct:2},
+{q:"Tiga tuas dalam giro generator adalah?", opts:["Kredit, dana, dan fee","New account, transaksi, dan special rate","Cabang, digital, dan agen","Wholesale, retail, dan government"], correct:1},
+{q:"Apa inti strategi closed loop ecosystem?", opts:["Menutup rekening yang tidak aktif","Menahan uang nasabah agar tidak bisa ditarik","Menjaga perputaran uang tetap berada di dalam bank dengan mengakuisisi supplier dan distributor nasabah","Membatasi jumlah transaksi harian nasabah"], correct:2},
+{q:"Giro Zero Balance memiliki ciri utama berupa?", opts:["Bunga tertinggi di antara semua jenis giro","Saldo wajib nihil pada akhir hari dan tidak dapat berdiri sendiri","Hanya boleh dimiliki bank koresponden","Wajib ditarik dengan counter cek"], correct:1},
+{q:"Rekening yang penarikannya harus disetujui pihak ketiga yang netral adalah?", opts:["Giro Premier","Giro Vostro","Giro Escrow","Giro DHE SDA"], correct:2},
+{q:"Dari sudut pandang Bank Mandiri, rekening milik bank lain yang ditempatkan di Bank Mandiri disebut?", opts:["Nostro","Vostro","Escrow","Zero balance"], correct:1},
+{q:"Sebuah rekening giro tidak ada transaksi tarik atau setor dari nasabah selama enam bulan, tetapi tiap bulan terpotong biaya administrasi. Statusnya?", opts:["Tetap aktif karena ada mutasi tiap bulan","Menjadi rekening pasif, karena transaksi sistem tidak dihitung","Otomatis ditutup seketika","Berubah menjadi rekening khusus"], correct:1},
+{q:"Dalam rumus profitabilitas dana, liability spread dihitung sebagai?", opts:["Bunga kredit dikurangi bunga simpanan","FTP dikurangi biaya bunga, biaya GWM, dan biaya premi LPS","Total pendapatan dikurangi total biaya operasional","Saldo rata-rata dikali jumlah transaksi"], correct:1},
+{q:"Perbedaan mendasar cek dan bilyet giro adalah?", opts:["Cek hanya untuk perusahaan, bilyet giro hanya untuk perorangan","Cek bisa dicairkan tunai dan dapat dipindahtangankan, bilyet giro selalu non tunai dan tidak dapat dipindahtangankan","Cek tidak punya masa berlaku","Bilyet giro tidak perlu tanda tangan"], correct:1},
+{q:"Berapa lama tenggang waktu pengunjukan cek dan kapan cek kedaluwarsa?", opts:["30 hari, kedaluwarsa 3 bulan setelahnya","70 hari, kedaluwarsa 6 bulan setelah tenggang waktu berakhir","90 hari, kedaluwarsa 1 tahun setelahnya","70 hari, langsung kedaluwarsa pada hari ke-71"], correct:1},
+{q:"Tanggal efektif pada bilyet giro berfungsi untuk?", opts:["Menandai kapan bilyet giro dicetak","Menandai mulai kapan perintah pemindahbukuan boleh diunjukkan ke bank","Menentukan besarnya biaya warkat","Menentukan cabang yang berwenang"], correct:1},
+{q:"Kapan warkat diselesaikan lewat inkaso, bukan kliring?", opts:["Saat nilai warkat di atas Rp 500 juta","Saat bank tertarik berada di luar jangkauan kliring bank penerima setoran","Saat nasabah meminta prosesnya dipercepat","Saat warkat berupa bilyet giro"], correct:1},
+{q:"Nasabah menarik satu lembar cek kosong senilai Rp 700 juta. Apa konsekuensinya?", opts:["Hanya menerima SP I dan tidak ada sanksi lain","Langsung memenuhi kriteria DHN, karena satu lembar bernilai Rp 500 juta atau lebih sudah cukup","Tidak ada sanksi selama nasabah segera menyetor dana","Rekeningnya otomatis berubah menjadi rekening khusus"], correct:1},
+{q:"Apa fungsi rekening khusus dalam konteks DHN?", opts:["Menampung dana nasabah yang ingin bunga lebih tinggi","Menampung dana untuk membayar cek dan bilyet giro yang masih beredar setelah rekening giro ditutup","Menyimpan dana jaminan proyek","Menampung devisa hasil ekspor"], correct:1}
+];
 
-{q:"Salah satu syarat minimum bank garansi yang tunduk pada SE BI No. 23/7/UKU tanggal 18 Maret 1991:",
- opts:["Nama pejabat beneficiary","Batas waktu pengajuan perubahan bank garansi","Pasal 1831 atau pasal 1832 KUHP","Pasal 1831 atau pasal 1832 KUH Perdata"],
- correct:3,
- exp:"Yang wajib dicantumkan adalah pernyataan tunduk pada Pasal 1831 ATAU 1832 KUH PERDATA (bukan KUHP/pidana). Nama pejabat beneficiary tidak pernah menjadi syarat minimum.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Minimal memuat)"},
+/* ============ DATA: GIRO LANJUTAN (17 soal tambahan, dari rangkuman terbaru) ============ */
+const geData = [
+{q:"Jenis rekening giro yang dibuat atas dasar keterpercayaan antara kedua belah pihak yang tidak saling mengenal namun menjalankan bisnis/proyek bersama adalah...", opts:["Giro Escrow","Giro Reguler","Giro Vostro","Giro DHE-SDA"], correct:0},
+{q:"Yang merupakan enabler dalam strategi peningkatan dana giro segmen wholesale adalah...", opts:["Kopra","Livin by Mandiri","ATM Link","SMS Banking"], correct:0},
+{q:"SP II dalam DHN diberikan kepada pemilik rekening giro apabila...", opts:["Menarik 3 lembar Cek/BG kosong","Menarik 1 lembar Cek/BG kosong","Menutup rekening secara sepihak","Tidak melakukan transaksi selama 6 bulan"], correct:0},
+{q:"Dasar dilakukannya rehabilitasi DHN adalah, kecuali...", opts:["Kesalahan administrasi pemilik rekening","Kesalahan administrasi bank","Adanya keputusan pengadilan","Berakhirnya jangka waktu pencantuman dalam Daftar Hitam Nasional"], correct:0},
+{q:"Jenis rekening giro yang dibebaskan dari ketentuan rekening pasif (dormant), kecuali...", opts:["Giro Vostro","Giro Zero Balance","Giro Escrow","Giro DHE-SDA"], correct:0},
+{q:"Pada proses kliring lokal di inkaso keluar, pembayaran dana dari bank tertarik diteruskan ke...", opts:["Bank Indonesia atau bank yang ditunjuk","Langsung ke rekening nasabah penyetor","Otoritas Jasa Keuangan","Bank tertarik itu sendiri"], correct:0},
+{q:"Salah satu jenis rekening giro yang digunakan untuk menampung dana serta melakukan transaksi operasional sehari-hari adalah...", opts:["Giro Reguler","Giro Vostro","Giro Escrow","Giro Zero Balance"], correct:0},
+{q:"Saat ini produk giro Bank Mandiri melayani beberapa valuta asing. Produk giro yang hanya terdapat 2 valuta adalah...", opts:["Giro Premier & Giro DHE-SDA","Giro Reguler & Giro Vostro","Giro Escrow & Giro Zero Balance","Giro Vostro & Giro DHE-SDA"], correct:0},
+{q:"Fasilitas dalam rekening giro yang memudahkan proses pemindahan dana otomatis dari satu rekening ke rekening Mandiri giro lainnya dinamakan...", opts:["Sweep","Kliring","Inkaso","Standing Instruction"], correct:0},
+{q:"Produk giro yang penggunanya hanya dapat berasal dari segmen wholesale khususnya lembaga keuangan adalah...", opts:["Giro Vostro","Giro Reguler","Giro Premier","Giro Escrow"], correct:0},
+{q:"Yang termasuk dalam warkat kliring adalah, kecuali...", opts:["Warkat Penundaan","Cek","Bilyet Giro","Nota Debet"], correct:0},
+{q:"Ciri-ciri Counter Cek ditunjukkan oleh: (2) pengganti cek untuk rekening giro perorangan, (4) penarikan giro non-perorangan yang dibekukan DHN, (5) hanya dikeluarkan cabang pengelola & dikenakan biaya per lembar. Nomor yang dimaksud adalah...", opts:["2, 4, dan 5","1, 2, dan 3","1, 3, dan 5","2, 3, dan 4"], correct:0},
+{q:"Jika cek tidak dibatalkan setelah tanggal berakhir masa pengunjukan, maka...", opts:["Cek menjadi kedaluwarsa","Cek otomatis diperpanjang","Cek berubah menjadi bilyet giro","Cek dapat dicairkan tanpa batas waktu"], correct:0},
+{q:"Ciri khas rekening giro Zero Balance yang membedakannya dengan rekening giro lain adalah...", opts:["Saldo wajib nihil setiap akhir hari dan tidak dapat berdiri sendiri (harus terhubung rekening induk)","Memiliki jasa giro tertinggi dibanding giro lain","Bisa ditarik dengan cek atas tunjuk saja","Khusus untuk nasabah perorangan"], correct:0},
+{q:"Proses kliring baru dapat dilakukan setelah...", opts:["Validasi unsur/syarat formal dari bank penagih terpenuhi","Nasabah membayar biaya kliring di muka","Rekening penerima memiliki saldo mengendap","Bank Indonesia memberikan izin khusus"], correct:0},
+{q:"Rafa menarik bilyet giro pada 11 April 2022 dengan tanggal efektif 17 April 2022. Maka pada tanggal 23 April 2022 merupakan masa...", opts:["Tenggang waktu efektif / kewajiban penyediaan dana","Tenggang waktu pengunjukan","Masa kedaluwarsa","Masa penerbitan"], correct:0},
+{q:"Bank ABC, rekanan di Singapura, ingin melayani remitansi ke Indonesia. Rekening yang dibutuhkan adalah...", opts:["Giro Vostro","Giro Nostro","Giro Escrow","Giro Premier"], correct:0}
+];
 
-{q:"Underlying document untuk Bank Garansi Tender adalah:",
- opts:["Surat perintah kerja","Undangan tender untuk mengikuti tender","Kontrak","Surat pengumuman pemenang tender"],
- correct:1,
- exp:"BG Tender/Bid Bond diterbitkan pada tahap pendaftaran/undangan tender, sehingga underlying-nya adalah undangan tender. SPK dan kontrak baru muncul pada tahap BG Pelaksanaan.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Overview Bank Garansi (siklus Proses Pengadaan &amp; Pelaksanaan Pekerjaan) dan Jenis Bank Garansi (1/2)"},
-
-{q:"Berikut ini adalah beberapa syarat minimum yang harus tercantum pada format Bank Garansi, kecuali:",
- opts:["Masa klaim atas bank garansi","Tanggal penerbitan","Nama pejabat perusahaan penerima bank garansi","Tunduk pada 1831 atau 1832 KUH Perdata"],
- correct:2,
- exp:"Syarat minimum memuat nama &amp; alamat Pemohon dan Beneficiary, nama &amp; alamat bank penerbit, jenis BG, tanggal penerbitan, jumlah yang dijamin, jangka waktu, batas waktu klaim, dan pernyataan tunduk 1831/1832. Nama PEJABAT beneficiary bukan syarat.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Minimal memuat / Tidak boleh memuat)"},
-
-{q:"Nominal bank garansi pemeliharaan sebesar:",
- opts:["Sama dengan nilai uang yang diterima","1 – 5 persen dari perkiraan nilai kontrak","5 – 20 persen dari nilai kontrak","10 persen dari nilai kontrak"],
- correct:3,
- exp:"BG Pemeliharaan / Retention Bond menjamin masa pemeliharaan setelah pekerjaan selesai, besarannya 10% dari nilai kontrak.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Jenis Bank Garansi (BG Pemeliharaan/Maintenance/Retention Bond)"},
-
-{q:"Pihak yang mengajukan permohonan penerbitan bank garansi kepada penjamin disebut:",
- opts:["Applicant","Beneficiary","Guarantor","Kontraktor"],
- correct:0,
- exp:"Tiga pihak dalam BG: Applicant/Pemohon (yang mengajukan penerbitan), Beneficiary/Penerima Jaminan, dan Bank Penerbit (Guarantor).",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Overview Bank Garansi (Pihak-pihak yang terlibat: Penerima Jaminan, Pemohon, Bank Penerbit)"},
-
-{q:"Pihak yang terlibat dalam Bank Garansi Lokal, kecuali:",
- opts:["Applicant","Beneficiary","Guarantor","Kantor cabang beneficiary"],
- correct:3,
- exp:"BG Lokal hanya melibatkan tiga pihak: Applicant, Beneficiary, dan Bank Penerbit selaku Guarantor. Kantor cabang beneficiary bukan pihak dalam BG.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Overview Bank Garansi (Pihak-pihak yang terlibat dalam Bank Garansi)"},
-
-{q:"Syarat minimum bank garansi yang tunduk pada SE BI No. 23/7/UKU tanggal 18 Maret 1991, kecuali:",
- opts:["Surat permohonan dari pemohon","Jumlah uang yang dijamin oleh bank","Tanggal penerbitan","Nama dan alamat bank pemberi BG"],
- correct:0,
- exp:"Surat permohonan adalah dokumen proses pengajuan, bukan klausul yang harus tercantum di dalam warkat BG. Yang wajib tercantum antara lain jumlah yang dijamin, tanggal penerbitan, dan nama/alamat bank penerbit.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Minimal memuat) &amp; Syarat Penerbitan BG"},
-
-{q:"Nominal bank garansi tender sebesar:",
- opts:["1 – 5 persen dari perkiraan nilai kontrak","Maksimal 50 juta","Sama dengan nilai uang yang diterima","5 – 20 persen dari nilai kontrak"],
- correct:0,
- exp:"BG Tender/Bid Bond = 1–5% dari perkiraan nilai kontrak (nilai HPS/pagu), karena kontrak final belum ada saat tender.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Jenis Bank Garansi (1/2), BG tender/Bid bond"},
-
-{q:"Jaminan Bank yang tepat untuk pelaksanaan pekerjaan adalah:",
- opts:["Tender bond","Performance bond","Standby Letter of Credit","Retention bond"],
- correct:1,
- exp:"Performance Bond / BG Pelaksanaan menjamin bahwa Pemohon mampu melaksanakan proyek sesuai kontrak. Tender bond untuk tahap penawaran, retention bond untuk masa pemeliharaan.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Jenis Bank Garansi (BG Pelaksanaan / Performance Bond)"},
-
-{q:"Hukum di Indonesia yang dipakai dalam Bank Garansi Lokal adalah:",
- opts:["Kitab Undang-Undang Hukum Pidana","Undang-Undang Agraria","Kitab Undang-Undang Hukum Perdata","Undang-Undang Perdagangan"],
- correct:2,
- exp:"Bank Garansi bersifat accessoir dan tunduk pada hukum Indonesia, khususnya KUHPerdata Pasal 1831/1832, ditambah SE BI No. 23/7/UKU dan POJK No. 26 Tahun 2024.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Tunduk kepada POJK No. 26 tahun 2024, tunduk pada hukum Indonesia) &amp; Perbandingan BG Dependent vs Independent"},
-
-{q:"Nominal bank garansi pelaksanaan sebesar:",
- opts:["1 – 5 persen dari perkiraan nilai kontrak","10 persen dari nilai kontrak","Sama dengan nilai uang yang diterima","5 – 20 persen dari nilai kontrak"],
- correct:3,
- exp:"BG Pelaksanaan/Performance Bond = 5–20% dari nilai kontrak. Jangan tertukar dengan BG Pemeliharaan (10%) dan BG Tender (1–5%).",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Jenis Bank Garansi (BG Pelaksanaan/Performance Bond)"},
-
-{q:"Perubahan Bank Garansi dapat dilakukan terhadap hal-hal sebagai berikut, kecuali:",
- opts:["Underlying transaction yang menjadi dasar penerbitan bank garansi","Penurunan nominal bank garansi","Kenaikan nominal bank garansi","Jangka waktu bank garansi"],
- correct:0,
- exp:"Amandemen BG hanya menyentuh nominal, jangka waktu, atau redaksi warkat. Underlying transaction adalah dasar penerbitan; bila berubah maka harus diterbitkan BG baru, bukan diamandemen.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (BG bersifat accessoir terhadap perjanjian induk)"},
-
-{q:"Pihak penerima bank garansi disebut:",
- opts:["Beneficiary","Kontraktor","Applicant","Guarantor"],
- correct:0,
- exp:"Beneficiary = Penerima Jaminan, yaitu pihak yang menerima jaminan dan berhak mengajukan klaim bila Applicant wanprestasi.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Overview Bank Garansi (Penerima Jaminan/Beneficiary)"},
-
-{q:"Besar nominal Bank Garansi Sanggah adalah:",
- opts:["Rp 20 juta","2 permil dari HPS atau maksimal sebesar Rp 50 juta","2 persen dari HPS","2 permil dari HPS atau maksimal sebesar Rp 20 juta"],
- correct:1,
- exp:"Jaminan Sanggah diperlukan pada Masa Sanggah setelah pengumuman pemenang tender, besarnya 2 permil dari HPS dengan batas maksimal Rp 50 juta.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Overview Bank Garansi (siklus tender: Pengumuman Pemenang – Masa Sanggah – Jaminan Sanggah)"},
-
-{q:"Nominal bank garansi uang muka sebesar:",
- opts:["1 – 5 persen dari perkiraan nilai kontrak","10 persen dari nilai kontrak","Sama dengan nilai uang muka yang diterima","5 – 20 persen dari nilai kontrak"],
- correct:2,
- exp:"BG Uang Muka / Advance Payment Bond menjamin uang muka yang sudah dibayarkan pemilik proyek, jadi nilainya sama persis dengan uang muka yang diterima.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Jenis Bank Garansi (2/2), BG Uang Muka/Advance Payment Bond"},
-
-{q:"BG Tender dinyatakan jatuh tempo apabila:",
- opts:["Tidak menandatangani kontrak","Tidak dapat menyerahkan bank garansi pelaksanaan","Menang tender","Tidak menang tender"],
- correct:3,
- exp:"Kunci resmi TEPOS. Logikanya: BG Tender berakhir saat peserta tidak menang tender karena tujuan penjaminan sudah selesai. Bila menang, BG Tender digantikan BG Pelaksanaan.",
- src:"Kunci TEPOS Bank Garansi; rujukan Bank_Garansi_Overview_compressed.pdf – siklus Proses Pengadaan &amp; Pelaksanaan Pekerjaan"},
-
-{q:"Berakhirnya bank garansi dapat berupa proses berikut, yaitu:",
- opts:["Kontrak telah berakhir","Bank garansi di beneficiary","Bank garansi telah jatuh tempo","Bank garansi hilang"],
- correct:2,
- exp:"BG berakhir bila jatuh tempo (termasuk lewatnya masa klaim), warkat asli dikembalikan, atau klaim telah dibayar. Berakhirnya kontrak atau hilangnya warkat tidak otomatis mengakhiri BG.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Tanggal berakhir &amp; masa klaim wajib dicantumkan)"},
-
-{q:"Hal-hal yang tidak diperkenankan di Bank Mandiri antara lain:",
- opts:["Revocable","Perubahan jangka waktu bank garansi","Unconditional","Cover dengan menggunakan blokir tabungan"],
- correct:0,
- exp:"BG Bank Mandiri wajib bersifat irrevocable. Hal yang dilarang: bersifat revocable, tanggal terbit tidak sesuai tanggal penetapan, klaim tanpa pernyataan wanprestasi, dan tidak mencantumkan tanggal berakhir.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi, kotak Hal-hal yang dihindari dalam Penerbitan BG di Bank Mandiri"},
-
-{q:"Proses perubahan bank garansi dapat meliputi:",
- opts:["Nama beneficiary","Bank penerbit bank garansi","Nama applicant","Penurunan nominal"],
- correct:3,
- exp:"Yang boleh diamandemen hanya nominal (naik/turun), jangka waktu, dan redaksi. Mengganti nama applicant, nama beneficiary, atau bank penerbit berarti menerbitkan BG baru.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi &amp; Format Bank Garansi (Retype/Customized)"},
-
-{q:"Berikut pihak-pihak yang terlibat langsung dengan Bank Mandiri apabila penerbitan bank garansi didasarkan atas Counter Guarantee, kecuali:",
- opts:["Confirming Bank","Beneficiary","Counter Bank","Applicant"],
- correct:0,
- exp:"Pada skema Counter Guarantee, alurnya: Applicant mengajukan ke Counter Bank, Counter Bank mengirim Counter Guarantee ke Bank Mandiri, lalu Bank Mandiri menerbitkan BG kepada Local Beneficiary. Confirming Bank adalah istilah pada LC, bukan pihak dalam BG.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Alur Penerbitan Bank Garansi a.d Counter Guarantee dari Bank Lain"},
-
-{q:"Berikut pihak-pihak yang terlibat langsung dengan Bank Mandiri apabila penerbitan bank garansi didasarkan atas Counter Guarantee, adalah:",
- opts:["Confirming Bank","Perusahaan Asuransi","Transferring Bank","Counter Bank"],
- correct:3,
- exp:"Counter Bank adalah bank yang menerbitkan Counter Guarantee kepada Bank Mandiri sebagai dasar penerbitan BG. Perusahaan Asuransi baru relevan pada skema Kontra Garansi Asuransi.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Alur Penerbitan Bank Garansi a.d Counter Guarantee dari Bank Lain"},
-
-{q:"Berakhirnya bank garansi dapat berupa proses berikut, kecuali:",
- opts:["Bank garansi telah jatuh tempo","Asli bank garansi telah dikembalikan","Bank garansi dinyatakan hilang oleh beneficiary","Klaim bank garansi telah dibayar"],
- correct:2,
- exp:"Kehilangan warkat tidak mengakhiri kewajiban bank; yang berlaku adalah prosedur penggantian/surat pernyataan. Yang mengakhiri BG: jatuh tempo, pengembalian warkat asli, atau pembayaran klaim.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (tanggal berakhir &amp; masa klaim) dan Risiko/Mitigasi Penerbitan BG"},
-
-{q:"Bank Garansi Uang Muka menggunakan underlying document sebagai berikut:",
- opts:["Surat pemberitahuan bea masuk cukai","Undangan tender","Surat pengumuman pemenang tender","Kontrak yang telah ditandatangani"],
- correct:3,
- exp:"BG Uang Muka terbit setelah kontrak/SPK ada, karena uang muka dibayarkan berdasarkan kontrak tersebut. Undangan tender untuk Bid Bond, surat pemberitahuan bea masuk untuk Custom Bond.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Jenis Bank Garansi (2/2) &amp; siklus Proses Pengadaan (Terbit SPK – Pelaksanaan Pekerjaan)"},
-
-{q:"Syarat penerbitan bank garansi di Bank Mandiri, kecuali:",
- opts:["Menyediakan cover jaminan penerbitan BG","Menyerahkan formulir aplikasi penerbitan BG","Menyerahkan surat permohonan dari nasabah sebagai dasar penerbitan BG","Mempunyai rekening di Bank Mandiri"],
- correct:2,
- exp:"Syarat penerbitan BG di Bank Mandiri: mengisi &amp; menandatangani Aplikasi Penerbitan BG, menyerahkan Underlying Dokumen, menyediakan cover jaminan, dan menggunakan format standar/customized. Dasar penerbitan adalah UNDERLYING DOCUMENT, bukan surat permohonan.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi, kotak Syarat Penerbitan Bank Garansi"},
-
-{q:"Apakah yang Saudara ketahui tentang Bank Garansi?",
- opts:["Janji Bank","Alat Pembayaran","Penjaminan","Dokumen Transportasi"],
- correct:2,
- exp:"BG adalah instrumen penjaminan (guarantee), bukan alat pembayaran. Bank mengikatkan diri membayar sejumlah uang bila Pemohon tidak memenuhi kewajibannya berdasarkan kontrak dengan Penerima Jaminan.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Overview Bank Garansi, Definisi Bank Garansi"},
-
-{q:"Syarat minimum bank garansi menurut SE BI No. 23/7/UKU tanggal 18 Maret 1991 adalah:",
- opts:["Nama pejabat beneficiary","Transaksi (macam transaksi yang dijamin)","Alamat beneficiary","Alamat applicant"],
- correct:1,
- exp:"Kunci resmi soal. Catatan: opsi Alamat beneficiary dan Alamat applicant sebenarnya juga syarat minimum (nama &amp; alamat Pemohon dan Beneficiary). Yang PASTI bukan syarat adalah nama pejabat beneficiary.",
- src:"Kunci Soal Tambahan Bank Garansi; rujukan Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Minimal memuat)"},
-
-{q:"Cover bank garansi dapat berupa:",
- opts:["Obligasi","Blokir rekening giro","Rekening di bank lain","Saham"],
- correct:1,
- exp:"Cover BG yang diakui: setoran tunai 100%, Giro Jaminan BG (GJMN), blokir giro/deposito/tabungan di Bank Mandiri, fasilitas non cash loan, kontra garansi asuransi, atau counter guarantee bank koresponden. Obligasi, saham, dan rekening di bank lain tidak termasuk.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Menyediakan Cover Jaminan: Setoran/Blokir Giro/Deposito, Fasilitas NCL, Kontra Garansi, Counter Guarantee)"},
-
-{q:"Cover bank garansi dapat berupa, kecuali:",
- opts:["Blokir deposito","Blokir rekening tabungan","Setoran pada Giro Jaminan Bank Garansi (GJMN)","Fasilitas Cash Loan"],
- correct:3,
- exp:"Penerbitan BG memakai fasilitas NON CASH LOAN (NCL), bukan cash loan. Cash loan adalah kredit tunai seperti KMK, tidak dipakai sebagai cover BG.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi (Menyediakan Cover Jaminan: Fasilitas NCL)"},
-
-{q:"Jaminan Bank yang tepat untuk keperluan penawaran proyek/pekerjaan adalah:",
- opts:["Tender Bond","Standby Letter of Credit","Performance Bond","Retention Bond"],
- correct:0,
- exp:"Tender Bond / Bid Bond menjamin keseriusan peserta tender pada tahap penawaran, sebelum pemenang diumumkan.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Jenis Bank Garansi (1/2), BG tender/Bid bond, Beneficiary = Pemilik Proyek/Penyelenggara Tender"},
-
-{q:"Jenis Bank Garansi atas dasar tujuan penggunaannya, kecuali:",
- opts:["BG Pembayaran","BG Pelaksanaan","Bank Garansi Serah Terima","BG Tender"],
- correct:2,
- exp:"Jenis BG berdasarkan tujuan penggunaan: BG Tender, BG Pelaksanaan, BG Uang Muka, BG Pemeliharaan, BG Pembayaran, serta lain-lain seperti Custom Bond dan Shipping Guarantee. Tidak ada jenis Bank Garansi Serah Terima.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Overview Bank Garansi (3/3) Jenis-Jenis Bank Garansi &amp; slide Jenis Bank Garansi (1/2)–(2/2)"},
-
-{q:"Berikut adalah underlying document yang dapat digunakan dalam Bank Garansi Pelaksanaan, kecuali:",
- opts:["Undangan tender terbuka","Surat Perintah Kerja","Notification of Award","Kontrak yang telah ditandatangani"],
- correct:0,
- exp:"BG Pelaksanaan terbit setelah peserta memenangkan tender, sehingga dasarnya SPK, notification of award, atau kontrak. Undangan tender adalah underlying untuk BG Tender.",
- src:"Bank_Garansi_Overview_compressed.pdf – siklus Proses Pengadaan &amp; Pelaksanaan Pekerjaan (Pengumuman Pemenang – Terbit SPK – Jaminan Pelaksanaan)"},
-
-{q:"Hal-hal berikut adalah perubahan bank garansi, kecuali:",
- opts:["Pemendekan jangka waktu","Kenaikan nominal","Perubahan kata/kalimat","Nama beneficiary"],
- correct:3,
- exp:"Beneficiary adalah pihak penerima jaminan yang melekat pada underlying; menggantinya berarti menerbitkan BG baru, bukan amandemen. Nominal, jangka waktu, dan redaksi boleh diubah.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Penerbitan Bank Garansi &amp; Format Bank Garansi (Retype/Ketik Ulang, Customized)"},
-
-{q:"Standard Business Process penerbitan Bank Garansi melibatkan unit:",
- opts:["Servicing","Bisnis Unit","Unit Pengelola Limit Kredit","Unit Risk"],
- correct:0,
- exp:"Kunci resmi soal. Pada proses standar, Applicant datang ke Cabang/Trade Service (Unit Servicing) yang memeriksa underlying, memproses di sistem, mencetak warkat dan menyerahkannya kepada Applicant. Pada skema Frontloading, Unit Servicing juga merangkap Unit Processing.",
- src:"Bank_Garansi_Overview_compressed.pdf – slide Alur Penerbitan Bank Garansi (Bisnis Proses Penerbitan BG melalui Unit Frontloading &amp; Cabang/Trade Service)"}
+/* ============ DATA: CASH MANAGEMENT (27 soal) ============ */
+const cmData = [
+{q:"Salah satu cara membuka rekening giro dalam Kopra adalah...", opts:["Log in ke dalam Kopra dan masuk menu pendaftaran giro online untuk nasabah new to bank","Datang ke cabang dan mengisi formulir manual","Mengirim email ke customer service tanpa dokumen","Melakukan panggilan telepon ke call center"], correct:0},
+{q:"Salah satu fitur unggulan untuk melacak status transaksi valas yang dilakukan adalah...", opts:["SWIFT GPI","SWIFT ACK","MT101","Consolidated Financial Dashboard"], correct:0},
+{q:"Jaringan yang dapat digunakan nasabah untuk koneksi layanan Host to Host antara lain...", opts:["SFTP","Bluetooth","Dial-up modem","USB tethering"], correct:0},
+{q:"Fitur sysadmin Kopra yang berfungsi untuk memaksa keluar (log out) Company Admin yang mendapati kendala adalah...", opts:["Release Session","Unlock User","Reset Password","Delete Company"], correct:0},
+{q:"Cakupan layanan Cash Management yang dapat diberikan Bank Mandiri kepada nasabah meliputi...", opts:["Payment Management, Collection Management, Liquidity Management, dan Reporting Management","Hanya Payment Management saja","Trade Finance dan Bank Guarantee saja","Kredit Investasi dan Kredit Modal Kerja"], correct:0},
+{q:"Menu platform berikut termasuk ke dalam layanan Kopra, kecuali...", opts:["MBC","MCM","Trade & Supply Chain","Smart Account"], correct:0},
+{q:"Unlock pada menu Bank Admin BBO Kopra berfungsi untuk membuka akses Bank User yang terkunci karena salah password sebanyak...", opts:["5 kali","3 kali","10 kali","1 kali"], correct:0},
+{q:"Pendaftaran rekening pinjaman/loan ke dalam MCM memerlukan tambahan persyaratan yaitu...", opts:["Form Syarat dan Ketentuan MCM","Surat keterangan domisili","Fotokopi NPWP direktur","Laporan keuangan 3 tahun terakhir"], correct:0},
+{q:"Mengapa transaction banking dapat meningkatkan loyalitas nasabah?", opts:["Karena memberikan kemudahan, keamanan, kenyamanan, dan layanan end-to-end proses bisnis","Karena bunga simpanan lebih tinggi","Karena bebas seluruh biaya administrasi","Karena hanya tersedia untuk nasabah prioritas"], correct:0},
+{q:"Benefit yang diharapkan nasabah dalam menggunakan layanan Collection Bank adalah...", opts:["Percepatan penerimaan arus uang masuk","Penurunan suku bunga pinjaman","Penambahan cabang otomatis","Pembebasan pajak transaksi"], correct:0},
+{q:"Metode upload file tagihan Mandiri Bill Collection adalah sebagai berikut, kecuali...", opts:["SWIFT ACK","Upload manual melalui portal","H2H (Host to Host)","SFTP"], correct:0},
+{q:"Yang merupakan produk dalam kategori Payment adalah...", opts:["MT101","SKNBI","Virtual Account","Bill Collection"], correct:0},
+{q:"Fitur dalam Kopra yang dapat melihat limit tersedia untuk Trade dan Supply Chain adalah...", opts:["Consolidated Financial Dashboard","Account Statement","Advice Printing","Balance Inquiry"], correct:0},
+{q:"Perbankan mengalihkan fokus bisnis ke transaction banking karena risiko lebih kecil namun tetap memberi revenue signifikan. Pertimbangan tersebut didasari pada...", opts:["Semua jawaban di atas benar","Hanya pertimbangan risiko kredit","Hanya pertimbangan biaya operasional","Tidak ada pertimbangan khusus"], correct:0},
+{q:"User pengguna di MCM yang bertugas mengirimkan transaksi yang telah diotorisasi perusahaan ke bank untuk diproses adalah user...", opts:["User Releaser","User Maker","User Approver","User Viewer"], correct:0},
+{q:"Sebutkan fitur yang terdapat pada main menu Account Information...", opts:["Balance Inquiry, Transaction Inquiry, Account Statement, Advice Printing","Transfer dan Pembayaran","Approval dan Release","Setting User dan Limit"], correct:0},
+{q:"Fitur-fitur yang dapat dilakukan oleh user Approver MCM adalah sebagai berikut, kecuali...", opts:["Membuat limit transaksi","Menyetujui transaksi","Menolak transaksi","Melihat status transaksi"], correct:0},
+{q:"(Variasi 1) Benefit dari layanan Mandiri Bill Collection adalah sebagai berikut, kecuali...", opts:["Ketepatan jumlah pembayaran","Percepatan rekonsiliasi","Kemudahan monitoring tagihan","Efisiensi biaya penagihan"], correct:0},
+{q:"(Variasi 2) Benefit dari layanan Mandiri Bill Collection adalah sebagai berikut, kecuali...", opts:["Memperoleh komposisi dana murah dan Fee Based Income","Kemudahan rekonsiliasi tagihan","Percepatan penerimaan pembayaran","Notifikasi status tagihan real-time"], correct:0},
+{q:"Pembayaran produk Pertamina (umumnya BBM) yang dapat dibeli tanpa pembatasan dilakukan melalui Sistem Online Pembayaran Pertamina (SOPP) pada fitur...", opts:["Semua jawaban benar","Hanya Cash and Carry","Hanya Product Allocation","Hanya Kredit"], correct:0},
+{q:"Selain Cash and Carry, salah satu fitur dalam Sistem Online Pembayaran Pertamina (SOPP) yang membatasi pembelian produk berdasarkan kuota tertentu adalah...", opts:["Product Allocation","Bill Payment","Cash Advance","Loyalty Point"], correct:0},
+{q:"Error \"please access to Cash Management/Trade dan Bank Guarantee/Supply Chain/Smart Account\" dapat diatasi dengan cara...", opts:["Nasabah diarahkan untuk setting browser to allow pop up windows","Menghapus seluruh cache browser","Mengganti perangkat komputer","Menghubungi call center untuk reset password"], correct:0},
+{q:"Yang perlu dilakukan nasabah ketika pertama kali belum memiliki tampilan Dashboard Kopra adalah...", opts:["Melakukan provisioning","Menghubungi RM untuk buka rekening baru","Mengganti username","Menunggu 24 jam"], correct:0},
+{q:"Error CHANNELACCESS-006 pada Kopra ketika nasabah menambahkan user dari Comp ID yang berbeda dapat diatasi dengan cara...", opts:["Melakukan unlink terlebih dahulu karena sudah pernah diprovisioning di Kopra","Membuat Comp ID baru","Menghapus seluruh user existing","Menghubungi Bank Indonesia"], correct:0},
+{q:"Menu transfer antar bank dalam menu MCM adalah sebagai berikut, kecuali...", opts:["Inkaso","RTGS","SKNBI","BI-FAST"], correct:0},
+{q:"Salah satu faktor yang mendorong Bank mengalihkan strategi bisnis pada layanan transaction banking adalah...", opts:["Semua jawaban di atas benar","Hanya faktor regulasi","Hanya faktor kompetitor","Tidak ada faktor pendorong"], correct:0},
+{q:"Mandiri Cash Management dapat diakses dengan alamat...", opts:["https://mcm.bankmandiri.com","https://ib.bankmandiri.co.id","https://kopra.bankmandiri.co.id","https://livin.bankmandiri.co.id"], correct:0},
+{q:"Salah satu komponen yang mempengaruhi arus uang masuk (inflow) perusahaan antara lain...", opts:["Penerimaan tagihan perusahaan dari distributor","Pembayaran gaji karyawan","Pembayaran ke supplier","Pembayaran pajak"], correct:0},
+{q:"Strategi Transaction Banking Bank Mandiri bertujuan untuk...", opts:["Memperoleh komposisi dana murah dan Fee Base income","Memperbesar portofolio kredit korporasi","Mengurangi jumlah nasabah wholesale","Menutup seluruh cabang fisik"], correct:0}
 ];
 
 /* ============ STATE ============ */
 let tradePicks = new Array(tradeData.length).fill(null);
 let bgPicks = new Array(bgData.length).fill(null);
-let tradeSubmitted = false, bgSubmitted = false;
-let tradeTimerInt = null, bgTimerInt = null;
+let gePicks = new Array(geData.length).fill(null);
+let cmPicks = new Array(cmData.length).fill(null);
+let tradeSubmitted=false, bgSubmitted=false, geSubmitted=false, cmSubmitted=false;
+let tradeTimerInt=null, bgTimerInt=null, geTimerInt=null, cmTimerInt=null;
 
 /* ============ NAV ============ */
 function showSection(id){
@@ -745,7 +477,7 @@ function showSection(id){
   window.scrollTo({top:0, behavior:'auto'});
 }
 function backToStart(){
-  clearInterval(tradeTimerInt); clearInterval(bgTimerInt);
+  clearInterval(tradeTimerInt); clearInterval(bgTimerInt); clearInterval(geTimerInt); clearInterval(cmTimerInt);
   showSection('screenStart');
 }
 
@@ -802,13 +534,43 @@ function renderQList(containerId, data, getQ, getOpts, prefix){
   });
 }
 
-/* ============ TRADE SERVICE TEST ============ */
+/* ============ GENERIC QUIZ ENGINE HELPERS ============ */
+function renderReview(containerId, data, picks){
+  const holder = document.getElementById(containerId);
+  holder.innerHTML='';
+  data.forEach((item,idx)=>{
+    const pickIdx = picks[idx];
+    const div = document.createElement('div');
+    div.className='lms-q-block';
+    let optsHtml='';
+    item.opts.forEach((opt,i)=>{
+      const isChecked = i===pickIdx;
+      const isCorrect = i===item.correct;
+      optsHtml += `<div class="lms-opt${isChecked?' checked':''}${isCorrect?' ans-correct':''}">
+        <span class="lms-radio-outer"><span class="lms-radio-inner"></span></span>
+        <span class="lms-opt-text">${opt}</span>
+      </div>`;
+    });
+    div.innerHTML = `
+      <div class="lms-qlabel">Question ${idx+1} of ${data.length}.</div>
+      <div class="lms-qtext">${item.q}</div>
+      ${optsHtml}
+    `;
+    holder.appendChild(div);
+  });
+}
+function scoreMsg(pct){
+  return pct===1 ? 'Sempurna! Semua jawaban benar.' :
+    pct>=0.8 ? 'Bagus, hasil sudah solid.' :
+    pct>=0.6 ? 'Cukup baik, masih ada beberapa yang perlu diperbaiki.' :
+    'Perlu latihan lagi, pelajari kembali materinya.';
+}
+
+/* ============ TRADE (POST TEST GIRO) ============ */
 function goTradeTest(){
   tradePicks = new Array(tradeData.length).fill(null);
   tradeSubmitted = false;
   renderQList('tradeQList', tradeData, it=>it.q, it=>it.opts, 'trade');
-  document.getElementById('tradeSubmitBtn').disabled=false;
-  document.getElementById('tradeSubmitBtn').textContent='Lihat Hasil';
   showSection('screenTradeTest');
   clearInterval(tradeTimerInt);
   tradeTimerInt = startTimer('tradeTimer', 15*60, ()=>{ if(!tradeSubmitted) submitTrade(); });
@@ -817,11 +579,7 @@ function picktrade(qi, oi){
   if(tradeSubmitted) return;
   tradePicks[qi]=oi;
   const opts = document.querySelectorAll('#trade-opts-'+qi+' .lms-opt');
-  const correctIdx = tradeData[qi].correct;
-  opts.forEach((o,i)=>{
-    o.classList.toggle('checked', i===oi);
-    o.classList.toggle('ans-correct', i===correctIdx);
-  });
+  opts.forEach((o,i)=>o.classList.toggle('checked', i===oi));
 }
 function submitTrade(){
   if(tradeSubmitted) return;
@@ -829,59 +587,20 @@ function submitTrade(){
   clearInterval(tradeTimerInt);
   let score=0;
   tradeData.forEach((item,idx)=>{
-    const opts = document.querySelectorAll('#trade-opts-'+idx+' .lms-opt');
-    opts.forEach((o,i)=>{
-      o.onclick=null;
-      if(i===item.correct) o.classList.add('ans-correct');
-    });
+    document.querySelectorAll('#trade-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
     if(tradePicks[idx]===item.correct) score++;
   });
-  renderTradeResult(score);
+  document.getElementById('tradeScoreBig').textContent = score+' / '+tradeData.length;
+  document.getElementById('tradeScoreMsg').textContent = scoreMsg(score/tradeData.length);
+  renderReview('tradeReviewList', tradeData, tradePicks);
   showSection('screenTradeResult');
 }
-function renderTradeResult(score){
-  document.getElementById('tradeScoreBig').textContent = score+' / '+tradeData.length;
-  const pct = score/tradeData.length;
-  document.getElementById('tradeScoreMsg').textContent =
-    pct===1 ? 'Sempurna! Semua jawaban benar.' :
-    pct>=0.8 ? 'Bagus, hasil sudah solid.' :
-    pct>=0.6 ? 'Cukup baik, masih ada beberapa yang perlu diperbaiki.' :
-    'Perlu latihan lagi, pelajari kembali materinya.';
-  const holder = document.getElementById('tradeReviewList');
-  holder.innerHTML='';
-  tradeData.forEach((item,idx)=>{
-    const pickIdx = tradePicks[idx];
-    const div = document.createElement('div');
-    div.className='lms-q-block';
-    let optsHtml='';
-    item.opts.forEach((opt,i)=>{
-      const isChecked = i===pickIdx;
-      const isCorrect = i===item.correct;
-      optsHtml += `<div class="lms-opt${isChecked?' checked':''}${isCorrect?' ans-correct':''}">
-        <span class="lms-radio-outer"><span class="lms-radio-inner"></span></span>
-        <span class="lms-opt-text">${opt}</span>
-      </div>`;
-    });
-    const flag = tradeFlags[idx];
-    div.innerHTML = `
-      <div class="lms-qlabel">Question ${idx+1} of ${tradeData.length}.</div>
-      <div class="lms-qtext">${item.q}</div>
-      ${optsHtml}
-      <div class="exp-box${flag?' flagged':''}"><b>Pembahasan:</b> ${item.exp}
-        ${flag?`<span class="ak-flag">⚠️ ${flag}</span>`:''}
-        <span class="ak-src">Sumber: ${item.src}</span></div>
-    `;
-    holder.appendChild(div);
-  });
-}
 
-/* ============ BANK GUARANTEE TEST ============ */
+/* ============ BG (CEK PEMAHAMAN GIRO) ============ */
 function goBGTest(){
   bgPicks = new Array(bgData.length).fill(null);
   bgSubmitted = false;
   renderQList('bgQList', bgData, it=>it.q, it=>it.opts, 'bg');
-  document.getElementById('bgSubmitBtn').disabled=false;
-  document.getElementById('bgSubmitBtn').textContent='Lihat Hasil';
   showSection('screenBGTest');
   clearInterval(bgTimerInt);
   bgTimerInt = startTimer('bgTimer', 15*60, ()=>{ if(!bgSubmitted) submitBG(); });
@@ -889,12 +608,7 @@ function goBGTest(){
 function pickbg(qi, oi){
   if(bgSubmitted) return;
   bgPicks[qi]=oi;
-  const opts = document.querySelectorAll('#bg-opts-'+qi+' .lms-opt');
-  const correctIdx = bgData[qi].correct;
-  opts.forEach((o,i)=>{
-    o.classList.toggle('checked', i===oi);
-    o.classList.toggle('ans-correct', i===correctIdx);
-  });
+  document.querySelectorAll('#bg-opts-'+qi+' .lms-opt').forEach((o,i)=>o.classList.toggle('checked', i===oi));
 }
 function submitBG(){
   if(bgSubmitted) return;
@@ -902,93 +616,99 @@ function submitBG(){
   clearInterval(bgTimerInt);
   let score=0;
   bgData.forEach((item,idx)=>{
-    const opts = document.querySelectorAll('#bg-opts-'+idx+' .lms-opt');
-    opts.forEach((o,i)=>{
-      o.onclick=null;
-      if(i===item.correct) o.classList.add('ans-correct');
-    });
+    document.querySelectorAll('#bg-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
     if(bgPicks[idx]===item.correct) score++;
   });
-  renderBGResult(score);
+  document.getElementById('bgScoreBig').textContent = score+' / '+bgData.length;
+  document.getElementById('bgScoreMsg').textContent = scoreMsg(score/bgData.length);
+  renderReview('bgReviewList', bgData, bgPicks);
   showSection('screenBGResult');
 }
-function renderBGResult(score){
-  document.getElementById('bgScoreBig').textContent = score+' / '+bgData.length;
-  const pct = score/bgData.length;
-  document.getElementById('bgScoreMsg').textContent =
-    pct===1 ? 'Sempurna! Semua jawaban benar.' :
-    pct>=0.8 ? 'Bagus, hasil sudah solid.' :
-    pct>=0.6 ? 'Cukup baik, masih ada beberapa yang perlu diperbaiki.' :
-    'Perlu latihan lagi, pelajari kembali materinya.';
-  const holder = document.getElementById('bgReviewList');
-  holder.innerHTML='';
-  bgData.forEach((item,idx)=>{
-    const pickIdx = bgPicks[idx];
-    const div = document.createElement('div');
-    div.className='lms-q-block';
-    let optsHtml='';
-    item.opts.forEach((opt,i)=>{
-      const isChecked = i===pickIdx;
-      const isCorrect = i===item.correct;
-      optsHtml += `<div class="lms-opt${isChecked?' checked':''}${isCorrect?' ans-correct':''}">
-        <span class="lms-radio-outer"><span class="lms-radio-inner"></span></span>
-        <span class="lms-opt-text">${opt}</span>
-      </div>`;
-    });
-    const flag = bgFlags[idx];
-    div.innerHTML = `
-      <div class="lms-qlabel">Question ${idx+1} of ${bgData.length}.</div>
-      <div class="lms-qtext">${item.q}</div>
-      ${optsHtml}
-      <div class="exp-box${flag?' flagged':''}"><b>Pembahasan:</b> ${item.exp}
-        ${flag?`<span class="ak-flag">⚠️ ${flag}</span>`:''}
-        <span class="ak-src">Sumber: ${item.src}</span></div>
-    `;
-    holder.appendChild(div);
+
+/* ============ GE (GIRO LANJUTAN) ============ */
+function goGeTest(){
+  gePicks = new Array(geData.length).fill(null);
+  geSubmitted = false;
+  renderQList('geQList', geData, it=>it.q, it=>it.opts, 'ge');
+  showSection('screenGeTest');
+  clearInterval(geTimerInt);
+  geTimerInt = startTimer('geTimer', 15*60, ()=>{ if(!geSubmitted) submitGe(); });
+}
+function pickge(qi, oi){
+  if(geSubmitted) return;
+  gePicks[qi]=oi;
+  document.querySelectorAll('#ge-opts-'+qi+' .lms-opt').forEach((o,i)=>o.classList.toggle('checked', i===oi));
+}
+function submitGe(){
+  if(geSubmitted) return;
+  geSubmitted = true;
+  clearInterval(geTimerInt);
+  let score=0;
+  geData.forEach((item,idx)=>{
+    document.querySelectorAll('#ge-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
+    if(gePicks[idx]===item.correct) score++;
   });
+  document.getElementById('geScoreBig').textContent = score+' / '+geData.length;
+  document.getElementById('geScoreMsg').textContent = scoreMsg(score/geData.length);
+  renderReview('geReviewList', geData, gePicks);
+  showSection('screenGeResult');
 }
 
-/* ============ FULL ANSWER KEY ============ */
-/* Catatan: soal-soal berikut kuncinya berbeda dengan materi/doktrin resmi.
-   Untuk ujian ikuti kunci, tapi pahami perbedaannya. */
-const tradeFlags = {
-  9: "Kunci soal = Seller, namun materi Trade_Finance.pdf pada alur Deferred Payment ad. LC Bank Lain menyebut Bank membayar kepada ISSUING BANK. Konfirmasi ke pengajar.",
-  13: "Kunci soal = 1, 2 dan 4. Menurut UCP 600 Art. 10 seharusnya Issuing Bank + Confirming Bank + Beneficiary (2, 3, 4), tapi kombinasi itu tidak ada di opsi.",
-  18: "Kunci soal = opsi D. Secara UCP 600 dan materi, jawaban paling tepat adalah opsi B (syarat &amp; kondisi pada LC, bukan sales contract)."
-};
-const bgFlags = {
-  16: "Bang_Jago.pdf mencatat dua versi jawaban (menang tender / tidak dapat menyerahkan BG pelaksanaan). Kunci resmi TEPOS = tidak menang tender.",
-  24: "Opsi Mempunyai rekening di Bank Mandiri juga tidak tercantum eksplisit sebagai syarat penerbitan. Konfirmasi ke pengajar.",
-  26: "Soal cacat: Alamat beneficiary dan Alamat applicant sebenarnya juga syarat minimum. Yang pasti bukan syarat hanya Nama pejabat beneficiary.",
-  33: "Opsi Bisnis Unit juga masuk akal karena analisa 5C dan persetujuan limit ada di Unit Bisnis. Konfirmasi ke pengajar."
-};
+/* ============ CM (CASH MANAGEMENT) ============ */
+function goCMTest(){
+  cmPicks = new Array(cmData.length).fill(null);
+  cmSubmitted = false;
+  renderQList('cmQList', cmData, it=>it.q, it=>it.opts, 'cm');
+  showSection('screenCMTest');
+  clearInterval(cmTimerInt);
+  cmTimerInt = startTimer('cmTimer', 20*60, ()=>{ if(!cmSubmitted) submitCM(); });
+}
+function pickcm(qi, oi){
+  if(cmSubmitted) return;
+  cmPicks[qi]=oi;
+  document.querySelectorAll('#cm-opts-'+qi+' .lms-opt').forEach((o,i)=>o.classList.toggle('checked', i===oi));
+}
+function submitCM(){
+  if(cmSubmitted) return;
+  cmSubmitted = true;
+  clearInterval(cmTimerInt);
+  let score=0;
+  cmData.forEach((item,idx)=>{
+    document.querySelectorAll('#cm-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
+    if(cmPicks[idx]===item.correct) score++;
+  });
+  document.getElementById('cmScoreBig').textContent = score+' / '+cmData.length;
+  document.getElementById('cmScoreMsg').textContent = scoreMsg(score/cmData.length);
+  renderReview('cmReviewList', cmData, cmPicks);
+  showSection('screenCMResult');
+}
 
+/* ============ FULL ANSWER KEY (per materi, sudah di-dedup di sumber data) ============ */
+function renderAnswerList(containerId, dataArrays){
+  const holder = document.getElementById(containerId);
+  holder.innerHTML='';
+  let n=1;
+  dataArrays.forEach(data=>{
+    data.forEach(item=>{
+      const div=document.createElement('div');
+      div.className='answerkey-item';
+      div.innerHTML=`<b>${n}.</b> ${item.q}<br>Jawaban benar: <b class="ak-correct">${item.opts[item.correct]}</b>`;
+      holder.appendChild(div);
+      n++;
+    });
+  });
+}
 function goAnswerKey(){
-  const p1 = document.getElementById('akPart1');
-  p1.innerHTML='';
-  tradeData.forEach((item,idx)=>{
-    const div=document.createElement('div');
-    const flag = tradeFlags[idx];
-    div.className='answerkey-item'+(flag?' flagged':'');
-    div.innerHTML=`<b>${idx+1}.</b> ${item.q}<br>Jawaban benar: <b class="ak-correct">${item.opts[item.correct]}</b>`+
-      `<span class="ak-exp"><b>Pembahasan:</b> ${item.exp}</span>`+
-      (flag ? `<span class="ak-flag">⚠️ ${flag}</span>` : '')+
-      `<span class="ak-src">Sumber: ${item.src}</span>`;
-    p1.appendChild(div);
-  });
-  const p2 = document.getElementById('akPart2');
-  p2.innerHTML='';
-  bgData.forEach((item,idx)=>{
-    const div=document.createElement('div');
-    const flag = bgFlags[idx];
-    div.className='answerkey-item'+(flag?' flagged':'');
-    div.innerHTML=`<b>${idx+1}.</b> ${item.q}<br>Jawaban benar: <b class="ak-correct">${item.opts[item.correct]}</b>`+
-      `<span class="ak-exp"><b>Pembahasan:</b> ${item.exp}</span>`+
-      (flag ? `<span class="ak-flag">⚠️ ${flag}</span>` : '')+
-      `<span class="ak-src">Sumber: ${item.src}</span>`;
-    p2.appendChild(div);
-  });
+  renderAnswerList('akPart1', [tradeData, bgData, geData]);
+  renderAnswerList('akPart2', [cmData]);
+  switchAkTab('giro');
   showSection('screenAnswerKey');
+}
+function switchAkTab(tab){
+  document.getElementById('akTabGiro').classList.toggle('active', tab==='giro');
+  document.getElementById('akTabCM').classList.toggle('active', tab==='cm');
+  document.getElementById('akPaneGiro').classList.toggle('active', tab==='giro');
+  document.getElementById('akPaneCM').classList.toggle('active', tab==='cm');
 }
 </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LATIHAN SOAL — Retail Banking Giro &amp; Cash Management</title>
+<title>LATIHAN SOAL — Retail Banking, Cash Management &amp; Accounting-Taxation</title>
 <style>
 :root{
   --lms-blue:#1a73c4;
@@ -168,6 +168,17 @@ body{
 .ak-pane{display:none;}
 .ak-pane.active{display:block;}
 
+/* ===== A1 NOTES ===== */
+.a1-item{
+  display:flex; gap:14px; border-left:3px solid var(--lms-blue); padding:12px 16px;
+  margin-bottom:10px; background:#f7f9fb; border-radius:4px;
+}
+.a1-num{font-weight:800; color:var(--lms-blue); font-size:.95rem; flex:0 0 auto; min-width:22px;}
+.a1-body{flex:1;}
+.a1-point{font-size:.9rem; color:var(--lms-text); line-height:1.45; margin-bottom:4px;}
+.a1-answer{font-size:.92rem; font-weight:700; color:#000;}
+.a1-answer .arrow{color:var(--lms-blue); margin-right:6px; font-weight:700;}
+
 @media(max-width:600px){
   .lms-wrap{padding:0;}
   .lms-card{padding:18px 16px 24px;}
@@ -210,6 +221,26 @@ body{
     <div class="pick-text">
       <div class="pick-title">Latihan - Cash Management (Kopra/MCM)</div>
       <div class="pick-desc">30 soal · pilihan ganda · waktu 20 menit</div>
+    </div>
+    <div class="pick-arrow">➜</div>
+  </div>
+
+  <div class="start-groupheader">Materi: Basic Accounting &amp; Taxation</div>
+  <div class="pick-card" onclick="goATTest()">
+    <div class="pick-icon">🧮</div>
+    <div class="pick-text">
+      <div class="pick-title">Post Test - Basic Accounting &amp; Taxation</div>
+      <div class="pick-desc">30 soal · pilihan ganda · waktu 30 menit</div>
+    </div>
+    <div class="pick-arrow">➜</div>
+  </div>
+
+  <div class="start-groupheader">Materi: A1 Tax</div>
+  <div class="pick-card" onclick="goA1()">
+    <div class="pick-icon">🎤</div>
+    <div class="pick-text">
+      <div class="pick-title">Info A1 Tax dari Pembicara</div>
+      <div class="pick-desc">27 poin · catatan &amp; rangkuman dari sesi</div>
     </div>
     <div class="pick-arrow">➜</div>
   </div>
@@ -275,6 +306,50 @@ body{
   </div>
 </section>
 
+<!-- ===== BASIC ACCOUNTING & TAXATION ===== -->
+<section class="section" id="screenATTest">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - POST TEST BASIC ACCOUNTING & TAXATION <span class="info-dot">i</span></div></div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-head-row">
+      <div><div class="lms-h1">Post Test - Basic Accounting &amp; Taxation</div><div class="lms-h2">ACCOUNTING & TAXATION — SELURUH BAGIAN (30 SOAL)</div></div>
+      <div class="lms-timer-block"><div class="lms-timer" id="atTimer">30:00</div><div class="lms-timer-label">Time remaining</div></div>
+    </div>
+    <hr class="lms-hr">
+    <div id="atQList"></div>
+    <div class="lms-finish"><button class="lms-btn" id="atSubmitBtn" onclick="submitAT()">Lihat Hasil</button></div>
+  </div></div>
+</section>
+
+<section class="section" id="screenATResult">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - POST TEST BASIC ACCOUNTING & TAXATION <span class="info-dot">i</span></div></div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-result-head"><div class="lms-score-big" id="atScoreBig">0 / 30</div><div class="lms-score-sub" id="atScoreMsg"></div></div>
+    <hr class="lms-hr"><div id="atReviewList"></div>
+  </div></div>
+  <div class="lms-submitbar">
+    <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
+    <button class="lms-btn ghost" onclick="goATTest()">🔁 Ulangi Test</button>
+    <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
+  </div>
+</section>
+
+<!-- ===== A1 TAX NOTES ===== -->
+<section class="section" id="screenA1">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - INFO A1 TAX DARI PEMBICARA <span class="info-dot">i</span></div></div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-h1">Info A1 Tax dari Pembicara</div>
+    <div class="lms-h2" style="font-weight:400;color:var(--lms-sub);margin-bottom:18px;">Catatan poin-poin yang disampaikan langsung oleh pembicara</div>
+    <hr class="lms-hr">
+    <div id="a1List"></div>
+  </div></div>
+  <div class="lms-submitbar">
+    <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
+  </div>
+</section>
+
 <!-- ===== FULL ANSWER KEY (per materi) ===== -->
 <section class="section" id="screenAnswerKey">
   <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - RANGKUMAN SEMUA JAWABAN <span class="info-dot">i</span></div></div>
@@ -284,9 +359,11 @@ body{
     <div class="ak-tabs">
       <div class="ak-tab active" id="akTabGiro" onclick="switchAkTab('giro')">Giro (47 soal)</div>
       <div class="ak-tab" id="akTabCM" onclick="switchAkTab('cm')">Cash Management (30 soal)</div>
+      <div class="ak-tab" id="akTabAT" onclick="switchAkTab('at')">Accounting &amp; Taxation (30 soal)</div>
     </div>
     <div class="ak-pane active" id="akPaneGiro"><div id="akPart1"></div></div>
     <div class="ak-pane" id="akPaneCM"><div id="akPart2"></div></div>
+    <div class="ak-pane" id="akPaneAT"><div id="akPart3"></div></div>
   </div></div>
   <div class="lms-submitbar">
     <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
@@ -379,11 +456,77 @@ const cmData = [
 {q:"Error \"please access to Cash Management/Trade dan Bank Guarantee/Supply Chain/Smart Account\" dapat diatasi dengan cara:", opts:["Melakukan clear cache browser","Nasabah disarankan mengganti browser","Diarahkan menggunakan koneksi jaringan internet yang stabil","Nasabah diarahkan untuk setting browser to allow pop up windows"], correct:3}
 ];
 
+/* ============ DATA: BASIC ACCOUNTING & TAXATION (30 soal) ============ */
+const atData = [
+{q:"Berikut ini adalah jenis hadiah yang dipotong PPh Pasal 4 ayat (2) adalah…", opts:["Hadiah customer loyalty","Hadiah undian","Hadiah langsung","Hadiah penghargaan"], correct:1},
+{q:"Besarnya PTKP (Penghasilan Tidak Kena Pajak) sebesar Rp54.000.000 adalah untuk WPOP dengan kategori…", opts:["TK/1","K/2","TK/0","K/1"], correct:2},
+{q:"Jenis pajak yang wajib disetor paling lambat tanggal 10 bulan berikutnya adalah…", opts:["PPh Pasal 21, 22, 23, 26, 4(2)","PPN Masukan WAPU","PPN Keluaran","PPh Pasal 29"], correct:0},
+{q:"Berikut yang merupakan pos-pos keuangan pada komponen Liabilitas (Kewajiban) di Laporan Posisi Keuangan:", opts:["Surat Berharga Yang Diterbitkan, Tabungan, Disagio","Surat Berharga Yang Diterbitkan, Tabungan, Pinjaman Yang Diterima","Kredit Yang Diberikan, Tabungan, Agio","Kredit Yang Diberikan, Penempatan Pada Bank Lain, Surat Berharga Yang Dimiliki"], correct:1},
+{q:"Pos-pos di bawah ini memiliki normal balance debit:", opts:["Pendapatan Diterima Dimuka dan Pendapatan Yang Masih Akan Diterima","Pendapatan Diterima Dimuka dan Biaya Yang Masih Harus Dibayarkan","Biaya Dibayar Dimuka dan Pendapatan Yang Masih Akan Diterima","Biaya Dibayar Dimuka dan Pendapatan Diterima Dimuka"], correct:2},
+{q:"Definisi nilai wajar adalah:", opts:["Nilai kini dari arus kas masa datang yang diharapkan timbul dari penggunaan aset","Nilai yang disajikan dalam neraca.","Jumlah kas atau setara kas yang dibayarkan atau nilai wajar dari imbalan lain yang diserahkan untuk memperoleh suatu aset","Jumlah dimana suatu aset dapat dipertukarkan, kewajiban dapat diselesaikan, antara pihak-pihak yang saling mengetahui dan berkeinginan dalam transaksi yang wajar."], correct:3},
+{q:"Kesalahan dalam melakukan penyetoran pajak, dapat dilakukan perbaikan dengan cara sebagai berikut…", opts:["Penarikan Dana Pajak","Pemindahbukuan","Pembetulan SPT","Pengajuan"], correct:1},
+{q:"Berikut ini adalah komponen dari Laporan Posisi Keuangan:", opts:["Ekuitas, Liabilitas, Aset","Beban, Pendapatan, Saldo Laba/Rugi","Liabilitas, Ekuitas, Pendapatan","Aset, Liabilitas, Beban"], correct:0},
+{q:"Badan atau Lembaga Pemerintah dikecualikan sebagai Subjek Pajak apabila memenuhi syarat yang diatur dalam Pasal 2 ayat 3(b) UU PPh, kecuali…", opts:["Pembiayaan badan/lembaga bersumber dari APBN atau APBD","Penerimaan badan/lembaga tersebut dimasukkan ke dalam APBN/APBD","Pembukuan badan/lembaga diaudit oleh Kantor Akuntan Publik","Pembentukan badan/lembaga berdasarkan Undang-Undang"], correct:2},
+{q:"Tarif PPN Baru yang akan berlaku mulai 1 April 2022 adalah…", opts:["11%","10%","13%","15%"], correct:0},
+{q:"Di bawah ini yang termasuk subjek pajak, kecuali…", opts:["Orang Pribadi","Badan","Tanah/Bangunan","Bentuk Usaha Tetap"], correct:2},
+{q:"Di bawah ini adalah persamaan dasar akuntansi:", opts:["Aset = Modal Pemilik - Liabilitas","Aset = Liabilitas + Expenses-Revenue","Liabilitas = Aset + Modal Pemilik","Liabilitas = Aset – Modal Pemilik"], correct:3},
+{q:"Akuntansi merupakan metode sistematis untuk mengumpulkan data transaksi keuangan untuk:", opts:["Mengklasifikasikan – mencatat – menyajikan informasi keuangan","Mencatat – menyajikan – mengklasifikasikan informasi keuangan","Menyajikan – mencatat – mengklasifikasikan informasi keuangan","Mencatat – mengklasifikasikan – menyajikan informasi keuangan"], correct:3},
+{q:"Berikut ini adalah komponen atau faktor dalam perhitungan bunga yang sesuai dengan karakteristik arus kas SPPI menurut PSAK 71:", opts:["Commodity Index Price, Operational Risk, Margin, Biaya Pinjaman Dasar","Credit Risk, Biaya Pinjaman Dasar, Time Value of Money, Margin","Credit Risk, Margin, Time Value of Money, Financial Performance","Time Value of Money, Commodity Index Price, Financial Performance, Biaya Pinjaman Dasar"], correct:1},
+{q:"Tarif tunggal Bea Meterai yang berlaku mulai tahun 2021 adalah…", opts:["Rp3.000","Rp10.000","Rp6.500","Rp6.000"], correct:1},
+{q:"Pengukuran Aset Keuangan Setelah Pengakuan Awal dengan menggunakan metode mark to market adalah untuk aset keuangan dengan katagori:", opts:["FVOCI dan Amortised Cost","FVPL dan FVOCI","Semua Salah","FVPL dan Amortised Cost"], correct:1},
+{q:"Aset Keuangan yang tidak perlu dilakukan dibentuk Cadangan Kerugian Penurunan Nilai (CKPN) adalah untuk klasifikasi:", opts:["Fair Value Through Profit dan Loss","Fair Value Through Other Comprehensive Income","Semua Benar","Amortised Cost"], correct:0},
+{q:"Biaya transaksi atas kewajiban keuangan diakui sebagai:", opts:["Biaya Promosi","Biaya bunga","Biaya humas","Pendapatan bunga"], correct:1},
+{q:"Berikut ini adalah komponen dari Laporan Posisi Keuangan:", opts:["Liabilitas, Ekuitas, Pendapatan","Ekuitas, Liabilitas, Aset","Beban, Pendapatan, Saldo Laba/Rugi","Aset, Liabilitas, Beban"], correct:1},
+{q:"Buku besar yang di awali dengan angka 2 menunjukkan bahwa buku besar tersebut merupakan:", opts:["Biaya","Pendapatan","Aset","Liabilitas"], correct:3},
+{q:"Lapisan penghasilan kena pajak dan pajak progresif yang dikenakan oleh pemberi penghasilan atas pemotongan pajak terhadap penghasilan yang diterima oleh WPOP (asumsi pegawai atau penerima penghasilan tidak memiliki NPWP) adalah…", opts:["Penghasilan s.d. Rp60 juta tarif 6%, di atas Rp50 juta s.d. Rp250 juta tarif 18%, di atas Rp250 juta s.d. Rp500 juta tarif 30%, dan di atas Rp200 juta tarif 28%","Penghasilan s.d. Rp60 juta tarif 6%, di atas Rp60 juta s.d. Rp250 juta tarif 18%, di atas Rp250 juta s.d. Rp500 juta tarif 30%, di atas Rp500 juta s.d. 5 miliar tarif 36%, dan di atas Rp5 miliar tarif 42%","Penghasilan s.d. Rp60 juta tarif 6%, di atas Rp50 juta s.d. Rp250 juta tarif 18%, di atas Rp250 juta s.d. Rp500 juta tarif 30%, dan di atas Rp250 juta tarif 36%","Penghasilan s.d. Rp60 juta tarif 6%, di atas Rp60 juta s.d. Rp200 juta tarif 18%, di atas Rp200 juta s.d. Rp500 juta tarif 30%, dan di atas Rp500 juta tarif 25%"], correct:1},
+{q:"Tiga model bisnis dalam pengelolaan aset keuangan berdasarkan PSAK 71 adalah sebagai berikut, kecuali:", opts:["Hold to Collect and Sell","Other (Commonly Hold to Sell)","Hold to Collect","Hold to Produce"], correct:3},
+{q:"Manakah yang benar terkait konsep penurunan nilai menurut PSAK 71 di Bank Mandiri:", opts:["Penurunan nilai menggunakan incurred credit loss","Stage 2 dan 3 diukur menggunakan lifetime ECL","Semua Salah","Stage 1 dapat diukur menggunakan metode individual"], correct:1},
+{q:"Pendekatan individual dalam perhitungan CKPN merupakan:", opts:["Dilakukan untuk aset keuangan di Stage 1","Perhitungan CKPN dengan menggunakan metode Expected Credit Loss (ECL) dengan menghitung komponen PD, LGD, EAD berdasarkan model yang telah dikembangkan","Semua jawaban Benar","Perhitungan CKPN dengan metode Discounted Cash Flow yang dilakukan oleh pengelola account dengan memproyeksikan cash shortfall."], correct:3},
+{q:"Apabila terdapat keterlambatan penyetoran pajak, maka Wajib Pajak akan dikenakan sanksi denda sesuai dengan UU KUP sebesar…", opts:["(MoFIR + 5%)/12 dan maksimal 24 bulan","(MoFIR + 15%)/12 dan maksimal 24 bulan","(MoFIR + 25%)/12 dan maksimal 24 bulan","(MoFIR + 10%)/12 dan maksimal 24 bulan"], correct:0},
+{q:"Pelaporan Pajak yang dilakukan secara desentralisasi adalah…", opts:["SPT Masa Bea Meterai","SPT Masa PPN","SPT Masa PPh Pasal 4 ayat (2) Bunga DGT","SPT Masa PPh Pasal 21"], correct:3},
+{q:"Mana dari kriteria berikut yang sesuai dengan karakteristik arus kas SPPI menurut PSAK 71:", opts:["Aset keuangan yang terkait dengan perubahan harga saham atau harga komoditas","Pinjaman dengan suku bunga yang memiliki hubungan negatif dengan indeks suku bunga tertentu.","Semua Salah","Fitur dimana kreditur dapat mengubah tingkat suku bunga berdasarkan suatu referensi suku bunga tertentu di pasar (suku bunga mengambang)"], correct:3},
+{q:"Jenis pajak yang wajib disetor paling lambat tanggal 15 bulan berikutnya adalah…", opts:["PPN Keluaran","PPh Pasal 29","PPh Pasal 21, 22, 23, 26, 4(2)","PPN Masukan WAPU dan PPN Masukan Jasa Luar Negeri"], correct:3},
+{q:"Berikut ini merupakan objek pajak PPh Pasal 23, kecuali…", opts:["Jasa Percetakan","Jasa Event Organizer","Jasa Catering","Pembelian mesin printer"], correct:3},
+{q:"Bank Mandiri Cabang Bali Sunset Road pada bulan Juni 2019 menyewakan SDB kepada nasabah dengan harga sewa Rp1.000.000 (tidak termasuk PPN). PPN Keluaran yang harus dipungut dan disetorkan ke kas negara oleh Bank Mandiri Cabang Bali Sunset Road adalah sebesar...", opts:["Rp90.000","Rp90.909","Rp110.000","Rp100.000"], correct:3}
+];
+
+/* ============ DATA: A1 TAX NOTES (27 poin) ============ */
+const a1Data = [
+{point:"Pengujian waktu", answer:"Time Testing"},
+{point:"Pasal 4 ayat (2), kecuali", answer:"Hadiah penghargaan"},
+{point:"Pasal 26, kecuali", answer:"Pembelian barang"},
+{point:"Tarif ekspor", answer:"0%"},
+{point:"Ekspor luar negeri kalau lebih dari batas time testing", answer:"20%"},
+{point:"Tarif hadiah undian", answer:"25%"},
+{point:"Nomor di NPWP bagi perorangan", answer:"NIK"},
+{point:"Hal yang tidak diatur dalam KUP", answer:"Perhitungan Pajak"},
+{point:"Jika badan usaha lebih dari Rp4,8 M dan tidak melapor, KPP akan mengeluarkan", answer:"Surat PKP (Pengusaha Kena Pajak)"},
+{point:"Proses pemotongan pajak PPh Pasal 4 Ayat (2)", answer:"SAP FICO"},
+{point:"Yang termasuk sebagai objek pajak adalah", answer:"Tanah dan Bangunan"},
+{point:"Yang termasuk subjek pajak adalah", answer:"Warisan yang belum terbagi"},
+{point:"Pajak yang wajib dilaporkan paling lambat tanggal 20 setiap bulan adalah", answer:"Pajak Unifikasi"},
+{point:"Penghasilan Tidak Kena Pajak untuk Orang Pribadi", answer:"Rp54 juta"},
+{point:"Lapisan Rp250–500 juta berdasarkan Pasal 17 ayat (1)", answer:"Kena 25%"},
+{point:"Penghasilan bruto harian Rp450 ribu sampai Rp2,5 juta", answer:"Kena pajak 0,5%"},
+{point:"PTKP kategori K/3", answer:"Rp72 juta"},
+{point:"Penghasilan suami-istri digabung, kategori K/I/2 (punya 2 tanggungan)", answer:"PTKP = Rp121.500.000"},
+{point:"Bea Meterai", answer:"Rp10.000"},
+{point:"Denda keterlambatan meterai", answer:"100% dari harga meterai"},
+{point:"Threshold dokumen yang dikenakan meterai Rp10.000", answer:"Rp5 juta"},
+{point:"Kode faktur untuk transaksi di atas Rp10 juta", answer:"030"},
+{point:"Tujuan CRS, kecuali", answer:"Mencegah keterbukaan informasi"},
+{point:"Formulir pencatatan CRS", answer:"Semua benar"},
+{point:"Sanksi keterlambatan laporan pajak Bea Meterai", answer:"Rp100 ribu per SPT"},
+{point:"Pelaporan PPh Pasal 23", answer:"Tanggal 15 bulan berikutnya"},
+{point:"Tujuan penerapan PTKP", answer:"Meringankan orang dengan gaji di bawah PTKP"}
+];
+
 /* ============ STATE ============ */
 let giroPicks = new Array(giroData.length).fill(null);
 let cmPicks = new Array(cmData.length).fill(null);
-let giroSubmitted=false, cmSubmitted=false;
-let giroTimerInt=null, cmTimerInt=null;
+let atPicks = new Array(atData.length).fill(null);
+let giroSubmitted=false, cmSubmitted=false, atSubmitted=false;
+let giroTimerInt=null, cmTimerInt=null, atTimerInt=null;
 
 /* ============ NAV ============ */
 function showSection(id){
@@ -392,7 +535,7 @@ function showSection(id){
   window.scrollTo({top:0, behavior:'auto'});
 }
 function backToStart(){
-  clearInterval(giroTimerInt); clearInterval(cmTimerInt);
+  clearInterval(giroTimerInt); clearInterval(cmTimerInt); clearInterval(atTimerInt);
   showSection('screenStart');
 }
 
@@ -549,6 +692,59 @@ function submitCM(){
   showSection('screenCMResult');
 }
 
+/* ============ AT (BASIC ACCOUNTING & TAXATION) ============ */
+function goATTest(){
+  atPicks = new Array(atData.length).fill(null);
+  atSubmitted = false;
+  renderQList('atQList', atData, it=>it.q, it=>it.opts, 'at');
+  showSection('screenATTest');
+  clearInterval(atTimerInt);
+  atTimerInt = startTimer('atTimer', 30*60, ()=>{ if(!atSubmitted) submitAT(); });
+}
+function pickat(qi, oi){
+  if(atSubmitted || atPicks[qi]!==null) return;
+  atPicks[qi]=oi;
+  document.querySelectorAll('#at-opts-'+qi+' .lms-opt').forEach((o,i)=>{
+    o.classList.toggle('checked', i===oi);
+    if(i===atData[qi].correct) o.classList.add('ans-correct');
+    o.classList.add('answered');
+    o.onclick=null;
+  });
+}
+function submitAT(){
+  if(atSubmitted) return;
+  atSubmitted = true;
+  clearInterval(atTimerInt);
+  let score=0;
+  atData.forEach((item,idx)=>{
+    document.querySelectorAll('#at-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
+    if(atPicks[idx]===item.correct) score++;
+  });
+  document.getElementById('atScoreBig').textContent = score+' / '+atData.length;
+  document.getElementById('atScoreMsg').textContent = scoreMsg(score/atData.length);
+  renderReview('atReviewList', atData, atPicks);
+  showSection('screenATResult');
+}
+
+/* ============ A1 TAX NOTES ============ */
+function goA1(){
+  const holder = document.getElementById('a1List');
+  holder.innerHTML = '';
+  a1Data.forEach((item, idx)=>{
+    const div = document.createElement('div');
+    div.className = 'a1-item';
+    div.innerHTML = `
+      <div class="a1-num">${idx+1}.</div>
+      <div class="a1-body">
+        <div class="a1-point">${item.point}</div>
+        <div class="a1-answer"><span class="arrow">➜</span>${item.answer}</div>
+      </div>
+    `;
+    holder.appendChild(div);
+  });
+  showSection('screenA1');
+}
+
 /* ============ FULL ANSWER KEY (per materi) ============ */
 function renderAnswerList(containerId, dataArrays){
   const holder = document.getElementById(containerId);
@@ -567,14 +763,17 @@ function renderAnswerList(containerId, dataArrays){
 function goAnswerKey(){
   renderAnswerList('akPart1', [giroData]);
   renderAnswerList('akPart2', [cmData]);
+  renderAnswerList('akPart3', [atData]);
   switchAkTab('giro');
   showSection('screenAnswerKey');
 }
 function switchAkTab(tab){
   document.getElementById('akTabGiro').classList.toggle('active', tab==='giro');
   document.getElementById('akTabCM').classList.toggle('active', tab==='cm');
+  document.getElementById('akTabAT').classList.toggle('active', tab==='at');
   document.getElementById('akPaneGiro').classList.toggle('active', tab==='giro');
   document.getElementById('akPaneCM').classList.toggle('active', tab==='cm');
+  document.getElementById('akPaneAT').classList.toggle('active', tab==='at');
 }
 </script>
 </body>

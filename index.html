@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LATIHAN SOAL — Retail Banking, Cash Management &amp; Accounting-Taxation</title>
+<title>LATIHAN SOAL — KPR & KKB</title>
 <style>
 :root{
   --lms-blue:#1a73c4;
@@ -168,17 +168,6 @@ body{
 .ak-pane{display:none;}
 .ak-pane.active{display:block;}
 
-/* ===== A1 NOTES ===== */
-.a1-item{
-  display:flex; gap:14px; border-left:3px solid var(--lms-blue); padding:12px 16px;
-  margin-bottom:10px; background:#f7f9fb; border-radius:4px;
-}
-.a1-num{font-weight:800; color:var(--lms-blue); font-size:.95rem; flex:0 0 auto; min-width:22px;}
-.a1-body{flex:1;}
-.a1-point{font-size:.9rem; color:var(--lms-text); line-height:1.45; margin-bottom:4px;}
-.a1-answer{font-size:.92rem; font-weight:700; color:#000;}
-.a1-answer .arrow{color:var(--lms-blue); margin-right:6px; font-weight:700;}
-
 @media(max-width:600px){
   .lms-wrap{padding:0;}
   .lms-card{padding:18px 16px 24px;}
@@ -205,42 +194,22 @@ body{
   <div class="start-title">Latihan Soal</div>
   <div class="start-sub">Pilih materi latihan yang ingin kamu kerjakan hari ini.</div>
 
-  <div class="start-groupheader">Materi: Giro</div>
-  <div class="pick-card" onclick="goGiroTest()">
-    <div class="pick-icon">🏦</div>
+  <div class="start-groupheader">Materi: KPR (Kredit Pemilikan Rumah)</div>
+  <div class="pick-card" onclick="goKPRTest()">
+    <div class="pick-icon">🏠</div>
     <div class="pick-text">
-      <div class="pick-title">Latihan - Retail Banking Giro</div>
-      <div class="pick-desc">47 soal · pilihan ganda · waktu 45 menit</div>
+      <div class="pick-title">Latihan - Modul KPR</div>
+      <div class="pick-desc">17 soal · pilihan ganda · waktu 20 menit</div>
     </div>
     <div class="pick-arrow">➜</div>
   </div>
 
-  <div class="start-groupheader">Materi: Cash Management</div>
-  <div class="pick-card" onclick="goCMTest()">
-    <div class="pick-icon">💳</div>
+  <div class="start-groupheader">Materi: KKB (Kredit Kendaraan Bermotor)</div>
+  <div class="pick-card" onclick="goKKBTest()">
+    <div class="pick-icon">🚗</div>
     <div class="pick-text">
-      <div class="pick-title">Latihan - Cash Management (Kopra/MCM)</div>
-      <div class="pick-desc">30 soal · pilihan ganda · waktu 20 menit</div>
-    </div>
-    <div class="pick-arrow">➜</div>
-  </div>
-
-  <div class="start-groupheader">Materi: Basic Accounting &amp; Taxation</div>
-  <div class="pick-card" onclick="goATTest()">
-    <div class="pick-icon">🧮</div>
-    <div class="pick-text">
-      <div class="pick-title">Post Test - Basic Accounting &amp; Taxation</div>
-      <div class="pick-desc">30 soal · pilihan ganda · waktu 30 menit</div>
-    </div>
-    <div class="pick-arrow">➜</div>
-  </div>
-
-  <div class="start-groupheader">Materi: A1 Tax</div>
-  <div class="pick-card" onclick="goA1()">
-    <div class="pick-icon">🎤</div>
-    <div class="pick-text">
-      <div class="pick-title">Info A1 Tax dari Pembicara</div>
-      <div class="pick-desc">27 poin · catatan &amp; rangkuman dari sesi</div>
+      <div class="pick-title">Latihan - Modul KKB</div>
+      <div class="pick-desc">10 soal · pilihan ganda · waktu 15 menit</div>
     </div>
     <div class="pick-arrow">➜</div>
   </div>
@@ -248,104 +217,60 @@ body{
   <div class="linklike" onclick="goAnswerKey()">Lihat rangkuman lengkap semua jawaban</div>
 </section>
 
-<!-- ===== GIRO (GABUNGAN) ===== -->
-<section class="section" id="screenGiroTest">
-  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN RETAIL BANKING GIRO <span class="info-dot">i</span></div></div>
+<!-- ===== KPR ===== -->
+<section class="section" id="screenKPRTest">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN MODUL KPR <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap"><div class="lms-card">
     <div class="lms-head-row">
-      <div><div class="lms-h1">Latihan - Retail Banking Giro</div><div class="lms-h2">GIRO — SELURUH BAGIAN (47 SOAL)</div></div>
-      <div class="lms-timer-block"><div class="lms-timer" id="giroTimer">45:00</div><div class="lms-timer-label">Time remaining</div></div>
+      <div><div class="lms-h1">Latihan - Modul KPR</div><div class="lms-h2">KREDIT PEMILIKAN RUMAH — SELURUH BAGIAN (17 SOAL)</div></div>
+      <div class="lms-timer-block"><div class="lms-timer" id="kprTimer">20:00</div><div class="lms-timer-label">Time remaining</div></div>
     </div>
     <hr class="lms-hr">
-    <div id="giroQList"></div>
-    <div class="lms-finish"><button class="lms-btn" id="giroSubmitBtn" onclick="submitGiro()">Lihat Hasil</button></div>
+    <div id="kprQList"></div>
+    <div class="lms-finish"><button class="lms-btn" id="kprSubmitBtn" onclick="submitKPR()">Lihat Hasil</button></div>
   </div></div>
 </section>
 
-<section class="section" id="screenGiroResult">
-  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN RETAIL BANKING GIRO <span class="info-dot">i</span></div></div>
+<section class="section" id="screenKPRResult">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN MODUL KPR <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap"><div class="lms-card">
-    <div class="lms-result-head"><div class="lms-score-big" id="giroScoreBig">0 / 47</div><div class="lms-score-sub" id="giroScoreMsg"></div></div>
-    <hr class="lms-hr"><div id="giroReviewList"></div>
+    <div class="lms-result-head"><div class="lms-score-big" id="kprScoreBig">0 / 17</div><div class="lms-score-sub" id="kprScoreMsg"></div></div>
+    <hr class="lms-hr"><div id="kprReviewList"></div>
   </div></div>
   <div class="lms-submitbar">
     <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
-    <button class="lms-btn ghost" onclick="goGiroTest()">🔁 Ulangi Test</button>
+    <button class="lms-btn ghost" onclick="goKPRTest()">🔁 Ulangi Test</button>
     <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
   </div>
 </section>
 
-<!-- ===== CASH MANAGEMENT ===== -->
-<section class="section" id="screenCMTest">
-  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN CASH MANAGEMENT <span class="info-dot">i</span></div></div>
+<!-- ===== KKB ===== -->
+<section class="section" id="screenKKBTest">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN MODUL KKB <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap"><div class="lms-card">
     <div class="lms-head-row">
-      <div><div class="lms-h1">Latihan - Cash Management</div><div class="lms-h2">KOPRA / MCM — SELURUH BAGIAN (30 SOAL)</div></div>
-      <div class="lms-timer-block"><div class="lms-timer" id="cmTimer">20:00</div><div class="lms-timer-label">Time remaining</div></div>
+      <div><div class="lms-h1">Latihan - Modul KKB</div><div class="lms-h2">KREDIT KENDARAAN BERMOTOR — SELURUH BAGIAN (10 SOAL)</div></div>
+      <div class="lms-timer-block"><div class="lms-timer" id="kkbTimer">15:00</div><div class="lms-timer-label">Time remaining</div></div>
     </div>
     <hr class="lms-hr">
-    <div id="cmQList"></div>
-    <div class="lms-finish"><button class="lms-btn" id="cmSubmitBtn" onclick="submitCM()">Lihat Hasil</button></div>
+    <div id="kkbQList"></div>
+    <div class="lms-finish"><button class="lms-btn" id="kkbSubmitBtn" onclick="submitKKB()">Lihat Hasil</button></div>
   </div></div>
 </section>
 
-<section class="section" id="screenCMResult">
-  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN CASH MANAGEMENT <span class="info-dot">i</span></div></div>
+<section class="section" id="screenKKBResult">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - LATIHAN MODUL KKB <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap"><div class="lms-card">
-    <div class="lms-result-head"><div class="lms-score-big" id="cmScoreBig">0 / 30</div><div class="lms-score-sub" id="cmScoreMsg"></div></div>
-    <hr class="lms-hr"><div id="cmReviewList"></div>
+    <div class="lms-result-head"><div class="lms-score-big" id="kkbScoreBig">0 / 10</div><div class="lms-score-sub" id="kkbScoreMsg"></div></div>
+    <hr class="lms-hr"><div id="kkbReviewList"></div>
   </div></div>
   <div class="lms-submitbar">
     <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
-    <button class="lms-btn ghost" onclick="goCMTest()">🔁 Ulangi Test</button>
-    <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
-  </div>
-</section>
-
-<!-- ===== BASIC ACCOUNTING & TAXATION ===== -->
-<section class="section" id="screenATTest">
-  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - POST TEST BASIC ACCOUNTING & TAXATION <span class="info-dot">i</span></div></div>
-  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
-  <div class="lms-wrap"><div class="lms-card">
-    <div class="lms-head-row">
-      <div><div class="lms-h1">Post Test - Basic Accounting &amp; Taxation</div><div class="lms-h2">ACCOUNTING & TAXATION — SELURUH BAGIAN (30 SOAL)</div></div>
-      <div class="lms-timer-block"><div class="lms-timer" id="atTimer">30:00</div><div class="lms-timer-label">Time remaining</div></div>
-    </div>
-    <hr class="lms-hr">
-    <div id="atQList"></div>
-    <div class="lms-finish"><button class="lms-btn" id="atSubmitBtn" onclick="submitAT()">Lihat Hasil</button></div>
-  </div></div>
-</section>
-
-<section class="section" id="screenATResult">
-  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - POST TEST BASIC ACCOUNTING & TAXATION <span class="info-dot">i</span></div></div>
-  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
-  <div class="lms-wrap"><div class="lms-card">
-    <div class="lms-result-head"><div class="lms-score-big" id="atScoreBig">0 / 30</div><div class="lms-score-sub" id="atScoreMsg"></div></div>
-    <hr class="lms-hr"><div id="atReviewList"></div>
-  </div></div>
-  <div class="lms-submitbar">
-    <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
-    <button class="lms-btn ghost" onclick="goATTest()">🔁 Ulangi Test</button>
-    <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
-  </div>
-</section>
-
-<!-- ===== A1 TAX NOTES ===== -->
-<section class="section" id="screenA1">
-  <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - INFO A1 TAX DARI PEMBICARA <span class="info-dot">i</span></div></div>
-  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
-  <div class="lms-wrap"><div class="lms-card">
-    <div class="lms-h1">Info A1 Tax dari Pembicara</div>
-    <div class="lms-h2" style="font-weight:400;color:var(--lms-sub);margin-bottom:18px;">Catatan poin-poin yang disampaikan langsung oleh pembicara</div>
-    <hr class="lms-hr">
-    <div id="a1List"></div>
-  </div></div>
-  <div class="lms-submitbar">
+    <button class="lms-btn ghost" onclick="goKKBTest()">🔁 Ulangi Test</button>
     <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
   </div>
 </section>
@@ -357,13 +282,11 @@ body{
   <div class="lms-wrap"><div class="lms-card">
     <div class="lms-h1">Rangkuman Jawaban per Materi</div>
     <div class="ak-tabs">
-      <div class="ak-tab active" id="akTabGiro" onclick="switchAkTab('giro')">Giro (47 soal)</div>
-      <div class="ak-tab" id="akTabCM" onclick="switchAkTab('cm')">Cash Management (30 soal)</div>
-      <div class="ak-tab" id="akTabAT" onclick="switchAkTab('at')">Accounting &amp; Taxation (30 soal)</div>
+      <div class="ak-tab active" id="akTabKPR" onclick="switchAkTab('kpr')">KPR (17 soal)</div>
+      <div class="ak-tab" id="akTabKKB" onclick="switchAkTab('kkb')">KKB (10 soal)</div>
     </div>
-    <div class="ak-pane active" id="akPaneGiro"><div id="akPart1"></div></div>
-    <div class="ak-pane" id="akPaneCM"><div id="akPart2"></div></div>
-    <div class="ak-pane" id="akPaneAT"><div id="akPart3"></div></div>
+    <div class="ak-pane active" id="akPaneKPR"><div id="akPart1"></div></div>
+    <div class="ak-pane" id="akPaneKKB"><div id="akPart2"></div></div>
   </div></div>
   <div class="lms-submitbar">
     <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
@@ -371,162 +294,46 @@ body{
 </section>
 
 <script>
-/* ============ DATA: GIRO (GABUNGAN — 47 soal) ============ */
-const giroData = [
-{q:"Jenis rekening giro yang cocok digunakan untuk transaksi money market, capital market, remittance, foreign exchange dan trade service adalah...", opts:["Giro Premier","Giro Vostro","Giro DHE-SDA","Giro Escrow"], correct:1},
-{q:"Yang dimaksud dengan benefit yield enhancement pada giro premier adalah...", opts:["Bebas biaya administrasi bulanan","Media dan alat penarikan yang beragam sehingga fleksibilitas pengelolaan dana tetap sama dengan giro reguler (Cek/BG, via MCM atau Sweep Online)","Jasa giro yang lebih tinggi dibandingkan giro reguler","Bebas biaya transfer valas masuk (khusus valuta USD)"], correct:2},
-{q:"Dasar mekanisme dari transaksi yang dilakukan di rekening vostro adalah...", opts:["Tarik tunai di rekening asal dan setor tunai ke rekening tujuan di Bank Koresponden","Bank asal mengirim dana ke bank dituju dengan sistem BI Fast","Pindah buku antara 2 rekening (CIF) yang berbeda di Bank Koresponden","Auto debet tiap bulan dari rekening giro nasabah untuk di kreditkan ke rekening tujuan"], correct:2},
-{q:"Warkat yang merupakan perintah bayar atas nama yang diterbitkan oleh Bank Koresponden pemilik rekening Giro Vostro dinamakan....", opts:["Bank draft","LOA","Sweep","Bilyet giro"], correct:0},
-{q:"PT XYZ baru membuka rekening dan menjadi Nasabah Mandiri, dalam proses peningkatan dana yang baik secara journey berupa", opts:["Peningkatan transaksi collection nasabah dan \"hunting\" mitra nasabah yang merupakan tujuan \"Payment\" dari Nasabah","Penambahan rekening","Akuisisi transaksi (Farming) > Akuisisi value chain","Akuisisi transaksi (Farming) > Penambahan Solusi Transaksi (deepening) dan hunting mitra nasabah"], correct:3},
-{q:"PT Jaya Selalu selaku perusahaan layanan keuangan memiliki idle fund besar dan berniat untuk menginvestasikan dana tersebut, dengan syarat dana tersebut dapat ditarik sewaktu-waktu jika diperlukan, yang cocok untuk ditawarkan kepada PT Jaya Selalu adalah...", opts:["Giro Premier","Deposito","Mandiri Tabungan Bisnis","Giro DHE-SDA"], correct:0},
-{q:"Dalam pertumbuhan Bank yang baik dan peningkatan dana Giro, maka Generator Giro yang baik berasal dari", opts:["Nasabah yang mengikuti program","Membukakan rekening yang banyak untuk tiap Nasabah","Nasabah yang bertransaksi","Pemberian Spesial Rate"], correct:2},
-{q:"Wesel dan promissory notes merupakan warkat yang dikirim atau ditagihkan menggunakan mekanisme...", opts:["Kliring","Inkaso rupiah","Transfer","Remittance"], correct:1},
-{q:"Berikut merupakan syarat formal cek, kecuali...", opts:["Termuat kata \"CEK\" didalamnya","Perintah tidak bersyarat untuk membayar sejumlah dana","Tanda Tangan Penarik (pemilik rekening)","Tanggal pembayaran"], correct:3},
-{q:"Yang termasuk dalam segmen wholesale adalah, kecuali...", opts:["Government","Corporate","Commercial","Small Medium Enterprise"], correct:3},
-{q:"Nasabah yang tidak memenuhi syarat untuk menggunakan Mandiri Virtual Account karena transaksi kurang dari 2500 per bulannya, cocok untuk diberi solusi...", opts:["Mandiri Bill Payment","Giro zero balance","Giro escrow","Tabungan reguler"], correct:1},
-{q:"Rekening giro dinyatakan dormant apabila...", opts:["Tidak memiliki transaksi aktif tarik dan setor luar transaksi system (jasa giro, biaya dan denda) selama 3 (tiga) bulan berturut-turut","Tidak memiliki transaksi aktif tarik dan setor di luar transaksi system (jasa giro, biaya dan denda) selama 6 (enam) bulan berturut-turut","Tidak memiliki transaksi aktif tarik atau setor di luar transaksi system (jasa giro, biaya dan denda) selama 6 (enam) bulan berturut-turut","Tidak memiliki transaksi aktif tarik atau setor di luar transaksi system (jasa giro, biaya dan denda) selama 3 (tiga) bulan berturut-turut"], correct:2},
-{q:"Produk giro yang dapat digunakan untuk tujuan investasi karena rate yang diberikan lebih tinggi dibandingkan produk giro lainnya adalah...", opts:["Giro premier","Giro escrow","Giro vostro","Giro DHE-SDA"], correct:0},
-{q:"Rekening giro yang salah satu sarana penarikannya berupa Letter of Authorization adalah...", opts:["Giro reguler & vostro","Giro zero balance & premier","Giro DHE-SDA & reguler","Giro escrow & DHE-SDA"], correct:2},
-{q:"Apabila pada bagian \"Atas penyerahan cek ini bayarlah kepada .......\" tidak tertulis nama seseorang/badan hukum, maka warkat ini dapat dikategorikan sebagai...", opts:["Wesel bank untuk transfer","Cek silang","Bilyet giro","Cek atas tunjuk"], correct:3},
-{q:"Kenapa bank sangat mengejar dana giro dibanding deposito?", opts:["Karena giro selalu bersaldo besar","Karena giro adalah dana murah sehingga menekan cost of fund dan melebarkan NIM","Karena giro tidak perlu dilaporkan ke Bank Indonesia","Karena bunga giro lebih tinggi sehingga nasabah senang"], correct:1},
-{q:"Apa yang membedakan nasabah non-perorangan dari perorangan dalam pengelolaan rekening?", opts:["Nominal transaksinya selalu lebih kecil","Tidak boleh punya rekening giro","Butuh dokumen legalitas badan dan penandatangan berjenjang sesuai matriks kewenangan","Tidak dikenakan biaya administrasi"], correct:2},
-{q:"Tiga tuas dalam giro generator adalah?", opts:["Kredit, dana, dan fee","New account, transaksi, dan special rate","Cabang, digital, dan agen","Wholesale, retail, dan government"], correct:1},
-{q:"Apa inti strategi closed loop ecosystem?", opts:["Menutup rekening yang tidak aktif","Menahan uang nasabah agar tidak bisa ditarik","Menjaga perputaran uang tetap berada di dalam bank dengan mengakuisisi supplier dan distributor nasabah","Membatasi jumlah transaksi harian nasabah"], correct:2},
-{q:"Giro Zero Balance memiliki ciri utama berupa?", opts:["Bunga tertinggi di antara semua jenis giro","Saldo wajib nihil pada akhir hari dan tidak dapat berdiri sendiri","Hanya boleh dimiliki bank koresponden","Wajib ditarik dengan counter cek"], correct:1},
-{q:"Rekening yang penarikannya harus disetujui pihak ketiga yang netral adalah?", opts:["Giro Premier","Giro Vostro","Giro Escrow","Giro DHE SDA"], correct:2},
-{q:"Dari sudut pandang Bank Mandiri, rekening milik bank lain yang ditempatkan di Bank Mandiri disebut?", opts:["Nostro","Vostro","Escrow","Zero balance"], correct:1},
-{q:"Sebuah rekening giro tidak ada transaksi tarik atau setor dari nasabah selama enam bulan, tetapi tiap bulan terpotong biaya administrasi. Statusnya?", opts:["Tetap aktif karena ada mutasi tiap bulan","Menjadi rekening pasif, karena transaksi sistem tidak dihitung","Otomatis ditutup seketika","Berubah menjadi rekening khusus"], correct:1},
-{q:"Dalam rumus profitabilitas dana, liability spread dihitung sebagai?", opts:["Bunga kredit dikurangi bunga simpanan","FTP dikurangi biaya bunga, biaya GWM, dan biaya premi LPS","Total pendapatan dikurangi total biaya operasional","Saldo rata-rata dikali jumlah transaksi"], correct:1},
-{q:"Perbedaan mendasar cek dan bilyet giro adalah?", opts:["Cek hanya untuk perusahaan, bilyet giro hanya untuk perorangan","Cek bisa dicairkan tunai dan dapat dipindahtangankan, bilyet giro selalu non tunai dan tidak dapat dipindahtangankan","Cek tidak punya masa berlaku","Bilyet giro tidak perlu tanda tangan"], correct:1},
-{q:"Berapa lama tenggang waktu pengunjukan cek dan kapan cek kedaluwarsa?", opts:["30 hari, kedaluwarsa 3 bulan setelahnya","70 hari, kedaluwarsa 6 bulan setelah tenggang waktu berakhir","90 hari, kedaluwarsa 1 tahun setelahnya","70 hari, langsung kedaluwarsa pada hari ke-71"], correct:1},
-{q:"Tanggal efektif pada bilyet giro berfungsi untuk?", opts:["Menandai kapan bilyet giro dicetak","Menandai mulai kapan perintah pemindahbukuan boleh diunjukkan ke bank","Menentukan besarnya biaya warkat","Menentukan cabang yang berwenang"], correct:1},
-{q:"Kapan warkat diselesaikan lewat inkaso, bukan kliring?", opts:["Saat nilai warkat di atas Rp 500 juta","Saat bank tertarik berada di luar jangkauan kliring bank penerima setoran","Saat nasabah meminta prosesnya dipercepat","Saat warkat berupa bilyet giro"], correct:1},
-{q:"Nasabah menarik satu lembar cek kosong senilai Rp 700 juta. Apa konsekuensinya?", opts:["Hanya menerima SP I dan tidak ada sanksi lain","Langsung memenuhi kriteria DHN, karena satu lembar bernilai Rp 500 juta atau lebih sudah cukup","Tidak ada sanksi selama nasabah segera menyetor dana","Rekeningnya otomatis berubah menjadi rekening khusus"], correct:1},
-{q:"Apa fungsi rekening khusus dalam konteks DHN?", opts:["Menampung dana nasabah yang ingin bunga lebih tinggi","Menampung dana untuk membayar cek dan bilyet giro yang masih beredar setelah rekening giro ditutup","Menyimpan dana jaminan proyek","Menampung devisa hasil ekspor"], correct:1},
-{q:"Jenis rekening giro yang dibuat atas dasar keterpercayaan antara kedua belah pihak yang tidak saling mengenal namun menjalankan bisnis/proyek bersama adalah...", opts:["Giro Escrow","Giro Reguler","Giro Vostro","Giro DHE-SDA"], correct:0},
-{q:"Yang merupakan enabler dalam strategi peningkatan dana giro segmen wholesale adalah...", opts:["Kopra","Livin by Mandiri","ATM Link","SMS Banking"], correct:0},
-{q:"SP II dalam DHN diberikan kepada pemilik rekening giro apabila...", opts:["Menarik 3 lembar Cek/BG kosong","Menarik 1 lembar Cek/BG kosong","Menutup rekening secara sepihak","Tidak melakukan transaksi selama 6 bulan"], correct:0},
-{q:"Dasar dilakukannya rehabilitasi DHN adalah, kecuali...", opts:["Kesalahan administrasi pemilik rekening","Kesalahan administrasi bank","Adanya keputusan pengadilan","Berakhirnya jangka waktu pencantuman dalam Daftar Hitam Nasional"], correct:0},
-{q:"Jenis rekening giro yang dibebaskan dari ketentuan rekening pasif (dormant), kecuali...", opts:["Giro Vostro","Giro Zero Balance","Giro Escrow","Giro DHE-SDA"], correct:0},
-{q:"Pada proses kliring lokal di inkaso keluar, pembayaran dana dari bank tertarik diteruskan ke...", opts:["Bank Indonesia atau bank yang ditunjuk","Langsung ke rekening nasabah penyetor","Otoritas Jasa Keuangan","Bank tertarik itu sendiri"], correct:0},
-{q:"Salah satu jenis rekening giro yang digunakan untuk menampung dana serta melakukan transaksi operasional sehari-hari adalah...", opts:["Giro Reguler","Giro Vostro","Giro Escrow","Giro Zero Balance"], correct:0},
-{q:"Saat ini produk giro Bank Mandiri melayani beberapa valuta asing. Produk giro yang hanya terdapat 2 valuta adalah...", opts:["Giro Premier & Giro DHE-SDA","Giro Reguler & Giro Vostro","Giro Escrow & Giro Zero Balance","Giro Vostro & Giro DHE-SDA"], correct:0},
-{q:"Fasilitas dalam rekening giro yang memudahkan proses pemindahan dana otomatis dari satu rekening ke rekening Mandiri giro lainnya dinamakan...", opts:["Sweep","Kliring","Inkaso","Standing Instruction"], correct:0},
-{q:"Produk giro yang penggunanya hanya dapat berasal dari segmen wholesale khususnya lembaga keuangan adalah...", opts:["Giro Vostro","Giro Reguler","Giro Premier","Giro Escrow"], correct:0},
-{q:"Yang termasuk dalam warkat kliring adalah, kecuali...", opts:["Warkat Penundaan","Cek","Bilyet Giro","Nota Debet"], correct:0},
-{q:"Ciri-ciri Counter Cek ditunjukkan oleh: (2) pengganti cek untuk rekening giro perorangan, (4) penarikan giro non-perorangan yang dibekukan DHN, (5) hanya dikeluarkan cabang pengelola & dikenakan biaya per lembar. Nomor yang dimaksud adalah...", opts:["2, 4, dan 5","1, 2, dan 3","1, 3, dan 5","2, 3, dan 4"], correct:0},
-{q:"Jika cek tidak dibatalkan setelah tanggal berakhir masa pengunjukan, maka...", opts:["Cek menjadi kedaluwarsa","Cek otomatis diperpanjang","Cek berubah menjadi bilyet giro","Cek dapat dicairkan tanpa batas waktu"], correct:0},
-{q:"Ciri khas rekening giro Zero Balance yang membedakannya dengan rekening giro lain adalah...", opts:["Saldo wajib nihil setiap akhir hari dan tidak dapat berdiri sendiri (harus terhubung rekening induk)","Memiliki jasa giro tertinggi dibanding giro lain","Bisa ditarik dengan cek atas tunjuk saja","Khusus untuk nasabah perorangan"], correct:0},
-{q:"Proses kliring baru dapat dilakukan setelah...", opts:["Validasi unsur/syarat formal dari bank penagih terpenuhi","Nasabah membayar biaya kliring di muka","Rekening penerima memiliki saldo mengendap","Bank Indonesia memberikan izin khusus"], correct:0},
-{q:"Rafa menarik bilyet giro pada 11 April 2022 dengan tanggal efektif 17 April 2022. Maka pada tanggal 23 April 2022 merupakan masa...", opts:["Tenggang waktu efektif / kewajiban penyediaan dana","Tenggang waktu pengunjukan","Masa kedaluwarsa","Masa penerbitan"], correct:0},
-{q:"Bank ABC, rekanan di Singapura, ingin melayani remitansi ke Indonesia. Rekening yang dibutuhkan adalah...", opts:["Giro Vostro","Giro Nostro","Giro Escrow","Giro Premier"], correct:0}
+/* ============ DATA: KPR (17 soal) ============ */
+const kprData = [
+{q:"Perbandingan antara limit kredit dengan nilai agunan merupakan definisi dari?", opts:["FTV","DBR","DSR","LTV"], correct:3},
+{q:"Manakah yang tidak termasuk biaya KPR Mandiri?", opts:["Biaya Provisi","Biaya Asuransi","Biaya Fee Marketing","Biaya Notaris"], correct:2},
+{q:"Nilai yang digunakan apabila dijual dalam kondisi normal saat pelaksanaan/taksasi, atau nilai wajar dalam transaksi jual beli merupakan nilai?", opts:["Nilai Kewajaran Tanah","Nilai Likuidasi","Nilai Kewajaran Rumah","Nilai Pasar"], correct:3},
+{q:"Pembelian tanah dan bangunan di lokasi proyek yang dikembangkan oleh Developer rekanan maupun non rekanan dari Developer rekanan merupakan istilah dari?", opts:["Primary Market (KPR Primary)","Multiguna Market","Secondary Market","Refinancing Market"], correct:0},
+{q:"Bangunan yang berfungsi sebagai tempat tinggal yang merupakan kesatuan antara tanah dan bangunan dengan bukti kepemilikan merupakan istilah dari?", opts:["Rumah","Apartemen","Rumah Susun","Rumah Tapak"], correct:3},
+{q:"Agunan adalah aset calon debitur yang dijanjikan kepada bank. Manakah yang tidak termasuk agunan yang dapat dibiayai dengan KPR Mandiri?", opts:["Ruko/Rukan","Hotel","Apartemen","Rumah Tapak"], correct:1},
+{q:"Orang yang bekerja dengan keahlian spesifik yang dimilikinya, tidak berada di bawah suatu instansi/perusahaan dan berdiri sendiri disebut dengan?", opts:["Professional","Pegawai Negeri Sipil","Wiraswasta","Pegawai Swasta"], correct:0},
+{q:"Marketabilitas, bonafiditas developer, jenis properti, status kepemilikan sertifikat, kondisi fisik bangunan, merupakan hal-hal yang harus diperhatikan dalam analisis kredit dari sisi aspek?", opts:["Tujuan Kredit","Verifikasi dan Penghasilan","Cek SLIK/DHN","Agunan"], correct:3},
+{q:"Di bawah ini yang bukan merupakan cara mensukseskan bisnis model adalah?", opts:["Media komunikasi tidak disesuaikan dengan profil target market","Membangun kerja sama dengan developer rekanan","Menyesuaikan program promosi dengan target market","Memberikan edukasi produk kepada mitra"], correct:0},
+{q:"Perbandingan antara kewajiban Nasabah dengan penghasilan Nasabah yang memperhitungkan besarnya kewajiban, merupakan definisi dari?", opts:["DBR (Debt Burden Ratio)","FTV","DSR","LTV"], correct:0},
+{q:"Salah satu cara untuk menjaga profitabilitas kredit bank adalah?", opts:["Booking KPR sebanyak-banyaknya dengan bunga sedikit mahal dan selective","Menurunkan bunga sampai batas minimum tanpa seleksi","Membiayai semua pengajuan tanpa analisis kredit","Mengabaikan kualitas agunan demi volume"], correct:0},
+{q:"Salah satu solusi untuk mencegah debitur melakukan pelunasan dipercepat adalah?", opts:["Menawarkan top up ataupun menawarkan retensi suku bunga","Menaikkan denda pelunasan tanpa negosiasi","Membatasi komunikasi dengan debitur","Menghentikan seluruh layanan setelah akad"], correct:0},
+{q:"Definisi yang paling tepat dari Debt Service Ratio (DSR)?", opts:["Perbandingan kewajiban angsuran limit kredit diajukan dan total penghasilan","Perbandingan limit kredit dengan nilai agunan","Perbandingan total aset dengan total liabilitas","Perbandingan biaya operasional dengan pendapatan bank"], correct:0},
+{q:"Sebutkan benefit dari KPR Mandirian!", opts:["Bunga kompetitif","Proses cepat","Jangka waktu fleksibel","Semua Jawaban benar"], correct:3},
+{q:"Tn. A Butuh dana untuk menempuh S3, saat ini berdomisili di rumah dengan angsuran KPR lunas 12 tahun. Fasilitas yang tepat?", opts:["Multiguna","KPR Primary","KPR Refinancing","Kredit Tanpa Agunan"], correct:0},
+{q:"Sesuai guideline pengajuan KPR yang disebut sebagai syarat dokumen pengajuan KPR adalah?", opts:["Dokumen identitas, dokumen penghasilan dan dokumen agunan","Dokumen identitas saja","Dokumen agunan saja","Dokumen penghasilan dan surat referensi kerja saja"], correct:0},
+{q:"Sebutkan salah satu Risk Acceptance Criteria (RAC) dan syarat program marketing KPR Prioritas yang benar!", opts:["FUM minimal Rp.2 M atau DPK minimal Rp.1,5 M selama 6 bulan terakhir","FUM minimal Rp.500 juta tanpa syarat lain","Tidak ada syarat minimal FUM/DPK","DPK minimal Rp.5 M selama 1 bulan terakhir"], correct:0}
 ];
 
-/* ============ DATA: CASH MANAGEMENT (30 soal) ============ */
-const cmData = [
-{q:"Fitur dalam Kopra yang dapat melihat limit tersedia untuk Trade dan Supply Chain adalah :", opts:["Forex Online Dealing","Consolidated Financial Dashboard","Onboarding Supplier","Virtual Assistant"], correct:1},
-{q:"Menu platform berikut termasuk kedalam layanan Kopra kecuali :", opts:["MBC","MCM (pembayaran)","MGT (bank garansi)","Online Custody"], correct:0},
-{q:"Sebutkan fitur yang terdapat pada main menu account Information:", opts:["Balance Inquiry, Transaction Inquiry, Account Statement, Forex Rate Inquiry","Balance Inquiry, Transaction Inquiry, Account Statement, Transaction Status","Balance Inquiry, Transaction Inquiry, Account Statement, Advice Printing","Balance Inquiry, Transaction Inquiry, Account Statement, Bill Payment"], correct:2},
-{q:"Mengapa transaction banking dapat meningkatkan loyalitas nasabah. Salah satu alasan yang membenarkan hal tersebut :", opts:["Transaction banking menjamin system bank berjalan secara real time dengan performance yang dapat diandalkan","Transaction banking menyediakan banyak ragam produk bank","Transaction Banking memberikan kemudahan, keamanan, kenyamanan, dan layanan end to end proses bisnis bagi kebutuhan nasabah","Transaction banking memberikan potongan diskon biaya transaksi"], correct:2},
-{q:"Pembayaran produk Pertamina yang dapat dibeli tanpa pembatasan (umumnya BBM) dapat dilakukan melalui Sistem Online Pembayaran Pertamina (SOPP) pada fitur:", opts:["Quotation","Prepayment","Product Allocation","Cash dan Carry"], correct:0},
-{q:"Tansaction Banking saat ini menjadi salah satu strategi bisnis yang diandalkan oleh Bank Mandiri. Strategi bisnis ini bertujuan untuk :", opts:["Menyediakan layanan electronic channel","Memberikan kemudahan bertransaksi bagi nasabahnya","Memperoleh komposisi dana murah dan Fee Base income, yang akan menopang kinerja bank menjadi lebih baik","Memperoleh volume transaksi perbankan yang dihasilkan dari layanan yang diberikan kepada Nasabah"], correct:2},
-{q:"Cakupan layanan Cash Management yang dapat diberikan Bank Mandiri kepada nasabah meliputi :", opts:["Layanan Payment Management, Collection Management, Liquidity Management, dan Reporting Management","Layanan elektronik banking yang membantu nasabah untuk mendapatkan informasi saldo rekening, mutasi transaksi maupun melakukan berbagai transaksi.","Layanan penata usahaan work flow business process","Layanan advisory untuk membantu mengatasi permasalahan keuangan nasabah"], correct:0},
-{q:"Jaringan yang dapat digunakan nasabah untuk koneksi layanan Host to Host antara lain sebagai berikut :", opts:["VPN","SFTP","Email","Cloud"], correct:0},
-{q:"Benefit yang diharapkan nasabah dalam menggunakan layanan Collection Bank adalah:", opts:["Fleksibilitas cara pembayaran","Kepastian pembayaran","Percepatan penerimaan arus uang masuk","Laporan Transaksi"], correct:2},
-{q:"Menu platform berikut termasuk kedalam layanan Kopra kecuali :", opts:["MBC","MCM","MGT","Online Custody"], correct:0},
-{q:"User pengguna di MCM yang bertugas mengirimkan transaksi yang telah diotorisasi perusahaan ke bank untuk diproses adalah user :", opts:["User Releaser","User Verification","User Approval","User Maker"], correct:0},
-{q:"System security yang tersedia dalam layanan MCM adalah:", opts:["Secure Line","Registered Account dan Transaction Limit","Corporate ID, User ID, Password","Semua jawaban benar"], correct:3},
-{q:"Yang merupakan product dalam kategori Payment adalah :", opts:["Online Notification","Modern Channel","MT101","MRP (upload data tagihan)"], correct:2},
-{q:"Layanan Transaction Banking sangat berkepentingan terhadap arus uang masuk (inflow) dan arus uang keluar (outflow) perusahaan. Salah satu komponen yang mempengaruhi arus uang masuk (inflow) antara lain :", opts:["Pembayaran deviden investor","Gaji karyawan","Pembayaran Pinjaman Bank","Penerimaan tagihan perusahaan dari distributor"], correct:3},
-{q:"Fitur-fitur yang dapat dilakukan oleh user approver MCM adalah sebagai berikut kecuali :", opts:["Pengecekan saldo","Membuat limit transaksi","Melakukan approval transaksi","Pengecekan pending task"], correct:1},
-{q:"Benefit dari layanan Mandiri Bill Collection adalah sebagai berikut kecuali :", opts:["Kemudahan rekonsiliasi penerimaan pembayaran","Ketepatan jumlah pembayaran","Meminimalisir open item","Memudahkan operasional kas kecil cabang nasabah"], correct:3},
-{q:"Salah satu fitur unggulan untuk melacak status transaksi valas yang dilakukan adalah :", opts:["SWIFT GPI","Mandiri e-FX","Telegrafic Transfer","Remittance Tracking"], correct:3},
-{q:"Error CHANNELACCESS-006 pada Kopra ketika nasabah berusaha menambahkan user yang berbeda dari Comp ID yang berbeda dapat diatasi dengan cara:", opts:["Diarahkan menggunakan koneksi jaringan internet yang stabil","Melakukan unlink terlebih dahulu karena sudah pernah di provisioning di Kopra","Melakukan clear cache browser","User meminta aktivasi kembali ke sysadmin"], correct:1},
-{q:"Pendaftaran rekening pinjaman / loan kedalam MCM memerlukan tambahan persyaratan yaitu :", opts:["Surat persetujuan Kepala Bisnis Unit","Akta Pendirian Perusahaan","Form Syarat dan Ketentuan MCM","Persetujuan Wadirut dan Direktur Bidang"], correct:3},
-{q:"Jaringan yang dapat digunakan nasabah untuk koneksi layanan Host to Host antara lain sebagai berikut :", opts:["VPN","SFTP","Email","Cloud"], correct:0},
-{q:"Yang perlu dilakukan nasabah ketika pertama kali belum memiliki tampilan Dashboard Kopra adalah:", opts:["Clear cache di browser","Send request to Admin","Melakukan provisioning","Menghubungi Call Center untuk meminta akses"], correct:1},
-{q:"Belajar dari peristiwa krisis global yang melanda pasar keuangan diseluruh dunia, telah menginspirasi perbankan untuk mengalihkan fokus bisnis ke transaction banking yang memiliki risiko lebih kecil namun tetap memberikan revenue yang signifikan. Pertimbangan tersebut didasari pada :", opts:["Semua jawaban diatas benar.","Transaction Banking memberikan total solusi melalui bundling product package dan service end to end yang memberikan kenyamanan dan meningkatkan loyalitas nasabah, yang pada akhirnya akan menghasilkan fee base secara berulang-ulang dan terus menerus sehingga menciptakan sustainable revenue bagi bank.","Bisnis Transaction Banking lebih banyak diarahkan untuk penyediaan infrastruktur IT untuk menunjang transaksi nasabah secara efektif dan efisien. Semakin banyak transaksi yang dihasilkan maka semakin kecil biaya per unitnya","Transaction Banking memberikan pembiayaan berdasarkan cash flow nasabah, dan penggunaannya harus didasari dengan underlying transaction sehingga terhindar dari penyalahgunaan fasilitas pembiayaan."], correct:0},
-{q:"Menu transfer antar bank dalam menu MCM adalah sebagai berikut kecuali :", opts:["Inkaso","BI Fast","Online Transfer","LLG / SKN"], correct:0},
-{q:"Fitur sysadmin Kopra yang berfungsi untuk memaksa keluar atau log out Company Admin yang mendapati kendala \"still log in\" adalah :", opts:["Deactivate","Unlock","Activate","Release Session"], correct:3},
-{q:"Metode upload file tagihan Mandiri Bill Collection adalah sebagai berikut kecuali:", opts:["MRP / MBC Portal","MFT SFTP","Email","SWIFT ACK"], correct:3},
-{q:"Mandiri Cash Management dapat diakses dengan alamat:", opts:["http://mcm.bankmandiri.co.id/corp","https://mcm2.bankmandiri.co.id","https://mcm.bankmandiri.com","http://mcm.bankmandiri.com"], correct:1},
-{q:"Unlock pada menu Bank Admin BBO Kopra berfungsi untuk membuka akses Bank User yang terkunci karena salah password sebanyak :", opts:["5 kali","2 kali","1 kali","3 kali"], correct:0},
-{q:"Salah satu cara membuka rekening giro dalam Kopra adalah :", opts:["Membuka landing page awal dan klik menu pembukaan rekening giro untuk nasabah existing giro","Log in kedalam Kopra dan masuk menu pendaftaran giro online untuk nasabah new to bank","Melalui halaman registrasi value chain didalam menu Kopra","Membuka landing page awal dan klik menu pembukaan rekening giro untuk nasabah new to bank"], correct:3},
-{q:"Salah satu faktor yang mendorong Bank mengalihkan strategi bisnis pada layanan transaction banking adalah :", opts:["Semua jawaban diatas benar","Resiko bisnis lebih kecil","Mendorong bank untuk mengembangkan produk dan solusi dengan fitur dan fungsi yang sesuai dengan kebutuhan nasabah","Meningkatkan daya saing bank untuk memberikan kualitas layanan yang dapat memenuhi kebutuhan nasabahnya"], correct:0},
-{q:"Error \"please access to Cash Management/Trade dan Bank Guarantee/Supply Chain/Smart Account\" dapat diatasi dengan cara:", opts:["Melakukan clear cache browser","Nasabah disarankan mengganti browser","Diarahkan menggunakan koneksi jaringan internet yang stabil","Nasabah diarahkan untuk setting browser to allow pop up windows"], correct:3}
-];
-
-/* ============ DATA: BASIC ACCOUNTING & TAXATION (30 soal) ============ */
-const atData = [
-{q:"Berikut ini adalah jenis hadiah yang dipotong PPh Pasal 4 ayat (2) adalah…", opts:["Hadiah customer loyalty","Hadiah undian","Hadiah langsung","Hadiah penghargaan"], correct:1},
-{q:"Besarnya PTKP (Penghasilan Tidak Kena Pajak) sebesar Rp54.000.000 adalah untuk WPOP dengan kategori…", opts:["TK/1","K/2","TK/0","K/1"], correct:2},
-{q:"Jenis pajak yang wajib disetor paling lambat tanggal 10 bulan berikutnya adalah…", opts:["PPh Pasal 21, 22, 23, 26, 4(2)","PPN Masukan WAPU","PPN Keluaran","PPh Pasal 29"], correct:0},
-{q:"Berikut yang merupakan pos-pos keuangan pada komponen Liabilitas (Kewajiban) di Laporan Posisi Keuangan:", opts:["Surat Berharga Yang Diterbitkan, Tabungan, Disagio","Surat Berharga Yang Diterbitkan, Tabungan, Pinjaman Yang Diterima","Kredit Yang Diberikan, Tabungan, Agio","Kredit Yang Diberikan, Penempatan Pada Bank Lain, Surat Berharga Yang Dimiliki"], correct:1},
-{q:"Pos-pos di bawah ini memiliki normal balance debit:", opts:["Pendapatan Diterima Dimuka dan Pendapatan Yang Masih Akan Diterima","Pendapatan Diterima Dimuka dan Biaya Yang Masih Harus Dibayarkan","Biaya Dibayar Dimuka dan Pendapatan Yang Masih Akan Diterima","Biaya Dibayar Dimuka dan Pendapatan Diterima Dimuka"], correct:2},
-{q:"Definisi nilai wajar adalah:", opts:["Nilai kini dari arus kas masa datang yang diharapkan timbul dari penggunaan aset","Nilai yang disajikan dalam neraca.","Jumlah kas atau setara kas yang dibayarkan atau nilai wajar dari imbalan lain yang diserahkan untuk memperoleh suatu aset","Jumlah dimana suatu aset dapat dipertukarkan, kewajiban dapat diselesaikan, antara pihak-pihak yang saling mengetahui dan berkeinginan dalam transaksi yang wajar."], correct:3},
-{q:"Kesalahan dalam melakukan penyetoran pajak, dapat dilakukan perbaikan dengan cara sebagai berikut…", opts:["Penarikan Dana Pajak","Pemindahbukuan","Pembetulan SPT","Pengajuan"], correct:1},
-{q:"Berikut ini adalah komponen dari Laporan Posisi Keuangan:", opts:["Ekuitas, Liabilitas, Aset","Beban, Pendapatan, Saldo Laba/Rugi","Liabilitas, Ekuitas, Pendapatan","Aset, Liabilitas, Beban"], correct:0},
-{q:"Badan atau Lembaga Pemerintah dikecualikan sebagai Subjek Pajak apabila memenuhi syarat yang diatur dalam Pasal 2 ayat 3(b) UU PPh, kecuali…", opts:["Pembiayaan badan/lembaga bersumber dari APBN atau APBD","Penerimaan badan/lembaga tersebut dimasukkan ke dalam APBN/APBD","Pembukuan badan/lembaga diaudit oleh Kantor Akuntan Publik","Pembentukan badan/lembaga berdasarkan Undang-Undang"], correct:2},
-{q:"Tarif PPN Baru yang akan berlaku mulai 1 April 2022 adalah…", opts:["11%","10%","13%","15%"], correct:0},
-{q:"Di bawah ini yang termasuk subjek pajak, kecuali…", opts:["Orang Pribadi","Badan","Tanah/Bangunan","Bentuk Usaha Tetap"], correct:2},
-{q:"Di bawah ini adalah persamaan dasar akuntansi:", opts:["Aset = Modal Pemilik - Liabilitas","Aset = Liabilitas + Expenses-Revenue","Liabilitas = Aset + Modal Pemilik","Liabilitas = Aset – Modal Pemilik"], correct:3},
-{q:"Akuntansi merupakan metode sistematis untuk mengumpulkan data transaksi keuangan untuk:", opts:["Mengklasifikasikan – mencatat – menyajikan informasi keuangan","Mencatat – menyajikan – mengklasifikasikan informasi keuangan","Menyajikan – mencatat – mengklasifikasikan informasi keuangan","Mencatat – mengklasifikasikan – menyajikan informasi keuangan"], correct:3},
-{q:"Berikut ini adalah komponen atau faktor dalam perhitungan bunga yang sesuai dengan karakteristik arus kas SPPI menurut PSAK 71:", opts:["Commodity Index Price, Operational Risk, Margin, Biaya Pinjaman Dasar","Credit Risk, Biaya Pinjaman Dasar, Time Value of Money, Margin","Credit Risk, Margin, Time Value of Money, Financial Performance","Time Value of Money, Commodity Index Price, Financial Performance, Biaya Pinjaman Dasar"], correct:1},
-{q:"Tarif tunggal Bea Meterai yang berlaku mulai tahun 2021 adalah…", opts:["Rp3.000","Rp10.000","Rp6.500","Rp6.000"], correct:1},
-{q:"Pengukuran Aset Keuangan Setelah Pengakuan Awal dengan menggunakan metode mark to market adalah untuk aset keuangan dengan katagori:", opts:["FVOCI dan Amortised Cost","FVPL dan FVOCI","Semua Salah","FVPL dan Amortised Cost"], correct:1},
-{q:"Aset Keuangan yang tidak perlu dilakukan dibentuk Cadangan Kerugian Penurunan Nilai (CKPN) adalah untuk klasifikasi:", opts:["Fair Value Through Profit dan Loss","Fair Value Through Other Comprehensive Income","Semua Benar","Amortised Cost"], correct:0},
-{q:"Biaya transaksi atas kewajiban keuangan diakui sebagai:", opts:["Biaya Promosi","Biaya bunga","Biaya humas","Pendapatan bunga"], correct:1},
-{q:"Berikut ini adalah komponen dari Laporan Posisi Keuangan:", opts:["Liabilitas, Ekuitas, Pendapatan","Ekuitas, Liabilitas, Aset","Beban, Pendapatan, Saldo Laba/Rugi","Aset, Liabilitas, Beban"], correct:1},
-{q:"Buku besar yang di awali dengan angka 2 menunjukkan bahwa buku besar tersebut merupakan:", opts:["Biaya","Pendapatan","Aset","Liabilitas"], correct:3},
-{q:"Lapisan penghasilan kena pajak dan pajak progresif yang dikenakan oleh pemberi penghasilan atas pemotongan pajak terhadap penghasilan yang diterima oleh WPOP (asumsi pegawai atau penerima penghasilan tidak memiliki NPWP) adalah…", opts:["Penghasilan s.d. Rp60 juta tarif 6%, di atas Rp50 juta s.d. Rp250 juta tarif 18%, di atas Rp250 juta s.d. Rp500 juta tarif 30%, dan di atas Rp200 juta tarif 28%","Penghasilan s.d. Rp60 juta tarif 6%, di atas Rp60 juta s.d. Rp250 juta tarif 18%, di atas Rp250 juta s.d. Rp500 juta tarif 30%, di atas Rp500 juta s.d. 5 miliar tarif 36%, dan di atas Rp5 miliar tarif 42%","Penghasilan s.d. Rp60 juta tarif 6%, di atas Rp50 juta s.d. Rp250 juta tarif 18%, di atas Rp250 juta s.d. Rp500 juta tarif 30%, dan di atas Rp250 juta tarif 36%","Penghasilan s.d. Rp60 juta tarif 6%, di atas Rp60 juta s.d. Rp200 juta tarif 18%, di atas Rp200 juta s.d. Rp500 juta tarif 30%, dan di atas Rp500 juta tarif 25%"], correct:1},
-{q:"Tiga model bisnis dalam pengelolaan aset keuangan berdasarkan PSAK 71 adalah sebagai berikut, kecuali:", opts:["Hold to Collect and Sell","Other (Commonly Hold to Sell)","Hold to Collect","Hold to Produce"], correct:3},
-{q:"Manakah yang benar terkait konsep penurunan nilai menurut PSAK 71 di Bank Mandiri:", opts:["Penurunan nilai menggunakan incurred credit loss","Stage 2 dan 3 diukur menggunakan lifetime ECL","Semua Salah","Stage 1 dapat diukur menggunakan metode individual"], correct:1},
-{q:"Pendekatan individual dalam perhitungan CKPN merupakan:", opts:["Dilakukan untuk aset keuangan di Stage 1","Perhitungan CKPN dengan menggunakan metode Expected Credit Loss (ECL) dengan menghitung komponen PD, LGD, EAD berdasarkan model yang telah dikembangkan","Semua jawaban Benar","Perhitungan CKPN dengan metode Discounted Cash Flow yang dilakukan oleh pengelola account dengan memproyeksikan cash shortfall."], correct:3},
-{q:"Apabila terdapat keterlambatan penyetoran pajak, maka Wajib Pajak akan dikenakan sanksi denda sesuai dengan UU KUP sebesar…", opts:["(MoFIR + 5%)/12 dan maksimal 24 bulan","(MoFIR + 15%)/12 dan maksimal 24 bulan","(MoFIR + 25%)/12 dan maksimal 24 bulan","(MoFIR + 10%)/12 dan maksimal 24 bulan"], correct:0},
-{q:"Pelaporan Pajak yang dilakukan secara desentralisasi adalah…", opts:["SPT Masa Bea Meterai","SPT Masa PPN","SPT Masa PPh Pasal 4 ayat (2) Bunga DGT","SPT Masa PPh Pasal 21"], correct:3},
-{q:"Mana dari kriteria berikut yang sesuai dengan karakteristik arus kas SPPI menurut PSAK 71:", opts:["Aset keuangan yang terkait dengan perubahan harga saham atau harga komoditas","Pinjaman dengan suku bunga yang memiliki hubungan negatif dengan indeks suku bunga tertentu.","Semua Salah","Fitur dimana kreditur dapat mengubah tingkat suku bunga berdasarkan suatu referensi suku bunga tertentu di pasar (suku bunga mengambang)"], correct:3},
-{q:"Jenis pajak yang wajib disetor paling lambat tanggal 15 bulan berikutnya adalah…", opts:["PPN Keluaran","PPh Pasal 29","PPh Pasal 21, 22, 23, 26, 4(2)","PPN Masukan WAPU dan PPN Masukan Jasa Luar Negeri"], correct:3},
-{q:"Berikut ini merupakan objek pajak PPh Pasal 23, kecuali…", opts:["Jasa Percetakan","Jasa Event Organizer","Jasa Catering","Pembelian mesin printer"], correct:3},
-{q:"Bank Mandiri Cabang Bali Sunset Road pada bulan Juni 2019 menyewakan SDB kepada nasabah dengan harga sewa Rp1.000.000 (tidak termasuk PPN). PPN Keluaran yang harus dipungut dan disetorkan ke kas negara oleh Bank Mandiri Cabang Bali Sunset Road adalah sebesar...", opts:["Rp90.000","Rp90.909","Rp110.000","Rp100.000"], correct:3}
-];
-
-/* ============ DATA: A1 TAX NOTES (27 poin) ============ */
-const a1Data = [
-{point:"Pengujian waktu", answer:"Time Testing"},
-{point:"Pasal 4 ayat (2), kecuali", answer:"Hadiah penghargaan"},
-{point:"Pasal 26, kecuali", answer:"Pembelian barang"},
-{point:"Tarif ekspor", answer:"0%"},
-{point:"Ekspor luar negeri kalau lebih dari batas time testing", answer:"20%"},
-{point:"Tarif hadiah undian", answer:"25%"},
-{point:"Nomor di NPWP bagi perorangan", answer:"NIK"},
-{point:"Hal yang tidak diatur dalam KUP", answer:"Perhitungan Pajak"},
-{point:"Jika badan usaha lebih dari Rp4,8 M dan tidak melapor, KPP akan mengeluarkan", answer:"Surat PKP (Pengusaha Kena Pajak)"},
-{point:"Proses pemotongan pajak PPh Pasal 4 Ayat (2)", answer:"SAP FICO"},
-{point:"Yang termasuk sebagai objek pajak adalah", answer:"Tanah dan Bangunan"},
-{point:"Yang termasuk subjek pajak adalah", answer:"Warisan yang belum terbagi"},
-{point:"Pajak yang wajib dilaporkan paling lambat tanggal 20 setiap bulan adalah", answer:"Pajak Unifikasi"},
-{point:"Penghasilan Tidak Kena Pajak untuk Orang Pribadi", answer:"Rp54 juta"},
-{point:"Lapisan Rp250–500 juta berdasarkan Pasal 17 ayat (1)", answer:"Kena 25%"},
-{point:"Penghasilan bruto harian Rp450 ribu sampai Rp2,5 juta", answer:"Kena pajak 0,5%"},
-{point:"PTKP kategori K/3", answer:"Rp72 juta"},
-{point:"Penghasilan suami-istri digabung, kategori K/I/2 (punya 2 tanggungan)", answer:"PTKP = Rp121.500.000"},
-{point:"Bea Meterai", answer:"Rp10.000"},
-{point:"Denda keterlambatan meterai", answer:"100% dari harga meterai"},
-{point:"Threshold dokumen yang dikenakan meterai Rp10.000", answer:"Rp5 juta"},
-{point:"Kode faktur untuk transaksi di atas Rp10 juta", answer:"030"},
-{point:"Tujuan CRS, kecuali", answer:"Mencegah keterbukaan informasi"},
-{point:"Formulir pencatatan CRS", answer:"Semua benar"},
-{point:"Sanksi keterlambatan laporan pajak Bea Meterai", answer:"Rp100 ribu per SPT"},
-{point:"Pelaporan PPh Pasal 23", answer:"Tanggal 15 bulan berikutnya"},
-{point:"Tujuan penerapan PTKP", answer:"Meringankan orang dengan gaji di bawah PTKP"}
+/* ============ DATA: KKB (10 soal) ============ */
+const kkbData = [
+{q:"Pernyataan berikut yang salah adalah?", opts:["Bank Mandiri mempunyai 2 (dua) Multifinance","Multifinance di Indonesia diatur dalam POJK","Bank di Indonesia diatur dalam PBI","Proses Kredit Mandiri KKB dilakukan seluruhnya di Bank Mandiri"], correct:3},
+{q:"Pembiayaan kepada End User dibagi berdasarkan porsi pembiayaan sesuai kesepakatan antara Bank Mandiri dan Multifinance Perusahaan Anak sebesar 99:1 adalah pengertian dari?", opts:["Joint Finance","Non Joint Finance","Customer Asset Purchase","Pembiayaan Multifinance"], correct:0},
+{q:"Dalam Business Model Mandiri KKB, kata kunci yang paling tepat digunakan adalah?", opts:["Inisiatif","Kredit","Commercial","Referral"], correct:3},
+{q:"Pak Bibi datang ke Cabang Bank Mandiri untuk mengajukan kredit Mobil dan dibantu Cabang untuk kemudian direferralkan ke MTF atau MUF. Berarti business model kredit kendaraan yang tepat adalah?", opts:["CAP","Sindikasi","Non JF","Mandiri KKB"], correct:3},
+{q:"Maksimal LTV untuk pegawai Bank Mandiri yang mengajukan melalui Mandiri CLICK adalah?", opts:["80%","85%","90%","100%"], correct:3},
+{q:"Berikut adalah merk kendaraan yang dapat dibiayai oleh Mandiri KKB, kecuali?", opts:["Bajaj","Suzuki","Porsche","Nissan"], correct:0},
+{q:"Proses underwriting Mandiri KKB berada di Unit Kerja?", opts:["Operasional MTF atau MUF","Consumer Loans Group","Strategic Investment & Subsidiary Management Group","Digital Banking Product Group"], correct:0},
+{q:"Agar booking Mandiri KKB menjadi pendapatan dan dibukukan di Cabang maka harus melalui booking?", opts:["Non Joint Finance","Customer Asset Purchase","Joint Finance","Top Up"], correct:2},
+{q:"Berikut yang bukan merupakan sektor industri yang dihindari adalah?", opts:["Pendidikan","Perjudian","Minuman keras","Senjata api"], correct:0},
+{q:"Di region, selain dengan Consumer Loan Head, monitoring atau promosi serta produk terbaru terkait Mandiri KKB dapat berkoordinasi dengan perwakilan Bank Mandiri, yaitu?", opts:["Regional CEO","Mandiri KKB Manager","Subsidiary Liaison Manager","Consumer Loans Manager"], correct:2}
 ];
 
 /* ============ STATE ============ */
-let giroPicks = new Array(giroData.length).fill(null);
-let cmPicks = new Array(cmData.length).fill(null);
-let atPicks = new Array(atData.length).fill(null);
-let giroSubmitted=false, cmSubmitted=false, atSubmitted=false;
-let giroTimerInt=null, cmTimerInt=null, atTimerInt=null;
+let kprPicks = new Array(kprData.length).fill(null);
+let kkbPicks = new Array(kkbData.length).fill(null);
+let kprSubmitted=false, kkbSubmitted=false;
+let kprTimerInt=null, kkbTimerInt=null;
 
 /* ============ NAV ============ */
 function showSection(id){
@@ -535,7 +342,7 @@ function showSection(id){
   window.scrollTo({top:0, behavior:'auto'});
 }
 function backToStart(){
-  clearInterval(giroTimerInt); clearInterval(cmTimerInt); clearInterval(atTimerInt);
+  clearInterval(kprTimerInt); clearInterval(kkbTimerInt);
   showSection('screenStart');
 }
 
@@ -624,125 +431,72 @@ function scoreMsg(pct){
     'Perlu latihan lagi, pelajari kembali materinya.';
 }
 
-/* ============ GIRO (GABUNGAN) ============ */
-function goGiroTest(){
-  giroPicks = new Array(giroData.length).fill(null);
-  giroSubmitted = false;
-  renderQList('giroQList', giroData, it=>it.q, it=>it.opts, 'giro');
-  showSection('screenGiroTest');
-  clearInterval(giroTimerInt);
-  giroTimerInt = startTimer('giroTimer', 45*60, ()=>{ if(!giroSubmitted) submitGiro(); });
+/* ============ KPR ============ */
+function goKPRTest(){
+  kprPicks = new Array(kprData.length).fill(null);
+  kprSubmitted = false;
+  renderQList('kprQList', kprData, it=>it.q, it=>it.opts, 'kpr');
+  showSection('screenKPRTest');
+  clearInterval(kprTimerInt);
+  kprTimerInt = startTimer('kprTimer', 20*60, ()=>{ if(!kprSubmitted) submitKPR(); });
 }
-function pickgiro(qi, oi){
-  if(giroSubmitted || giroPicks[qi]!==null) return;
-  giroPicks[qi]=oi;
-  document.querySelectorAll('#giro-opts-'+qi+' .lms-opt').forEach((o,i)=>{
+function pickkpr(qi, oi){
+  if(kprSubmitted || kprPicks[qi]!==null) return;
+  kprPicks[qi]=oi;
+  document.querySelectorAll('#kpr-opts-'+qi+' .lms-opt').forEach((o,i)=>{
     o.classList.toggle('checked', i===oi);
-    if(i===giroData[qi].correct) o.classList.add('ans-correct');
+    if(i===kprData[qi].correct) o.classList.add('ans-correct');
     o.classList.add('answered');
     o.onclick=null;
   });
 }
-function submitGiro(){
-  if(giroSubmitted) return;
-  giroSubmitted = true;
-  clearInterval(giroTimerInt);
+function submitKPR(){
+  if(kprSubmitted) return;
+  kprSubmitted = true;
+  clearInterval(kprTimerInt);
   let score=0;
-  giroData.forEach((item,idx)=>{
-    document.querySelectorAll('#giro-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
-    if(giroPicks[idx]===item.correct) score++;
+  kprData.forEach((item,idx)=>{
+    document.querySelectorAll('#kpr-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
+    if(kprPicks[idx]===item.correct) score++;
   });
-  document.getElementById('giroScoreBig').textContent = score+' / '+giroData.length;
-  document.getElementById('giroScoreMsg').textContent = scoreMsg(score/giroData.length);
-  renderReview('giroReviewList', giroData, giroPicks);
-  showSection('screenGiroResult');
+  document.getElementById('kprScoreBig').textContent = score+' / '+kprData.length;
+  document.getElementById('kprScoreMsg').textContent = scoreMsg(score/kprData.length);
+  renderReview('kprReviewList', kprData, kprPicks);
+  showSection('screenKPRResult');
 }
 
-/* ============ CM (CASH MANAGEMENT) ============ */
-function goCMTest(){
-  cmPicks = new Array(cmData.length).fill(null);
-  cmSubmitted = false;
-  renderQList('cmQList', cmData, it=>it.q, it=>it.opts, 'cm');
-  showSection('screenCMTest');
-  clearInterval(cmTimerInt);
-  cmTimerInt = startTimer('cmTimer', 20*60, ()=>{ if(!cmSubmitted) submitCM(); });
+/* ============ KKB ============ */
+function goKKBTest(){
+  kkbPicks = new Array(kkbData.length).fill(null);
+  kkbSubmitted = false;
+  renderQList('kkbQList', kkbData, it=>it.q, it=>it.opts, 'kkb');
+  showSection('screenKKBTest');
+  clearInterval(kkbTimerInt);
+  kkbTimerInt = startTimer('kkbTimer', 15*60, ()=>{ if(!kkbSubmitted) submitKKB(); });
 }
-function pickcm(qi, oi){
-  if(cmSubmitted || cmPicks[qi]!==null) return;
-  cmPicks[qi]=oi;
-  document.querySelectorAll('#cm-opts-'+qi+' .lms-opt').forEach((o,i)=>{
+function pickkkb(qi, oi){
+  if(kkbSubmitted || kkbPicks[qi]!==null) return;
+  kkbPicks[qi]=oi;
+  document.querySelectorAll('#kkb-opts-'+qi+' .lms-opt').forEach((o,i)=>{
     o.classList.toggle('checked', i===oi);
-    if(i===cmData[qi].correct) o.classList.add('ans-correct');
+    if(i===kkbData[qi].correct) o.classList.add('ans-correct');
     o.classList.add('answered');
     o.onclick=null;
   });
 }
-function submitCM(){
-  if(cmSubmitted) return;
-  cmSubmitted = true;
-  clearInterval(cmTimerInt);
+function submitKKB(){
+  if(kkbSubmitted) return;
+  kkbSubmitted = true;
+  clearInterval(kkbTimerInt);
   let score=0;
-  cmData.forEach((item,idx)=>{
-    document.querySelectorAll('#cm-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
-    if(cmPicks[idx]===item.correct) score++;
+  kkbData.forEach((item,idx)=>{
+    document.querySelectorAll('#kkb-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
+    if(kkbPicks[idx]===item.correct) score++;
   });
-  document.getElementById('cmScoreBig').textContent = score+' / '+cmData.length;
-  document.getElementById('cmScoreMsg').textContent = scoreMsg(score/cmData.length);
-  renderReview('cmReviewList', cmData, cmPicks);
-  showSection('screenCMResult');
-}
-
-/* ============ AT (BASIC ACCOUNTING & TAXATION) ============ */
-function goATTest(){
-  atPicks = new Array(atData.length).fill(null);
-  atSubmitted = false;
-  renderQList('atQList', atData, it=>it.q, it=>it.opts, 'at');
-  showSection('screenATTest');
-  clearInterval(atTimerInt);
-  atTimerInt = startTimer('atTimer', 30*60, ()=>{ if(!atSubmitted) submitAT(); });
-}
-function pickat(qi, oi){
-  if(atSubmitted || atPicks[qi]!==null) return;
-  atPicks[qi]=oi;
-  document.querySelectorAll('#at-opts-'+qi+' .lms-opt').forEach((o,i)=>{
-    o.classList.toggle('checked', i===oi);
-    if(i===atData[qi].correct) o.classList.add('ans-correct');
-    o.classList.add('answered');
-    o.onclick=null;
-  });
-}
-function submitAT(){
-  if(atSubmitted) return;
-  atSubmitted = true;
-  clearInterval(atTimerInt);
-  let score=0;
-  atData.forEach((item,idx)=>{
-    document.querySelectorAll('#at-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
-    if(atPicks[idx]===item.correct) score++;
-  });
-  document.getElementById('atScoreBig').textContent = score+' / '+atData.length;
-  document.getElementById('atScoreMsg').textContent = scoreMsg(score/atData.length);
-  renderReview('atReviewList', atData, atPicks);
-  showSection('screenATResult');
-}
-
-/* ============ A1 TAX NOTES ============ */
-function goA1(){
-  const holder = document.getElementById('a1List');
-  holder.innerHTML = '';
-  a1Data.forEach((item, idx)=>{
-    const div = document.createElement('div');
-    div.className = 'a1-item';
-    div.innerHTML = `
-      <div class="a1-num">${idx+1}.</div>
-      <div class="a1-body">
-        <div class="a1-point">${item.point}</div>
-        <div class="a1-answer"><span class="arrow">➜</span>${item.answer}</div>
-      </div>
-    `;
-    holder.appendChild(div);
-  });
-  showSection('screenA1');
+  document.getElementById('kkbScoreBig').textContent = score+' / '+kkbData.length;
+  document.getElementById('kkbScoreMsg').textContent = scoreMsg(score/kkbData.length);
+  renderReview('kkbReviewList', kkbData, kkbPicks);
+  showSection('screenKKBResult');
 }
 
 /* ============ FULL ANSWER KEY (per materi) ============ */
@@ -761,19 +515,16 @@ function renderAnswerList(containerId, dataArrays){
   });
 }
 function goAnswerKey(){
-  renderAnswerList('akPart1', [giroData]);
-  renderAnswerList('akPart2', [cmData]);
-  renderAnswerList('akPart3', [atData]);
-  switchAkTab('giro');
+  renderAnswerList('akPart1', [kprData]);
+  renderAnswerList('akPart2', [kkbData]);
+  switchAkTab('kpr');
   showSection('screenAnswerKey');
 }
 function switchAkTab(tab){
-  document.getElementById('akTabGiro').classList.toggle('active', tab==='giro');
-  document.getElementById('akTabCM').classList.toggle('active', tab==='cm');
-  document.getElementById('akTabAT').classList.toggle('active', tab==='at');
-  document.getElementById('akPaneGiro').classList.toggle('active', tab==='giro');
-  document.getElementById('akPaneCM').classList.toggle('active', tab==='cm');
-  document.getElementById('akPaneAT').classList.toggle('active', tab==='at');
+  document.getElementById('akTabKPR').classList.toggle('active', tab==='kpr');
+  document.getElementById('akTabKKB').classList.toggle('active', tab==='kkb');
+  document.getElementById('akPaneKPR').classList.toggle('active', tab==='kpr');
+  document.getElementById('akPaneKKB').classList.toggle('active', tab==='kkb');
 }
 </script>
 </body>

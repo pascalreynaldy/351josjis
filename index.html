@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LATIHAN SOAL — KPR & KKB</title>
+<title>Click</title>
 <style>
 :root{
   --lms-blue:#1a73c4;
@@ -214,6 +214,16 @@ body{
     <div class="pick-arrow">➜</div>
   </div>
 
+  <div class="start-groupheader">Materi: Kiluy</div>
+  <div class="pick-card" onclick="goKiluyTest()">
+    <div class="pick-icon">📋</div>
+    <div class="pick-text">
+      <div class="pick-title">Latihan - Kiluy (POST TEST KPR &amp; KKB Mandiri Auto)</div>
+      <div class="pick-desc">28 soal · pilihan ganda · waktu 28 menit</div>
+    </div>
+    <div class="pick-arrow">➜</div>
+  </div>
+
   <div class="linklike" onclick="goAnswerKey()">Lihat rangkuman lengkap semua jawaban</div>
 </section>
 
@@ -275,6 +285,35 @@ body{
   </div>
 </section>
 
+<!-- ===== KILUY ===== -->
+<section class="section" id="screenKiluyTest">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM SDP - LATIHAN KILUY (POST TEST KPR &amp; KKB) <span class="info-dot">i</span></div></div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-head-row">
+      <div><div class="lms-h1">Latihan - Kiluy</div><div class="lms-h2">POST TEST KPR &amp; KKB MANDIRI AUTO — SELURUH BAGIAN (28 SOAL)</div></div>
+      <div class="lms-timer-block"><div class="lms-timer" id="kiluyTimer">28:00</div><div class="lms-timer-label">Time remaining</div></div>
+    </div>
+    <hr class="lms-hr">
+    <div id="kiluyQList"></div>
+    <div class="lms-finish"><button class="lms-btn" id="kiluySubmitBtn" onclick="submitKiluy()">Lihat Hasil</button></div>
+  </div></div>
+</section>
+
+<section class="section" id="screenKiluyResult">
+  <div class="lms-topbar"><div class="tb-title">PROGRAM SDP - LATIHAN KILUY (POST TEST KPR &amp; KKB) <span class="info-dot">i</span></div></div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-result-head"><div class="lms-score-big" id="kiluyScoreBig">0 / 28</div><div class="lms-score-sub" id="kiluyScoreMsg"></div></div>
+    <hr class="lms-hr"><div id="kiluyReviewList"></div>
+  </div></div>
+  <div class="lms-submitbar">
+    <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
+    <button class="lms-btn ghost" onclick="goKiluyTest()">🔁 Ulangi Test</button>
+    <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
+  </div>
+</section>
+
 <!-- ===== FULL ANSWER KEY (per materi) ===== -->
 <section class="section" id="screenAnswerKey">
   <div class="lms-topbar"><div class="tb-title">PROGRAM ODP/SDP - RANGKUMAN SEMUA JAWABAN <span class="info-dot">i</span></div></div>
@@ -284,9 +323,11 @@ body{
     <div class="ak-tabs">
       <div class="ak-tab active" id="akTabKPR" onclick="switchAkTab('kpr')">KPR (17 soal)</div>
       <div class="ak-tab" id="akTabKKB" onclick="switchAkTab('kkb')">KKB (10 soal)</div>
+      <div class="ak-tab" id="akTabKiluy" onclick="switchAkTab('kiluy')">Kiluy (28 soal)</div>
     </div>
     <div class="ak-pane active" id="akPaneKPR"><div id="akPart1"></div></div>
     <div class="ak-pane" id="akPaneKKB"><div id="akPart2"></div></div>
+    <div class="ak-pane" id="akPaneKiluy"><div id="akPart3"></div></div>
   </div></div>
   <div class="lms-submitbar">
     <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
@@ -329,11 +370,44 @@ const kkbData = [
 {q:"Di region, selain dengan Consumer Loan Head, monitoring atau promosi serta produk terbaru terkait Mandiri KKB dapat berkoordinasi dengan perwakilan Bank Mandiri, yaitu?", opts:["Regional CEO","Mandiri KKB Manager","Subsidiary Liaison Manager","Consumer Loans Manager"], correct:2}
 ];
 
+/* ============ DATA: KILUY — POST TEST KPR & KKB MANDIRI AUTO (28 soal) ============ */
+const kiluyData = [
+{q:"Perbandingan antara limit kredit dengan nilai agunan merupakan definisi dari:", opts:["Loan to Value (LTV)","Debt Service Ratio (DSR)","Debt Burden Ratio (DBR)","Loan to Income Ratio"], correct:0},
+{q:"Manakah yang tidak termasuk biaya KPR Mandiri?", opts:["Biaya Provisi","Biaya Notaris","Biaya Asuransi","Biaya Fee Marketing"], correct:3},
+{q:"Nilai yang digunakan apabila dijual dalam kondisi normal saat pelaksanaan/taksasi, atau nilai wajar dalam transaksi jual beli merupakan nilai?", opts:["Nilai Likuidasi","Nilai Pasar","Nilai Buku","Nilai Appraisal Bank"], correct:1},
+{q:"Pembelian tanah dan bangunan di lokasi proyek yang dikembangkan oleh Developer rekanan maupun non rekanan dari Developer rekanan merupakan istilah dari?", opts:["Secondary Market","Primary Market","Open Market","Bulk Market"], correct:1},
+{q:"Bangunan yang berfungsi sebagai tempat tinggal yang merupakan kesatuan antara tanah dan bangunan dengan bukti kepemilikan merupakan istilah dari?", opts:["Apartemen","Rumah Susun","Rumah Tapak","Ruko"], correct:2},
+{q:"Agunan adalah aset calon debitur yang dijanjikan kepada bank jika calon debitur tidak dapat mengembalikan pinjaman tersebut. Manakah yang tidak termasuk agunan yang dapat dibiayai dengan KPR Mandiri?", opts:["Rumah Tinggal","Apartemen","Ruko","Hotel"], correct:3},
+{q:"Orang yang bekerja dengan keahlian spesifik yang dimilikinya, tidak berada di bawah suatu instansi/perusahaan dan berdiri sendiri disebut dengan?", opts:["Wiraswasta","Professional","Karyawan","Pegawai Negeri"], correct:1},
+{q:"Marketabilitas, bonafiditas developer, jenis properti, status kepemilikan sertifikat, kondisi fisik bangunan, akses jalan, dan proporsi luas dan nilai, merupakan hal-hal yang harus diperhatikan dalam analisis kredit dari sisi aspek?", opts:["Karakter","Kapasitas","Agunan","Kondisi Ekonomi"], correct:2},
+{q:"Di bawah ini yang bukan merupakan cara mensukseskan bisnis model adalah?", opts:["Kolaborasi dengan developer rekanan","Personalisasi penawaran ke nasabah","Media komunikasi tidak disesuaikan dengan profil target market","Monitoring dan evaluasi berkala"], correct:2},
+{q:"Perbandingan antara kewajiban Nasabah dengan penghasilan Nasabah yang memperhitungkan besarnya kewajiban termasuk jumlah kewajiban pada pihak ketiga (kreditur) dan kewajiban pada Bank merupakan definisi dari?", opts:["Loan to Value (LTV)","Debt Service Ratio (DSR)","Debt Burden Ratio (DBR)","Debt to Income Ratio (DTI)"], correct:2},
+{q:"Salah satu untuk menjaga profitabilitas kredit bank adalah?", opts:["Booking KPR sebanyak-banyaknya dengan bunga sedikit mahal dan selective","Menurunkan suku bunga serendah mungkin untuk semua segmen","Mempercepat proses tanpa analisis risiko","Menghapus biaya provisi seluruhnya"], correct:0},
+{q:"Salah satu solusi untuk mencegah debitur melakukan pelunasan dipercepat adalah?", opts:["Menawarkan top up ataupun menawarkan retensi suku bunga","Menaikkan denda pelunasan dipercepat setinggi-tingginya","Menolak permohonan pelunasan dipercepat","Memperpanjang jangka waktu secara otomatis"], correct:0},
+{q:"Definisi yang paling tepat dari Debt Service Ratio (DSR)?", opts:["Perbandingan kewajiban angsuran limit kredit diajukan dan total penghasilan","Perbandingan limit kredit dengan nilai agunan","Perbandingan seluruh kewajiban pihak ketiga dengan penghasilan","Perbandingan total aset dengan total liabilitas"], correct:0},
+{q:"Sebutkan benefit dari KPR Mandiri?", opts:["Suku bunga kompetitif","Proses cepat dan mudah","Jangka waktu panjang","Semua Jawaban benar"], correct:3},
+{q:"Tn. A butuh dana untuk menempuh S3, saat ini berdomisili di rumah dengan angsuran KPR lunas 12 tahun. Fasilitas yang tepat?", opts:["KPR Primary","KPR Secondary","Multiguna","Take Over"], correct:2},
+{q:"Sesuai guideline pengajuan KPR yang disebut sebagai syarat dokumen pengajuan KPR adalah?", opts:["Dokumen identitas, dokumen penghasilan, dan dokumen agunan","Dokumen identitas saja","Dokumen agunan saja","Dokumen penghasilan dan surat referensi kerja saja"], correct:0},
+{q:"Sebutkan salah satu Risk Acceptance Criteria (RAC) dan syarat program marketing KPR Prioritas yang benar:", opts:["FUM minimal Rp 2 M atau DPK minimal Rp 1,5 M selama 6 bulan terakhir","FUM minimal Rp 500 juta selama 3 bulan terakhir","Tidak ada syarat khusus","DPK minimal Rp 5 M selama 1 tahun terakhir"], correct:0},
+{q:"KPR untuk pembelian rumah baru yang dibangun oleh developer yang telah bekerja sama dengan bank disebut sebagai KPR:", opts:["KPR Secondary","KPR Primary","KPR Take Over","KPR Refinancing"], correct:1},
+{q:"Berikut adalah merk kendaraan yang dapat dibiayai oleh Mandiri KKB, kecuali:", opts:["Toyota","Honda","Bajaj","Daihatsu"], correct:2},
+{q:"Berikut yang bukan merupakan sektor industri yang dihindari adalah:", opts:["Perjudian","Narkoba","Pendidikan","Senjata Api"], correct:2},
+{q:"Pak Bibi datang ke Cabang Bank Mandiri untuk mengajukan kredit Mobil dan dibantu Cabang untuk kemudian direferralkan ke MTF atau MUF. Berarti business model kredit kendaraan yang tepat adalah:", opts:["Joint Finance","Mandiri KKB","Channeling","Executing"], correct:1},
+{q:"Di Region, selain dengan Consumer Loan Head, monitoring atau promosi serta produk terbaru terkait Mandiri KKB dapat berkoordinasi dengan perwakilan Bank Mandiri yang berkomunikasi dengan Multifinance Perusahaan Anak, yaitu:", opts:["Regional Credit Head","Subsidiary Liaison Manager","Branch Manager","Relationship Manager"], correct:1},
+{q:"Agar booking Mandiri KKB menjadi pendapatan dan dibukukan di Cabang maka harus melalui booking:", opts:["Executing","Joint Finance","Channeling murni","Referral tanpa pembukuan"], correct:1},
+{q:"Dalam Business Model Mandiri KKB, kata kunci yang paling tepat digunakan adalah:", opts:["Underwriting","Referral","Executing","Direct Lending"], correct:1},
+{q:"Pernyataan berikut yang salah adalah:", opts:["Proses underwriting dilakukan oleh MTF/MUF","Cabang berperan sebagai referral","Pembiayaan dibagi porsi sesuai kesepakatan","Proses Kredit Mandiri KKB dilakukan seluruhnya di Bank Mandiri"], correct:3},
+{q:"Pembiayaan kepada End User dibagi berdasarkan porsi pembiayaan sesuai kesepakatan antara Bank Mandiri dan Multifinance Perusahaan Anak adalah pengertian dari:", opts:["Channeling","Joint Finance","Executing","Referral Fee"], correct:1},
+{q:"Maksimal LTV untuk pegawai Bank Mandiri yang mengajukan melalui Mandiri CLICK adalah:", opts:["80%","90%","100%","70%"], correct:2},
+{q:"Proses underwriting Mandiri KKB berada di Unit Kerja:", opts:["Cabang Bank Mandiri","Operasional MTF atau MUF","Consumer Loan Head","Regional Credit Committee"], correct:1}
+];
+
 /* ============ STATE ============ */
 let kprPicks = new Array(kprData.length).fill(null);
 let kkbPicks = new Array(kkbData.length).fill(null);
-let kprSubmitted=false, kkbSubmitted=false;
-let kprTimerInt=null, kkbTimerInt=null;
+let kiluyPicks = new Array(kiluyData.length).fill(null);
+let kprSubmitted=false, kkbSubmitted=false, kiluySubmitted=false;
+let kprTimerInt=null, kkbTimerInt=null, kiluyTimerInt=null;
 
 /* ============ NAV ============ */
 function showSection(id){
@@ -342,7 +416,7 @@ function showSection(id){
   window.scrollTo({top:0, behavior:'auto'});
 }
 function backToStart(){
-  clearInterval(kprTimerInt); clearInterval(kkbTimerInt);
+  clearInterval(kprTimerInt); clearInterval(kkbTimerInt); clearInterval(kiluyTimerInt);
   showSection('screenStart');
 }
 
@@ -499,6 +573,40 @@ function submitKKB(){
   showSection('screenKKBResult');
 }
 
+/* ============ KILUY ============ */
+function goKiluyTest(){
+  kiluyPicks = new Array(kiluyData.length).fill(null);
+  kiluySubmitted = false;
+  renderQList('kiluyQList', kiluyData, it=>it.q, it=>it.opts, 'kiluy');
+  showSection('screenKiluyTest');
+  clearInterval(kiluyTimerInt);
+  kiluyTimerInt = startTimer('kiluyTimer', 28*60, ()=>{ if(!kiluySubmitted) submitKiluy(); });
+}
+function pickkiluy(qi, oi){
+  if(kiluySubmitted || kiluyPicks[qi]!==null) return;
+  kiluyPicks[qi]=oi;
+  document.querySelectorAll('#kiluy-opts-'+qi+' .lms-opt').forEach((o,i)=>{
+    o.classList.toggle('checked', i===oi);
+    if(i===kiluyData[qi].correct) o.classList.add('ans-correct');
+    o.classList.add('answered');
+    o.onclick=null;
+  });
+}
+function submitKiluy(){
+  if(kiluySubmitted) return;
+  kiluySubmitted = true;
+  clearInterval(kiluyTimerInt);
+  let score=0;
+  kiluyData.forEach((item,idx)=>{
+    document.querySelectorAll('#kiluy-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
+    if(kiluyPicks[idx]===item.correct) score++;
+  });
+  document.getElementById('kiluyScoreBig').textContent = score+' / '+kiluyData.length;
+  document.getElementById('kiluyScoreMsg').textContent = scoreMsg(score/kiluyData.length);
+  renderReview('kiluyReviewList', kiluyData, kiluyPicks);
+  showSection('screenKiluyResult');
+}
+
 /* ============ FULL ANSWER KEY (per materi) ============ */
 function renderAnswerList(containerId, dataArrays){
   const holder = document.getElementById(containerId);
@@ -517,14 +625,17 @@ function renderAnswerList(containerId, dataArrays){
 function goAnswerKey(){
   renderAnswerList('akPart1', [kprData]);
   renderAnswerList('akPart2', [kkbData]);
+  renderAnswerList('akPart3', [kiluyData]);
   switchAkTab('kpr');
   showSection('screenAnswerKey');
 }
 function switchAkTab(tab){
   document.getElementById('akTabKPR').classList.toggle('active', tab==='kpr');
   document.getElementById('akTabKKB').classList.toggle('active', tab==='kkb');
+  document.getElementById('akTabKiluy').classList.toggle('active', tab==='kiluy');
   document.getElementById('akPaneKPR').classList.toggle('active', tab==='kpr');
   document.getElementById('akPaneKKB').classList.toggle('active', tab==='kkb');
+  document.getElementById('akPaneKiluy').classList.toggle('active', tab==='kiluy');
 }
 </script>
 </body>

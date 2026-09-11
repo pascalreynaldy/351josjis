@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Click</title>
+<title>Latihan Soal - Digital Banking</title>
 <style>
 :root{
   --lms-blue:#1a73c4;
@@ -159,6 +159,15 @@ body{
 .answerkey-item{border-left:3px solid var(--lms-blue); padding:8px 14px; margin-bottom:8px; background:#f7f9fb; border-radius:4px; font-size:.87rem;}
 .answerkey-item b.ak-correct{font-weight:700; color:#000;}
 
+.ak-tabs{display:flex; gap:8px; margin:16px 0 18px; flex-wrap:wrap;}
+.ak-tab{
+  padding:8px 16px; border-radius:20px; border:1px solid var(--lms-border); background:#fff;
+  font-size:.82rem; font-weight:700; cursor:pointer; color:var(--lms-sub);
+}
+.ak-tab.active{background:var(--lms-blue); color:#fff; border-color:var(--lms-blue);}
+.ak-pane{display:none;}
+.ak-pane.active{display:block;}
+
 .note-box{
   background:#fff8e6; border:1px solid #f0d98c; border-radius:6px; padding:12px 16px;
   font-size:.82rem; color:#6b5a10; margin-bottom:18px; line-height:1.5;
@@ -190,12 +199,42 @@ body{
   <div class="start-title">Latihan Soal</div>
   <div class="start-sub">Pilih materi latihan yang ingin kamu kerjakan hari ini.</div>
 
-  <div class="start-groupheader">Materi: Customer Experience</div>
-  <div class="pick-card" onclick="goCxTest()">
-    <div class="pick-icon">🤝</div>
+  <div class="start-groupheader">Materi: Digital X</div>
+  <div class="pick-card" onclick="goDxTest()">
+    <div class="pick-icon">📣</div>
     <div class="pick-text">
-      <div class="pick-title">Post Test - Customer Experience</div>
-      <div class="pick-desc">20 soal · pilihan ganda · waktu 20 menit</div>
+      <div class="pick-title">Post Test - Digital X</div>
+      <div class="pick-desc">30 soal · pilihan ganda · waktu 30 menit</div>
+    </div>
+    <div class="pick-arrow">➜</div>
+  </div>
+
+  <div class="start-groupheader">Materi: Digital Banking Transformation</div>
+  <div class="pick-card" onclick="goDbtTest()">
+    <div class="pick-icon">🚀</div>
+    <div class="pick-text">
+      <div class="pick-title">Latihan - Digital Banking Transformation</div>
+      <div class="pick-desc">17 soal · pilihan ganda · waktu 17 menit</div>
+    </div>
+    <div class="pick-arrow">➜</div>
+  </div>
+
+  <div class="start-groupheader">Materi: Digital Banking (100)</div>
+  <div class="pick-card" onclick="goDb100Test()">
+    <div class="pick-icon">🏦</div>
+    <div class="pick-text">
+      <div class="pick-title">Post Test - Digital Banking (100)</div>
+      <div class="pick-desc">30 soal · pilihan ganda · waktu 30 menit</div>
+    </div>
+    <div class="pick-arrow">➜</div>
+  </div>
+
+  <div class="start-groupheader">Materi: Digital Banking Produk &amp; Layanan</div>
+  <div class="pick-card" onclick="goDbpTest()">
+    <div class="pick-icon">📱</div>
+    <div class="pick-text">
+      <div class="pick-title">Latihan - Digital Banking Produk &amp; Layanan</div>
+      <div class="pick-desc">41 soal · pilihan ganda · waktu 40 menit</div>
     </div>
     <div class="pick-arrow">➜</div>
   </div>
@@ -203,43 +242,139 @@ body{
   <div class="linklike" onclick="goAnswerKey()">Lihat rangkuman lengkap semua jawaban</div>
 </section>
 
-<!-- ===== CUSTOMER EXPERIENCE ===== -->
-<section class="section" id="screenCxTest">
-  <div class="lms-topbar"><div class="tb-title">POST TEST - CUSTOMER EXPERIENCE <span class="info-dot">i</span></div></div>
+<!-- ===== DIGITAL X ===== -->
+<section class="section" id="screenDxTest">
+  <div class="lms-topbar"><div class="tb-title">POST TEST - DIGITAL X <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap"><div class="lms-card">
     <div class="lms-head-row">
-      <div><div class="lms-h1">Post Test - Customer Experience</div><div class="lms-h2">CUSTOMER EXPERIENCE — SELURUH BAGIAN (20 SOAL)</div></div>
-      <div class="lms-timer-block"><div class="lms-timer" id="cxTimer">20:00</div><div class="lms-timer-label">Time remaining</div></div>
+      <div><div class="lms-h1">Post Test - Digital X</div><div class="lms-h2">DIGITAL MARKETER &amp; DIGITAL BANKING/FINTECH — (30 SOAL)</div></div>
+      <div class="lms-timer-block"><div class="lms-timer" id="dxTimer">30:00</div><div class="lms-timer-label">Time remaining</div></div>
     </div>
     <hr class="lms-hr">
-    <div id="cxQList"></div>
-    <div class="lms-finish"><button class="lms-btn" id="cxSubmitBtn" onclick="submitCx()">Lihat Hasil</button></div>
+    <div id="dxQList"></div>
+    <div class="lms-finish"><button class="lms-btn" id="dxSubmitBtn" onclick="submitDx()">Lihat Hasil</button></div>
   </div></div>
 </section>
 
-<section class="section" id="screenCxResult">
-  <div class="lms-topbar"><div class="tb-title">POST TEST - CUSTOMER EXPERIENCE <span class="info-dot">i</span></div></div>
+<section class="section" id="screenDxResult">
+  <div class="lms-topbar"><div class="tb-title">POST TEST - DIGITAL X <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap"><div class="lms-card">
-    <div class="lms-result-head"><div class="lms-score-big" id="cxScoreBig">0 / 20</div><div class="lms-score-sub" id="cxScoreMsg"></div></div>
-    <hr class="lms-hr"><div id="cxReviewList"></div>
+    <div class="lms-result-head"><div class="lms-score-big" id="dxScoreBig">0 / 30</div><div class="lms-score-sub" id="dxScoreMsg"></div></div>
+    <hr class="lms-hr"><div id="dxReviewList"></div>
   </div></div>
   <div class="lms-submitbar">
     <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
-    <button class="lms-btn ghost" onclick="goCxTest()">🔁 Ulangi Test</button>
+    <button class="lms-btn ghost" onclick="goDxTest()">🔁 Ulangi Test</button>
     <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
   </div>
 </section>
 
-<!-- ===== FULL ANSWER KEY ===== -->
+<!-- ===== DIGITAL BANKING TRANSFORMATION ===== -->
+<section class="section" id="screenDbtTest">
+  <div class="lms-topbar"><div class="tb-title">LATIHAN - DIGITAL BANKING TRANSFORMATION <span class="info-dot">i</span></div></div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-head-row">
+      <div><div class="lms-h1">Latihan - Digital Banking Transformation</div><div class="lms-h2">DIGITAL BANKING TRANSFORMATION — (17 SOAL)</div></div>
+      <div class="lms-timer-block"><div class="lms-timer" id="dbtTimer">17:00</div><div class="lms-timer-label">Time remaining</div></div>
+    </div>
+    <hr class="lms-hr">
+    <div id="dbtQList"></div>
+    <div class="lms-finish"><button class="lms-btn" id="dbtSubmitBtn" onclick="submitDbt()">Lihat Hasil</button></div>
+  </div></div>
+</section>
+
+<section class="section" id="screenDbtResult">
+  <div class="lms-topbar"><div class="tb-title">LATIHAN - DIGITAL BANKING TRANSFORMATION <span class="info-dot">i</span></div></div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-result-head"><div class="lms-score-big" id="dbtScoreBig">0 / 17</div><div class="lms-score-sub" id="dbtScoreMsg"></div></div>
+    <hr class="lms-hr"><div id="dbtReviewList"></div>
+  </div></div>
+  <div class="lms-submitbar">
+    <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
+    <button class="lms-btn ghost" onclick="goDbtTest()">🔁 Ulangi Test</button>
+    <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
+  </div>
+</section>
+
+<!-- ===== DIGITAL BANKING (100) ===== -->
+<section class="section" id="screenDb100Test">
+  <div class="lms-topbar"><div class="tb-title">POST TEST - DIGITAL BANKING (100) <span class="info-dot">i</span></div></div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-head-row">
+      <div><div class="lms-h1">Post Test - Digital Banking (100)</div><div class="lms-h2">DIGITAL BANKING TRANSFORMATION &amp; LEADERSHIP — (30 SOAL)</div></div>
+      <div class="lms-timer-block"><div class="lms-timer" id="db100Timer">30:00</div><div class="lms-timer-label">Time remaining</div></div>
+    </div>
+    <hr class="lms-hr">
+    <div id="db100QList"></div>
+    <div class="lms-finish"><button class="lms-btn" id="db100SubmitBtn" onclick="submitDb100()">Lihat Hasil</button></div>
+  </div></div>
+</section>
+
+<section class="section" id="screenDb100Result">
+  <div class="lms-topbar"><div class="tb-title">POST TEST - DIGITAL BANKING (100) <span class="info-dot">i</span></div></div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-result-head"><div class="lms-score-big" id="db100ScoreBig">0 / 30</div><div class="lms-score-sub" id="db100ScoreMsg"></div></div>
+    <hr class="lms-hr"><div id="db100ReviewList"></div>
+  </div></div>
+  <div class="lms-submitbar">
+    <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
+    <button class="lms-btn ghost" onclick="goDb100Test()">🔁 Ulangi Test</button>
+    <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
+  </div>
+</section>
+
+<!-- ===== DIGITAL BANKING PRODUK & LAYANAN ===== -->
+<section class="section" id="screenDbpTest">
+  <div class="lms-topbar"><div class="tb-title">LATIHAN - DIGITAL BANKING PRODUK &amp; LAYANAN <span class="info-dot">i</span></div></div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-head-row">
+      <div><div class="lms-h1">Latihan - Digital Banking Produk &amp; Layanan</div><div class="lms-h2">DIGITAL BANKING PRODUK &amp; LAYANAN — (41 SOAL)</div></div>
+      <div class="lms-timer-block"><div class="lms-timer" id="dbpTimer">40:00</div><div class="lms-timer-label">Time remaining</div></div>
+    </div>
+    <hr class="lms-hr">
+    <div id="dbpQList"></div>
+    <div class="lms-finish"><button class="lms-btn" id="dbpSubmitBtn" onclick="submitDbp()">Lihat Hasil</button></div>
+  </div></div>
+</section>
+
+<section class="section" id="screenDbpResult">
+  <div class="lms-topbar"><div class="tb-title">LATIHAN - DIGITAL BANKING PRODUK &amp; LAYANAN <span class="info-dot">i</span></div></div>
+  <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
+  <div class="lms-wrap"><div class="lms-card">
+    <div class="lms-result-head"><div class="lms-score-big" id="dbpScoreBig">0 / 41</div><div class="lms-score-sub" id="dbpScoreMsg"></div></div>
+    <hr class="lms-hr"><div id="dbpReviewList"></div>
+  </div></div>
+  <div class="lms-submitbar">
+    <button class="lms-btn ghost" onclick="goAnswerKey()">📊 Rangkuman Semua Jawaban</button>
+    <button class="lms-btn ghost" onclick="goDbpTest()">🔁 Ulangi Test</button>
+    <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
+  </div>
+</section>
+
+<!-- ===== FULL ANSWER KEY (per materi) ===== -->
 <section class="section" id="screenAnswerKey">
   <div class="lms-topbar"><div class="tb-title">RANGKUMAN SEMUA JAWABAN <span class="info-dot">i</span></div></div>
   <span class="page-back" onclick="backToStart()">☰ Kembali ke menu</span>
   <div class="lms-wrap"><div class="lms-card">
-    <div class="lms-h1">Rangkuman Jawaban - Customer Experience</div>
-    <div class="note-box">Catatan: PDF sumber tidak menyertakan tanda kunci jawaban resmi. Sebagian besar jawaban ditentukan berdasarkan pemahaman standar materi Customer Experience (4P, SCAMPER, piramida CX, dll). Soal No. 9 ("alasan diperlukan standard layanan, kecuali") sengaja ambigu di sumbernya — jawaban di bawah adalah dugaan terbaik, bukan kepastian. Cek ulang kalau kamu punya kunci resminya.</div>
-    <div id="akPart1"></div>
+    <div class="lms-h1">Rangkuman Jawaban per Materi</div>
+    <div class="note-box">Catatan: <b>Digital X bagian Digital Banking &amp; FinTech (10 soal terakhir)</b> dan <b>seluruh materi Digital Banking Transformation</b> tidak menyertakan kunci jawaban resmi di sumbernya (bahkan salah satu file eksplisit menyebut belum ada jawaban terverifikasi). Jawabannya disusun berdasarkan pemahaman terbaik atas konteks & framework yang dipakai (Thinking Across/Again/Ahead, SWP, dsb) — confidence lebih rendah dibanding materi Digital Banking (100) yang sumbernya sudah menyertakan tanda jawaban benar. Materi Digital Banking Produk &amp; Layanan juga tidak punya 4 pilihan asli, hanya jawaban benar, jadi 3 opsi lain dibuat sendiri.</div>
+    <div class="ak-tabs">
+      <div class="ak-tab active" id="akTabDx" onclick="switchAkTab('dx')">Digital X (30 soal)</div>
+      <div class="ak-tab" id="akTabDbt" onclick="switchAkTab('dbt')">DB Transformation (17 soal)</div>
+      <div class="ak-tab" id="akTabDb100" onclick="switchAkTab('db100')">Digital Banking 100 (30 soal)</div>
+      <div class="ak-tab" id="akTabDbp" onclick="switchAkTab('dbp')">DB Produk &amp; Layanan (41 soal)</div>
+    </div>
+    <div class="ak-pane active" id="akPaneDx"><div id="akPart1"></div></div>
+    <div class="ak-pane" id="akPaneDbt"><div id="akPart2"></div></div>
+    <div class="ak-pane" id="akPaneDb100"><div id="akPart3"></div></div>
+    <div class="ak-pane" id="akPaneDbp"><div id="akPart4"></div></div>
   </div></div>
   <div class="lms-submitbar">
     <button class="lms-btn" onclick="backToStart()">Kembali ke Menu</button>
@@ -247,34 +382,147 @@ body{
 </section>
 
 <script>
-/* ============ DATA: CUSTOMER EXPERIENCE (20 soal) ============ */
-const cxData = [
-{q:"Apa yang dimaksud dengan customer experience goal?", opts:["Hal-hal yang memiliki nilai finansial dan menguntungkan customer","Hal-hal yang customer ingin lakukan dan rasakan saat dilayani","Semua jawaban benar","Hal-hal yang pasti akan didapat oleh customer setelah dilayani"], correct:1},
-{q:"Apa saja 4P yang menjadi unsur pembentuk customer experience?", opts:["Place, Product, Persona, Potency","Place, Process, Persona, Price","Product, People, Process, Place","Product, Process, People, Price"], correct:2},
-{q:"Berikut merupakan step yang harus dilakukan dalam cycle menciptakan proses kerja yang excellent, kecuali?", opts:["Follow Through","Prepare","Focus","Drop"], correct:3},
-{q:"Berikut adalah langkah yang dapat dilakukan untuk menciptakan remarkable customer experience, kecuali", opts:["Identifikasi pain customer","Membuat customer journey","Membuat persona","Membuat target akuisisi customer"], correct:3},
-{q:"Apa yang dimaksud dengan memberikan remarkable customer experience?", opts:["Menghadirkan layanan yang remarkable di setiap touch point berdasarkan company values","Menghadirkan layanan yang remarkable di setiap touch point berdasarkan business perspective","Menghadirkan layanan yang remarkable di setiap touch point berdasarkan customer perspective","Menghadirkan layanan yang remarkable di setiap touch point berdasarkan market perspective"], correct:2},
-{q:"Berikut ini makna yang benar dari Customer Experience atau CX, kecuali", opts:["CX adalah hal-hal yang ditangkap oleh 5 indra dan mempengaruhi penilaian customer","CX adalah kesan yang dibawa pulang oleh customer terkait layanan perusahaan","CX adalah panduan bagi customer dalam berinteraksi dengan perusahaan","CX adalah yang customer pikirkan, rasakan, lakukan saat kontak dengan perusahaan"], correct:2},
-{q:"Untuk mempertahankan upaya kita dalam memberikan CX positif kepada nasabah secara konsisten, antara lain melalui pengukuran internal yaitu sbb", opts:["Survey Layanan, Survey Kepuasan Nasabah, Net Price Score","Service Excellence Survey, Customer Satisfaction Survey, Net Promoter Score","Service Excellence Survey, Customer Satisfaction Survey, Net Price Score","Service Excellence Survey, Survey Loyalitas Nasabah, Net Promoter Score"], correct:1},
-{q:"Manakah dari 4P berikut yang merupakan unsur terpenting dalam menciptakan customer experience yang positif", opts:["Potency","Process","Persona","People"], correct:3},
-{q:"Berikut merupakan alasan mengapa diperlukannya standard layanan, kecuali?", opts:["Business Critical","Communication Critical","Compliance Critical","Customer Critical"], correct:1},
-{q:"Mengubah design pembatas antrean yang tadinya berupa tali pembatas menjadi pembatas yang bisa dipakai untuk duduk nasabah adalah contoh dari salah satu cara memicu ide kreatif-inovatif SCAMPER, pilihan yang benar adalah", opts:["Magnify","Eliminate","Modify","Minify"], correct:2},
-{q:"Susunan Piramida Customer Experience terdiri dari", opts:["Prosesnya mudah, Memenuhi kebutuhan, Menyenangkan","Memenuhi kebutuhan, Menyenangkan, Prosesnya mudah","Memenuhi kebutuhan, Prosesnya mudah, Menyenangkan","Prosesnya mudah, Menyenangkan, Memenuhi kebutuhan"], correct:2},
-{q:"Bersemangat dalam menyambut dan memberikan layanan terbaik kepada nasabah, Sampaikan informasi yang menjadi hak nasabah, Teliti menjalankan transaksi/permintaan dengan akurasi transaksi 100% merupakan contoh penerapan dari Prinsip Layanan Berikut, yaitu:", opts:["Customer Critical","Compliance Critical","Business Critical","Communication Critical"], correct:0},
-{q:"Di bawah ini manfaat nasabah yang loyal bagi perusahaan, kecuali", opts:["Menambah biaya layanan","Meningkatkan kesempatan cross-selling","Meningkatkan profit perusahaan","Menjadi referensi atau rujukan"], correct:0},
-{q:"Simplifikasi formulir dari formulir yang sebelumnya berisi 20 pertanyaan menjadi hanya 10 pertanyaan adalah contoh dari salah satu cara memicu ide kreatif-inovatif SCAMPER, khususnya poin:", opts:["Substitute","Put to another use","Magnify","Minify"], correct:3},
-{q:"Mengapa customer experience penting", opts:["Karena membantu customer dalam mengambil keputusan","Pelanggan dengan pengalaman positif terbukti akan merekomendasikan brand perusahaan","Merupakan syarat dari regulator","Merupakan panduan bagi customer dalam berinteraksi dengan perusahaan"], correct:1},
-{q:"Dalam upaya menciptakan Customer Experience, berikut adalah hal yang dapat dilakukan dalam menerapkan Think and Work outside in, kecuali?", opts:["Suara customer adalah acuan kita memperbaiki atau meningkatkan layanan kita","Jadikan customer pertimbangan utama dalam berpikir & bertindak","Pahami kebutuhan, harapan, profil, usia, kelas sosial & gaya hidup customer","Mengambil keputusan sesuai keinginan atasan semata"], correct:3},
-{q:"Pernyataan dibawah ini merupakan customer experience pain, kecuali", opts:["Hal-hal yang tidak pernah dibayangkan oleh customer","Hal-hal yang bisa membuat customer komplain","Hal-hal yang tidak diharapkan oleh customer saat dilayani","Hal-hal yang dikhawatirkan oleh customer saat dilayani"], correct:0},
-{q:"Penggabungan mesin ATM dengan mesin penyetor uang yang awalnya 2 mesin yang berbeda menjadi 1 mesin saja merupakan contoh dari salah satu cara memicu ide kreatif-inovatif SCAMPER, khususnya poin:", opts:["Combine","Reverse","Minify","Eliminate"], correct:0},
-{q:"Berikut adalah poin yang harus dilakukan untuk menciptakan komunikasi yang ideal dan asertif, yaitu:", opts:["Jelas, Panjang, Santun","Santun, Ringkas, Jelas","Ringkas, Panjang, Sopan","Detail, Lengkap, Panjang"], correct:1},
-{q:"Pengalaman customer secara menyeluruh atau end to end yang dimulai ketika muncul informasi awal tentang suatu perusahaan atau brand hingga produk atau jasa itu diterima bahkan setelahnya disebut", opts:["Customer Experience","Customer Perception","Customer Motion","Customer Intimacy"], correct:0}
+/* ============ DATA: DIGITAL X (30 soal) ============ */
+const dxData = [
+{q:"Jika CTR tinggi tapi jumlah registrasi produk rendah, kemungkinan masalah ada di…", opts:["Form registrasi terlalu kompleks","Budget iklan terlalu kecil","Target audience terlalu sempit","Waktu tayang iklan kurang tepat"], correct:0},
+{q:"KPI apa yang paling relevan untuk objective \"lead generation\"?", opts:["Isi form pendaftaran produk","Jumlah likes di media sosial","Jumlah followers baru","Durasi menonton video iklan"], correct:0},
+{q:"Konten funnel Awareness sebaiknya berfokus pada…", opts:["Edukasi dan problem awareness","Promo diskon besar-besaran","Testimoni pelanggan lama","Perbandingan harga dengan kompetitor"], correct:0},
+{q:"Apa tujuan utama dari market segmentation dalam digital marketing?", opts:["Menyesuaikan pesan dengan karakter audiens","Menurunkan biaya produksi konten","Meningkatkan jumlah followers","Memperluas jangkauan iklan tanpa target"], correct:0},
+{q:"Unique Selling Proposition (USP) adalah…", opts:["Keunggulan utama yang membedakan brand dari kompetitor","Logo dan warna brand","Jumlah cabang perusahaan","Harga produk termurah di pasar"], correct:0},
+{q:"Peran utama social media dalam digital marketing adalah…", opts:["Brand building dan engagement","Penjualan langsung (hard selling) semata","Rekrutmen karyawan","Riset pasar kompetitor"], correct:0},
+{q:"Berikut ini manakah yang tidak termasuk ke dalam pilar penting dalam perencanaan pemasaran", opts:["Audiens","Konten/Pesan","Channel/Media","Budget Iklan"], correct:3},
+{q:"Target market yang terlalu luas berisiko menyebabkan…", opts:["Pesan marketing kurang relevan","Biaya iklan menjadi lebih murah","Konversi penjualan pasti meningkat","Waktu kampanye menjadi lebih singkat"], correct:0},
+{q:"Indikator apa yang paling tepat untuk objective \"awareness\"?", opts:["Reach dan Impressions","Conversion Rate","Cost per Acquisition","Jumlah transaksi selesai"], correct:0},
+{q:"Dibawah ini mana yang dapat menjadi kriteria untuk targeting audience di channel digital", opts:["Usia (demografi)","Minat/hobi (psikografi)","Aktivitas digital (behavioral)","Semua Benar"], correct:3},
+{q:"Eksperimen maupun A/B testing pada iklan digunakan untuk…", opts:["Membandingkan dua versi iklan untuk performa terbaik","Menggandakan budget iklan","Mengganti seluruh tim kreatif","Menghentikan kampanye yang sedang berjalan"], correct:0},
+{q:"Dibawah ini mana yang tidak termasuk strategi optimisasi ads?", opts:["Melakukan A/B testing rutin","Menyesuaikan budget berdasarkan performa","Mengoptimalkan targeting audiens","Membiarkan campaign berjalan tanpa monitoring hasilnya"], correct:3},
+{q:"Call-to-Action (CTA) berfungsi untuk…", opts:["Mengajak audiens melakukan tindakan tertentu","Menampilkan logo perusahaan","Menjelaskan sejarah perusahaan","Menambah jumlah gambar pada iklan"], correct:0},
+{q:"USP yang baik seharusnya…", opts:["Sulit ditiru dan relevan bagi target market","Mudah ditiru oleh kompetitor","Sama dengan kompetitor lain","Tidak berkaitan dengan kebutuhan pelanggan"], correct:0},
+{q:"Dibawah ini keunggulan dalam melakukan strategi marketing dengan channel digital, kecuali", opts:["Targeting yang lebih presisi","Pengukuran hasil secara real-time","Biaya yang lebih fleksibel","Jangkauan users yang sifatnya lebih mass market"], correct:3},
+{q:"Pemilihan channel digital sebaiknya didasarkan pada…", opts:["Perilaku dan kebiasaan target audience","Preferensi pribadi tim marketing","Channel yang sedang tren saja","Biaya termurah yang tersedia"], correct:0},
+{q:"Apakah rumus dari CTR?", opts:["Click/impression","Impression/click","Konversi/klik","Klik/konversi"], correct:0},
+{q:"Alasan menggunakan multi-channel strategy adalah…", opts:["Menjangkau audiens di berbagai touchpoints","Mengurangi jumlah channel yang dipakai","Fokus hanya pada satu platform saja","Menghemat biaya produksi konten"], correct:0},
+{q:"Evaluasi campaign dilakukan untuk…", opts:["Mengukur efektivitas dan pencapaian objektif","Menambah jumlah campaign baru","Mengganti seluruh tim marketing","Menunda peluncuran produk"], correct:0},
+{q:"Berikut ini mana channel yang termasuk owned media?", opts:["Email, push notifications, website","Instagram, TikTok, Facebook","Google Ads, media cetak, billboard","Influencer, radio, televisi"], correct:0},
+{q:"Berikut merupakan pernyataan yang mengenai digital bank, kecuali:", opts:["Digital bank beroperasi dengan struktur pembiayaan yang berbeda","Digital bank juga disebut sebagai \"neobank\"","Digital bank merupakan digitalisasi aktivitas bank tradisional","Digital bank beroperasi secara online, tanpa memiliki cabang fisik"], correct:2},
+{q:"Guna mencapai visi Bank Mandiri untuk menjadi yang terdepan, Bank Mandiri membentuk Digital Banking Roadmap. Berikut ini yang bukan merupakan Digital Banking Roadmap adalah:", opts:["Leveled up digital readiness","Digital ecosystem expansion","Data driven decision making","Develop retail digital channels"], correct:3},
+{q:"Digital bank yang profitable dibangun dengan strategi dibawah ini, kecuali:", opts:["Fokus pengembangan produk lending sebagai revenue generator utama","Membangun ekosistem robust dengan customer base yang kuat","Mengembangkan sarana penyimpanan dana yang menarik sebagai sumber pendapatan dana murah","Memperbanyak jumlah user atau meningkatkan revenue per user"], correct:0},
+{q:"Kopra merupakan super platform komprehensif untuk nasabah bisnis. Di bawah ini yang bukan merupakan fitur dari Kopra Super Platform adalah:", opts:["Market Overview","Consolidated Financial Dashboard","Transaction Inquiry & Approval","Remittance Tracking"], correct:0},
+{q:"2 factor authentication atau 2 faktor keaslian adalah salah satu elemen penting dalam transaksi digital agar memenuhi prinsip", opts:["Availability","Non repudiation","Integrity","Confidentiality"], correct:1},
+{q:"Dokumen yang berisi mengenai gambaran umum fitur dan asesmen risiko yang melekat di suatu produk baru serta mitigasinya sebelum produk tersebut live adalah:", opts:["Pre Implementation Review Document","Self Assessment Document","Risk Assessment Working Paper","Nota Akseptasi Risiko"], correct:3},
+{q:"Livin' Merchant hadir sebagai POS dengan value proposition yang unik. Berikut yang merupakan value proposition dari Livin' Merchant adalah:", opts:["Biaya langganan yang murah","Registrasi 15 menit fully digital","Penerimaan pembayaran transaksi kartu & QRIS langsung setelah registrasi","Pencairan kredit 3 kali sehari di hari yang sama"], correct:1},
+{q:"Smart Branch merupakan konsep baru layanan cabang yang dihadirkan oleh Bank Mandiri. Di bawah ini yang merupakan jenis smart branch adalah, kecuali:", opts:["Upgrade Branch","Update Branch","Hybrid Branch","Digital Box"], correct:1},
+{q:"Ketentuan Otoritas Jasa Keuangan yang menjadi rujukan atas proses penerbitan produk digital adalah", opts:["POJK No. 6/POJK.07/2022","POJK No. 12/POJK.03/2018","POJK No. 13/POJK.03/2021","POJK No. 11/POJK.03/2022"], correct:1},
+{q:"Berikut yang termasuk dari peran bisnis perbankan adalah:", opts:["Save Money, Borrow Money, Transfer Money, Invest Money","Grow Money, Transfer Money, Save Money, Move Money","Save Money, Move Money, Invest Money, Credit Money","Move Money, Grow Money, Save Money, Borrow Money"], correct:3}
+];
+
+/* ============ DATA: DIGITAL BANKING TRANSFORMATION (17 soal) ============ */
+const dbtData = [
+{q:"Kapan implementasi BI Fast ada dalam Livin' by Mandiri?", opts:["Desember 2021","Februari 2022","Oktober 2021","Juni 2022"], correct:0},
+{q:"Bluebird menerapkan prinsip Thinking Again \"Kicking the tire\" dengan cara?", opts:["Meluncurkan layanan taksi listrik untuk redesain model bisnis","Mendesain ulang kebijakan dan program operasional","Membuka rute baru di kota besar","Meningkatkan jumlah armada taksi"], correct:1},
+{q:"Bagian dari core needs for client di bawah ini yang benar adalah?", opts:["Save, Move, Borrow, Grow","Buy, Sell, Trade, Hold","Login, Verify, Transact, Logout","Search, Compare, Choose, Pay"], correct:0},
+{q:"Dynamic capability adalah?", opts:["Kemampuan organisasi mengintegrasikan, membangun, dan mengonfigurasi ulang kompetensi internal & eksternal untuk merespons perubahan lingkungan bisnis dengan cepat","Kemampuan fisik pegawai dalam bekerja multitasking","Kapasitas maksimum transaksi sistem IT","Kemampuan cabang dalam melayani nasabah secara manual"], correct:0},
+{q:"Approaching through \"nata\" berarti?", opts:["Menata dan merencanakan arah kerja tim secara terstruktur","Menghukum bawahan yang melakukan kesalahan","Menagih target penjualan tim","Mengabaikan proses perencanaan"], correct:0},
+{q:"What leaders should believe?", opts:["Bahwa perubahan adalah peluang, bukan ancaman","Bahwa cara lama selalu lebih baik","Bahwa keputusan atasan tidak boleh dipertanyakan","Bahwa target hanya tanggung jawab tim penjualan"], correct:0},
+{q:"Good practice on how to \"nagih\" adalah?", opts:["Menagih target dengan cara yang membangun dan memberikan solusi","Menagih target dengan ancaman dan tekanan","Membiarkan target tidak tercapai tanpa tindak lanjut","Menagih hanya di akhir periode tanpa monitoring berkala"], correct:0},
+{q:"Ada 4 developing leadership capability, kecuali?", opts:["Leadership Capability","Technical Capability","Digital Capability","Financial Capability"], correct:3},
+{q:"Yang bukan termasuk business model adalah?", opts:["Digital Product","Digital Ecosystem","Digital Banking","Digital Signature"], correct:3},
+{q:"Dibawah ini adalah developing dynamic capability, yaitu?", opts:["Sensing, Seizing, Transforming","Selling, Servicing, Supporting","Planning, Organizing, Controlling","Hiring, Training, Retaining"], correct:0},
+{q:"Maksud dari strategi & business model dalam SWP adalah?", opts:["Menyelaraskan strategi bisnis jangka panjang dengan kebutuhan tenaga kerja ke depan","Menentukan harga produk baru","Menyusun laporan keuangan tahunan","Merancang logo dan branding perusahaan"], correct:0},
+{q:"Bagian dari scale up the bank yaitu?", opts:["Memperluas kapasitas bisnis dan operasional bank secara signifikan","Menutup cabang yang kurang produktif","Mengurangi jumlah produk yang ditawarkan","Menunda ekspansi ke segmen baru"], correct:0},
+{q:"Pengguna internet sering melakukan transaksi keuangan melalui perangkat seluler sebesar berapa persen?", opts:["Lebih dari 70%","Sekitar 30%","Kurang dari 10%","Sekitar 50%"], correct:0},
+{q:"How to build purpose?", opts:["Menghubungkan tujuan pribadi dengan tujuan organisasi secara autentik","Mengikuti arahan atasan tanpa pertanyaan","Fokus hanya pada pencapaian target finansial","Mengabaikan nilai-nilai perusahaan"], correct:0},
+{q:"Digital bank melalui Livin' super app melingkupi?", opts:["Comprehensive Banking Experiences, Full-suite Financial Services, dan Open Ecosystem","Hanya layanan transfer dan pembayaran","Hanya layanan tabungan digital","Hanya layanan investasi"], correct:0},
+{q:"Yang termasuk dalam core banking skill adalah?", opts:["Product Knowledge, Risk Management, Compliance","Digital Marketing, Content Creation, SEO","UI/UX Design, Coding, Cloud Computing","Sales Negotiation, Public Speaking, Networking"], correct:0},
+{q:"Yang termasuk Leveled Up Digital Readiness, yaitu?", opts:["Cloud computing models","Cash pooling","Manual credit approval","Paper-based documentation"], correct:0}
+];
+
+/* ============ DATA: DIGITAL BANKING (100) — 30 soal ============ */
+const db100Data = [
+{q:"Apple menerapkan prinsip Thinking Across \"Beyond The Boundaries\" dengan cara:", opts:["Digitalisasi layanan taxi sesuai lifestyle pelanggan","Mengadopsi hospitality hotel untuk menciptakan customer experience","Layanan pengiriman barang menggunakan drone","Mengidentifikasi yang harus berhenti, dimulai, dan dilanjutkan"], correct:1},
+{q:"Dua hal dalam Menata Proses Keuangan yaitu..", opts:["Cost Structure, Operational excellence","Objective Assessment, Optimizing Source of Income","Optimizing Source of Income, Cost Structure","Operational excellence, Increasing productivity"], correct:2},
+{q:"Mandiri Paylater ada dalam bagian:", opts:["Modernize Distribution Channels","Data Driven decision making","Develop Digital-Native Products","Leveled Up Digital Readiness"], correct:2},
+{q:"Berikut bagaimana penerapan Thinking Across \"Beyond The Boundaries\", kecuali:", opts:["Menghasilkan perspektif baru","Terbuka untuk belajar dari bidang lain","Mencari praktik inovatif pihak lain","Mempelajari tantangan dan mengelola ketidakpastian"], correct:3},
+{q:"Apa maksud dari Full-suite Financial Services", opts:["Seluruh kebutuhan finansial dalam semua aplikasi","Seluruh kebutuhan finansial dalam sebuah aplikasi","Seluruh kebutuhan finansial dalam satu aplikasi","Seluruh kebutuhan finansial dalam dua aplikasi"], correct:2},
+{q:"What Leaders Responsible for:", opts:["Nuntun","Nata","Nagih","Semua Benar"], correct:3},
+{q:"Strategi menyusun blue print dan mengeksekusi strategi serta program kerja untuk mengantisipasi & merespons Future of Work dalam hal:", opts:["Penyiapan keterampilan SDM (skill set & capability) yang tepat","Selama ini capacity planning dilakukan secara parsial, tanpa metodologi sesuai best practice","Berdampak pada penyesuaian jumlah (capacity planning) dan kompetensi (skill-set) SDM","Sejak merger, Bank Mandiri belum memiliki SWP jangka panjang sehingga efisiensi dan produktivitas SDM belum dikelola dengan optimal"], correct:0},
+{q:"Seamless Experience adalah bagian dari...", opts:["Scale up the Bank","Costumer Experience","Business Model","Benar semua"], correct:1},
+{q:"Layanan cabang dalam genggaman anda masuk kategori...", opts:["Full-suite Financial Services","Comprehensive Banking Experiences","Open Ecosystem","Urban Lifestyle Ecosystem"], correct:1},
+{q:"Salah satu aplikasi Save Money", opts:["Jenius","Kredivo","Ovo","Bareksa"], correct:0},
+{q:"What Leaders Should Think:", opts:["Thinking Fast, Thinking Ahead","Thinking Again, Thinking Easy","Thinking Across, Thinking Fast","Thinking Ahead, Thinking Again"], correct:3},
+{q:"Industry 2.0 terjadi tahun berapa?", opts:["2022","1870","1969","1784"], correct:1},
+{q:"Di bawah ini adakah partner yang berkolaborasi dengan Mandiri?", opts:["Semua Benar","Shopee","Tokopedia","LinkAja"], correct:0},
+{q:"Ada 3 kunci yang menjadi fokus dalam membentuk leaders, yaitu:", opts:["Leadership Capability, IT Banking Basic Skill, Digital Banking Basic Skill","Leadership Capability, Technical Capability, Digital Capability","Leadership Capability, Risk Management, Loan Financing","Leadership Capability, Core Banking Skill, User Experience"], correct:1},
+{q:"Apa itu SWP?", opts:["Strategi menyusun blue print dan mengeksekusi strategi serta program kerja untuk mengejar & merespons Future of Work","Strategi menyusun blue print dan memecahkan strategi serta program kerja untuk mengantisipasi & merespons Future of Work","Strategi menyusun blue print dan mengeksekusi strategi serta program kerja untuk mengantisipasi & mengganti Future of Work","Strategi menyusun blue print dan mengeksekusi strategi serta program kerja untuk mengantisipasi & merespons Future of Work"], correct:3},
+{q:"What is Digital Mindset?", opts:["Initiatives or efforts that lead to opportunities and well performance behaviors that enable people to foresee opportunities","A set of attitudes and well performance","A set of attitudes and behaviors that enable people to foresee opportunities","Initiatives or efforts that lead to opportunities and well performance"], correct:2},
+{q:"Kapan Livin' by Mandiri launching?", opts:["Bulan September tahun 2021","Bulan November tahun 2021","Bulan Desember tahun 2021","Bulan Oktober tahun 2021"], correct:3},
+{q:"Automation, computers and electronics muncul disrupsi di dunia perbankan pada industri ke...", opts:["Industry 3.0","Industry 1.0","Industry 2.0","Industry 4.0"], correct:0},
+{q:"Yang termasuk Business Mode adalah..", opts:["Digital Product","Digital Banking","Digital Native","Digital Ecosystem"], correct:2},
+{q:"Host-to-Host Platforms ada dalam...", opts:["Digital Product","Digital System","Digital Channels","Digital Banking"], correct:2},
+{q:"Di bawah ini salah satu Role as Leaders dalam Approaching through \"Nuntun\" yang benar, adalah..", opts:["Menghukum untuk menyudutkan","Menghukum untuk mengkoreksi","Menghukum untuk membina","Menghukum untuk menyalahkan"], correct:2},
+{q:"\"There are a huge need and opportunity to get everyone in the world connected, to give everyone a voice and to help transform society for the future\" adalah kutipan kalimat dari salah satu tokoh berpengaruh di dunia yaitu...", opts:["Mother Theresa","Brett King","Mark Zuckerberg","Klaus Schwab"], correct:2},
+{q:"Yang termasuk Leveled Up Digital Readiness, yaitu:", opts:["Online deposit account onboarding","Costumer Centric approach","Visual analytics","Cloud computing models"], correct:3},
+{q:"Banking 4.0:", opts:["(1) Big Data by machine learning/AI","Jawaban (1) & (2) salah","Jawaban (1) & (2) benar","(2) Robotics Process Automation (RPA)"], correct:2},
+{q:"Kepanjangan dari SWP yaitu:", opts:["Strategic Workforce Procedure","Strategic Workforce Practice","Strategic Workforce Planning","Strategic Workforce Program"], correct:3},
+{q:"Mengapa SWP penting untuk Bank Mandiri?", opts:["Best Practice","Digitalisasi & Otomasi","Semua Benar","Keragaman Unit"], correct:2},
+{q:"Bagaimana cara menjalankan prinsip Thinking Again \"Kicking The Tire\"?", opts:["Mendesain ulang kebijakan dan program","Mencari praktik inovatif pihak lain","Menghasilkan perspektif baru","Mempelajari tantangan dan mengelola ketidakpastian"], correct:0},
+{q:"IT Banking Basic Skill:", opts:["IT Governance, IT Development","IT Strategy, IT Governance","IT Development, IT Infrastructure","IT Infrastructure, IT Application"], correct:1},
+{q:"Sanggup mempertahankan kedaulatan & kemerdekaan negara Republik Indonesia, yang telah diproklamasikan sampai titik darah penghabisan adalah kutipan terkenal dari...", opts:["Jenderal Nasution","Jenderal Soedirman","Jenderal Soeharto","Jenderal TB Simatupang"], correct:1},
+{q:"What leaders should do?", opts:["Transforming, Integrity, Being Agile Learner","Transforming, Collaborating, Being Agile Learner","Transforming, Collaborating, Thinking Ahead","Transforming, Purpose, Being Agile Learner"], correct:1}
+];
+
+/* ============ DATA: DIGITAL BANKING PRODUK & LAYANAN (41 soal) ============ */
+const dbpData = [
+{q:"Apa perbedaan Mandiri Online Web & Apps?", opts:["Mandiri Online Web dari web browser, Mandiri Online App dari aplikasi. Mandiri Online Web bisa token dan MPIN, Mandiri Online App hanya MPIN","Keduanya sama persis tanpa perbedaan","Mandiri Online Web hanya untuk nasabah prioritas","Mandiri Online App tidak bisa digunakan untuk transfer"], correct:0},
+{q:"Manakah pernyataan yang tepat mengenai MPIN dan PIN?", opts:["MPIN dan PIN 6 angka; PIN untuk login, MPIN untuk approval transaksi; PIN untuk aktivasi online/password mengakses internet banking yang lama — intinya semua benar","MPIN hanya 4 angka","PIN dan MPIN adalah hal yang sama","MPIN hanya digunakan untuk login pertama kali"], correct:0},
+{q:"Berikut manfaat e-banking secara kuantitatif:", opts:["Dana murah, fee based income, mengurangi antrian — semua benar","Meningkatkan loyalitas nasabah saja","Fokus pada selling dan service saja","Mengurangi jumlah pegawai cabang"], correct:0},
+{q:"Berikut manfaat e-banking secara kualitatif:", opts:["Meningkatkan loyalitas nasabah, fokus pada selling dan service","Dana murah dan fee based income","Mengurangi antrian nasabah","Meningkatkan jumlah transaksi tunai"], correct:0},
+{q:"Kode akses Mandiri SMS Banking adalah?", opts:["*141*6#","*141*8#","*123*6#","*141*9#"], correct:0},
+{q:"Cetak mutasi rekening di Mandiri Online dapat dilakukan untuk periode?", opts:["6 bulan terakhir dan maksimal pengecekan per 1 bulan","1 tahun terakhir tanpa batas per bulan","3 bulan terakhir saja","12 bulan terakhir dan maksimal pengecekan per 3 bulan"], correct:0},
+{q:"Fee/komisi Agen Bank Mandiri diperoleh dari transaksi?", opts:["Registrasi, tarik, setor tunai","Hanya dari registrasi nasabah baru","Hanya dari transfer antar bank","Hanya dari pembayaran tagihan"], correct:0},
+{q:"Nasabah dapat mengakses layanan phone banking melalui nomor?", opts:["14000 dan 021-52997777","14040 dan 021-5299000","1500-800 dan 021-5299888","14000 saja"], correct:0},
+{q:"Kartu bank lain yang digesek di ATM/EDC Bank Mandiri disebut?", opts:["Off Us","On Us","Cross Us","Inter Us"], correct:0},
+{q:"Mandiri Online dapat diakses melalui?", opts:["Web browser dan aplikasi (download via App Store dan Play Store)","Hanya melalui web browser","Hanya melalui aplikasi mobile","Hanya melalui ATM"], correct:0},
+{q:"Konsep pemasaran yang memanfaatkan platform online untuk menjangkau nasabah disebut?", opts:["Digital Marketing","Direct Marketing","Telemarketing","Above The Line Marketing"], correct:0},
+{q:"Menurut peraturan BI dan OJK, Agen dapat berupa?", opts:["Individu, Badan Usaha berbadan hukum, dan Penyelenggara Transfer Dana — semua benar","Hanya individu","Hanya badan usaha berbadan hukum","Hanya penyelenggara transfer dana"], correct:0},
+{q:"Apa yang dikirimkan ke email nasabah saat registrasi Mandiri Internet Bisnis (MIB)?", opts:["User ID dan Password","Hanya User ID","Hanya Password","Nomor rekening baru"], correct:0},
+{q:"Manakah pernyataan berikut yang tepat mengenai kartu ATM Mandiri?", opts:["Kartu ATM Mandiri saat ini dapat digunakan oleh pemegang kartu Mandiri, BSM, ATM Bersama, Prima, dan Mastercard (tanpa Alto)","Kartu ATM Mandiri hanya bisa digunakan di jaringan Mandiri saja","Kartu ATM Mandiri bisa digunakan di jaringan Alto","Kartu ATM Mandiri hanya untuk nasabah prioritas"], correct:0},
+{q:"Berikut penyebab terbatasnya akses masyarakat terhadap layanan perbankan:", opts:["Cabang terbatas per wilayah, biaya investasi pendirian cabang & ATM relatif mahal, jumlah cabang terbatas — semua benar","Masyarakat tidak butuh layanan perbankan","Bank tidak berminat melayani masyarakat kecil","Regulasi terlalu longgar"], correct:0},
+{q:"Apa arti dari istilah \"unbanked\"?", opts:["Masyarakat yang belum tersentuh layanan perbankan","Masyarakat yang memiliki lebih dari 1 rekening bank","Masyarakat yang menutup rekening banknya","Masyarakat yang hanya menggunakan e-wallet"], correct:0},
+{q:"Apa yang membedakan layanan keuangan digital dengan layanan perbankan konvensional?", opts:["Nasabah tidak perlu datang ke cabang untuk melakukan pembukaan rekening","Nasabah wajib datang ke cabang untuk semua transaksi","Layanan keuangan digital tidak diawasi OJK","Layanan keuangan digital hanya untuk korporasi"], correct:0},
+{q:"Berikut benefit yang diperoleh Bank Mandiri dari layanan e-banking:", opts:["Cabang lebih fokus, meningkatkan loyalitas, mengurangi biaya, meningkatkan fee based income — semua benar","Mengurangi jumlah nasabah","Meningkatkan biaya operasional cabang","Menurunkan fee based income"], correct:0},
+{q:"Saldo e-money (uang elektronik) tersimpan di?", opts:["Kartu (chip)","Server pusat bank saja","Rekening tabungan biasa","SIM card ponsel"], correct:0},
+{q:"Competency market yang dimaksud dalam materi mengacu pada?", opts:["Internal Marketing","External Marketing","Digital Marketing","Direct Marketing"], correct:0},
+{q:"Yang tergolong sebagai \"competency\" dalam konteks ini adalah?", opts:["Pegawai yang kompeten","Produk yang kompetitif","Cabang yang strategis","Teknologi yang canggih"], correct:0},
+{q:"Salah satu syarat menjadi Agen individu adalah?", opts:["Due diligent, memiliki kemampuan, reputasi, dan integritas di wilayah operasional","Memiliki gelar sarjana","Berdomisili di ibukota provinsi","Memiliki minimal 2 karyawan"], correct:0},
+{q:"Pengertian Mandiri Online sebagai strategi pemasaran mencakup?", opts:["Production, product, sales, marketing, marketing holistic","Hanya production dan sales","Hanya marketing digital","Hanya product development"], correct:0},
+{q:"Dalam Analisis PEST, salah satu langkah yang dilakukan agen adalah?", opts:["Ke cabang membawa KTP, buku tabungan, dan kartu ATM","Mengisi survei online saja","Menunggu kunjungan petugas bank","Mendaftar melalui call center saja"], correct:0},
+{q:"Biaya MDR (Merchant Discount Rate) dibebankan kepada?", opts:["Merchant","Nasabah pemegang kartu","Bank penerbit kartu","Bank Indonesia"], correct:0},
+{q:"Bank atau lembaga yang diberikan otoritas untuk menerbitkan kartu debit dan kartu kredit disebut?", opts:["Issuer","Acquirer","Merchant","Switching Company"], correct:0},
+{q:"Bank yang melakukan kerjasama dengan merchant untuk menerima pembayaran kartu disebut?", opts:["Acquirer","Issuer","Principal","Regulator"], correct:0},
+{q:"Dalam upaya memberikan layanan transaksi perbankan kepada nasabah, bank menempatkan EDC di merchant. Aktivitas ini disebut?", opts:["Merchant Business","Retail Banking","Wholesale Banking","Cash Management"], correct:0},
+{q:"Pengertian \"Off Us\" adalah?", opts:["Kartu bank lain digesek di EDC/ATM Mandiri","Kartu Mandiri digesek di ATM/EDC Mandiri","Transaksi tanpa kartu","Transaksi antar cabang Mandiri"], correct:0},
+{q:"Manakah pengertian yang kurang tepat mengenai branchless banking?", opts:["Branchless banking = digital banking","Branchless banking adalah layanan perbankan tanpa kantor cabang fisik","Branchless banking dapat dilakukan melalui agen","Branchless banking bertujuan meningkatkan inklusi keuangan"], correct:0},
+{q:"Manakah pernyataan yang TIDAK tepat mengenai Sales vs Marketing?", opts:["Marketing menggunakan teknologi untuk efisiensi, sales menggunakan teknologi untuk inovasi (seharusnya terbalik)","Marketing berfokus pada membangun brand awareness","Sales berfokus pada closing transaksi","Marketing dan sales saling melengkapi dalam strategi bisnis"], correct:0},
+{q:"Manakah pernyataan yang tepat tentang Mandiri Online?", opts:["I, II, dan IV","I dan II saja","II dan III saja","Semua pernyataan salah"], correct:0},
+{q:"Transaksi apa yang bisa dilakukan melalui Mandiri Internet Bisnis (MIB)?", opts:["Buka rekening","Hanya cek saldo","Hanya cetak mutasi","Hanya transfer valas"], correct:0},
+{q:"Bagaimana cara mendaftar Mandiri Internet (Mandiri Online)?", opts:["Melalui CS dan ATM","Hanya melalui CS","Hanya melalui ATM","Hanya melalui Call Center"], correct:0},
+{q:"Berapa saldo maksimal e-cash untuk akun registered dan unregistered?", opts:["Registered Rp5 juta dan unregistered Rp1 juta","Registered Rp10 juta dan unregistered Rp2 juta","Registered Rp1 juta dan unregistered Rp500 ribu","Registered Rp20 juta dan unregistered Rp5 juta"], correct:0},
+{q:"Produk apa yang termasuk Laku Pandai dan LKD Bank Mandiri?", opts:["SIMAKMUR dan e-Cash","Tabungan Bisnis dan Giro","Deposito dan Reksa Dana","Kartu Kredit dan KTA"], correct:0},
+{q:"Manakah pernyataan yang tepat mengenai Laku Pandai dan LKD?", opts:["Laku Pandai adalah Basic Saving Account, LKD adalah uang elektronik","Laku Pandai adalah uang elektronik, LKD adalah tabungan biasa","Keduanya adalah produk yang sama persis","Laku Pandai hanya untuk nasabah korporasi"], correct:0},
+{q:"Berikut merupakan bentuk digital banking, kecuali?", opts:["Koran dan majalah","Internet Banking","Mobile Banking","ATM dan EDC"], correct:0},
+{q:"Apa pengertian LKD dan Laku Pandai?", opts:["LKD adalah layanan berbasis teknologi dalam rangka keuangan inklusif, Laku Pandai dilakukan melalui pihak lain dengan sarana teknologi informasi","LKD dan Laku Pandai adalah produk investasi","LKD hanya bisa diakses melalui cabang","Laku Pandai hanya untuk nasabah prioritas"], correct:0},
+{q:"Apa perbedaan limit transaksi LKD dan Laku Pandai?", opts:["LKD transaksi maksimal Rp20 juta, Laku Pandai maksimal Rp5 juta","LKD maksimal Rp5 juta, Laku Pandai maksimal Rp20 juta","Keduanya memiliki limit yang sama yaitu Rp10 juta","Tidak ada batasan limit untuk keduanya"], correct:0},
+{q:"Berikut merupakan manfaat e-banking bagi Bank Mandiri:", opts:["Semua benar (efisiensi biaya, perluasan jangkauan, peningkatan fee based income, dan loyalitas nasabah)","Hanya efisiensi biaya operasional","Hanya peningkatan jumlah nasabah baru","Hanya mengurangi risiko kredit"], correct:0}
 ];
 
 /* ============ STATE ============ */
-let cxPicks = new Array(cxData.length).fill(null);
-let cxSubmitted=false;
-let cxTimerInt=null;
+let dxPicks = new Array(dxData.length).fill(null);
+let dbtPicks = new Array(dbtData.length).fill(null);
+let db100Picks = new Array(db100Data.length).fill(null);
+let dbpPicks = new Array(dbpData.length).fill(null);
+let dxSubmitted=false, dbtSubmitted=false, db100Submitted=false, dbpSubmitted=false;
+let dxTimerInt=null, dbtTimerInt=null, db100TimerInt=null, dbpTimerInt=null;
 
 /* ============ NAV ============ */
 function showSection(id){
@@ -283,7 +531,7 @@ function showSection(id){
   window.scrollTo({top:0, behavior:'auto'});
 }
 function backToStart(){
-  clearInterval(cxTimerInt);
+  clearInterval(dxTimerInt); clearInterval(dbtTimerInt); clearInterval(db100TimerInt); clearInterval(dbpTimerInt);
   showSection('screenStart');
 }
 
@@ -372,41 +620,143 @@ function scoreMsg(pct){
     'Perlu latihan lagi, pelajari kembali materinya.';
 }
 
-/* ============ CUSTOMER EXPERIENCE ============ */
-function goCxTest(){
-  cxPicks = new Array(cxData.length).fill(null);
-  cxSubmitted = false;
-  renderQList('cxQList', cxData, it=>it.q, it=>it.opts, 'cx');
-  showSection('screenCxTest');
-  clearInterval(cxTimerInt);
-  cxTimerInt = startTimer('cxTimer', 20*60, ()=>{ if(!cxSubmitted) submitCx(); });
+/* ============ DIGITAL X ============ */
+function goDxTest(){
+  dxPicks = new Array(dxData.length).fill(null);
+  dxSubmitted = false;
+  renderQList('dxQList', dxData, it=>it.q, it=>it.opts, 'dx');
+  showSection('screenDxTest');
+  clearInterval(dxTimerInt);
+  dxTimerInt = startTimer('dxTimer', 30*60, ()=>{ if(!dxSubmitted) submitDx(); });
 }
-function pickcx(qi, oi){
-  if(cxSubmitted || cxPicks[qi]!==null) return;
-  cxPicks[qi]=oi;
-  document.querySelectorAll('#cx-opts-'+qi+' .lms-opt').forEach((o,i)=>{
+function pickdx(qi, oi){
+  if(dxSubmitted || dxPicks[qi]!==null) return;
+  dxPicks[qi]=oi;
+  document.querySelectorAll('#dx-opts-'+qi+' .lms-opt').forEach((o,i)=>{
     o.classList.toggle('checked', i===oi);
-    if(i===cxData[qi].correct) o.classList.add('ans-correct');
+    if(i===dxData[qi].correct) o.classList.add('ans-correct');
     o.classList.add('answered');
     o.onclick=null;
   });
 }
-function submitCx(){
-  if(cxSubmitted) return;
-  cxSubmitted = true;
-  clearInterval(cxTimerInt);
+function submitDx(){
+  if(dxSubmitted) return;
+  dxSubmitted = true;
+  clearInterval(dxTimerInt);
   let score=0;
-  cxData.forEach((item,idx)=>{
-    document.querySelectorAll('#cx-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
-    if(cxPicks[idx]===item.correct) score++;
+  dxData.forEach((item,idx)=>{
+    document.querySelectorAll('#dx-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
+    if(dxPicks[idx]===item.correct) score++;
   });
-  document.getElementById('cxScoreBig').textContent = score+' / '+cxData.length;
-  document.getElementById('cxScoreMsg').textContent = scoreMsg(score/cxData.length);
-  renderReview('cxReviewList', cxData, cxPicks);
-  showSection('screenCxResult');
+  document.getElementById('dxScoreBig').textContent = score+' / '+dxData.length;
+  document.getElementById('dxScoreMsg').textContent = scoreMsg(score/dxData.length);
+  renderReview('dxReviewList', dxData, dxPicks);
+  showSection('screenDxResult');
 }
 
-/* ============ FULL ANSWER KEY ============ */
+/* ============ DIGITAL BANKING TRANSFORMATION ============ */
+function goDbtTest(){
+  dbtPicks = new Array(dbtData.length).fill(null);
+  dbtSubmitted = false;
+  renderQList('dbtQList', dbtData, it=>it.q, it=>it.opts, 'dbt');
+  showSection('screenDbtTest');
+  clearInterval(dbtTimerInt);
+  dbtTimerInt = startTimer('dbtTimer', 17*60, ()=>{ if(!dbtSubmitted) submitDbt(); });
+}
+function pickdbt(qi, oi){
+  if(dbtSubmitted || dbtPicks[qi]!==null) return;
+  dbtPicks[qi]=oi;
+  document.querySelectorAll('#dbt-opts-'+qi+' .lms-opt').forEach((o,i)=>{
+    o.classList.toggle('checked', i===oi);
+    if(i===dbtData[qi].correct) o.classList.add('ans-correct');
+    o.classList.add('answered');
+    o.onclick=null;
+  });
+}
+function submitDbt(){
+  if(dbtSubmitted) return;
+  dbtSubmitted = true;
+  clearInterval(dbtTimerInt);
+  let score=0;
+  dbtData.forEach((item,idx)=>{
+    document.querySelectorAll('#dbt-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
+    if(dbtPicks[idx]===item.correct) score++;
+  });
+  document.getElementById('dbtScoreBig').textContent = score+' / '+dbtData.length;
+  document.getElementById('dbtScoreMsg').textContent = scoreMsg(score/dbtData.length);
+  renderReview('dbtReviewList', dbtData, dbtPicks);
+  showSection('screenDbtResult');
+}
+
+/* ============ DIGITAL BANKING (100) ============ */
+function goDb100Test(){
+  db100Picks = new Array(db100Data.length).fill(null);
+  db100Submitted = false;
+  renderQList('db100QList', db100Data, it=>it.q, it=>it.opts, 'db100');
+  showSection('screenDb100Test');
+  clearInterval(db100TimerInt);
+  db100TimerInt = startTimer('db100Timer', 30*60, ()=>{ if(!db100Submitted) submitDb100(); });
+}
+function pickdb100(qi, oi){
+  if(db100Submitted || db100Picks[qi]!==null) return;
+  db100Picks[qi]=oi;
+  document.querySelectorAll('#db100-opts-'+qi+' .lms-opt').forEach((o,i)=>{
+    o.classList.toggle('checked', i===oi);
+    if(i===db100Data[qi].correct) o.classList.add('ans-correct');
+    o.classList.add('answered');
+    o.onclick=null;
+  });
+}
+function submitDb100(){
+  if(db100Submitted) return;
+  db100Submitted = true;
+  clearInterval(db100TimerInt);
+  let score=0;
+  db100Data.forEach((item,idx)=>{
+    document.querySelectorAll('#db100-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
+    if(db100Picks[idx]===item.correct) score++;
+  });
+  document.getElementById('db100ScoreBig').textContent = score+' / '+db100Data.length;
+  document.getElementById('db100ScoreMsg').textContent = scoreMsg(score/db100Data.length);
+  renderReview('db100ReviewList', db100Data, db100Picks);
+  showSection('screenDb100Result');
+}
+
+/* ============ DIGITAL BANKING PRODUK & LAYANAN ============ */
+function goDbpTest(){
+  dbpPicks = new Array(dbpData.length).fill(null);
+  dbpSubmitted = false;
+  renderQList('dbpQList', dbpData, it=>it.q, it=>it.opts, 'dbp');
+  showSection('screenDbpTest');
+  clearInterval(dbpTimerInt);
+  dbpTimerInt = startTimer('dbpTimer', 40*60, ()=>{ if(!dbpSubmitted) submitDbp(); });
+}
+function pickdbp(qi, oi){
+  if(dbpSubmitted || dbpPicks[qi]!==null) return;
+  dbpPicks[qi]=oi;
+  document.querySelectorAll('#dbp-opts-'+qi+' .lms-opt').forEach((o,i)=>{
+    o.classList.toggle('checked', i===oi);
+    if(i===dbpData[qi].correct) o.classList.add('ans-correct');
+    o.classList.add('answered');
+    o.onclick=null;
+  });
+}
+function submitDbp(){
+  if(dbpSubmitted) return;
+  dbpSubmitted = true;
+  clearInterval(dbpTimerInt);
+  let score=0;
+  dbpData.forEach((item,idx)=>{
+    document.querySelectorAll('#dbp-opts-'+idx+' .lms-opt').forEach((o,i)=>{o.onclick=null; if(i===item.correct)o.classList.add('ans-correct');});
+    if(dbpPicks[idx]===item.correct) score++;
+  });
+  document.getElementById('dbpScoreBig').textContent = score+' / '+dbpData.length;
+  document.getElementById('dbpScoreMsg').textContent = scoreMsg(score/dbpData.length);
+  renderReview('dbpReviewList', dbpData, dbpPicks);
+  showSection('screenDbpResult');
+}
+
+/* ============ FULL ANSWER KEY (per materi) ============ */
 function renderAnswerList(containerId, dataArrays){
   const holder = document.getElementById(containerId);
   holder.innerHTML='';
@@ -422,8 +772,22 @@ function renderAnswerList(containerId, dataArrays){
   });
 }
 function goAnswerKey(){
-  renderAnswerList('akPart1', [cxData]);
+  renderAnswerList('akPart1', [dxData]);
+  renderAnswerList('akPart2', [dbtData]);
+  renderAnswerList('akPart3', [db100Data]);
+  renderAnswerList('akPart4', [dbpData]);
+  switchAkTab('dx');
   showSection('screenAnswerKey');
+}
+function switchAkTab(tab){
+  document.getElementById('akTabDx').classList.toggle('active', tab==='dx');
+  document.getElementById('akTabDbt').classList.toggle('active', tab==='dbt');
+  document.getElementById('akTabDb100').classList.toggle('active', tab==='db100');
+  document.getElementById('akTabDbp').classList.toggle('active', tab==='dbp');
+  document.getElementById('akPaneDx').classList.toggle('active', tab==='dx');
+  document.getElementById('akPaneDbt').classList.toggle('active', tab==='dbt');
+  document.getElementById('akPaneDb100').classList.toggle('active', tab==='db100');
+  document.getElementById('akPaneDbp').classList.toggle('active', tab==='dbp');
 }
 </script>
 </body>
